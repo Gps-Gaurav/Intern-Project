@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
@@ -56,3 +57,63 @@ Global
 		SolutionGuid = {8991F336-B1E6-4EDB-B27D-9FB7E19BE5F6}
 	EndGlobalSection
 EndGlobal
+=======
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Richbourn-c#-API", "Richbourn-c#-API", "{6F6F3AF0-56D4-486B-9F3E-7940899B9E85}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "Richbourn-c#-API\DataAccess\DataAccess.csproj", "{4594A4F4-4E5D-4604-A451-5408FB7EEF0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manager", "Richbourn-c#-API\Manager\Manager.csproj", "{4A3A4422-A461-4841-A2F9-9C877BA511A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Richbourn-c#-API\Model\Model.csproj", "{3DA6D3DE-B40B-49B1-9275-A013ED0E3BD0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Richborn", "Richbourn-c#-API\Richborn\Richborn.csproj", "{DE0ACED8-D504-4D7B-9DEE-3923563162B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility", "Richbourn-c#-API\Utility\Utility.csproj", "{74C15079-ABFB-4FD0-A78E-ADEE44D2259D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4594A4F4-4E5D-4604-A451-5408FB7EEF0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4594A4F4-4E5D-4604-A451-5408FB7EEF0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4594A4F4-4E5D-4604-A451-5408FB7EEF0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4594A4F4-4E5D-4604-A451-5408FB7EEF0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A3A4422-A461-4841-A2F9-9C877BA511A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A3A4422-A461-4841-A2F9-9C877BA511A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A3A4422-A461-4841-A2F9-9C877BA511A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A3A4422-A461-4841-A2F9-9C877BA511A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DA6D3DE-B40B-49B1-9275-A013ED0E3BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DA6D3DE-B40B-49B1-9275-A013ED0E3BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DA6D3DE-B40B-49B1-9275-A013ED0E3BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DA6D3DE-B40B-49B1-9275-A013ED0E3BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE0ACED8-D504-4D7B-9DEE-3923563162B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE0ACED8-D504-4D7B-9DEE-3923563162B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE0ACED8-D504-4D7B-9DEE-3923563162B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE0ACED8-D504-4D7B-9DEE-3923563162B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C15079-ABFB-4FD0-A78E-ADEE44D2259D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C15079-ABFB-4FD0-A78E-ADEE44D2259D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C15079-ABFB-4FD0-A78E-ADEE44D2259D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C15079-ABFB-4FD0-A78E-ADEE44D2259D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4594A4F4-4E5D-4604-A451-5408FB7EEF0C} = {6F6F3AF0-56D4-486B-9F3E-7940899B9E85}
+		{4A3A4422-A461-4841-A2F9-9C877BA511A0} = {6F6F3AF0-56D4-486B-9F3E-7940899B9E85}
+		{3DA6D3DE-B40B-49B1-9275-A013ED0E3BD0} = {6F6F3AF0-56D4-486B-9F3E-7940899B9E85}
+		{DE0ACED8-D504-4D7B-9DEE-3923563162B0} = {6F6F3AF0-56D4-486B-9F3E-7940899B9E85}
+		{74C15079-ABFB-4FD0-A78E-ADEE44D2259D} = {6F6F3AF0-56D4-486B-9F3E-7940899B9E85}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8991F336-B1E6-4EDB-B27D-9FB7E19BE5F6}
+	EndGlobalSection
+EndGlobal
+>>>>>>> 69a24a8f95f8d58ee5af3a989182a6bf71c9f0d7
