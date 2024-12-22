@@ -1,0 +1,131 @@
+<p-toast></p-toast>
+
+
+<div class="container-fluid">
+    <app-page-title title="DIAMOND PROPERTIES" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-sm-3">
+                            <div class="search-box me-2 mb-2 d-inline-block">
+                                <div class="position-relative">
+                                    <span [style]="{'display': 'inline-flex'}" class="p-input-icon-left">
+                                        <button pButton pRipple [label]="Delete" icon="pi pi-trash"
+                                            class="p-button-danger mr-2" (click)="deleteSelectedProducts()"
+                                            [disabled]="!selectedItems || !selectedItems.length"></button>&nbsp;
+                                        <input class="form-control" pInputText type="text"
+                                        [(ngModel)]="term"
+                                        (ngModelChange)='searchChanged.next($event)'
+                                            placeholder="Search..." />
+                                    </span>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="d-flex justify-content-between bd-highlight">
+                                <div class="p-2 bd-highlight">
+                                    <p-selectButton [options]="diamond_type" [(ngModel)]="selectedDiamondType" (onChange)="ChangeType($event)" optionLabel="name"></p-selectButton>
+                                </div>
+
+                                <div class="p-2 bd-highlight">
+                                    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2"
+                                        (click)="openNew()"></button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- end col-->
+                    </div>
+
+                
+
+                            <div class="table-responsive">
+                                <p-table [scrollable]="true" styleClass="table-panel" scrollDirection="both" #dt
+                                    [value]="items" [rows]="10" [paginator]="false"
+                                    [globalFilterFields]="['name','country.name','representative.name','status']"
+                                    responsiveLayout="scroll" [(selection)]="selectedItems" [rowHover]="true"
+                                    dataKey="WPCID"
+                                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                                    [showCurrentPageReport]="true">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th style="width: 10%">
+                                                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                            </th>
+                                            <th style="width: 20%" pSortableColumn="WPCID">SlNo<p-sortIcon field="WPCID">
+                                                </p-sortIcon>
+                                            </th>
+                                            <!-- <th style="width: 20%" pSortableColumn="RecType">RecType<p-sortIcon
+                                                    field="RecType"></p-sortIcon>
+                                            </th> -->
+                                            <th style="width: 20%" pSortableColumn="WPCName">Description
+                                                <p-sortIcon field="WPCName"></p-sortIcon>
+                                            </th>
+                                            <th style="width: 15%" pSortableColumn="inventoryStatus">Status <p-sortIcon
+                                                    field="inventoryStatus"></p-sortIcon>
+                                            </th>
+
+                                            <th style="width: 15%">Action</th>
+                                        </tr>
+                                    </ng-template>
+                                    <!-- <ng-template pTemplate="body" let-product>
+                                        <tr>
+                                            <td style="width: 10%">
+                                                <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                                            </td>
+                                            <td style="width: 20%">{{product.SlNo}}</td>
+                                            <td style="width: 20%">{{product.RecType}}</td>
+                                            <td style="width: 20%">{{product.DescriptionType}}</td>
+                                    <th style="width: 15%">Action</th>
+                                </tr>
+                            </ng-template> -->
+                            <ng-template pTemplate="body" let-product>
+                                <tr>
+                                    <td style="width: 10%">
+                                        <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                                    </td>
+                                    <td style="width: 20%">{{product.WPCID}}</td>
+                             
+                                    <td style="width: 20%">{{product.WPCName}}</td>
+
+
+                                            <td style="width: 15%"><span
+                                                    [class]="'product-badge status-instock'">Active</span></td>
+                                            <td style="width: 15%" [style]="{'display': 'inline-flex'}">
+                                                <button pButton pRipple icon="pi pi-pencil"
+                                                    class="p-button-rounded p-button-success mr-2"
+                                                    (click)="editProduct(product)"></button>&nbsp;
+                                                <button pButton pRipple icon="pi pi-trash"
+                                                    class="p-button-rounded p-button-danger"
+                                                    (click)="deleteProduct(product)"></button>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="summary">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="p-2 bd-highlight">
+                                                Showinng {{pageSize*(page-1)}} to {{(pageSize*page)>totalRecords?totalRecords:pageSize*page}} of {{totalRecords}} entries
+                                            </div>
+                                           
+                                            <div class="p-2 bd-highlight">
+        
+                                                <p-paginator style="height: 40px;" [rows]="pageSize" [totalRecords]="totalRecords"
+                                                (onPageChange)="handlePagination($event)"></p-paginator>
+                                            </div>
+                                          </div>
+                                      
+                                       
+                                    </ng-template>
+                                </p-table>
+
+                            </div>
+
+
+                            <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+
+                </div>

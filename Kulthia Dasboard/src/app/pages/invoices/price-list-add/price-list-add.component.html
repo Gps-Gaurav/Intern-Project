@@ -1,0 +1,334 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" PRICE LIST ADD" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+
+
+              <div class="mb-2 col-sm-2 position-relative">
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">List No :</span>
+                  </div>
+                  <input #myinput type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                    formControlName="PListNo" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.PListNo.errors}">
+
+                  <div *ngIf="submit && form.PListNo.errors" class="invalid-feedback">
+                    <span *ngIf="form.PListNo.errors.required">Please enter a List No.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-2 col-sm-3 position-relative">
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">Party Name:</span>
+                  </div>
+                  <p-autoComplete class="form-control border-0 p-0" formControlName="PartyID" [style]="{'height':'36px'}"
+                  [suggestions]="PartyData"
+                  (completeMethod)="_fetchParty($event)" [dropdown]="true" field="SlName">
+                  <ng-template let-employee pTemplate="item">
+                      {{employee.SlName}}
+                  </ng-template>
+                  <ng-template let-employee pTemplate="selectedItem">
+                      {{employee.SlName}}
+                  </ng-template>
+              </p-autoComplete>
+
+                  <div *ngIf="submit && form.PartyID.errors" class="invalid-feedback">
+                    <span *ngIf="form.PartyID.errors.required">Please enter a Party Name.</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Effective From</span>
+                  </div>
+                  <input type="date" tabIndex="2" class="form-control" formControlName="EffectFrom" placeholder=""
+                    [ngClass]="{ 'is-invalid': submit && form.EffectFrom.errors}" />
+                  <div *ngIf='submit && form.EffectFrom.errors' class='invalid-feedback'>
+                    <span *ngIf='form.EffectFrom.errors.required'>Effective From is required.</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mb-3 col-sm-2 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">To</span>
+                  </div>
+                  <input type="date" tabIndex="2" class="form-control" formControlName="EffectTo" placeholder=""
+                    [ngClass]="{ 'is-invalid': submit && form.EffectTo.errors}" />
+                  <div *ngIf='submit && form.EffectTo.errors' class='invalid-feedback'>
+                    <span *ngIf='form.EffectTo.errors.required'>To is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row m-2">
+                <div class="mb-2 col-sm-5 position-relative"></div>
+                <div class="mb-2 col-sm-7 position-relative">
+                  <b>PACKET RATES</b>
+                </div>
+                <!-- <div class="mb-2 col-sm-5 position-relative"></div> -->
+
+                <div formArrayName="usersDetails">
+                  <p-table [value]="usersDetails.controls" [scrollable]="true" styleClass="table-panel"
+                    scrollDirection="both" [(selection)]="selectedUsers">
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th style="width:5%">
+                        </th>
+
+                        <th style="width:20%"> Item Description</th>
+                        <th style="width:20%"> Shape</th>
+                        <th style="width:20%"> Size</th>
+                        <th style="width:15%"> Grade</th>
+                        <th style="width:20%"> Rate</th>
+
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-controls let-i="rowIndex">
+                      <tr style="margin-top:10px ;margin-bottom: 10px;" [formGroupName]="i">
+                        <td style="width:5%">
+                          <p-tableCheckbox [value]="i+1"></p-tableCheckbox>
+                          <input style="width: 110px" type="hidden" formControlName="SlNo" pInputText
+                          class="p-inputtext-sm" />
+                        </td>
+
+                        <td style="width:20%">
+                          <!-- <input style="width: 200px;" type="text" formControlName="ItemDescription"
+                            pInputText class="p-inputtext-sm" /> -->
+                            <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Item" formControlName="ItemDescription" class="p-inputtext-sm"
+                            [options]="subItemData" optionLabel="ItemName" optionValue="SItemCode" appendTo="body"
+                            [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                          </td>
+                        <td style="width:20%;">
+                          <!-- <input style="width: 140px" type="text" formControlName="ShapeID"
+                            pInputText class="p-inputtext-sm" /> -->
+                            <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select WPC" formControlName="ShapeID" class="p-inputtext-sm"
+                            [options]="shapeData" optionLabel="WPCName" optionValue="WPCID" appendTo="body"
+                            [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                          </td>
+                        <td style="width:20%;">
+                          <!-- <input style="width: 140px" type="text" formControlName="SizeID"
+                            pInputText class="p-inputtext-sm" /> -->
+                            <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select WPC" formControlName="SizeID" class="p-inputtext-sm"
+                            [options]="sizeData" optionLabel="WPCName" optionValue="WPCID" appendTo="body"
+                            [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                          </td>
+                        <td style="width:15%;">
+                          
+                          <!-- <input type="text" style="width: 140px" formControlName="Grade"
+                            pInputText class="p-inputtext-sm" /> -->
+                            <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select WPC" formControlName="Grade" class="p-inputtext-sm"
+                            [options]="gradeData" optionLabel="WPCName" optionValue="WPCID" appendTo="body"
+                            [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                          </td>
+                        <td style="width:20%;"><input type="text" style="width:140px" formControlName="Rate" pInputText
+                            class="p-inputtext-sm" /></td>
+
+
+                      </tr>
+
+                    </ng-template>
+                  </p-table>
+                </div>
+
+                <div class="d-flex justify-content-end flex-wrap gap-2 mt-2">
+
+                  <button type="button" style="height: 30px ;" pButton pRipple [label]="'Delete'" icon="pi pi-trash"
+                    class="p-button-danger mr-2" (click)="onDelete()"
+                    [disabled]="usersDetails.controls.length === 1"></button>&nbsp;
+                  <button type="button" style="height: 30px ;" pButton pRipple label="New" icon="pi pi-plus"
+                    class="p-button-success mr-1" (click)="onAdd()"></button>
+
+
+
+                </div>
+                <p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+              </div>
+
+
+              <div class="row">
+                <div class="col-sm-12 position-relative">
+                  <div class="card-body">
+                    <div class="row">
+
+                      <div class="mb-2 col-sm-4 position-relative"></div>
+                      <div class="mb-2 col-sm-8 position-relative">
+                        <b>NON-PACKET RATES & LOSS %</b>
+                      </div>
+                      <!-- <div class="mb-2 col-sm-5 position-relative"></div> -->
+
+                      <div formArrayName="nonPacket">
+                        <p-table [value]="nonPacket.controls" [scrollable]="true" styleClass="table-panel"
+                          scrollDirection="both" [(selection)]="selectUsers">
+                          <ng-template pTemplate="header">
+                            <tr>
+                              <th style="width:5%">
+                              </th>
+
+                              <th style="width:30%"> Item Description</th>
+                              <th style="width:20%"> Unit</th>
+
+                              <th style="width:24%"> Rate</th>
+                              <th style="width:20%"> Loss %</th>
+                            </tr>
+                          </ng-template>
+                          <ng-template pTemplate="body" let-controls let-i="rowIndex">
+                            <tr style="margin-top:10px ;margin-bottom: 10px;" [formGroupName]="i">
+                              <td style="width:5%">
+                                <p-tableCheckbox [value]="i+1"></p-tableCheckbox>
+                                <input style="width: 110px" type="hidden" formControlName="SlNo" pInputText
+                                class="p-inputtext-sm" />
+                              </td>
+
+                              <td style="width:30%">
+                                <!-- <input style="width: 180px;" type="text"
+                                  formControlName="ItemDescription" pInputText class="p-inputtext-sm" /> -->
+                                  <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Item" formControlName="ItemDescription" class="p-inputtext-sm"
+                            [options]="subItemData" optionLabel="ItemName" optionValue="SItemCode" appendTo="body"
+                            [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                                </td>
+                              <td style="width:20%;">
+                                <!-- <input style="width: 110px" type="text" formControlName="Unit"
+                                  pInputText class="p-inputtext-sm" /> -->
+                                
+                                  <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Item" formControlName="Unit" class="p-inputtext-sm"
+                            [options]="unitData" optionLabel="ShortName" optionValue="UnitID" appendTo="body"
+                            [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                                </td>
+
+                              <td style="width:24%;"><input type="text" style="width:110px" formControlName="SaleRt"
+                                  pInputText class="p-inputtext-sm" /></td>
+                              <td style="width:20%;"><input type="text" style="width:110px" formControlName="LossPer"
+                                  pInputText class="p-inputtext-sm" /></td>
+
+                            </tr>
+
+                          </ng-template>
+                        </p-table>
+                      </div>
+
+                      <div class="d-flex justify-content-end flex-wrap gap-2 mt-2">
+
+                        <button type="button" style="height: 30px ;" pButton pRipple [label]="'Delete'" icon="pi pi-trash"
+                          class="p-button-danger mr-2" (click)="onDel()"
+                          [disabled]="nonPacket.controls.length === 1"></button>&nbsp;
+                        <button type="button" style="height: 30px ;" pButton pRipple label="New" icon="pi pi-plus"
+                          class="p-button-success mr-1" (click)="onAd()"></button>
+
+
+
+                      </div>
+                      <p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-sm-12 position-relative justify-content-right">
+                  <div class="card-body">
+
+
+                    <div class="row">
+
+                      <div class="mb-2 col-sm-4 position-relative"></div>
+                      <div class="mb-2 col-sm-8 position-relative">
+                        <b>MAKING RATES</b>
+                      </div>
+                      <!-- <div class="mb-2 col-sm-5 position-relative"></div>  -->
+
+                      <div formArrayName="Making">
+                        <p-table [value]="Making.controls" [scrollable]="true" styleClass="table-panel"
+                          scrollDirection="both" [(selection)]="select">
+                          <ng-template pTemplate="header">
+                            <tr>
+                              <th style="width:5%">
+                              </th>
+
+                              <th style="width:48%"> Product Description</th>
+                              <th style="width:45%"> Making Per Gram</th>
+
+                            </tr>
+                          </ng-template>
+                          <ng-template pTemplate="body" let-controls let-i="rowIndex">
+                            <tr style="margin-top:10px ;margin-bottom: 10px;" [formGroupName]="i">
+                              <td style="width:5%">
+                                <p-tableCheckbox [value]="i+1"></p-tableCheckbox>
+                                <input style="width: 110px" type="hidden" formControlName="SlNo" pInputText
+                                class="p-inputtext-sm" />
+                              </td>
+
+                              <td style="width:48%">
+                                <!-- <input style="width: 180px;" type="text"
+                                  formControlName="ProdCateID" pInputText class="p-inputtext-sm" /> -->
+                                  <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Product" formControlName="ProdCateID" class="p-inputtext-sm"
+                            [options]="prodcatData" optionLabel="ProductName" optionValue="PCode" appendTo="body"
+                            [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                                </td>
+                              <td style="width:45%;"><input style="width: 110px" type="text"
+                                  formControlName="MakingRate" pInputText class="p-inputtext-sm" /></td>
+                            </tr>
+
+                          </ng-template>
+                        </p-table>
+                      </div>
+
+                      <div class="d-flex justify-content-end flex-wrap gap-2 mt-2">
+
+                        <button type="button" style="height: 30px ;" pButton pRipple [label]="'Delete'" icon="pi pi-trash"
+                          class="p-button-danger mr-2" (click)="onDele()"
+                          [disabled]="Making.controls.length === 1"></button>&nbsp;
+                        <button type="button" style="height: 30px ;" pButton pRipple label="New" icon="pi pi-plus"
+                          class="p-button-success mr-1" (click)="onA()"></button>
+
+
+
+                      </div>
+                      <p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="button" class="btn btn-secondary">Cancel</button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

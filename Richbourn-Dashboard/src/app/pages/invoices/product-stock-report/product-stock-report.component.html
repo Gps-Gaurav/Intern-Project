@@ -1,0 +1,120 @@
+<p-toast></p-toast>
+<app-loader></app-loader>
+
+
+<div class="container-fluid">
+    <app-page-title title="PRODUCT STOCK REPORT" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row mb-2">
+                   
+                    <div class="col-sm-8">
+                      <div class="d-flex justify-content-between bd-highlight">
+                          <div class="p-2 bd-highlight"> 
+                          
+                          </div>
+                          
+                          <div class="p-2 bd-highlight"[style]="{'display': 'inline-flex', 'height':'50px'}">
+                            
+                          </div>
+                        </div>
+                     
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="search-box me-2 mb-2 d-inline-block">
+                          <div class="position-relative">
+                            <span [style]="{'display': 'inline-flex', 'height':'35px'}"class="p-input-icon-left">
+                            
+                               <input class="form-control" style="min-width: 280px;" pInputText type="text" [(ngModel)]="term"
+                                (ngModelChange)='searchChanged.next($event)'
+                                    placeholder="Search..." /> 
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                <div class="table-responsive">
+                    <p-table  [resizableColumns]="true" [autoLayout]="true" [scrollable]="true" 
+                    [value]="items" [columns]="cols"
+                    dataKey="id"
+                   >
+                    <ng-template pTemplate="header" let-columns>
+                <tr >
+                    <th style="width: 5rem"></th>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns" let-ri="rowIndex" let-expanded="expanded">
+                <tr [pEditableRow]="rowData">
+                    <td>
+                        <button type="button" pButton pRipple [pRowToggler]="rowData" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                    </td>
+                    <td *ngFor="let col of columns">
+                        <ng-template [ngIf]="col.field=='Image'" [ngIfElse]="loggedOut">
+                            <p-image [src]="ImgUrl+rowData['ProdCode']+'_'+rowData['ColoursName']+'.jpg'" [alt]="" width="50" height="50" [preview]="true"></p-image>
+                          </ng-template>
+                          
+                          <ng-template #loggedOut>
+                            {{rowData[col.field]}}
+                          </ng-template>
+                      
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="rowexpansion" let-product>
+                <tr>
+                    <td >
+                        <div style="width: 100%">
+                            <p-table [value]="product.allstock" [autoLayout]="true"  styleClass="table-grid p-datatable-gridlines"  [columns]="colsexpand" dataKey="id" >
+                                <ng-template pTemplate="header" let-columns>
+                                    <tr>
+                                        <th *ngFor="let col of columns">
+                                            {{col.header}}
+                                        </th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body"let-order let-columns="columns" >
+                                    <tr>
+                                        <td *ngFor="let col of columns">
+                                           
+                                                {{order[col.field]}}
+                                          
+                                          
+                                        </td>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="emptymessage">
+                                    <tr>
+                                        <td colspan="6">There are no order for this product yet.</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="footer">
+                <div class="d-flex justify-content-between align-items-center  custom-footer">
+                    <div class="bd-highlight">
+                        Showinng {{pageSize*(page-1)}} to {{(pageSize*page)>totalRecords?totalRecords:pageSize*page}} of {{totalRecords}} entries
+                    </div>
+                   
+                    <div class="bd-highlight">
+
+                        <p-paginator styleClass="custom-paginator" [rows]="pageSize" [totalRecords]="totalRecords"
+                        (onPageChange)="handlePagination($event)"></p-paginator>
+                    </div>
+                  </div>
+            </ng-template>
+        </p-table>
+    </div>
+
+
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+</div>

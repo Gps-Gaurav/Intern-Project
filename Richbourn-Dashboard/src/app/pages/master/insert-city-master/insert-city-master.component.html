@@ -1,0 +1,85 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="CITY MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+              <div class="mb-2 col-sm-5 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">City Name</span>
+                  </div>
+
+                  <!-- <p-autoComplete class="form-control border-0 p-0" [style]="{'height':'36px'}"  [dropdown]="true" formControlName="Colours" [suggestions]="colorsData" (completeMethod)="_fetchColors($event)" [multiple]="true"></p-autoComplete> -->
+                  <input #myinput type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                    formControlName="CityName" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('CityName').dirty || formData.get('CityName').touched) && form.CityName.errors}">
+
+                  <div *ngIf="submit && form.CityName.errors" class="invalid-feedback">
+                    <span *ngIf="form.CityName.errors.required">Please enter a Colours.</span>
+                    <span *ngIf="
+                      !formData.get('CityName')?.valid &&
+                      (formData.get('CityName')?.touched || formData.get('CityName')?.dirty)
+                    ">
+                      {{
+                      formData.get('CityName')?.hasError('CityName')
+                      ? ''
+                      : formData.get('CityName')?.getError('invalid')
+                      }}
+
+                    </span>
+
+                  </div>
+                </div>
+               </div>
+
+          
+
+              <div class="mb-3 col-sm-7 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">State </span>
+                  </div>
+                  <p-autoComplete formControlName="StateID" tabIndex="2" pInputText class="p-inputtext-sm" [style]="{'height':'36px','width':'100%'}"
+                    [suggestions]="statefilterData" (completeMethod)="_fetchStateData($event)"
+                    [dropdown]="true" field="StateName">
+                    <ng-template let-employee pTemplate="item">
+                      {{employee.StateName}}
+                    </ng-template>
+                    <ng-template let-employee pTemplate="selectedItem">
+                      {{employee.StateName}}
+                    </ng-template>
+                  </p-autoComplete>
+                  <div *ngIf="submit && form.StateID.errors" class="invalid-feedback">
+                    <span *ngIf="form.StateID.errors.required">Please enter a valid Short Name.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button tabIndex="6" type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" (click)="Close()" class="btn btn-secondary">Cancel</button>
+               
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  </div>
+             

@@ -1,0 +1,398 @@
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <app-page-title title="  OPENING-STOCK CUSTOMER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- <h4 class="card-title">Basic Information</h4>
+               <p class="card-title-desc">Fill all information below</p> -->
+
+                    <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+                        <div class="row">
+                            <div class="mb-2 col-sm-5 position-relative">
+                                <div class="input-group ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Opening No.
+                                            :</span>
+
+                                    </div>
+                                    <input #myinput type="text" tabIndex="0" class="form-control"
+                                        id="validationTooltipUsername" formControlName="OpNo" placeholder=""
+                                        aria-describedby="validationTooltipUsernamePrepend"
+                                        [ngClass]="{'is-invalid': submit && form.OpNo.errors}">
+
+                                    <div *ngIf="submit && form.OpNo.errors" class="invalid-feedback">
+                                        <span *ngIf="form.OpNo.errors.required">Please enter a Op No.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="mb-2 col-sm-3 position-relative"></div>
+
+                            <div class="mb-3 col-sm-4 position-relative">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Op.Date:</span>
+                                    </div>
+                                    <input type="date" tabIndex="1" class="form-control" formControlName="OpDt"
+                                        placeholder=""
+                                        [ngClass]="{ 'is-invalid': submit && form.OpDt.errors}" />
+                                    <div *ngIf='submit && form.OpDt.errors' class='invalid-feedback'>
+                                        <span *ngIf='form.OpDt.errors.required'>Op.Date is required.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-2 col-sm-5 position-relative">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text " id="validationTooltipUsernamePrepend">Party Name:</span>
+                                    </div>
+                                  
+                                      <p-autoComplete pInputText class="p-inputtext-sm"  [style]="{'height':'36px'}"
+                                      formControlName="PartyID" [suggestions]="partyData"
+                                      (completeMethod)="_fetchParty($event)" [dropdown]="true" field="SlName">
+                                      <ng-template let-employee pTemplate="item">
+                                        {{employee.SlName}}
+                                      </ng-template>
+                                      <ng-template let-employee pTemplate="selectedItem">
+                                        {{employee.SlName}}
+                                      </ng-template>
+                                    </p-autoComplete>
+                                    <div *ngIf="submit && form.PartyID.errors" class="invalid-feedback">
+                                      <span *ngIf="form.PartyID.errors.required">Please enter a valid Party Name.</span>
+                                    </div>
+                                  </div>
+                               
+                            </div>
+
+                            <div class="mb-2 col-sm-3 position-relative"></div>
+                            <div class="mb-2 col-sm-4 position-relative">
+                                <div class="input-group ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="validationTooltipUsernamePrepend">Ref/Doc.NO.(if any):</span>
+
+
+                                    </div>
+                                    <input #myinput type="text" tabIndex="3" class="form-control"
+                                        id="validationTooltipUsername" formControlName="Ref" placeholder=""
+                                        aria-describedby="validationTooltipUsernamePrepend"
+                                        [ngClass]="{'is-invalid': submit && form.Ref.errors}">
+
+                                    <div *ngIf="submit && form.Ref.errors" class="invalid-feedback">
+                                        <span *ngIf="form.Ref.errors.required">Please enter a Ref.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="mb-2 col-sm-6 position-relative">
+                                <div class="input-group ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="validationTooltipUsernamePrepend">Address:</span>
+
+                                    </div>
+                                    <input #myinput type="text" tabIndex="4" class="form-control"
+                                        id="validationTooltipUsername" formControlName="Address" placeholder=""
+                                        aria-describedby="validationTooltipUsernamePrepend"
+                                        [ngClass]="{'is-invalid': submit && form.Address.errors}">
+
+                                    <div *ngIf="submit && form.Address.errors" class="invalid-feedback">
+                                        <span *ngIf="form.Address.errors.required">Please enter a Address.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="mb-2 col-sm-6 position-relative"></div>
+                            <div class="mb-2 col-sm-6 position-relative">
+                                <div class="input-group ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="validationTooltipUsernamePrepend">Narration:</span>
+
+                                    </div>
+                                    <input #myinput type="text" tabIndex="5" class="form-control"
+                                        id="validationTooltipUsername" formControlName="Narr" placeholder=""
+                                        aria-describedby="validationTooltipUsernamePrepend"
+                                        [ngClass]="{'is-invalid': submit && form.Narr.errors}">
+
+                                    <div *ngIf="submit && form.Narr.errors" class="invalid-feedback">
+                                        <span *ngIf="form.Narr.errors.required">Please enter a Narration.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="row m-2">
+
+                            <div formArrayName="usersDetails">
+                                <p-table [value]="usersDetails.controls" [scrollable]="true" styleClass="table-panel"
+                                    scrollDirection="both" [(selection)]="selectedUsers">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            
+                                            <th style="width:5%;"></th>
+                                            <th style="width:10%"> Packet ID</th>
+                                            <th style="width:20%"> Packet Description</th>
+                                            <th style="width:10%"> Unit</th>
+                                            <th style="width:15%"> Weight</th>
+                                            <th style="width:10%"> Pcs</th>
+                                            <th style="width:15%"> Rate</th>
+                                            <th style="width:15%"> Amount</th>
+
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-controls let-i="rowIndex">
+                                        <tr style="margin-top:10px ;margin-bottom: 10px;" [formGroupName]="i">
+                                            <td style="width: 5%;">
+                                                <p-tableCheckbox [value]="i+1"></p-tableCheckbox>
+                                                <input style="width: 110px" type="hidden" formControlName="SlNo" pInputText
+                                                class="p-inputtext-sm" />
+                                            </td>
+
+                                            <td style="width:10%">
+                                                <p-dropdown [filter]="true" [autoDisplayFirst]="false" (onChange)="onSelectPacket($event,i)" placeholder="Select Item" formControlName="PacketID" class="p-inputtext-sm"
+                                                [options]="packetData" optionLabel="PKTID" optionValue="PKTID" appendTo="body"
+                                                [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                                              
+                                                
+                                                </td>
+                                            <td style="width:20%;"><input style="width: 180px" type="text"
+                                                    formControlName="PktDesc" pInputText class="p-inputtext-sm" /></td>
+                                            <td style="width:10%;">
+                                                <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Unit" formControlName="Unit" class="p-inputtext-sm"
+                                                [options]="unitData" optionLabel="ShortName" optionValue="UnitID" appendTo="body"
+                                                [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                                            </td>
+                                            <td style="width:15%;"><input type="text" style="width: 120px"
+                                                    formControlName="Weight" pInputText class="p-inputtext-sm" /></td>
+                                            <td style="width:10%;"><input type="text" style="width:120px"
+                                                    formControlName="Pcs" pInputText class="p-inputtext-sm" /></td>
+                                            <td style="width:15%;"><input type="text" style="width:120px"
+                                                    formControlName="Rate" pInputText class="p-inputtext-sm" /></td>
+                                            <td style="width:15%;"><input type="text" style="width:120px"
+                                                    formControlName="Amount" pInputText class="p-inputtext-sm" /></td>
+
+
+                                        </tr>
+
+
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                            <div class="d-flex justify-content-end flex-wrap gap-2 mt-2">
+
+                                <button type="button" style="height: 30px ;" pButton pRipple [label]="'Delete'" icon="pi pi-trash"
+                                    class="p-button-danger mr-2" (click)="onDelete()"
+                                    [disabled]="usersDetails.controls.length === 1"></button>&nbsp;
+                                <button type="button" style="height: 30px ;" pButton pRipple label="New" icon="pi pi-plus"
+                                    class="p-button-success mr-1" (click)="onAdd()"></button>
+
+
+
+                            </div>
+
+
+                            <p-toast [style]="{marginTop: '80px'}"></p-toast>
+                            <div>
+
+                            </div>
+
+                        </div>
+                        <div class="row m-2">
+
+                            <div formArrayName="usersData">
+                                <p-table [value]="usersData.controls" [scrollable]="true" styleClass="table-panel"
+                                    scrollDirection="both" [(selection)]="selectUsers">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th style="width: 50px;">
+                                            </th>
+
+                                            <th style="width:250px"> Item Description</th>
+                                            <th style="width:160px"> Unit</th>
+                                            <th style="width:180px"> Weight</th>
+                                            <th style="width:180px"> Purity</th>
+                                            <th style="width:180px"> Pcs</th>
+                                            <th style="width:200px"> Rate</th>
+                                            <th style="width:200px"> Amount</th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-controls let-i="rowIndex">
+                                        <tr style="margin-top:10px ;margin-bottom: 10px;" [formGroupName]="i">
+                                            <td style="width: 50px;">
+                                                <p-tableCheckbox [value]="i+1"></p-tableCheckbox>
+                                                <input style="width: 110px" type="hidden" formControlName="SlNo" pInputText
+                                                class="p-inputtext-sm" />
+                                            </td>
+
+
+                                            <td style="width:250px;">
+                                                
+                                                <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Item" formControlName="ItemDesc" class="p-inputtext-sm"
+                                                [options]="subItemData" optionLabel="ItemName" optionValue="SItemCode" appendTo="body"
+                                                [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                                                
+                                            </td>
+                                            <td style="width:160px;">
+                                                
+                                                <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Unit" formControlName="Unit" class="p-inputtext-sm"
+                                                [options]="unitData" optionLabel="ShortName" optionValue="UnitID" appendTo="body"
+                                                [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                                               
+                                            </td>
+                                            <td style="width:180px;"><input type="text" style="width: 120px"
+                                                    formControlName="Weight" pInputText class="p-inputtext-sm" />
+                                            </td>
+                                            <td style="width:180px;"><input type="text" style="width: 120px"
+                                                    formControlName="Purity" pInputText class="p-inputtext-sm" />
+                                            </td>
+                                            <td style="width:180px;"><input type="text" style="width:120px"
+                                                    formControlName="Pcs" pInputText class="p-inputtext-sm" /></td>
+                                            <td style="width:200px;"><input type="text" style="width:120px"
+                                                    formControlName="Rate" pInputText class="p-inputtext-sm" /></td>
+                                            <td style="width:200px;"><input type="text" style="width:120px"
+                                                    formControlName="Amount" pInputText class="p-inputtext-sm" />
+                                            </td>
+
+                                        </tr>
+
+                                    </ng-template>
+                                </p-table>
+                            </div>
+
+                            <div class="d-flex justify-content-end flex-wrap gap-2 mt-2">
+
+                                <button type="button" style="height: 30px ;" pButton pRipple [label]="'Delete'" icon="pi pi-trash"
+                                    class="p-button-danger mr-2" (click)="onDelete1()"
+                                    [disabled]="usersData.controls.length === 1"></button>&nbsp;
+                                <button type="button" style="height: 30px ;" pButton pRipple label="New" icon="pi pi-plus"
+                                    class="p-button-success mr-1" (click)="onAdd1()"></button>
+
+
+
+                            </div>
+
+
+                            <p-toast [style]="{marginTop: '80px'}"></p-toast>
+                            <div>
+
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-sm-3">
+
+                                <div class="table-responsive">
+                                    <table class="table">
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="border-0 text-start">
+                                                    <strong>Diamond Wt. : </strong>
+                                                </td>
+                                                <td class="border-0 text-middle text-danger"> <strong> {{Diamond_wt}}
+                                                    </strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-3">
+
+                                <div class="table-responsive">
+                                    <table class="table">
+
+                                        <tbody>
+
+
+
+                                            <tr>
+                                                <td class="border-0 text-start">
+                                                    <strong>Stone Wt. : </strong>
+                                                </td>
+                                                <td class="border-0 text-middle text-danger"> <strong>{{Stone_Wt}}
+                                                    </strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-3">
+
+                                <div class="table-responsive">
+                                    <table class="table">
+
+                                        <tbody>
+
+
+
+                                            <tr>
+                                                <td class="border-0 text-start">
+                                                    <strong>Metal Wt. : </strong>
+                                                </td>
+                                                <td class="border-0 text-middle text-danger"> <strong>
+                                                        {{Metal_wt}}</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-3">
+
+                                <div class="table-responsive">
+                                    <table class="table">
+
+                                        <tbody>
+
+
+
+                                            <tr>
+                                                <td class="border-0 text-start">
+                                                    <strong>Total Value : </strong>
+                                                </td>
+                                                <td class="border-0 text-middle text-danger"> <strong> {{Total_Value}}
+                                                    </strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex flex-wrap gap-2 mt-2">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            <button type="submit" class="btn btn-secondary">Cancel</button>
+
+                        </div>
+
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- end row -->
+
+</div> <!-- container-fluid -->

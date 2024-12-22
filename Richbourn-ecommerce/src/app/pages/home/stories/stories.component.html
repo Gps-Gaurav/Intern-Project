@@ -1,0 +1,30 @@
+<section class="ps-section--default ps-section--blog">
+     <div class="container">
+         <h3 class="ps-section__title">The real stories <br>behind our brand.</h3>
+         <div class="ps-section__carousel">
+             <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="10000" data-owl-gap="30" data-owl-nav="false" data-owl-dots="false" data-owl-item="2" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="2" data-owl-item-lg="2" data-owl-item-xl="2" data-owl-duration="1000" data-owl-mousedrag="on">
+                 <div class="ps-blog--latset">
+                     <div class="ps-blog__thumbnail"><a href="blog-post.html"><img src="assets/img/blogs/blog-1.jpg" alt="alt" /></a>
+                         <div class="ps-blog__badge"><span class="ps-badge__item">Fashion</span><span class="ps-badge__item">Women</span>
+                         </div>
+                     </div>
+                     <div class="ps-blog__content">
+                         <h3 class="ps-blog__title"><a href="blog-post.html">The best ways to change your summer wardrobe into autumn wardrobe.</a></h3>
+                         <p class="ps-blog__date">March 05,2021</p>
+                     </div>
+                 </div>
+                 <div class="ps-blog--latset" *ngFor="let item of stories">
+                     <div class="ps-blog__thumbnail"><a href="blog-post.html"><img [src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key"  alt="alt" /></a>
+                         <div class="ps-blog__badge"><span class="ps-badge__item">Fashion</span><span class="ps-badge__item">Women</span>
+                         </div>
+                     </div>
+                     <div class="ps-blog__content">
+                         <h3 class="ps-blog__title"><a href="blog-post.html">Men's fashion in leather.</a></h3>
+                         <p class="ps-blog__date">March 05,2021</p>
+                     </div>
+                 </div>
+               
+             </div>
+         </div>
+     </div>
+ </section>

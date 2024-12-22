@@ -1,0 +1,18 @@
+<section class="ps-section--banner">
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let item of carousel">
+            <div class="ps-banner" style="background:#BABABA;">
+            <div class="ps-banner__thumnail"><img  [src]="ImgUrl+item.image+'?'+unique_key" alt="alt" />
+            </div>
+            <div class="ps-banner__content">
+                <div class="container">
+                    <h2 class="ps-banner__title text-dark">Street fashion not <br/>only for the street</h2>
+                    <div class="ps-banner__desc text-dark">New collections!</div><a class="ps-btn ps-btn--rounded ps-btn--danger" href="shop-list.html">Shop now </a>
+                </div>
+            </div>
+        </div>
+    </ng-template>  
+      
+      </owl-carousel-o>
+   
+</section>

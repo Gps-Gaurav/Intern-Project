@@ -1,0 +1,693 @@
+<div class="ps-shop">
+     <div class="container">
+         <ul class="ps-breadcrumb">
+             <li class="ps-breadcrumb__item"><a href="index.html">Home</a></li>
+             <li class="ps-breadcrumb__item"><a class="active" aria-current="page" href="#">Shop</a></li>
+         </ul>
+         <div class="row">
+             <div class="col-12 col-lg-3">
+                 <h3 class="ps-shop__name">Shop</h3>
+             </div>
+             <div class="col-12 col-lg-9">
+                 <div class="ps-wrapper--mobile"><a class="ps-wrapper__action filter shop-filter" href="#"><img class="icon-funnel" src="img/icon/filter.svg" alt=""><img class="icon-cross" src="img/icon/close-red.svg" alt="">Filters</a><a class="ps-wrapper__action" href="#"><img class="icon-sort-alpha-asc" src="img/icon/down-arrow.svg" alt="">Sory by name: A-Z</a></div>
+                 <div class="ps-wrapper" style="display: none;"><a class="ps-wrapper__filter shop-filter" href="#"><img class="icon-funnel" src="img/icon/filter.svg" alt=""><img class="icon-cross" src="img/icon/close-red.svg" alt="">Filters</a>
+                     <div class="ps-wrapper__type"> <a href="shop-list.html"><img src="assets/img/icon/bars.svg" alt></a><a href="shop-promo.html"><img src="img/icon/gird2.svg" alt></a><a class="active" href="shop-slidebar.html"><img src="img/icon/gird3.svg" alt></a><a href="shop-grid.html"><img src="img/icon/gird4.svg" alt></a></div>
+                     <div class="ps-wrapper__onsale">
+                         <form>
+                             <div class="custom-control custom-checkbox">
+                                 <input class="custom-control-input" type="checkbox" id="onSaleProduct">
+                                 <label class="custom-control-label" for="onSaleProduct">Show only products on sale</label>
+                             </div>
+                         </form>
+                     </div>
+                     <div class="ps-wrapper__sort">
+                         <form><span>Sort by</span>
+                             <select class="form-select">
+                                 <option selected>Latest</option>
+                                 <option value="Popularity">Popularity</option>
+                                 <option value="Average rating">Average rating</option>
+                                 <option value="Latest">Latest</option>
+                                 <option value="Price: low to high">Price: low to high</option>
+                                 <option value="Price: high to low">Price: high to low</option>
+                             </select>
+                         </form>
+                     </div>
+                     <div class="ps-wrapper__show">
+                         <form><span>Show</span>
+                             <select class="form-select">
+                                 <option selected>12</option>
+                                 <option value="24">24</option>
+                                 <option value="36">36</option>
+                                 <option value="48">48</option>
+                             </select>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="ps-shop__content">
+             <div class="ps-shop__filter" id="filter-content">
+                 <div class="ps-widget ps-widget--product">
+                     <div class="ps-widget__block">
+                         <div class="ps-widget__content">
+                             <ul class="menu--mobile">
+                                 <li><a href="#">Jeans</a></li>
+                                 <li><a href="#">Underwear</a><span class="sub-toggle"><i class="fa fa-chevron-down"></i></span>
+                                     <ul class="sub-menu">
+                                         <li><a href="#">Bikini</a></li>
+                                         <li><a href="#">Casual</a></li>
+                                         <li><a href="#">Modern</a></li>
+                                     </ul>
+                                 </li>
+                                 <li><a href="#">Jackets &amp; Coats</a></li>
+                                 <li><a href="#">Loungewear</a></li>
+                                 <li><a href="#">Men</a><span class="sub-toggle"><i class="fa fa-chevron-down"></i></span>
+                                     <ul class="sub-menu">
+                                         <li><a href="#">Jackets &amp; Coats</a></li>
+                                         <li><a href="#">Suits</a></li>
+                                         <li><a href="#">Jeans</a></li>
+                                         <li><a href="#">Swimwear</a></li>
+                                         <li><a href="#">Loungewear</a></li>
+                                         <li><a href="#">T-shirts</a></li>
+                                         <li><a href="#">Polo shirts</a></li>
+                                         <li><a href="#">Tracksuits</a></li>
+                                         <li><a href="#">Shirts</a></li>
+                                         <li><a href="#">Trousers</a></li>
+                                         <li><a href="#">Shorts</a></li>
+                                         <li><a href="#">Underwear</a></li>
+                                     </ul>
+                                 </li>
+                                 <li><a href="#">Women</a><span class="sub-toggle"><i class="fa fa-chevron-down"></i></span>
+                                     <ul class="sub-menu">
+                                         <li><a href="#">Coats &amp; Jackets</a></li>
+                                         <li><a href="#">Dresses</a></li>
+                                         <li><a href="#">Jeans</a></li>
+                                         <li><a href="#">Lingerie</a></li>
+                                         <li><a href="#">Loungewear</a></li>
+                                         <li><a href="#">Shorts</a></li>
+                                         <li><a href="#">Skirts</a></li>
+                                         <li><a href="#">Suits</a></li>
+                                         <li><a href="#">Swimwear</a></li>
+                                         <li><a href="#">Tops</a></li>
+                                         <li><a href="#">Trousers</a></li>
+                                     </ul>
+                                 </li>
+                             </ul>
+                         </div>
+                     </div>
+                     <div class="ps-widget__block">
+                         <h4 class="ps-widget__title">Color</h4><a class="ps-block-control" href="#"><i class="fa fa-angle-down"></i></a>
+                         <div class="ps-widget__content">
+                             <div class="ps-widget__color">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="colorGray">
+                                     <label class="custom-control-label" for="colorGray" style="--bg-color: #5b6c8f"><span style="--bg-color: #5b6c8f"></span></label>
+                                 </div>
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="colorGreen">
+                                     <label class="custom-control-label" for="colorGreen" style="--bg-color: #12a05c"><span style="--bg-color: #12a05c"></span></label>
+                                 </div>
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="colorRed">
+                                     <label class="custom-control-label" for="colorRed" style="--bg-color: #f00000"><span style="--bg-color: #f00000"></span></label>
+                                 </div>
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="colorYellow">
+                                     <label class="custom-control-label" for="colorYellow" style="--bg-color: #ff9923"><span style="--bg-color: #ff9923"></span></label>
+                                 </div>
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="colorBlack">
+                                     <label class="custom-control-label" for="colorBlack" style="--bg-color: #313330"><span style="--bg-color: #313330"></span></label>
+                                 </div>
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="colorBlue">
+                                     <label class="custom-control-label" for="colorBlue" style="--bg-color: #58c8ec"><span style="--bg-color: #58c8ec"></span></label>
+                                 </div>
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="colorNavy">
+                                     <label class="custom-control-label" for="colorNavy" style="--bg-color: #103178"><span style="--bg-color: #103178"></span></label>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="ps-widget__block">
+                         <h4 class="ps-widget__title">Brands</h4><a class="ps-block-control" href="#"><i class="fa fa-angle-down"></i></a>
+                         <div class="ps-widget__content">
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="Apple">
+                                     <label class="custom-control-label" for="Apple">Apple</label>
+                                 </div>
+                             </div>
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="Blackberry">
+                                     <label class="custom-control-label" for="Blackberry">Blackberry</label>
+                                 </div>
+                             </div>
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="Ford">
+                                     <label class="custom-control-label" for="Ford">Ford</label>
+                                 </div>
+                             </div>
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="Garmin">
+                                     <label class="custom-control-label" for="Garmin">Garmin</label>
+                                 </div>
+                             </div>
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="Houzz">
+                                     <label class="custom-control-label" for="Houzz">Houzz</label>
+                                 </div>
+                             </div>
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="HumbleBundle">
+                                     <label class="custom-control-label" for="HumbleBundle">HumbleBundle</label>
+                                 </div>
+                             </div>
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="iHeartRadio">
+                                     <label class="custom-control-label" for="iHeartRadio">iHeartRadio</label>
+                                 </div>
+                             </div>
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="Ikea">
+                                     <label class="custom-control-label" for="Ikea">Ikea</label>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="ps-widget__block">
+                         <h4 class="ps-widget__title">Ratings</h4><a class="ps-block-control" href="#"><i class="fa fa-angle-down"></i></a>
+                         <div class="ps-widget__content">
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="rating5">
+                                     <label class="custom-control-label" for="rating5"> </label>
+                                     <div class="custom-label">
+                                         <select class="ps-rating" data-read-only="true">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5" selected="selected">5</option>
+                                         </select><span>(246)</span>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="rating4">
+                                     <label class="custom-control-label" for="rating4"> </label>
+                                     <div class="custom-label">
+                                         <select class="ps-rating" data-read-only="true">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4" selected="selected">4</option>
+                                             <option value="5">5</option>
+                                         </select><span>(100)</span>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="rating3">
+                                     <label class="custom-control-label" for="rating3"> </label>
+                                     <div class="custom-label">
+                                         <select class="ps-rating" data-read-only="true">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3" selected="selected">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                         </select><span>(45)</span>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="rating2">
+                                     <label class="custom-control-label" for="rating2"> </label>
+                                     <div class="custom-label">
+                                         <select class="ps-rating" data-read-only="true">
+                                             <option value="1">1</option>
+                                             <option value="2" selected="selected">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                         </select><span>(20)</span>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="ps-widget__item">
+                                 <div class="custom-control custom-checkbox">
+                                     <input class="custom-control-input" type="checkbox" id="rating1">
+                                     <label class="custom-control-label" for="rating1"> </label>
+                                     <div class="custom-label">
+                                         <select class="ps-rating" data-read-only="true">
+                                             <option value="1" selected="selected">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                         </select><span>(5)</span>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="ps-shop__product">
+                 <div class="row">
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/3.jpg" alt="alt" /><img class="ps-product__image-back" src="assets/img/products/3_1.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                     <div class="ps-badge ps-badge--sold">Sold Out</div>
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">White short checkered T-shirt & skirt</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price sale">$119.39</span><span class="ps-product__del">$110.99</span>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/1.jpg" alt="alt" /><img class="ps-product__image-back" src="assets/img/products/12.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                     <div class="ps-badge ps-badge--sale">-70%</div>
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="product-1.html">Select options</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">Short T-shirt with sequins.</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price sale">$38.39</span><span class="ps-product__del">$53.99</span>
+                                 </div>
+                                 <div class="ps-product__footer">
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop2Redundefined" name="productOption" value="Red" />
+                                         <label class="custom-control-label" for="shop2Redundefined" style="--bg-color: #D9121F"><span style="--bg-color: #D9121F"></span></label>
+                                     </div>
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop2Blackundefined" name="productOption" value="Black" />
+                                         <label class="custom-control-label" for="shop2Blackundefined" style="--bg-color: #191919"><span style="--bg-color: #191919"></span></label>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/27.jpg" alt="alt" /><img class="ps-product__image-back" src="assets/img/products/32.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                     <div class="ps-badge ps-badge--new">New</div>
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="product-1.html">Select options</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">White short checkered T-shirt</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price sale">$200.00</span><span class="ps-product__del">$195.00</span>
+                                 </div>
+                                 <div class="ps-product__footer">
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop3Grayundefined" name="productOption" value="Gray" />
+                                         <label class="custom-control-label" for="shop3Grayundefined" style="--bg-color: #767676"><span style="--bg-color: #767676"></span></label>
+                                     </div>
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop3Redundefined" name="productOption" value="Red" />
+                                         <label class="custom-control-label" for="shop3Redundefined" style="--bg-color: #D9121F"><span style="--bg-color: #D9121F"></span></label>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/40.jpg" alt="alt" /><img class="ps-product__image-back" src="assets/img/products/11.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">Travel handle totte bags</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price">$185.00</span>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/5.jpg" alt="alt" /><img class="ps-product__image-back" src="assets/img/products/44.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                     <div class="ps-badge ps-badge--sale">-70%</div>
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="product-1.html">Select options</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">Short T-shirt with sequins.</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price sale">$200.00</span><span class="ps-product__del">$195.00</span>
+                                 </div>
+                                 <div class="ps-product__footer">
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop5Blackundefined" name="productOption" value="Black" />
+                                         <label class="custom-control-label" for="shop5Blackundefined" style="--bg-color: #191919"><span style="--bg-color: #191919"></span></label>
+                                     </div>
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop5Grayundefined" name="productOption" value="Gray" />
+                                         <label class="custom-control-label" for="shop5Grayundefined" style="--bg-color: #767676"><span style="--bg-color: #767676"></span></label>
+                                     </div>
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop5Redundefined" name="productOption" value="Red" />
+                                         <label class="custom-control-label" for="shop5Redundefined" style="--bg-color: #D9121F"><span style="--bg-color: #D9121F"></span></label>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/16.jpg" alt="alt" /><img class="ps-product__image-back" src="assets/img/products/49.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">Blue classic long sleeves shirt</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price">$89.00</span>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/7.jpg" alt="alt" /><img class="ps-product__image-back" src="assets/img/products/16.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">Dark blue classic long sleeves shirt</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price">$89.00</span>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/8.jpg" alt="alt" /><img class="ps-product__image-back" src="assets/img/products/22.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">Gold earrings for women</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price">$150.00</span>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/11.jpg" alt="alt" /><img class="ps-product__image-back" src="assets/img/products/40.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">Travel handle totte bags</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price">$185.00</span>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/1.jpg" alt="alt" /><img class="ps-product__image-back" src="assets/img/products/2.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                     <div class="ps-badge ps-badge--sale">-70%</div>
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="#" data-toggle="modal" data-target="#popupAddcart">Add to cart</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">Short T-shirt with sequins.</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price sale">$89.65</span><span class="ps-product__del">$60.65</span>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/19.jpg" alt="alt" /><img class="ps-product__image-back" src="img/products/52.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="product-1.html">Select options</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">Sequin dresses for women party</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price">$185.00</span>
+                                 </div>
+                                 <div class="ps-product__footer">
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop11brownundefined" name="productOption" value="brown" />
+                                         <label class="custom-control-label" for="shop11brownundefined" style="--bg-color: #dccab9"><span style="--bg-color: #dccab9"></span></label>
+                                     </div>
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop11Whiteundefined" name="productOption" value="White" />
+                                         <label class="custom-control-label" for="shop11Whiteundefined" style="--bg-color: #f2f2f2"><span style="--bg-color: #f2f2f2"></span></label>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-6 col-md-4">
+                         <div class="ps-product ps-product--standard">
+                             <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                                     <figure><img class="ps-product__image-default" src="assets/img/products/18.jpg" alt="alt" /><img class="ps-product__image-back" src="img/products/48.jpg" alt="alt" />
+                                     </figure>
+                                 </a>
+                                 <div class="ps-product__actions">
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist"><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></div>
+                                     <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left" title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                 </div>
+                                 <div class="ps-product__badge">
+                                     <div class="ps-badge ps-badge--sale">-70%</div>
+                                 </div><a class="ps-btn ps-btn--dark ps-product__cart" href="product-1.html">Select options</a>
+                             </div>
+                             <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal" data-target="#popupAddcart"><img src="img/icon/cart.svg" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i class="fa fa-align-left"></i></a></div>
+                             <div class="ps-product__content">
+                                 <h5 class="ps-product__title"><a href="product-1.html">Short T-shirt with sequins.</a></h5>
+                                 <div class="ps-product__meta"><span class="ps-product__price sale">$200.00</span><span class="ps-product__del">$195.00</span>
+                                 </div>
+                                 <div class="ps-product__footer">
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop12Blackundefined" name="productOption" value="Black" />
+                                         <label class="custom-control-label" for="shop12Blackundefined" style="--bg-color: #191919"><span style="--bg-color: #191919"></span></label>
+                                     </div>
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop12Grayundefined" name="productOption" value="Gray" />
+                                         <label class="custom-control-label" for="shop12Grayundefined" style="--bg-color: #767676"><span style="--bg-color: #767676"></span></label>
+                                     </div>
+                                     <div class="custom-control custom-checkbox">
+                                         <input class="custom-control-input" type="radio" id="shop12Redundefined" name="productOption" value="Red" />
+                                         <label class="custom-control-label" for="shop12Redundefined" style="--bg-color: #D9121F"><span style="--bg-color: #D9121F"></span></label>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="ps-pagination">
+                     <ul class="pagination">
+                         <li><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                         <li class="active"><a href="#">1</a></li>
+                         <li><a href="#">2</a></li>
+                         <li><a href="#">3</a></li>
+                         <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <section class="ps-banner--content">
+         <div class="container">
+             <div class="ps-banner" style="background:#BCBCBC;">
+                 <div class="ps-banner__thumnail"><img src="assets/img/banners/banner-street.jpg" alt="alt" />
+                 </div>
+                 <div class="ps-banner__content">
+                     <h2 class="ps-banner__title text-white">Street style <br/>has its own rules</h2>
+                     <div class="ps-banner__desc text-white">Create any content in your store</div><a class="ps-btn ps-btn--rounded ps-btn--danger" href="shop-list.html">Shop now</a>
+                 </div>
+             </div>
+         </div>
+         <div class="modal fade" id="popupAddcart" data-backdrop="static" data-keyboard="false" tabindex="-1"
+         aria-hidden="true">
+         <div class="modal-dialog modal-lg modal-dialog-centered ps-addcart">
+             <div class="modal-content">
+                 <div class="modal-body">
+                     <div class="wrap-modal-slider container-fluid ps-addcart__body">
+                         <button class="close ps-addcart__close" type="button" data-dismiss="modal"
+                             aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         <p class="ps-addcart__noti"> <i class="fa fa-check"></i>Added to cart succesfully</p>
+                         <div class="row">
+                             <div class="col-12 col-md-6">
+                                 <div class="ps-product ps-product--standard">
+                                     <div class="ps-product__thumbnail"><a class="ps-product__image"
+                                             href="product-1.html">
+                                             <figure><img class="ps-product__image-default"
+                                                     src="assets/img/products/1.jpg" alt="alt" /><img
+                                                     class="ps-product__image-back" src="assets/img/products/2.jpg"
+                                                     alt="alt" />
+                                             </figure>
+                                         </a>
+                                         <div class="ps-product__actions">
+                                             <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
+                                                 title="Wishlist"><a href="wishlist.html"><i
+                                                         class="fa fa-heart-o"></i></a></div>
+                                             <div class="ps-product__item rotate" data-toggle="tooltip"
+                                                 data-placement="left" title="Add to compare"><a href="#"
+                                                     data-toggle="modal" data-target="#popupCompare"><i
+                                                         class="fa fa-align-left"></i></a></div>
+                                             <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
+                                                 title="Quick view"><a href="#" data-toggle="modal"
+                                                     data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                         </div>
+                                         <div class="ps-product__badge">
+                                             <div class="ps-badge ps-badge--sale">-70%</div>
+                                         </div><a class="ps-btn ps-btn--dark ps-product__cart" href="#"
+                                          data-toggle="modal" data-target="#popupAddcart">Add to cart</a>
+                                     </div>
+                                     <div class="ps-product__mobile"><a class="ps-product__item" href="#"
+                                             data-toggle="modal" data-target="#popupAddcart"><img
+                                                 src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item"
+                                             href="wishlist.html"><i class="fa fa-heart-o"></i></a><a
+                                             class="ps-product__item rotate" href="compare.html"><i
+                                                 class="fa fa-align-left"></i></a></div>
+                                     <div class="ps-product__content">
+                                         <h5 class="ps-product__title"><a href="product-1.html">Short T-shirt with
+                                                 sequins.</a></h5>
+                                         <div class="ps-product__meta"><span
+                                                 class="ps-product__price sale">$89.65</span><span
+                                                 class="ps-product__del">$60.65</span>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col-12 col-md-6">
+                                 <div class="ps-addcart__content">
+                                     <p>There are two items in your cart.</p>
+                                     <p class="ps-addcart__total">Total: <span class="ps-price">$44.00</span></p><a
+                                         class="ps-btn ps-btn--rounded ps-btn--danger" href="#" data-dismiss="modal"
+                                         aria-label="Close">Continue shopping</a><a
+                                         class="ps-btn ps-btn--rounded ps-btn--dark" href="shopping-cart.html">View
+                                         cart</a><a class="ps-btn ps-btn--rounded ps-btn--gray"
+                                         href="checkout.html">Proceed to checkout</a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     </section>
+ </div>

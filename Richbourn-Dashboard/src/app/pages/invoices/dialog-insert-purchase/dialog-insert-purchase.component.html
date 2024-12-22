@@ -1,0 +1,133 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+
+              <div class="row">
+
+                <div formArrayName="usersDetails">
+                  <p-table [value]="usersDetails.controls" [scrollable]="true" styleClass="table-panel"
+                    scrollDirection="both" [(selection)]="selectedUsers">
+                    <ng-template pTemplate="header">
+                      <tr>
+
+                        <th style="width:10%"> Code</th>
+
+                        <th style="width:10%"> Color</th>
+                        <th style="width:10%"> Size</th>
+                        <th style="width:6%"> Image</th>
+                        <th style="width:9%"> Location</th>
+                    
+                        <th style="width:7%"> HSN</th>
+                        <th style="width:9%"> M.R.P</th>
+                        <th style="width:8%"> Discount %</th>
+                        <th style="width:7%"> Quantity</th>
+                        <th style="width:8%"> Rate</th>
+                        <th style="width:8%"> Amount</th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-controls let-i="rowIndex">
+                      <tr style="margin-top:10px ;margin-bottom: 10px;" [formGroupName]="i">
+
+
+                        <td style="width:10%">
+
+                          <input type="text" style="width: 110px;" tabindex="-1" formControlName="ProdCode" pInputText readonly
+                            class="p-inputtext-sm " placeholder="">
+                        </td>
+                        <td style="width:10%">
+                          <input type="text" style="width: 110px;" tabindex="-1"formControlName="ColoursName" pInputText readonly
+                            class="p-inputtext-sm " placeholder="">
+                          <input style="width:90px" type="hidden" formControlName="ColorID" pInputText
+                            class="p-inputtext-sm" />
+                            <input style="width:90px" type="hidden" formControlName="ProdCate" pInputText
+                            class="p-inputtext-sm" />
+                        </td>
+                        <td >
+                          <input type="text" tabindex="-1" style="width: 80px;" tabindex="-1" formControlName="Size" pInputText readonly
+                            class="p-inputtext-sm " placeholder="">
+                            <input style="width:90px" type="hidden" formControlName="SizeID" pInputText
+                            class="p-inputtext-sm" />
+                        </td>
+                        <td style="width:6%">
+
+
+                          <p-image
+                            [src]="ImgUrl+controls.get('ProdCode').value+'_'+controls.get('ColoursName').value+'.jpg?'"
+                            [alt]="controls.get('ProductImage').value" width="50" height="50"
+                            [preview]="true"></p-image>
+                        </td>
+                        <td style="width:9%;">
+                          <input type="text" style="width:80px" tabindex="-1" formControlName="Location" pInputText
+                            class="p-inputtext-sm" />
+                          <input style="width:90px" type="hidden" formControlName="LocationID" pInputText
+                            class="p-inputtext-sm" />
+
+                        </td>
+
+                       
+                        <td style="width:7%;"><input type="text" style="width: 90px" tabindex="-1" formControlName="HSNCode"
+                            pInputText class="p-inputtext-sm" /></td>
+                        <td style="width:9%;"><input type="text" style="width:80px" tabindex="-1" formControlName="MRP" pInputText
+                            class="p-inputtext-sm" /></td>
+                        <td style="width:8%;"><p-inputNumber mode="decimal" tabindex="-1" (onInput)="ChangeDiscount($event, i)"
+                            styleClass="inputOnDataTable" formControlName="Discount" pInputText
+                            class="p-inputtext-sm"></p-inputNumber>
+                        </td>
+                        <td style="width:7%;">
+                          <p-inputNumber mode="decimal" inputId="withoutgrouping" [useGrouping]="false"
+                            styleClass="inputOnDataTable" formControlName="Qty" (onInput)="ChangeQty($event, i)">
+                          </p-inputNumber>
+                        </td>
+                        <td style="width:8%;">
+                          <p-inputNumber mode="decimal" inputId="withoutgrouping" [useGrouping]="false"
+                            styleClass="inputOnDataTable" formControlName="Rate" (onInput)="ChangeRate($event, i)">
+                          </p-inputNumber>
+                        </td>
+                        <td style="width:8%;">
+                          <p-inputNumber mode="decimal" inputId="withoutgrouping" tabindex="-1" [useGrouping]="false"
+                            styleClass="inputOnDataTable" formControlName="Amt">
+                          </p-inputNumber>
+                        </td>
+
+                      </tr>
+
+                    </ng-template>
+                  </p-table>
+                </div>
+
+
+
+                <div>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+<div class="row">
+  <div class="d-flex justify-content-end flex-wrap">
+    <button style="height: 50px ;" pButton pRipple [label]="'Close'" 
+    class="p-button-danger mr-2" (click)="onDialogClose()"
+    ></button>&nbsp;
+    <button style="height:50px ;" pButton pRipple label="Save" 
+      class="p-button-success mr-1" (click)="validSubmit()"></button>
+      
+  </div>
+</div>
+ 
+  <!-- end row -->
+</div>

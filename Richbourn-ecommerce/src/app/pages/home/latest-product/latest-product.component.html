@@ -1,0 +1,135 @@
+<section class="ps-section--default ps-product--featured">
+    <div class="container">
+        <h3 class="ps-section__title">New Arrivals</h3>
+        <div class="ps-section__content">
+            <div class="ps-product__grid">
+                <div class="ps-product ps-product--standard" *ngFor="let item of NewArrival">
+                    <div class="ps-product__thumbnail"><a class="ps-product__image" href="product-1.html">
+                            <figure><img class="ps-product__image-default"
+                                    [src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key"
+                                    [alt]="item.ProdCode" alt="alt" /><img class="ps-product__image-back"
+                                    [src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key"
+                                    [alt]="item.ProdCode" alt="alt" />
+                            </figure>
+                        </a>
+                        <div class="ps-product__actions">
+                            <div class="ps-product__item" data-toggle="tooltip" data-placement="left" title="Wishlist">
+                                <a href="wishlist.html"><i class="fa fa-heart-o"></i></a>
+                            </div>
+                            <div class="ps-product__item rotate" data-toggle="tooltip" data-placement="left"
+                                title="Add to compare"><a href="#" data-toggle="modal" data-target="#popupCompare"><i
+                                        class="fa fa-align-left"></i></a></div>
+                            <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
+                                title="Quick view"><a href="#" data-toggle="modal" data-target="#popupQuickview"><i
+                                        class="fa fa-search"></i></a></div>
+                        </div>
+                        <div class="ps-product__badge">
+                            <div class="ps-badge ps-badge--sale">-50%</div>
+                        </div><a class="ps-btn ps-btn--dark ps-product__cart" routerLink="sale">Select options</a>
+                    </div>
+                    <div class="ps-product__mobile"><a class="ps-product__item" href="#" data-toggle="modal"
+                            data-target="#popupAddcart"><img
+                                [src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key"
+                                [alt]="item.ProdCode" alt="" /></a><a class="ps-product__item" href="wishlist.html"><i
+                                class="fa fa-heart-o"></i></a><a class="ps-product__item rotate" href="compare.html"><i
+                                class="fa fa-align-left"></i></a>
+                    </div>
+                    <div class="ps-product__content">
+                        <h5 class="ps-product__title"><a href="product-1.html">{{item.ProdDesc}}</a></h5>
+                        <div class="ps-product__meta"><span class="ps-product__price sale">{{item.MRP}}</span><span
+                                class="ps-product__del">{{item.MRP}}</span>
+                        </div>
+                        <div class="ps-product__footer">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="radio" id="arrival1Redundefined"
+                                    name="productOption" value="Red" />
+                                <label class="custom-control-label" for="arrival1Redundefined"
+                                    style="--bg-color: #D9121F"><span style="--bg-color: #D9121F"></span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="radio" id="arrival1Blackundefined"
+                                    name="productOption" value="Black" />
+                                <label class="custom-control-label" for="arrival1Blackundefined"
+                                    style="--bg-color: #191919"><span style="--bg-color: #191919"></span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="ps-section__link"><a class="ps-btn ps-btn--rounded ps-btn--danger" href="shop-list.html">Show
+                    all </a></div>
+        </div>
+    </div>
+    <div class="modal fade" id="popupAddcart" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered ps-addcart">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="wrap-modal-slider container-fluid ps-addcart__body">
+                        <button class="close ps-addcart__close" type="button" data-dismiss="modal"
+                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <p class="ps-addcart__noti"> <i  *ngIf="!removeCart" (click)="addToCart()" class="fa fa-check"></i>Added to cart succesfully</p>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="ps-product ps-product--standard">
+                                    <div class="ps-product__thumbnail"><a class="ps-product__image"
+                                            href="product-1.html">
+                                            <figure><img class="ps-product__image-default"
+                                                    src="assets/img/products/1.jpg" alt="alt" /><img
+                                                    class="ps-product__image-back" src="assets/img/products/2.jpg"
+                                                    alt="alt" />
+                                            </figure>
+                                        </a>
+                                        <div class="ps-product__actions">
+                                            <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><a href="wishlist.html"><i
+                                                        class="fa fa-heart-o"></i></a></div>
+                                            <div class="ps-product__item rotate" data-toggle="tooltip"
+                                                data-placement="left" title="Add to compare"><a href="#"
+                                                    data-toggle="modal" data-target="#popupCompare"><i
+                                                        class="fa fa-align-left"></i></a></div>
+                                            <div class="ps-product__item" data-toggle="tooltip" data-placement="left"
+                                                title="Quick view"><a href="#" data-toggle="modal"
+                                                    data-target="#popupQuickview"><i class="fa fa-search"></i></a></div>
+                                        </div>
+                                        <div class="ps-product__badge">
+                                            <div class="ps-badge ps-badge--sale">-70%</div>
+                                        </div><a class="ps-btn ps-btn--dark ps-product__cart" href="#"
+                                        *ngIf="!removeCart" (click)="addToCart()"  data-toggle="modal" data-target="#popupAddcart">Add to cart</a>
+                                    </div>
+                                    <div class="ps-product__mobile"><a class="ps-product__item" href="#"
+                                            data-toggle="modal" data-target="#popupAddcart"><img
+                                                src="assets/img/icon/cart.svg" alt="" /></a><a class="ps-product__item"
+                                            href="wishlist.html"><i class="fa fa-heart-o"></i></a><a
+                                            class="ps-product__item rotate" href="compare.html"><i
+                                                class="fa fa-align-left"></i></a></div>
+                                    <div class="ps-product__content">
+                                        <h5 class="ps-product__title"><a href="product-1.html">Short T-shirt with
+                                                sequins.</a></h5>
+                                        <div class="ps-product__meta"><span
+                                                class="ps-product__price sale">$89.65</span><span
+                                                class="ps-product__del">$60.65</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="ps-addcart__content">
+                                    <p>There are two items in your cart.</p>
+                                    <p class="ps-addcart__total">Total: <span class="ps-price">$44.00</span></p><a
+                                        class="ps-btn ps-btn--rounded ps-btn--danger" href="#" data-dismiss="modal"
+                                        aria-label="Close">Continue shopping</a><a
+                                        class="ps-btn ps-btn--rounded ps-btn--dark" href="shopping-cart.html">View
+                                        cart</a><a class="ps-btn ps-btn--rounded ps-btn--gray"
+                                        href="checkout.html">Proceed to checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

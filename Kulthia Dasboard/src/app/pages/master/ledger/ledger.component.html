@@ -1,0 +1,107 @@
+<p-toast></p-toast>
+
+
+<div class="container-fluid">
+    <app-page-title title="LEDGER MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row mb-2">
+                  <div class="col-sm-3">
+                    <div class="search-box me-2 mb-2 d-inline-block">
+                      <div class="position-relative">
+                        <span [style]="{'display': 'inline-flex'}" class="p-input-icon-left">
+                            <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger mr-2" (click)="deleteSelectedProducts()" [disabled]="!selectedItems || !selectedItems.length"></button>&nbsp;
+                            <input  class="form-control" pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-9">
+                    <div class="d-flex justify-content-between bd-highlight">
+                        <div class="p-2 bd-highlight"> 
+                          
+                        </div>
+                        
+                        <div class="p-2 bd-highlight">
+                            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                        </div>
+                      </div>
+                   
+                  </div>
+                  <!-- end col-->
+                </div>
+                <div class="table-responsive">
+                    <p-table styleClass="table-panel" #dt [value]="items" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
+                    [(selection)]="selectedItems" [rowHover]="true" dataKey="SlNo"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3rem">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th pSortableColumn="SrNo">Sr No.<p-sortIcon field="SrNo"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="GlName">GlName<p-sortIcon field="GlName"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="Alias">Alias<p-sortIcon field="Alias"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="GroupDesc">GroupDesc <p-sortIcon field="GroupDesc"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="SubGroupDesc">SubGroupDesc<p-sortIcon field="SubGroupDesc"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="GlType">GlType<p-sortIcon field="GlType"></p-sortIcon>
+                    </th>
+                     <th pSortableColumn="AcHolder">AcHolder<p-sortIcon field="AcHolder"></p-sortIcon>
+                    </th> 
+                    <th pSortableColumn="AcType">Ac Type<p-sortIcon field="AcType"></p-sortIcon>
+                    </th> 
+                    <th pSortableColumn="AcNO">Ac No.<p-sortIcon field="AcNO"></p-sortIcon>
+                    </th> 
+                    <th pSortableColumn="IfscCode">Ifsc Code<p-sortIcon field="IfscCode"></p-sortIcon>
+                    </th> 
+                    <th pSortableColumn="Contact">Contact Person<p-sortIcon field="Contact"></p-sortIcon>
+                    </th> 
+                    <th>Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>
+                        <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                    </td>
+                    <td>{{product.SrNo}}</td>
+                    <td>{{product.GlName}}</td>
+                    <td>{{product.Alias}}</td>
+                    <td>{{product.GroupDesc}}</td>
+                    <td>{{product.SubGroupDesc}}</td>
+                    <td>{{product.GlType}}</td>
+                    <td>{{product.AcHolder}}</td>
+                    <td>{{product.AcType}}</td>
+                    <td>{{product.AcNO}}</td>
+                    <td>{{product.IfscCode}}</td>
+                
+                   
+                    <td><span [class]="'product-badge status-instock'">Active</span></td>
+                    <td [style]="{'display': 'inline-flex'}">
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                            (click)="editProduct(product)"></button>&nbsp;
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                            (click)="deleteProduct(product)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between">
+                    In total there are {{items ? items.length : 0 }} products.
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+
+
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+</div>

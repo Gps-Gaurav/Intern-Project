@@ -1,0 +1,90 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" PRODUCT CATEGORY MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+              <div class="mb-3 col-sm-4 position-relative" *ngIf="boolCat">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Category ID.</span>
+                  </div>
+           
+                  <p-inputNumber [style]="{'height':'36px','width':'100%'}" mode="decimal" #myinput
+                    inputId="withoutgrouping" autofocus="autofocus" [useGrouping]="false" tabindex="-1" id="validationTooltipUsername"
+                    formControlName="ProdCateID" [ngClass]="{'is-invalid': submit && form.ProdCateID.errors}">
+                  </p-inputNumber>
+                  <div *ngIf="submit && form.ProdCateID.errors" class="invalid-feedback">
+                    <span *ngIf="form.ProdCateID.errors.required">Please enter a Labour Rt.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-8 position-relative"></div>
+              <div class="mb-3 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Product Category</span>
+                  </div>
+            
+                  <input type="text" autofocus="autofocus" tabIndex="2" class="form-control" id="validationTooltipUsername"
+                    formControlName="ProdCate" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.ProdCate.errors}">
+
+                  <div *ngIf="submit && form.ProdCate.errors" class="invalid-feedback">
+                    <span *ngIf="form.ProdCate.errors.required">Please enter a valid ProdCate.</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mb-3 col-sm-8 position-relative"></div>
+              <div class="mb-3 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Dis Continue</span>
+                  </div>
+                  <p-autoComplete pInputText class="p-inputtext-sm" tabIndex="3" [style]="{'height':'36px'}"
+                    formControlName="DisCont" [suggestions]="boolData" (completeMethod)="_fetchBool($event)"
+                    [dropdown]="true" field="name">
+                    <ng-template let-employee pTemplate="item">
+                      {{employee.name}}
+                    </ng-template>
+                    <ng-template let-employee pTemplate="selectedItem">
+                      {{employee.name}}
+                    </ng-template>
+                  </p-autoComplete>
+                </div>
+
+                <div *ngIf='submit && form.DisCont.errors' class='invalid-feedback'>
+                  <span *ngIf='form.DisCont.errors.required'>DisCont is required.</span>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button type="submit" tabIndex="4" class="btn btn-primary">Save Changes</button>
+                <button type="button" tabIndex="5" (click)="Close()" class="btn btn-secondary">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

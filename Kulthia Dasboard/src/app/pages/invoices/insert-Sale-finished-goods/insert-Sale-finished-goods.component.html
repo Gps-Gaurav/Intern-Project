@@ -1,0 +1,600 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" SALE-FINISHED GOODS" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+            <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+
+                  <div class="mb-2 col-sm-4 position-relative">
+                    <div class="input-group ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Sale Bill No :</span>
+                      </div>
+
+                      <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                        formControlName="SaleNo" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.SaleNo.errors}">
+
+                      <div *ngIf="submit && form.SaleNo.errors" class="invalid-feedback">
+                        <span *ngIf="form.SaleNo.errors.required">Please enter a unique and valid SaleNo.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class='col-sm-2 mb-3'>
+                    <div class="field-checkbox">
+                      <p-checkbox [formControl]="form['CashSale']" [binary]="true"></p-checkbox>
+                      Cash Sale
+                    </div>
+
+                  </div>
+                  <div class='col-sm-2 mb-3'>
+                    <div class="field-checkbox">
+                      <p-checkbox [formControl]="form['WholeSale']" [binary]="true"></p-checkbox>
+                      Wholesale
+                    </div>
+                  </div>
+                  <div class='col-sm-2 mb-3'>
+                    <div class="field-checkbox">
+                      <p-checkbox [formControl]="form['InterState']" [binary]="true"></p-checkbox>
+                      Inter State
+                    </div>
+                  </div>
+
+
+
+                  <div class="mb-2 col-sm-7 position-relative">
+                    <div class="input-group ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Party Name :</span>
+                      </div>
+                      <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                        formControlName="PartyID" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.PartyID.errors}">
+
+                      <div *ngIf="submit && form.PartyID.errors" class="invalid-feedback">
+                        <span *ngIf="form.PartyID.errors.required">Please enter a unique and valid PartyID.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-2 col-sm-5 position-relative">
+                    <div class="input-group ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Party Inv No :</span>
+                      </div>
+                      <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                        formControlName="PartyInvNo" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.PartyInvNo.errors}">
+
+                      <div *ngIf="submit && form.PartyInvNo.errors" class="invalid-feedback">
+                        <span *ngIf="form.PartyInvNo.errors.required">Please enter a unique and valid PartyInvNo.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-2 col-sm-7 position-relative">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="form-group">
+                          <span for="exampleFormControlTextarea1" class="input-group-text "
+                            id="validationTooltipUsernamePrepend">Address</span>
+
+                        </div>
+                      </div>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" type="text" tabIndex="2"
+                        class="form-control" id="validationTooltipUsername" formControlName="Address" placeholder=""
+                        aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.Address.errors}"></textarea>
+
+                      <div *ngIf="submit && form.Address.errors" class="invalid-feedback">
+                        <span *ngIf="form.Address.errors.required">Please enter a valid Address.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-2 col-sm-5 position-relative">
+                    <div class="input-group ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Sale Date :</span>
+                      </div>
+                      <input type="date" tabIndex="2" class="form-control" id="validationTooltipUsername"
+                        formControlName="SaleDt" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.SaleDt.errors}">
+
+                      <div *ngIf="submit && form.SaleDt.errors" class="invalid-feedback">
+                        <span *ngIf="form.SaleDt.errors.required">Please enter a unique and valid
+                          Received Date.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-2 col-sm-7 position-relative">
+                    <div class="input-group ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Sales A/C :</span>
+                      </div>
+                      <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                        formControlName="SaleAc" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.SaleAc.errors}">
+
+                      <div *ngIf="submit && form.SaleAc.errors" class="invalid-feedback">
+                        <span *ngIf="form.SaleAc.errors.required">Please enter a unique and valid SaleAc.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-2 col-sm-5 position-relative">
+                    <div class="input-group ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Prod No :</span>
+                      </div>
+                      <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                        formControlName="ProdNo" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.ProdNo.errors}">
+
+                      <div *ngIf="submit && form.ProdNo.errors" class="invalid-feedback">
+                        <span *ngIf="form.ProdNo.errors.required">Please enter a unique and valid ProdNo.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-2 col-sm-7 position-relative">
+                    <div class="input-group ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Approval Slip No :</span>
+                      </div>
+                      <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                        formControlName="ApprovalSlipNo" placeholder=""
+                        aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.ApprovalSlipNo.errors}">
+
+                      <div *ngIf="submit && form.ApprovalSlipNo.errors" class="invalid-feedback">
+                        <span *ngIf="form.ApprovalSlipNo.errors.required">Please enter a unique and valid
+                          ApprovalSlipNo.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-2 col-sm-5 position-relative">
+                    <div class="input-group ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Pay Terms :</span>
+                      </div>
+                      <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                        formControlName="PayTerms" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.PayTerms.errors}">
+
+                      <div *ngIf="submit && form.PayTerms.errors" class="invalid-feedback">
+                        <span *ngIf="form.PayTerms.errors.required">Please enter a unique and valid PayTerms</span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="mb-3 col-sm-5 position-relative"></div>
+
+
+                </div>
+              </div>
+
+
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="row">
+
+                  <div class="mb-3 col-sm-8 position-relative">
+                    <div class="card-body">
+
+                      <p-table id="myTable" [scrollable]="true" scrollHeight="100px" scrollDirection="both"
+                        styleClass="table-panel" [rows]="10" [paginator]="false"
+                        [globalFilterFields]="['name','country.name','representative.name','status']"
+                        responsiveLayout="scroll" [rowHover]="true" dataKey="SlNo"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                        [showCurrentPageReport]="true">
+                        <ng-template pTemplate="header">
+                          <tr>
+
+                            <th style="width:50%" pSortableColumn="SrNo">Product<p-sortIcon field="SrNo">
+                              </p-sortIcon>
+                            </th>
+                            <th style="width:50%" pSortableColumn="HSNCode">Count<p-sortIcon field="HSNCode">
+                              </p-sortIcon>
+                            </th>
+
+                          </tr>
+                        </ng-template>
+
+                        <ng-template pTemplate="body" let-product let-controls let-i="rowIndex">
+                          <tr>
+
+                            <!-- <td style="width:50%">{{product.Product}}</td>
+                            <td style="width:50%">{{product.Count}}</td> -->
+                          </tr>
+                        </ng-template>
+                      </p-table>
+                    </div>
+                  </div>
+                  <div class="mb-3 col-sm-4 position-relative justify-content-right">
+
+                    <div class="card-body">
+                      <p-image [src]="" [alt]="" width="200" height="200" [preview]="true"></p-image>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+
+
+              <div class="mb-2 col-sm-7 position-relative">
+                <b>Raw Material (Packet)</b>
+              </div>
+              <!-- <div class="mb-2 col-sm-5 position-relative"></div> -->
+
+              <div formArrayName="usersDetails">
+                <p-table [value]="usersDetails.controls" [scrollable]="true" styleClass="table-panel"
+                  scrollDirection="both" [(selection)]="selectedUsers">
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th style="width:5%">
+                      </th>
+
+                      <th style="width:12%"> Packet Id</th>
+                      <th style="width:15%"> Packet Description</th>
+                      <th style="width:10%"> Unit</th>
+                      <th style="width:10%"> Weight</th>
+                      <th style="width:10%"> Pcs</th>
+                      <th style="width:12%"> Rate</th>
+                      <th style="width:12%"> Amount</th>
+                      <th style="width:12%"> Sale Rate</th>
+
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-controls let-i="rowIndex">
+                    <tr style="margin-top:10px ;margin-bottom: 10px;" [formGroupName]="i">
+                      <td style="width:5%">
+                        <p-tableCheckbox [value]="i+1"></p-tableCheckbox>
+                        <input style="width: 110px" type="hidden" formControlName="SlNo" pInputText
+                          class="p-inputtext-sm" />
+                      </td>
+
+                      <td style="width:12%">
+                        <!-- <input style="width: 200px;" type="text" formControlName="ItemDescription"
+                            pInputText class="p-inputtext-sm" /> -->
+                        <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Pkt"
+                          formControlName="PacketID" class="p-inputtext-sm" [options]="packetData"
+                          optionLabel="ItemName" optionValue="SItemCode" appendTo="body"
+                          [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                      </td>
+
+                      <td style="width:15%;"><input type="text" style="width:140px" formControlName="PktDesc" pInputText
+                          class="p-inputtext-sm" />
+                      </td>
+                      <td style="width:10%;">
+                        <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Item"
+                          formControlName="UnitID" class="p-inputtext-sm" [options]="unitData" optionLabel="ShortName"
+                          optionValue="UnitID" appendTo="body"
+                          [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                      </td>
+                      <td style="width:10%;"><input type="text" style="width:120px" formControlName="Weight" pInputText
+                          class="p-inputtext-sm" /></td>
+                      <td style="width:10%;"><input type="text" style="width:120px" formControlName="Pcs" pInputText
+                          class="p-inputtext-sm" /></td>
+                      <td style="width:12%;"><input type="text" style="width:120px" formControlName="Rate" pInputText
+                          class="p-inputtext-sm" /></td>
+                      <td style="width:12%;"><input type="text" style="width:120px" formControlName="Amt" pInputText
+                          class="p-inputtext-sm" /></td>
+                      <td style="width:12%;"><input type="text" style="width:120px" formControlName="SaleAmt" pInputText
+                          class="p-inputtext-sm" /></td>
+
+
+                    </tr>
+
+                  </ng-template>
+                </p-table>
+              </div>
+
+              <div class="d-flex justify-content-end flex-wrap gap-2 mt-2">
+
+                <button type="button" style="height: 30px ;" pButton pRipple [label]="'Delete'" icon="pi pi-trash"
+                  class="p-button-danger mr-2" (click)="onDelete()"
+                  [disabled]="usersDetails.controls.length === 1"></button>&nbsp;
+                <button type="button" style="height: 30px ;" pButton pRipple label="New" icon="pi pi-plus"
+                  class="p-button-success mr-1" (click)="onAdd()"></button>
+
+
+
+              </div>
+              <p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+            </div>
+
+
+            <div class="row">
+              <div class="col-sm-12 position-relative">
+                <div class="card-body">
+                  <div class="row">
+
+                    <div class="mb-2 col-sm-4 position-relative"></div>
+                    <div class="mb-2 col-sm-8 position-relative">
+                      <b>Raw Material (Non-Packet)</b>
+                    </div>
+                    <!-- <div class="mb-2 col-sm-5 position-relative"></div> -->
+
+                    <div formArrayName="usersData">
+                      <p-table [value]="usersData.controls" [scrollable]="true" styleClass="table-panel"
+                        scrollDirection="both" [(selection)]="selectUsers">
+                        <ng-template pTemplate="header">
+                          <tr>
+                            <th style="width:5%">
+                            </th>
+
+                            <th style="width:17%"> Item Description</th>
+                            <th style="width:12%"> Unit</th>
+                            <th style="width:10%"> Weight</th>
+                            <th style="width:10%"> Purity</th>
+                            <th style="width:10%"> Pcs</th>
+                            <th style="width:12%"> Rate</th>
+                            <th style="width:12%"> Amount</th>
+                            <th style="width:12%"> Sale Rate</th>
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-controls let-i="rowIndex">
+                          <tr style="margin-top:10px ;margin-bottom: 10px;" [formGroupName]="i">
+                            <td style="width:5%">
+                              <p-tableCheckbox [value]="i+1"></p-tableCheckbox>
+                              <input style="width: 110px" type="hidden" formControlName="SlNo" pInputText
+                                class="p-inputtext-sm" />
+                            </td>
+
+                            <td style="width:17%">
+                              <!-- <input style="width: 180px;" type="text"
+                                  formControlName="ItemDescription" pInputText class="p-inputtext-sm" /> -->
+                              <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Item"
+                                formControlName="ItemDesc" class="p-inputtext-sm" [options]="subItemData"
+                                optionLabel="ItemName" optionValue="SItemCode" appendTo="body"
+                                [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                            </td>
+                            <td style="width:12%;">
+                              <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Item"
+                                formControlName="UnitID" class="p-inputtext-sm" [options]="unitData"
+                                optionLabel="ShortName" optionValue="UnitID" appendTo="body"
+                                [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                            </td>
+
+                            <td style="width:10%;"><input type="text" style="width:110px" formControlName="Weight"
+                                pInputText class="p-inputtext-sm" /></td>
+                            <td style="width:10%;"><input type="text" style="width:110px" formControlName="Purity"
+                                pInputText class="p-inputtext-sm" /></td>
+                            <td style="width:10%;"><input type="text" style="width:110px" formControlName="Pcs"
+                                pInputText class="p-inputtext-sm" /></td>
+                            <td style="width:12%;"><input type="text" style="width:110px" formControlName="Rate"
+                                pInputText class="p-inputtext-sm" /></td>
+                            <td style="width:12%;"><input type="text" style="width:110px" formControlName="Amt"
+                                pInputText class="p-inputtext-sm" /></td>
+                            <td style="width:12%;"><input type="text" style="width:110px" formControlName="SaleAmt"
+                                pInputText class="p-inputtext-sm" /></td>
+
+                          </tr>
+
+                        </ng-template>
+                      </p-table>
+                    </div>
+
+                    <div class="d-flex justify-content-end flex-wrap gap-2 mt-2">
+
+                      <button type="button" style="height: 30px ;" pButton pRipple [label]="'Delete'" icon="pi pi-trash"
+                        class="p-button-danger mr-2" (click)="OnDelete()"
+                        [disabled]="usersData.controls.length === 1"></button>&nbsp;
+                      <button type="button" style="height: 30px ;" pButton pRipple label="New" icon="pi pi-plus"
+                        class="p-button-success mr-1" (click)="OnAdd()"></button>
+
+
+
+                    </div>
+                    <p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row mt-3">
+                <div class="col-sm-4">
+
+                  <div class="table-responsive">
+                    <table class="table">
+
+                      <tbody>
+
+
+
+                        <tr>
+                          <td class="border-0 text-start">
+                            <strong>Gross Wt. : </strong>
+                          </td>
+                          <td class="border-0 text-middle text-danger"> <strong> {{Gross_wt}} </strong></td>
+                        </tr>
+                        <tr>
+                          <td class="border-0 text-start">
+                            <strong>Diamond Wt. : </strong>
+                          </td>
+                          <td class="border-0 text-middle text-danger"> <strong> {{Diamond_wt}}</strong></td>
+                        </tr>
+                        <tr>
+                          <td class="border-0 text-start">
+                            <strong>Stone Wt. : </strong>
+                          </td>
+                          <td class="border-0 text-middle text-danger"> <strong>$13.00</strong></td>
+                        </tr>
+                        <tr>
+                          <td class="border-0 text-start">
+                            <strong>Net Wt. : </strong>
+                          </td>
+                          <td class="border-0 text-middle text-danger"> <strong> {{Net_wt}} </strong></td>
+                        </tr>
+                        <!-- <tr>
+                          <td class="border-0 text-start">
+                            <strong>Total Value. : </strong>
+                          </td>
+                          <td class="border-0 text-middle text-danger"> <strong> {{Making}} </strong></td>
+                        </tr> -->
+                      </tbody>
+                    </table>
+                  </div>
+
+                </div>
+
+
+                <div class="col-sm-8">
+                  <div class="row">
+                    <div class="mb-2 col-sm-5 position-relative">
+                      <div class="input-group ">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="validationTooltipUsernamePrepend">Gross Amt:</span>
+                        </div>
+                        <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                          formControlName="GrossAmt" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                          [ngClass]="{'is-invalid': submit && form.GrossAmt.errors}">
+
+                        <div *ngIf="submit && form.GrossAmt.errors" class="invalid-feedback">
+                          <span *ngIf="form.GrossAmt.errors.required">Please enter a unique and valid GrossAmt.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-2 col-sm-5 position-relative">
+                      <div class="input-group ">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="validationTooltipUsernamePrepend">Parcel charges:</span>
+                        </div>
+                        <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                          formControlName="ParcelCharges" placeholder=""
+                          aria-describedby="validationTooltipUsernamePrepend"
+                          [ngClass]="{'is-invalid': submit && form.ParcelCharges.errors}">
+
+                        <div *ngIf="submit && form.ParcelCharges.errors" class="invalid-feedback">
+                          <span *ngIf="form.ParcelCharges.errors.required">Please enter a unique and valid
+                            ParcelCharges.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-2 col-sm-5 position-relative">
+                      <div class="input-group ">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="validationTooltipUsernamePrepend">Certi charges:</span>
+                        </div>
+                        <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                          formControlName="CertiCharges" placeholder=""
+                          aria-describedby="validationTooltipUsernamePrepend"
+                          [ngClass]="{'is-invalid': submit && form.CertiCharges.errors}">
+
+                        <div *ngIf="submit && form.CertiCharges.errors" class="invalid-feedback">
+                          <span *ngIf="form.CertiCharges.errors.required">Please enter a unique and valid
+                            CertiCharges.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-2 col-sm-5 position-relative">
+                      <div class="input-group ">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="validationTooltipUsernamePrepend">Net Amt:</span>
+                        </div>
+                        <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                          formControlName="NetAmt" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                          [ngClass]="{'is-invalid': submit && form.NetAmt.errors}">
+
+                        <div *ngIf="submit && form.NetAmt.errors" class="invalid-feedback">
+                          <span *ngIf="form.NetAmt.errors.required">Please enter a unique and valid NetAmt.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-2 col-sm-10 position-relative">
+                      <div class="input-group ">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="validationTooltipUsernamePrepend">Narration:</span>
+                        </div>
+                        <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                          formControlName="Narr" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                          [ngClass]="{'is-invalid': submit && form.Narr.errors}">
+
+                        <div *ngIf="submit && form.Narr.errors" class="invalid-feedback">
+                          <span *ngIf="form.Narr.errors.required">Please enter a unique and valid InvoiceNo.</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-2 col-sm-2 position-relative"></div>
+                    <div class='col-sm-2 mb-1'>
+                      <label for='MakingPerPcs'>Making Pcs </label>
+                      <input #myinput uppercase pInputText class="p-inputtext-sm form-control"
+                        placeholder='Enter Prod No' maxlength="50" type='text' name='MakingPerPcs' autocomplete='off'
+                        formControlName='MakingPerPcs'tabIndex="10"
+                        [ngClass]="{ 'is-invalid': (submit || formData.get('MakingPerPcs').dirty || formData.get('MakingPerPcs').touched) && form.MakingPerPcs.errors}" />
+                      <div
+                        *ngIf="(submit || formData.get('MakingPerPcs').dirty || formData.get('MakingPerPcs').touched) && form.MakingPerPcs.errors"
+                        class='invalid-feedback'>
+                        <span *ngIf='form.MakingPerPcs.errors.required'>MakingPerPcs is required.</span>
+                      </div>
+                    </div>
+                    <div class='col-sm-2 mb-1'>
+                      <label for='MakingPerRate'>Making Rate </label>
+                      <input #myinput uppercase pInputText class="p-inputtext-sm form-control" placeholder=''
+                        maxlength="50" type='text' name='MakingPerRate' autocomplete='off'
+                        formControlName='MakingPerRate' tabIndex="11"
+                        [ngClass]="{ 'is-invalid': (submit || formData.get('MakingPerRate').dirty || formData.get('MakingPerRate').touched) && form.MakingPerRate.errors}" />
+                      <div
+                        *ngIf="(submit || formData.get('MakingPerRate').dirty || formData.get('MakingPerRate').touched) && form.MakingPerRate.errors"
+                        class='invalid-feedback'>
+                        <span *ngIf='form.MakingPerRate.errors.required'>MakingPerRate is required.</span>
+                      </div>
+                    </div>
+                    <div class='col-sm-2 mb-1'>
+                      <label for='Making'>Making </label>
+                      <input #myinput uppercase pInputText class="p-inputtext-sm form-control" placeholder=''
+                        maxlength="50" type='text' name='Making' autocomplete='off' formControlName='Making'
+                        [ngClass]="{ 'is-invalid': (submit || formData.get('Making').dirty || formData.get('Making').touched) && form.Making.errors}" />
+                      <div
+                        *ngIf="(submit || formData.get('Making').dirty || formData.get('Making').touched) && form.Making.errors"
+                        class='invalid-feedback'>
+                        <span *ngIf='form.Making.errors.required'>Making is required.</span>
+                      </div>
+                    </div>
+
+                    <div class='col-sm-2 mb-1'>
+                      <label for='kundanMaking'> Kundan Making </label>
+                      <input #myinput uppercase pInputText class="p-inputtext-sm form-control" placeholder=''
+                        maxlength="50" type='text' name='kundanMaking' autocomplete='off' formControlName='kundanMaking'
+                        [ngClass]="{ 'is-invalid': (submit || formData.get('kundanMaking').dirty || formData.get('kundanMaking').touched) && form.kundanMaking.errors}" />
+                      <div
+                        *ngIf="(submit || formData.get('kundanMaking').dirty || formData.get('kundanMaking').touched) && form.kundanMaking.errors"
+                        class='invalid-feedback'>
+                        <span *ngIf='form.kundanMaking.errors.required'>kundanMaking is required.</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="btn btn-secondary">Cancel</button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

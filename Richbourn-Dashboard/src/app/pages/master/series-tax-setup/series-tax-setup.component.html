@@ -1,0 +1,179 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="SERIES WISE TAX SETUP" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+
+          <form >
+            <div class="row">
+              <div class="mb-2 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">Doc Type </span>
+                  </div>
+                  <p-dropdown [filter]="true"  placeholder="&nbsp;&nbsp;&nbsp;&nbsp; Select DocType  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;"
+                  [(ngModel)]="selectDoctype" class="p-inputtext-sm" [options]="docTypeData"
+                  optionLabel="DocType" optionValue="DocType" appendTo="body" (onChange)="onChangeDoc($event)"
+                  [style]="{'height':'38px','align-items': 'center'}"></p-dropdown>
+                  <!-- <p-autoComplete tabIndex="2" [(ngModel)]="selectDoctype" pInputText class="p-inputtext-sm" [style]="{'height':'36px','width':'100%'}"
+                    [suggestions]="docTypeData" (completeMethod)="_fetchDoctype($event)" 
+                    [dropdown]="true" field="DocType">
+                    <ng-template let-employee pTemplate="item">
+                      {{employee.DocType}}
+                    </ng-template>
+                    <ng-template let-employee pTemplate="selectedItem">
+                      {{employee.DocType}}
+                    </ng-template>
+                  </p-autoComplete> -->
+                  
+                </div>
+              </div>
+              <div class="mb-2 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Series Name</span>
+                  </div>
+                  <p-dropdown [filter]="true"  placeholder="&nbsp;&nbsp;&nbsp;&nbsp; Select Series Name  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;"
+                  [(ngModel)]="selectSeries" class="p-inputtext-sm" [options]="txtItem"
+                  optionLabel="ShortName" optionValue="SlNo" appendTo="body" (onChange)="selectTax($event)"
+                  [style]="{'height':'38px','align-items': 'center'}"></p-dropdown>
+                       <!-- <p-autoComplete pInputText class="p-inputtext-sm"  [style]="{'height':'36px','width':'100%'}"
+                    tabIndex="3" [suggestions]="txtItem" [(ngModel)]="selectSeries"  (completeMethod)="_fetchTax($event)" (onSelect)="selectTax($event)"
+                    [dropdown]="true" field="ShortName">
+                    <ng-template let-employee pTemplate="item">
+                      {{employee.ShortName}}
+                    </ng-template>
+                    <ng-template let-employee pTemplate="selectedItem">
+                      {{employee.ShortName}}
+                    </ng-template>
+                  </p-autoComplete>
+                  -->
+                </div>
+              </div>
+              <div class="mb-2 col-sm-2 position-relative">
+                <button type="button" class="btn btn-success" (click)="showData()">Show</button>
+              </div>
+              <div class="mb-2 col-sm-2 position-relative bd-highlight" [style]="{'display': 'inline-flex', 'height':'50px'}">
+                <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2"
+                    (click)="openNew()"></button>
+            </div>
+            </div>
+
+          </form>
+              <div class="row">
+
+                <div >
+                  <p-table id="myTable" [scrollable]="true" scrollHeight="400px" scrollDirection="both"
+                  styleClass="table-panel" #dt [value]="items" [rows]="10" [paginator]="false"
+                  [globalFilterFields]="['name','country.name','representative.name','status']"
+                  responsiveLayout="scroll" [(selection)]="selectedItems" [rowHover]="true" dataKey="SlNo"
+                  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                  [showCurrentPageReport]="true">
+                  <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th pSortableColumn="SlNo" style="width: 200px">Sl No.<p-sortIcon field="SlNo">
+                            </p-sortIcon>
+                        </th>
+                        <th style="width: 200px" pSortableColumn="HsnCode">Hsn Code<p-sortIcon
+                                field="HsnCode">
+                            </p-sortIcon>
+                        </th>
+                        <th style="width:200px" pSortableColumn="PartyID">Sales Ledger Name<p-sortIcon field="PartyID">
+                            </p-sortIcon>
+                        </th>
+
+                        <th style="width:200px" pSortableColumn="PartyBillNo">Tax 1(%)<p-sortIcon
+                                field="PartyBillNo"></p-sortIcon>
+                        </th>
+                        <th style="width: 200px" pSortableColumn="ReceivedDate">Tax Ledger Name<p-sortIcon
+                                field="ReceivedDate">
+                            </p-sortIcon>
+                        </th>
+                        <th style="width:200px" pSortableColumn="BillDate">Tax 2(%)<p-sortIcon
+                                field="BillDate"></p-sortIcon>
+                        </th>
+                        <th style="width:200px" pSortableColumn="DueDate">Tax Ledger Name<p-sortIcon
+                                field="DueDate"></p-sortIcon>
+                        </th>
+
+
+
+                        <th style="width:200px" alignFrozen="right" pFrozenColumn>Action
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product let-i="rowIndex">
+                    <tr>
+                        <td style="width: 3rem">
+                            <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                        </td>
+
+                        <td style="width:200px">{{i+1}}</td>
+                        <td style="width:200px">{{product.HSNCode}}</td>
+                        <td style="width:200px">{{product.DueDate}}</td>
+                        <td style="width:200px">{{product.TaxPer1}}</td>
+                        <td style="width:200px">{{product.TaxAc1Name}}</td>
+                        <td style="width:200px">{{product.TaxPer2}}</td>
+                        <td style="width:200px">{{product.TaxAc2Name}}</td>
+                    
+                     
+
+
+                    
+                        <td [style]="{'display': 'inline-flex'}" alignFrozen="right" pFrozenColumn>
+                            <button pButton pRipple icon="pi pi-pencil"
+                                class="p-button-rounded p-button-success mr-2"
+                                (click)="editProduct(product)"></button>
+                            &nbsp;
+                            <button pButton pRipple icon="pi pi-trash"
+                                class="p-button-rounded p-button-warning"
+                                (click)="deleteProduct(product)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <div class="d-flex justify-content-between align-items-center  custom-footer">
+                        <div class="bd-highlight">
+                            Showinng {{pageSize*(page-1)}} to
+                            {{(pageSize*page)>totalRecords?totalRecords:pageSize*page}} of {{totalRecords}}
+                            entries
+                        </div>
+
+                        <div class="bd-highlight" alignFrozen="right" pFrozenColumn>
+                            <p-paginator styleClass="custom-paginator" [rows]="pageSize"
+                                [totalRecords]="totalRecords" (onPageChange)="handlePagination($event)">
+                            </p-paginator>
+                        </div>
+                    </div>
+                </ng-template>
+                   
+                  </p-table>
+                </div>
+
+               
+                <p-toast [style]="{marginTop: '80px'}"></p-toast>
+                <div>
+                </div>
+              </div>
+
+
+             
+           
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

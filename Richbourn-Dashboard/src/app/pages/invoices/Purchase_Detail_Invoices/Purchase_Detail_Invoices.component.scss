@@ -1,0 +1,28 @@
+.container-fluid{
+     background-color: #fff;
+}
+table {
+     border:none;
+     border-collapse: collapse;
+ }
+
+ 
+ table td {
+     border-left: 1px solid #000;
+     border-right: 1px solid #000;
+ }
+ table th {
+     border-left: 1px solid #000;
+     border-right: 1px solid #000;
+ }
+ 
+ table td:first-child {
+     border-left: none;
+ }
+ 
+ table td:last-child {
+     border-right: none;
+ }
+ .billAdd{
+    border-right: 1px solid #000;
+ }

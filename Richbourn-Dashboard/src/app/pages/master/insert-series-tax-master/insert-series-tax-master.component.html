@@ -1,0 +1,164 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" PRODUCT SERIES MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+           <h4 class="card-title"> Doctype  : {{selectedDoc}} </h4>
+           <h4 class="card-title"> Series Name : {{seriesname}}</h4>
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+         
+              <div class="mb-2 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">HSN Code</span>
+                  </div>
+                  <input type="text" tabIndex="4" class="form-control" id="validationTooltipUsername"
+                    formControlName="HSNCode" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.HSNCode.errors}">
+
+                  <div *ngIf="submit && form.HSNCode.errors" class="invalid-feedback">
+                    <span *ngIf="form.HSNCode.errors.required">Please enter a valid Discount.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-2 col-sm-9 position-relative"></div>
+
+              <div class="mb-2 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">TaxPer1</span>
+                  </div>
+                  <input type="text" tabIndex="4" class="form-control" id="validationTooltipUsername"
+                    formControlName="TaxPer1" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.TaxPer1.errors}">
+
+                  <div *ngIf="submit && form.TaxPer1.errors" class="invalid-feedback">
+                    <span *ngIf="form.TaxPer1.errors.required">Please enter a valid Discount.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-2 col-sm-9 position-relative"></div>
+              <div class="mb-2 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">TaxPer2</span>
+                  </div>
+                  <input type="text" tabIndex="4" class="form-control" id="validationTooltipUsername"
+                    formControlName="TaxPer2" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.TaxPer2.errors}">
+
+                  <div *ngIf="submit && form.TaxPer2.errors" class="invalid-feedback">
+                    <span *ngIf="form.TaxPer2.errors.required">Please enter a valid Discount.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-2 col-sm-9 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">TaxAc1</span>
+                  </div>
+
+                  <p-autoComplete tabIndex="2" pInputText class="p-inputtext-sm"  [style]="{'height':'36px'}"
+                  formControlName="TaxAc1" [suggestions]="taxAcData"  (completeMethod)="_fetchTaxAccount($event)"
+                  [dropdown]="true" field="GLName">
+                  <ng-template let-employee pTemplate="item">
+                    {{employee.GLName}}
+                  </ng-template>
+                  <ng-template let-employee pTemplate="selectedItem">
+                    {{employee.GLName}}
+                  </ng-template>
+                </p-autoComplete>
+                <div *ngIf="submit && form.TaxAc1.errors" class="invalid-feedback">
+                    <span *ngIf="form.TaxAc1.errors.required">Please enter a valid TaxAc1 .</span>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+            
+            
+            
+            
+            
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">TaxAc2</span>
+                  </div>
+
+                  <p-autoComplete tabIndex="2" pInputText class="p-inputtext-sm"  [style]="{'height':'36px'}"
+                  formControlName="TaxAc2" [suggestions]="taxAcData"  (completeMethod)="_fetchTaxAccount($event)"
+                  [dropdown]="true" field="GLName">
+                  <ng-template let-employee pTemplate="item">
+                    {{employee.GLName}}
+                  </ng-template>
+                  <ng-template let-employee pTemplate="selectedItem">
+                    {{employee.GLName}}
+                  </ng-template>
+                </p-autoComplete>
+                <div *ngIf="submit && form.TaxAc2.errors" class="invalid-feedback">
+                    <span *ngIf="form.TaxAc2.errors.required">Please enter a valid Cash Series .</span>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+             
+            
+            
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">SaleAc</span>
+                  </div>
+
+                  <p-autoComplete tabIndex="2" pInputText class="p-inputtext-sm"  [style]="{'height':'36px'}"
+                  formControlName="SaleAc" [suggestions]="taxAcData"  (completeMethod)="_fetchTaxAccount($event)"
+                  [dropdown]="true" field="GLName">
+                  <ng-template let-employee pTemplate="item">
+                    {{employee.GLName}}
+                  </ng-template>
+                  <ng-template let-employee pTemplate="selectedItem">
+                    {{employee.GLName}}
+                  </ng-template>
+                </p-autoComplete>
+                <div *ngIf="submit && form.SaleAc.errors" class="invalid-feedback">
+                    <span *ngIf="form.SaleAc.errors.required">Please enter a valid Cash Series .</span>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+             
+            
+
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button tabIndex="6" type="submit" class="btn btn-primary">Save Changes</button>
+                <button tabIndex="7" type="button" (click)="Close()" class="btn btn-secondary">Cancel</button>
+               
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

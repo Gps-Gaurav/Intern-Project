@@ -1,0 +1,70 @@
+<footer class="ps-footer ps-footer--3 ps-footer--4">
+    <div class="container">
+        <div class="ps-footer__category">
+            <div class="row">
+         
+                <div class="col-12 col-md-8">
+                    <div class="ps-footer--widget">
+                      
+                            <div class="mega-menu__row">
+                               
+                                <div class="mega-menu__column column-flex" *ngFor="let item of categoryMenuData | keyvalue">
+                                    <h4>{{item.key}} </h4>
+                                    <ul class="sub-menu--mega sub-column--2">
+
+                                    <li *ngFor="let data of item.value"><a [routerLink]="data.slug" >{{data.name}}</a></li>
+                                
+                                    </ul>
+                                </div>
+                               
+                            </div>
+                       
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="ps-footer--widget">
+                        <h6 class="ps-footer__title">Menu</h6>
+                        <ul class="ps-footer__account column-count">
+
+                            <li><a href="#">Newsletter</a></li>
+                            <li><a href="#">Affiliate</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Special</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ps-footer--bottom">
+            <div class="row">
+                <div class="col-12 col-md-9 col-lg-6">
+                    <p class="ps-footer__contact"> <a class="ps-footer__phone" href="tel:+8001234567890">(+91) 623 4567 890</a><a class="ps-footer__mail" href="mailto:info@company.com">info@company.com</a></p>
+                    <div class="ps-footer__copyright">Copyright © 2023, Your Store. All Rights Reserved.
+                        <ul class="ps-social">
+                            <li><a class="ps-social__link facebook" href="#"><i class="fa fa-facebook"> </i><span class="ps-tooltip">Facebook</span></a></li>
+                            <li><a class="ps-social__link instagram" href="#"><i class="fa fa-instagram"></i><span class="ps-tooltip">Instagram</span></a></li>
+                            <li><a class="ps-social__link youtube" href="#"><i class="fa fa-youtube-play"></i><span class="ps-tooltip">Youtube</span></a></li>
+                            <li><a class="ps-social__link linkedin" href="#"><i class="fa fa-linkedin"></i><span class="ps-tooltip">Linkedin</span></a></li>
+                        </ul>
+                    </div><img src="img/payment.png" alt=""><img class="img-white" src="img/payment-white.png" alt="">
+                </div>
+                <div class="col-12 col-md-3 col-lg-6">
+                    <div class="ps-language-currency">
+                        <select class="ps-single-no-search select2-hidden-accessible" name="state" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                            <option value="en" data-select2-id="9">EN</option>
+                            <option value="fr">FR</option>
+                        </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="8" style="width: 46px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-state-tb-container"><span class="select2-selection__rendered" id="select2-state-tb-container" role="textbox" aria-readonly="true" title="EN">EN</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                        <select class="ps-single-no-search select2-hidden-accessible" name="state" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                            <option value="usd" data-select2-id="12">USD</option>
+                            <option value="eur">EUR</option>
+                        </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="11" style="width: 54px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-state-h4-container"><span class="select2-selection__rendered" id="select2-state-h4-container" role="textbox" aria-readonly="true" title="USD">USD</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

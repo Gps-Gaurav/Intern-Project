@@ -1,0 +1,110 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" ITEM GROUP MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Item Name :</span>
+                  </div>
+                  <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                    formControlName="ItemName" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.ItemName.errors}">
+
+                  <div *ngIf="submit && form.ItemName.errors" class="invalid-feedback">
+                    <span *ngIf="form.ItemName.errors.required">Please enter a Item Name.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Item Type:</span>
+                  </div>
+                  <p-autoComplete pInputText class="p-inputtext-sm"  [style]="{'height':'36px'}"
+                  formControlName="ItemType" [suggestions]="filtereditemtype"  (completeMethod)="_fetchItemType($event)"
+                  [dropdown]="true" field="name">
+                  <ng-template let-employee pTemplate="item">
+                    {{employee.name}}
+                  </ng-template>
+                  <ng-template let-employee pTemplate="selectedItem">
+                    {{employee.name}}
+                  </ng-template>
+                </p-autoComplete>
+                
+                
+                <!-- <p-dropdown [style]="{'width': '100%','height':'36px'}" formControlName="ItemType"
+                    [options]="itemtype"  optionLabel="name" optionValue="code"></p-dropdown> -->
+
+                  <!-- <input type="text" tabIndex="2" class="form-control" id="validationTooltipUsername"
+                    formControlName="ItemType" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.ItemType.errors}"> -->
+
+
+                  <div *ngIf="submit && form.ItemType.errors" class="invalid-feedback">
+                    <span *ngIf="form.ItemType.errors.required">Please enter a valid Item Type.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Base Unit:</span>
+                  </div>
+                  <!-- <input type="text" tabIndex="3" class="form-control" id="validationTooltipUsername"
+                    formControlName="BaseUnit" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.BaseUnit.errors}"> -->
+                    <p-autoComplete pInputText class="p-inputtext-sm"  [style]="{'height':'36px'}"
+                    formControlName="BaseUnit" [suggestions]="unitData"
+                    (completeMethod)="_fetchUnit($event)" [dropdown]="true" field="Description">
+                    <ng-template let-employee pTemplate="item">
+                      {{employee.Description}}
+                    </ng-template>
+                    <ng-template let-employee pTemplate="selectedItem">
+                      {{employee.Description}}
+                    </ng-template>
+                  </p-autoComplete>
+                  <div *ngIf="submit && form.BaseUnit.errors" class="invalid-feedback">
+                    <span *ngIf="form.BaseUnit.errors.required">Please enter a valid Base Unit.</span>
+                  </div>
+                </div>
+              </div>
+              
+
+             
+
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="btn btn-secondary">Cancel</button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+    <!-- end row -->
+
+  </div> <!-- container-fluid -->

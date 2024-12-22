@@ -1,0 +1,131 @@
+<p-toast></p-toast>
+
+
+<div class="container-fluid">
+    <app-page-title title="PRODUCT CATEGORY" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row mb-2">
+                  <div class="col-sm-3">
+                    <div class="search-box me-2 mb-2 d-inline-block">
+                      <div class="position-relative">
+                        <span [style]="{'display': 'inline-flex'}" class="p-input-icon-left">
+                            <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger mr-2" (click)="deleteSelectedProducts()" [disabled]="!selectedItems || !selectedItems.length"></button>&nbsp;
+                            <input  class="form-control" pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-9">
+                    <div class="d-flex justify-content-between bd-highlight">
+                        <div class="p-2 bd-highlight"> 
+                          
+                        </div>
+                        
+                        <div class="p-2 bd-highlight">
+                            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                        </div>
+                      </div>
+                   
+                  </div>
+                  <!-- end col-->
+                </div>
+                <div class="table-responsive ">
+                    <p-table  [scrollable]="true" scrollHeight="400px" scrollDirection="both" id="myTable" styleClass="table-panel" #dt [value]="items" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
+                    [(selection)]="selectedItems" [rowHover]="true" dataKey="SlNo"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+
+            <ng-template pTemplate="header" >
+                <tr >
+                    <th style="width: 3rem" >
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th  style="width:175px" pSortableColumn="Sl.No">Sl.No.<p-sortIcon field="Sl.No"></p-sortIcon>
+                    </th>
+
+                    <th  style="width:175px"pSortableColumn="ProductName">Product Name<p-sortIcon field="ProductName"></p-sortIcon>
+                    </th>
+                   
+                 
+                    <th style="width:175px" pSortableColumn="ShortName">Short Name<p-sortIcon field="ShortName"></p-sortIcon>
+                    </th>
+
+                    <th  style="width:175px"pSortableColumn="SubItem">Sub Item<p-sortIcon field="SubItem"></p-sortIcon>
+                    </th>
+
+                    <th  style="width:175px"pSortableColumn="NoOfPcs">No.of Pcs<p-sortIcon field="NoOfPcs"></p-sortIcon>
+                    </th>
+
+                    <th style="width:175px" pSortableColumn="FullDescription">Full Description<p-sortIcon field="FullDescription"></p-sortIcon>
+                    </th>
+
+                    <th  style="width:175px"pSortableColumn="Making">Making(Per Gram)<p-sortIcon field="Making"></p-sortIcon>
+                    </th>
+
+                    <th  style="width:175px"pSortableColumn="StartingNo">Starting No.<p-sortIcon field="StartingNo"></p-sortIcon>
+                    </th>
+
+                    <th style="width:175px" pSortableColumn="HSNCode">HSN Code<p-sortIcon field="HSNCode"></p-sortIcon>
+                    </th>
+
+                    <th  style="width:175px"pSortableColumn="Unit">Unit<p-sortIcon field="Unit"></p-sortIcon>
+                    </th>
+
+                    <th style="width:175px" pSortableColumn="PrintGrossWt">Print Gross Wt<p-sortIcon field="PrintGrossWt"></p-sortIcon>
+                    </th>
+
+                    <th style="width:175px" pSortableColumn="CalculatePoints">Calculate Points<p-sortIcon field="CalculatePoints"></p-sortIcon>
+                    </th>
+
+                    <th style="width:175px" pSortableColumn="inventoryStatus">Status <p-sortIcon field="inventoryStatus"></p-sortIcon>
+                    </th> 
+                    
+                    <th styles="width=200px" alignFrozen="right" pFrozenColumn >Action </th>
+                </tr>
+            </ng-template>
+            
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>
+                        <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                   </td>
+                    <td style="width:175px">{{product.Sl.No}}</td>
+
+                    <td style="width:175px">{{product.ProductName}}</td>
+                    <td style="width:175px">{{product.ShortName}}</td>
+                    <td style="width:175px">{{product.SubItem}}</td>
+                    <td style="width:175px">{{product.NoOfPcs}}</td>
+                    <td style="width:175px">{{product.FullDescription}}</td>
+                    <td style="width:175px">{{product.Making}}</td>
+                    <td style="width:175px">{{product.StartingNo}}</td>
+                    <td style="width:175px">{{product.HSNCode}}</td>
+                    <td style="width:175px">{{product.Unit}}</td>
+                    <td style="width:175px">{{product.PrintGrossWt}}</td>
+                    <td style="width:175px">{{product.CalculatePoints}}</td>
+ 
+
+                    <td style="width:200px"><span [class]="'product-badge status-instock'">Active</span></td>
+                    <td style="width:200px">
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                            (click)="editProduct(product)"></button>
+                            &nbsp;
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                            (click)="deleteProduct(product)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between">
+                    In total there are {{items ? items.length : 0 }} products.
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+
+
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+</div>

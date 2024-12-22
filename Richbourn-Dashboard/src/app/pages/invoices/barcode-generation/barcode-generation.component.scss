@@ -1,0 +1,47 @@
+
+.table-grid .p-datatable-table {
+    .p-datatable-thead>tr>th {
+        background: #944655;
+        color: #fff;
+        height: 25px;
+        font-size: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .p-datatable-tbody>tr>td {
+        text-align: center;
+        height: 30px;
+        font-size: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .p-datatable-tbody>tr>td .p-button.p-button-icon-only.p-button-rounded {
+        border-radius: 10%;
+        height: 0rem;
+    }
+
+    .p-datatable-tfoot>tr>td {
+        background: #944655;
+        color: #fff;
+        height: 25px;
+        font-size: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
+.ng-autocomplete {
+    width:100%;
+    max-width: 350px;
+  }

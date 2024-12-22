@@ -1,0 +1,198 @@
+<p-toast></p-toast>
+<app-loader></app-loader>
+
+
+<div class="container-fluid">
+    <app-page-title title="PARTY MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col-sm-3">
+                      <div class="search-box me-2 mb-2 d-inline-block">
+                        <div class="position-relative">
+                          <span [style]="{'display': 'inline-flex', 'height':'35px'}"class="p-input-icon-left">
+                              <!-- <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger mr-2" (click)="deleteSelectedProducts()" [disabled]="!selectedItems || !selectedItems.length"></button>&nbsp;
+                              <input class="form-control" pInputText type="text" [(ngModel)]="term"
+                              (ngModelChange)='searchChanged.next($event)'
+                                  placeholder="Search..." /> -->
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-9">
+                      <div class="d-flex justify-content-between bd-highlight">
+                          <div class="p-2 bd-highlight"> 
+                              <p-autoComplete placeholder="Select Ledger Type"  tabIndex="4"class="form-control border-0 p-0" [style]="{'height':'36px','width':'400px'}"
+                              [suggestions]="docTypeData" (onSelect)="onSelect($event)"
+                              (completeMethod)="_fetchDoctype($event)" [(ngModel)]="doctype" [dropdown]="true" field="GLType">
+                              <ng-template let-employee pTemplate="item">
+                                {{employee.GLType}}
+                              </ng-template>
+                              <ng-template let-employee pTemplate="selectedItem">
+                                {{employee.GLType}}
+                              </ng-template>
+                            </p-autoComplete>
+                          </div>
+                          
+                          <div class="p-2 bd-highlight"[style]="{'display': 'inline-flex', 'height':'50px'}">
+                              <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                          </div>
+                        </div>
+                     
+                    </div>
+                    <!-- end col-->
+                  </div>
+                <div class="table-responsive">
+                    <p-table id="myTable" [scrollable]="true" scrollHeight="400px" scrollDirection="both"
+                    styleClass="table-panel p-datatable-gridlines" #dt [value]="items" [rows]="10" [paginator]="false"
+                    [globalFilterFields]="['name','country.name','representative.name','status']"
+                    responsiveLayout="scroll" [(selection)]="selectedItems" [rowHover]="true" dataKey="SlCode"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    [showCurrentPageReport]="true">
+                    <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3rem">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th  style="width:50px">Sl No.
+                    </th>
+                    <th  style="width:200px"pSortableColumn="Name ">Name <p-sortIcon field="Name"></p-sortIcon>
+                    </th>
+                    <th style="width:200px" pSortableColumn="Alias">Alias<p-sortIcon field="Alias"></p-sortIcon>
+                    </th>
+                    <th  style="width:200px"pSortableColumn="BillingAddress">Address<p-sortIcon field="BillingAddress"></p-sortIcon>
+                    </th>
+                    <th style="width:200px" pSortableColumn="City">City<p-sortIcon field="City"></p-sortIcon>
+                     </th>
+                    <th style="width:200px" pSortableColumn="ZipCode">Zip Code<p-sortIcon field="ZipCode"></p-sortIcon>
+                    </th>
+                    <th style="width:200px" pSortableColumn="State">State<p-sortIcon field="State"></p-sortIcon>
+                    </th>
+                    <th  style="width:200px"pSortableColumn="Country">Country<p-sortIcon field="Country"></p-sortIcon>
+                    </th>
+                    <th style="width:200px" pSortableColumn="ContactPerson">Contact Person<p-sortIcon field="ContactPerson"></p-sortIcon>
+                    </th>
+                    <th style="width:200px" pSortableColumn="TelePhone">TelePhone<p-sortIcon field="TelePhone"></p-sortIcon>
+                    </th>
+                    <th  style="width:200px"pSortableColumn="WhatsappNo">WhatsappNo<p-sortIcon field="WhatsappNo"></p-sortIcon>
+                    </th>
+                    <th style="width:200px" pSortableColumn="EmailID">Email<p-sortIcon field="EmailID"></p-sortIcon>
+                    </th>
+                    <th style="width:200px" pSortableColumn="CC">CC<p-sortIcon field="CC"></p-sortIcon>
+                    </th>
+                    <th  style="width:200px"pSortableColumn="GSTNo">GSTNo<p-sortIcon field="GSTNo"></p-sortIcon>
+                    </th>
+                    <th style="width:200px" pSortableColumn="PanNo">PanNo<p-sortIcon field="PanNo"></p-sortIcon>
+                    </th>
+                    <th style="width:200px" pSortableColumn="CINNo">CINNo<p-sortIcon field="CINNo"></p-sortIcon>
+                    </th>
+                    
+
+                    <th style="width:200px" pSortableColumn="DeliveryAddress">Address<p-sortIcon field="DeliveryAddress"></p-sortIcon>
+                    </th>
+                    <th style="width:200px" pSortableColumn="DCity">City<p-sortIcon field="DCity"></p-sortIcon>
+                    </th>
+                   <th style="width:200px" pSortableColumn="DZipCode">Zip Code<p-sortIcon field="DZipCode"></p-sortIcon>
+                   </th>
+                   <th style="width:200px" pSortableColumn="DState">State<p-sortIcon field="DState"></p-sortIcon>
+                   </th>
+                   <th  style="width:200px"pSortableColumn="DCountry">Country<p-sortIcon field="DCountry"></p-sortIcon>
+                   </th>
+                   <th style="width:200px" pSortableColumn="DContactPerson">Contact Person<p-sortIcon field="DContactPerson"></p-sortIcon>
+                   </th>
+                   <th style="width:200px" pSortableColumn="DTelePhone">TelePhone<p-sortIcon field="DTelePhone"></p-sortIcon>
+                   </th>
+                   <th  style="width:200px"pSortableColumn="DWhatsappNo">WhatsappNo<p-sortIcon field="DWhatsappNo"></p-sortIcon>
+                   </th>
+                   <th style="width:200px" pSortableColumn="DEmail">Email<p-sortIcon field="DEmail"></p-sortIcon>
+                   </th>
+                   <th style="width:200px" pSortableColumn="DCC">CC<p-sortIcon field="DCC"></p-sortIcon>
+                   </th>
+                   <th  style="width:200px"pSortableColumn="BankName">BankName<p-sortIcon field="BankName"></p-sortIcon>
+                   </th>
+                   <th style="width:200px" pSortableColumn="AccountNo">AccountNo<p-sortIcon field="AccountNo"></p-sortIcon>
+                   </th>
+                   <th style="width:200px" pSortableColumn="IfscCode">IfscCode<p-sortIcon field="IfscCode"></p-sortIcon>
+                   </th>
+                   <th style="width:200px" pSortableColumn="TransporterName">TransporterName<p-sortIcon field="TransporterName"></p-sortIcon>
+                   </th>
+                   <th style="width:200px" pSortableColumn="SalesPerson">SalesPerson<p-sortIcon field="SalesPerson"></p-sortIcon>
+                   </th>
+                    <th style="width:200px" pSortableColumn="inventoryStatus">Status <p-sortIcon field="inventoryStatus"></p-sortIcon>
+                    </th>
+                    <th style="width:200px" alignFrozen="right" pFrozenColumn>Action
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product let-ri="rowIndex">
+                <tr>
+                    <td style="width: 3rem">
+                        <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                    </td>
+                    <td style="width:50px">{{ri+1}}</td>
+                    <td style="width:200px">{{product.GLName}}</td>
+                    <td style="width:200px">{{product.Alias}}</td>
+                    <td style="width:200px">{{product.GlBillingAdd}}</td>
+                    <td style="width:200px">{{product.CityName}}</td>
+                    <td style="width:200px">{{product.GlPinCode}}</td>
+                    <td style="width:200px">{{product.State}}</td>
+                    <td style="width:200px">{{product.Country}}</td>
+                    <td style="width:200px">{{product.ContactPerson}}</td>
+                    <td style="width:200px">{{product.TelePhone}}</td>
+                    <td style="width:200px">{{product.WhatsappNo}}</td>
+                    <td style="width:200px">{{product.EmailID}}</td>
+                    <td style="width:200px">{{product.CC}}</td>
+                    <td style="width:200px">{{product.GSTNo}}</td>
+                    <td style="width:200px">{{product.PanNo}}</td>
+                    <td style="width:200px">{{product.CINNo}}</td>
+                    
+                    <td style="width:200px">{{product.DeliveryAddress}}</td>
+                    <td style="width:200px">{{product.DCity}}</td>
+                    <td style="width:200px">{{product.DZipCode}}</td>
+                    <td style="width:200px">{{product.DState}}</td>
+                    <td style="width:200px">{{product.DCountry}}</td>
+                    <td style="width:200px">{{product.DContactPerson}}</td>
+                    <td style="width:200px">{{product.DTelePhone}}</td>
+                    <td style="width:200px">{{product.DWhatsappNo}}</td>
+                    <td style="width:200px">{{product.DEmail}}</td>
+                    <td style="width:200px">{{product.DCC}}</td>
+                    <td style="width:200px">{{product.BankName}}</td>
+                    <td style="width:200px">{{product.AccountNo}}</td>
+                    <td style="width:200px">{{product.IfscCode}}</td>
+                    <td style="width:200px">{{product.TransporterName}}</td>
+                    <td style="width:200px">{{product.SalesPerson}}</td>
+
+
+
+                    <td style="width:200px"><span [class]="'product-badge status-instock'">Active</span></td>
+                    <td [style]="{'display': 'inline-flex'}"  alignFrozen="right" pFrozenColumn>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                            (click)="editProduct(product)"></button>
+                            &nbsp;
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                            (click)="deleteProduct(product)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="footer">
+                <div class="d-flex justify-content-between align-items-center  custom-footer">
+                    <div class="bd-highlight" >
+                        Showinng {{pageSize*(page-1)}} to {{(pageSize*page)>totalRecords?totalRecords:pageSize*page}} of {{totalRecords}} entries
+                    </div>
+                   
+                    <div class="bd-highlight" alignFrozen="right" pFrozenColumn>
+                        <p-paginator styleClass="custom-paginator" [rows]="pageSize" [totalRecords]="totalRecords"
+                        (onPageChange)="handlePagination($event)"></p-paginator>
+                    </div>
+                  </div>
+            </ng-template>
+        </p-table>
+    </div>
+
+
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+</div>

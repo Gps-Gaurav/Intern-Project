@@ -1,0 +1,183 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" OpSTOCK MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12 ">
+      <div class="card">
+        <div class="row">
+          <div class="mb-3 col-sm-12 position-relative">
+            <div class="card-body">
+
+              <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+              <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="row">
+
+                      <div class="mb-2 col-sm-6 position-relative">
+                        <div class="input-group">
+                          <div class="input-group-prepend wd-150">
+                            <span class="input-group-text " id="validationTooltipUsernamePrepend">Location</span>
+                          </div>
+                          <!-- <input #myinput type="text"  class="form-control" id="validationTooltipUsername"
+                        formControlName="LocationID" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.LocationID.errors}"> -->
+                        <p-dropdown [filter]="true" placeholder="Select Location" formControlName="LocationID" class="p-inputtext-sm"
+                        [options]="locationData"  optionLabel="Location"
+                        optionValue="SlNo" appendTo="body"
+                        [style]="{'height':'38px','width':'100%','align-items': 'center'}"></p-dropdown>
+                          <!-- <p-autoComplete tabIndex="1" #myinput class="form-control border-0 p-0"
+                            [style]="{'height':'36px','width':'100%'}" formControlName="LocationID"
+                            [suggestions]="locationData" (completeMethod)="_fetchLocation($event)" [dropdown]="true"
+                            field="Location">
+                            <ng-template let-employee pTemplate="item">
+                              {{employee.Location}}
+                            </ng-template>
+                            <ng-template let-employee pTemplate="selectedItem">
+                              {{employee.Location}}
+                            </ng-template>
+                          </p-autoComplete> -->
+                          <div *ngIf="submit && form.LocationID.errors" class="invalid-feedback">
+                            <span *ngIf="form.LocationID.errors.required">Please enter a Location.</span>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="mb-2 col-sm-6 position-relative"></div>
+                      <div class="mb-2 col-sm-6 position-relative">
+                        <div class="input-group">
+                          <div class="input-group-prepend wd-150">
+                            <span class="input-group-text " id="validationTooltipUsernamePrepend">Product Code</span>
+                          </div>
+                          <p-dropdown [filter]="true"  placeholder="ProductCode" (onChange)="onProductChange($event)"
+                            formControlName="ProdCode" class="form-control border-0 p-0" [options]="productData_distinct"
+                            optionLabel="ProdCode" optionValue="ProdCode" appendTo="body"
+                            [style]="{'height':'38px','width':'100%','align-items': 'center'}"></p-dropdown> 
+
+                          <div *ngIf="submit && form.ProdCode.errors" class="invalid-feedback">
+                            <span *ngIf="form.ProdCode.errors.required">Please enter a valid ProductCode.</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mb-2 col-sm-6 position-relative"></div>
+                      <div class="mb-1 col-sm-6 position-relative">
+                        <div class="input-group">
+                          <div class="input-group-prepend wd-150">
+                            <span class="input-group-text " id="validationTooltipUsernamePrepend">Colours</span>
+                          </div>
+                          <!-- <p-autoComplete class="form-control border-0 p-0" [style]="{'height':'36px'}"  [dropdown]="true" formControlName="Colours" [suggestions]="colorsData" (completeMethod)="_fetchColors($event)" [multiple]="true"></p-autoComplete> -->
+                          <p-dropdown [filter]="true" [autoDisplayFirst]="false" placeholder="Select Color" tabIndex="11" class="form-control border-0 p-0" (onChange)="onColorChange($event)"
+                            [style]="{'height':'38px','width':'100%','align-items': 'center'}" [options]="colorsData"
+                            optionLabel="ColorName" optionValue="ProdColors" formControlName="Colours">
+                          </p-dropdown>
+
+                          <div *ngIf="submit && form.Colours.errors" class="invalid-feedback">
+                            <span *ngIf="form.Colours.errors.required">Please enter a Colours.</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mb-2 col-sm-6 position-relative"></div>
+
+                      <div class="mb-1 col-sm-6 position-relative">
+                        <div class="input-group">
+                          <div class="input-group-prepend wd-150">
+                            <span class="input-group-text " id="validationTooltipUsernamePrepend">Size</span>
+                          </div>
+                          <!-- <p-autoComplete class="form-control border-0 p-0" [style]="{'height':'36px'}"  [dropdown]="true" formControlName="Colours" [suggestions]="colorsData" (completeMethod)="_fetchColors($event)" [multiple]="true"></p-autoComplete> -->
+                          <p-dropdown [filter]="true"  tabIndex="11" class="form-control border-0 p-0"
+                            [style]="{'height':'38px','width':'100%','align-items': 'center'}" [options]="sizeData"
+                            optionLabel="SizeName" optionValue="SizeID" formControlName="Size">
+                          </p-dropdown>
+
+                          <div *ngIf="submit && form.Size.errors" class="invalid-feedback">
+                            <span *ngIf="form.Size.errors.required">Please enter a Colours.</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mb-2 col-sm-6 position-relative"></div>
+                      <div class="mb-2 col-sm-6 position-relative">
+                        <div class="input-group">
+                          <div class="input-group-prepend wd-150">
+                            <span class="input-group-text " id="validationTooltipUsernamePrepend">Quantity </span>
+                          </div>
+                          <p-inputNumber [style]="{'height':'36px','width':'100%'}" mode="decimal"
+                            inputId="withoutgrouping" [useGrouping]="false" tabIndex="3" id="validationTooltipUsername"
+                            formControlName="Qty" [ngClass]="{'is-invalid': submit && form.Qty.errors}"></p-inputNumber>
+
+                          <div *ngIf="submit && form.Qty.errors" class="invalid-feedback">
+                            <span *ngIf="form.Qty.errors.required">Please enter a valid Quantity .</span>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="mb-2 col-sm-1 position-relative"></div>
+                      <div class="mb-2 col-sm-6 position-relative">
+                        <div class="input-group">
+                          <div class="input-group-prepend wd-150">
+                            <span class="input-group-text " id="validationTooltipUsernamePrepend">Rate</span>
+                          </div>
+                          <p-inputNumber tabIndex="4" [style]="{'height':'36px'}" formControlName="Rate" mode="currency"
+                            inputId="currency-india" currency="INR" currencyDisplay="code" locale="en-IN"
+                            id="validationTooltipUsername" placeholder=""
+                            aria-describedby="validationTooltipUsernamePrepend"
+                            [ngClass]="{'is-invalid': submit && form.Rate.errors}">
+                          </p-inputNumber>
+
+                          <div *ngIf="submit && form.Rate.errors" class="invalid-feedback">
+                            <span *ngIf="form.Rate.errors.required">Please enter a valid Rate.</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mb-2 col-sm-6 position-relative"></div>
+                      <div class="mb-2 col-sm-6 position-relative">
+                        <div class="input-group">
+                          <div class="input-group-prepend wd-150">
+                            <span class="input-group-text " id="validationTooltipUsernamePrepend">Amount</span>
+                          </div>
+                          <p-inputNumber [style]="{'height':'36px','width':'100%'}" mode="decimal"
+                            inputId="withoutgrouping" [useGrouping]="false" tabIndex="5" id="validationTooltipUsername"
+                            formControlName="Amt" [ngClass]="{'is-invalid': submit && form.Amt.errors}"></p-inputNumber>
+                          <div *ngIf="submit && form.Amt.errors" class="invalid-feedback">
+                            <span *ngIf="form.Amt.errors.required">Please enter a valid Amount.</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="mb-3 col-sm-4 position-relative justify-content-right">
+                    <div class="card-body">
+                      <p-image [src]="ProdImage" [alt]="ProdImage" width="200" height="200" [preview]="true"></p-image>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex flex-wrap gap-2 mt-2">
+                    <button tabIndex="7" type="submit" class="btn btn-primary">Save Changes</button>
+                 
+                    <button type="button" tabIndex="8" (click)="Close()" class="btn btn-secondary">Cancel</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

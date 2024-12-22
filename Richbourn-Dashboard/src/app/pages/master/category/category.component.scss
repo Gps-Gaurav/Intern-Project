@@ -1,0 +1,32 @@
+
+.custom-paginator  {
+   
+    
+    .p-paginator-pages .p-paginator-page.p-highlight {
+        background: #00ff22;
+    }
+  
+     .p-paginator-pages .p-paginator-page {
+        background-color: transparent;
+        border: 0 none;
+        color: #6c757d;
+        min-width: 2rem;
+        height: 2rem;
+        margin: 0.143rem;
+        transition: box-shadow 0.2s;
+        border-radius: 50%;
+    }
+  
+     .p-paginator-first, .p-paginator-prev, .p-paginator-next,  .p-paginator-last {
+        background-color: transparent;
+        border: 0 none;
+        color: #6c757d;
+        min-width: 2rem;
+        height: 2rem;
+        margin: 0.143rem;
+        transition: box-shadow 0.2s;
+        border-radius: 50%;
+    }
+  
+    
+  }

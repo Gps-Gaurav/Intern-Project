@@ -1,0 +1,42 @@
+import { BasePrimary } from "./primary.model";
+
+export interface PartyModel extends BasePrimary {
+  GLCode: number;
+  Party: string;
+  UserID: number;
+    Name:String;
+     Alias:String;
+     MobileNo:String;
+     GlBillingAdd:String;
+     CityName:String;
+     CityId:number;
+     GlType:number;
+     ZipCode:String;
+     DState:String;
+     Country:String;
+     ContactPerson:String;
+     PanNo:String;
+     TelePhone:String;
+     WhatsappNo:String;
+     Email:String;
+     CC:String;
+     AccountNo:String;
+     BankName:String;
+     DelvAddress:String;
+     DCityName:String;
+     DCityId:number;
+     DZipCode:String;
+     State:String;
+     DCountry:String;
+     DContactPerson:String;
+     IfscCode:String;
+     DTelePhone:String;
+     DWhatsappNo:String;
+     DEmail:String;
+     DCC:String;
+     CINNo:String;
+     GSTNo:String;
+     TransporterName:String;
+     SalesPerson:String;
+     GlTypeName:string;
+ }

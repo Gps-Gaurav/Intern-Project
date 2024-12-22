@@ -1,0 +1,286 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" ITEM MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="row">
+          <div class="mb-3 col-sm-8 position-relative">
+            <div class="card-body">
+
+              <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+              <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+                <div class="row">
+
+                  <div class="mb-2 col-sm-7 position-relative">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Item Name :</span>
+                      </div>
+                      <input #myinput type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                        formControlName="ItemName" placeholder=""
+                        aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.ItemName.errors}">
+
+                      <div *ngIf="submit && form.ItemName.errors" class="invalid-feedback">
+                        <span *ngIf="form.ItemName.errors.required">Please enter a ItemName.</span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="mb-2 col-sm-1 position-relative"></div>
+                  <div class="mb-2 col-sm-7 position-relative">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Base Unit :</span>
+                      </div>
+                      <p-autoComplete class="form-control border-0 p-0" [style]="{'height':'36px','width':'100%'}" formControlName="BaseUnit" [suggestions]="unitData" (completeMethod)="_fetchUnit($event)"
+                      [dropdown]="true" tabIndex="2" field="ShortName">
+                      <ng-template let-employee pTemplate="item">
+                        {{employee.ShortName}}
+                      </ng-template>
+                      <ng-template let-employee pTemplate="selectedItem">
+                          {{employee.ShortName}}
+                      </ng-template>
+                    </p-autoComplete>
+                     <!-- <p-dropdown [style]="{'width': '100%','height':'37px'}" tabIndex="3"panelStyleClass="dropdown-panel" [options]="[{name: '1'},{name: '2'}]" formControlName="BaseUnit" optionLabel="name" optionValue="name"></p-dropdown> -->
+                      <!-- <input type="text" tabIndex="2" class="form-control" id="validationTooltipUsername"
+                        formControlName="BaseUnit" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.BaseUnit.errors}"> -->
+
+                      <div *ngIf="submit && form.BaseUnit.errors" class="invalid-feedback">
+                        <span *ngIf="form.BaseUnit.errors.required">Please enter a valid BaseUnit.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-2 col-sm-5 position-relative"></div>
+                  <div class="mb-2 col-sm-7 position-relative">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Category &nbsp;&nbsp;</span>
+                      </div>
+                      <p-autoComplete class="form-control border-0 p-0" [style]="{'height':'36px','width':'100%'}" formControlName="Category" [suggestions]="categoryData" (completeMethod)="_fetchCategory($event)"
+                      [dropdown]="true" tabIndex="3" field="ProdCate">
+                      <ng-template let-employee pTemplate="item">
+                        {{employee.ProdCate}}
+                      </ng-template>
+                      <ng-template let-employee pTemplate="selectedItem">
+                          {{employee.ProdCate}}
+                      </ng-template>
+                    </p-autoComplete>
+                      <div *ngIf="submit && form.Category.errors" class="invalid-feedback">
+                        <span *ngIf="form.Category.errors.required">Please enter a valid Category.</span>
+                      </div>
+                    </div>
+                    <!-- <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Category :</span>
+                      </div>
+                      <input type="text" tabIndex="3" class="form-control" id="validationTooltipUsername"
+                        formControlName="Category" placeholder=""
+                        aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.Category.errors}">
+
+                      <div *ngIf="submit && form.Category.errors" class="invalid-feedback">
+                        <span *ngIf="form.Category.errors.required">Please enter a valid Category .</span>
+                      </div>
+                    </div> -->
+                  </div>
+
+                  <div class="mb-2 col-sm-5 position-relative"></div>
+                  <div class="mb-2 col-sm-7 position-relative">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Sub Category</span>
+                      </div>
+                      <p-autoComplete class="form-control border-0 p-0"  [style]="{'height':'36px','width':'100%'}"  formControlName= "SubCategory" [suggestions]="subcategoryData" (completeMethod)="_fetchSubCategory($event)"
+                      [dropdown]="true" tabIndex="4" field="SubCate">
+                      <ng-template let-employee pTemplate="item">
+                        {{employee.SubCate}}
+                      </ng-template>
+                      <ng-template let-employee pTemplate="selectedItem">
+                          {{employee.SubCate}}
+                      </ng-template>
+                    </p-autoComplete>
+                      <div *ngIf="submit && form.SubCategory.errors" class="invalid-feedback">
+                        <span *ngIf="form.SubCategory.errors.required">Please enter a valid Sub Category.</span>
+                      </div>
+                    </div>
+                    <!-- <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Sub Category:</span>
+                      </div>
+                      <input type="text" tabIndex="4" class="form-control" id="validationTooltipUsername"
+                        formControlName="SubCategory" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.SubCategory.errors}">
+
+                      <div *ngIf="submit && form.SubCategory.errors" class="invalid-feedback">
+                        <span *ngIf="form.SubCategory.errors.required">Please enter a valid Sub Category .</span>
+                      </div>
+                    </div> -->
+                  </div>
+
+                  <div class="mb-2 col-sm-7 position-relative">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Description:</span>
+                      </div>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" type="text" tabIndex="5" class="form-control" id="validationTooltipUsername"
+                      formControlName="ItemDesc" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                      [ngClass]="{'is-invalid': submit && form.ItemDesc.errors}"></textarea>
+
+                      <div *ngIf="submit && form.ItemDesc.errors" class="invalid-feedback">
+                        <span *ngIf="form.ItemDesc.errors.required">Please enter a Discription.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-2 col-sm-5 position-relative"></div>
+                  <div class="mb-2 col-sm-5 position-relative">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">C T :</span>
+                      </div>
+                      <input type="text" tabIndex="6" class="form-control" id="validationTooltipUsername"
+                        formControlName="Cost" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.Cost.errors}">
+
+                      <div *ngIf="submit && form.Cost.errors" class="invalid-feedback">
+                        <span *ngIf="form.Cost.errors.required">Please enter a valid CT.</span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="mb-2 col-sm-7 position-relative"></div>
+                  <div class="mb-2 col-sm-5 position-relative">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">M R P :</span>
+                      </div>
+                      <p-inputNumber class="form-control border-0 p-0" [style]="{'height':'36px'}" formControlName="MRP" mode="currency" inputId="currency-india" currency="INR"
+                      currencyDisplay="code" locale="en-IN" tabIndex="7" id="validationTooltipUsername" placeholder=""
+                      aria-describedby="validationTooltipUsernamePrepend"
+                      [ngClass]="{'is-invalid': submit && form.MRP.errors}">
+                    </p-inputNumber>
+
+                      <div *ngIf="submit && form.MRP.errors" class="invalid-feedback">
+                        <span *ngIf="form.MRP.errors.required">Please enter a valid MRP.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-2 col-sm-7 position-relative"></div>
+                  <div class="mb-2 col-sm-5 position-relative">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Re-Order Label :</span>
+                      </div>
+                      <input type="text" tabIndex="8" class="form-control" id="validationTooltipUsername"
+                        formControlName="ReOrder" placeholder=""
+                        aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.ReOrder.errors}">
+
+                      <div *ngIf="submit && form.ReOrder.errors" class="invalid-feedback">
+                        <span *ngIf="form.ReOrder.errors.required">Please enter a valid Re-Order Label.</span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="mb-2 col-sm-7 position-relative"></div>
+                  <div class="mb-2 col-sm-5 position-relative">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Base Qty :</span>
+                      </div>
+                      <p-inputNumber class="form-control border-0 p-0" [style]="{'height':'36px','width':'100%'}" mode="decimal" inputId="withoutgrouping"
+                    [useGrouping]="false" tabIndex="9" id="validationTooltipUsername" formControlName="BaseQty"
+                    [ngClass]="{'is-invalid': submit && form.BaseQty.errors}"></p-inputNumber>
+
+
+                      <div *ngIf="submit && form.BaseQty.errors" class="invalid-feedback">
+                        <span *ngIf="form.BaseQty.errors.required">Please enter a valid Base Qty
+                          Description.</span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="mb-2 col-sm-7 position-relative"></div>
+                  <div class="mb-4 col-sm-5 position-relative">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">HSN Code :</span>
+                      </div>
+                      <input type="text" tabIndex="10" class="form-control" id="validationTooltipUsername"
+                        formControlName="HsnCode" placeholder=""
+                        aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.HsnCode.errors}">
+
+                      <div *ngIf="submit && form.HsnCode.errors" class="invalid-feedback">
+                        <span *ngIf="form.HsnCode.errors.required">Please enter a valid Hsn Code
+                       .</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-4 col-sm-7 position-relative"></div>
+
+                  <div class='col-sm-2 mb-3'>             
+                    <div class="field-checkbox">
+                      <p-checkbox tabIndex="11" [formControl]="form['Active']" [binary]="true"></p-checkbox>
+                      Active
+                  </div>
+
+                  </div>
+                  <div class='col-sm-2 mb-3'>             
+                    <div class="field-checkbox">
+                      <p-checkbox tabIndex="12" [formControl]="form['Visible']" [binary]="true"></p-checkbox>
+                      Visible
+                  </div>
+
+                  </div>
+                  <div class='col-sm-3 mb-3'>
+                    <div class="field-checkbox">
+                      <p-checkbox  tabIndex="13"[formControl]="form['StockMaintain']" [binary]="true"></p-checkbox>
+                      Stock Maintain
+                  </div>
+                   
+                  </div> 
+                
+                  <div class="mb-4 col-sm-3 position-relative">
+                    <!-- <p-checkbox name="groupname" value="val1" formControlName="selectedValues"></p-checkbox> Active
+                  </div>
+                  -->
+</div>
+
+                  <div class="d-flex flex-wrap gap-2 mt-2">
+                    <button tabIndex="15" type="submit" class="btn btn-primary">Save Changes</button>
+                    <button tabIndex="16" (click)="Close()" type="submit" class="btn btn-secondary">Cancel</button>
+
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="mb-3 col-sm-4 position-relative justify-content-right">
+            <div class="card-body">
+
+              <p-fileUpload  tabIndex="14" name="myfile[]" [customUpload]="true"
+                (uploadHandler)="myUploader($event)" accept="image/*" [auto]="true">
+              </p-fileUpload>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- end row -->
+
+  </div> <!-- container-fluid -->

@@ -1,0 +1,65 @@
+<p-toast></p-toast>
+<app-loader></app-loader>
+
+
+<div class="container-fluid">
+
+  <!-- start page title -->
+
+  <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="text-center">
+          <h2>Purchase Voucher</h2>
+          <p>(Goods received opn approval basis)</p>
+        </div>
+        <h4> <strong>Date:</strong>  30-Mar-2022</h4>
+        <h4><strong>From : 0520</strong></h4>
+      </div>
+      <strong><hr></strong>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width: 70px;">Sl No.</th>
+              <th>Product</th>
+              <th>Quantity </th>
+              <th>Rate</th>
+           <th class="text-end">Amount</th>
+            </tr> 
+         
+          </thead>
+         
+          <tbody>
+            <tr *ngFor="let item of prodData; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{item.ProdCode}}</td>
+              <td>{{item.Qty}} Pcs</td>
+              <td>{{item.Rate}}</td>
+              <td class="text-end">{{item.Amt}}</td>
+        
+            </tr>
+            <tr><hr>
+              <td> </td>
+              <td> {{getTotalQTY() }} Pcs</td>
+              <td> </td>
+              <td class="text-end"><strong>Total :</strong>{{getTotal() }}</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="d-print-none ">
+        <div class="float-end">
+          <a  (click)="Close()" class="btn btn-danger w-md ms-1">Close</a>
+      
+          <a href="javascript:window.print()" class="btn btn-success"><i class="fa fa-print"></i></a>
+          <a href="javascript: void(0);" class="btn btn-primary w-md ms-1">Send</a>
+        </div>
+      </div>
+    </div>
+  </div>

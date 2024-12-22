@@ -1,0 +1,134 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" PRODUCT SERIES MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Series Short Name</span>
+                  </div>
+                  <input #myinput type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                    formControlName="ShortName" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.ShortName.errors}">
+
+                  <div *ngIf="submit && form.ShortName.errors" class="invalid-feedback">
+                    <span *ngIf="form.ShortName.errors.required">Please enter a valid Short Name.</span>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="mb-2 col-sm-6 position-relative">,</div>
+           
+
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">Cash Series </span>
+                  </div>
+
+                  <p-autoComplete tabIndex="2" pInputText class="p-inputtext-sm"  [style]="{'height':'36px'}"
+                  formControlName="Cash" [suggestions]="booleanItem"  (completeMethod)="_fetchBoolean($event)"
+                  [dropdown]="true" field="name">
+                  <ng-template let-employee pTemplate="item">
+                    {{employee.name}}
+                  </ng-template>
+                  <ng-template let-employee pTemplate="selectedItem">
+                    {{employee.name}}
+                  </ng-template>
+                </p-autoComplete>
+                <div *ngIf="submit && form.Cash.errors" class="invalid-feedback">
+                    <span *ngIf="form.Cash.errors.required">Please enter a valid Cash Series .</span>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Tax Type</span>
+                  </div>
+                       <p-autoComplete pInputText class="p-inputtext-sm"  [style]="{'height':'36px','width':'100%'}"
+                    formControlName="TaxType" tabIndex="3"[suggestions]="txtItem"  (completeMethod)="_fetchTax($event)"
+                    [dropdown]="true" field="name">
+                    <ng-template let-employee pTemplate="item">
+                      {{employee.name}}
+                    </ng-template>
+                    <ng-template let-employee pTemplate="selectedItem">
+                      {{employee.name}}
+                    </ng-template>
+                  </p-autoComplete>
+                  <div *ngIf="submit && form.TaxType.errors" class="invalid-feedback">
+                    <span *ngIf="form.TaxType.errors.required">Please enter a valid Cash Series .</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Discount</span>
+                  </div>
+                  <input type="text" tabIndex="4" class="form-control" id="validationTooltipUsername"
+                    formControlName="DiscPer" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.DiscPer.errors}">
+
+                  <div *ngIf="submit && form.DiscPer.errors" class="invalid-feedback">
+                    <span *ngIf="form.DiscPer.errors.required">Please enter a valid Discount.</span>
+                  </div>
+                </div>
+              </div>
+            
+            
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Series Description</span>
+                  </div>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" type="text" tabIndex="5" class="form-control" id="validationTooltipUsername"
+                  formControlName="SeriesDesc" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                  [ngClass]="{'is-invalid': submit && form.SeriesDesc.errors}"></textarea>
+
+
+                  <div *ngIf="submit && form.SeriesDesc.errors" class="invalid-feedback">
+                    <span *ngIf="form.SeriesDesc.errors.required">Please enter a valid Series Description.</span>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button tabIndex="6" type="submit" class="btn btn-primary">Save Changes</button>
+                <button tabIndex="7" type="button" (click)="Close()" class="btn btn-secondary">Cancel</button>
+               
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

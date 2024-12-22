@@ -1,0 +1,91 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" ACCOUNT SUB GROUP MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="mb-1 col-sm-5 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend wd-150">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Group Name</span>
+                  </div>
+                  <p-autoComplete tabIndex="3" class="form-control border-0 p-0" [style]="{'height':'36px','width':'100%'}"
+                    formControlName="GrpID" [suggestions]="aGroupData"
+                    (completeMethod)="_fetchAGroup($event)" [dropdown]="true" field="GrpDesc">
+                    <ng-template let-employee pTemplate="item">
+                      {{employee.GrpDesc}}
+                    </ng-template>
+                    <ng-template let-employee pTemplate="selectedItem">
+                      {{employee.GrpDesc}}
+                    </ng-template>
+                  </p-autoComplete>
+                  <div *ngIf="submit && form.Category.errors" class="invalid-feedback">
+                    <span *ngIf="form.Category.errors.required">Please enter a valid Category.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-1 col-sm-7 position-relative"></div>
+           
+              <div class="mb-2 col-sm-5 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="form-group">
+                     <span for="exampleFormControlTextarea1" class="input-group-text " id="validationTooltipUsernamePrepend">Sub Group Desc</span>
+           
+                   </div> 
+                 </div>  
+                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" type="text" tabIndex="2" class="form-control" id="validationTooltipUsername"
+                     formControlName="SubGrpDesc" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                     [ngClass]="{'is-invalid': submit && form.SubGrpDesc.errors}"></textarea>
+
+                  <div *ngIf="submit && form.SubGrpDesc.errors" class="invalid-feedback">
+                    <span *ngIf="form.SubGrpDesc.errors.required">Please enter a valid Group Description.</span>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="mb-2 col-sm-7 position-relative"></div>
+              <div class="mb-2 col-sm-5 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Schedule No.</span>
+                  </div>
+                <!-- <p-inputMask [style]="{'height':'37px'}"  mask="9999999999"  placeholder="" formControlName="SchdNo"tabIndex="3" id="validationTooltipUsername"
+                    aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.SchdNo.errors}"></p-inputMask> -->
+                    <p-inputNumber class="form-control border-0 p-0" [style]="{'height':'36px','width':'100%'}" mode="decimal" inputId="withoutgrouping"
+                    [useGrouping]="false" tabIndex="9" id="validationTooltipUsername" formControlName="SchdNo"
+                    [ngClass]="{'is-invalid': submit && form.SchdNo.errors}"></p-inputNumber>
+                  <div *ngIf="submit && form.SchdNo.errors" class="invalid-feedback">
+                    <span *ngIf="form.SchdNo.errors.required">Please enter a Mobile No.</span>
+                  </div>
+                </div>
+              </div>
+           
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" (click)="Close()" class="btn btn-secondary">Cancel</button>
+               
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

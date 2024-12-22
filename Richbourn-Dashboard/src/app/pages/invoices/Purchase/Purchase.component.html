@@ -1,0 +1,140 @@
+<p-toast></p-toast>
+<app-loader></app-loader>
+
+
+<div class="container-fluid">
+    <app-page-title title="PURCHASE INVOICE (FINISHED GOODS) " [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <p-contextMenu #cm [model]="righmenu"></p-contextMenu>
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-sm-3">
+                            <div class="search-box me-2 mb-2 d-inline-block">
+                                <div class="position-relative">
+                                    <span [style]="{'display': 'inline-flex', 'height':'35px'}"
+                                        class="p-input-icon-left">
+                                        <button pButton pRipple [label]="Delete" icon="pi pi-trash"
+                                            class="p-button-danger mr-2" (click)="deleteSelectedProducts()"
+                                            [disabled]="!selectedItems || !selectedItems.length"></button>&nbsp;
+                                        <input class="form-control" pInputText type="text" [(ngModel)]="term"
+                                            (ngModelChange)='searchChanged.next($event)' placeholder="Search..." />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="d-flex justify-content-between bd-highlight">
+                                <div class="p-2 bd-highlight">
+
+                                </div>
+
+                                <div class="p-2 bd-highlight" [style]="{'display': 'inline-flex', 'height':'50px'}">
+                                    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2"
+                                        (click)="openNew()"></button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- end col-->
+                    </div>
+
+                    <div class="table-responsive">
+                        <p-table id="myTable" [(contextMenuSelection)]="selectedProduct" [contextMenu]="cm"
+                            [scrollable]="true" scrollHeight="400px" scrollDirection="both"
+                            styleClass="table-panel p-datatable-gridlines" #dt [value]="items" [rows]="10"
+                            [paginator]="false"
+                            [globalFilterFields]="['name','country.name','representative.name','status']"
+                            responsiveLayout="scroll" [(selection)]="selectedItems" [rowHover]="true" dataKey="SlNo"
+                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                            [showCurrentPageReport]="true">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th style="width: 3%">
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </th>
+                                    <th style="width: 3%">Sr No
+                                    </th>
+
+                                    <th style="width:8%">Invoice No
+                                    </th>
+                                    <th style="width:10%" pSortableColumn="PartyID">Party<p-sortIcon field="PartyID">
+                                        </p-sortIcon>
+                                    </th>
+
+                                    <th style="width:8%" pSortableColumn="BillNo"> Bill No<p-sortIcon field="BillNo">
+                                        </p-sortIcon>
+                                    </th>
+                                    <th style="width:8%">Bill Date
+                                    </th>
+                                    <th style="width:8%">Received Date
+                                    </th>
+
+                                    <th style="width:8%">Due Date
+                                    </th>
+
+                                    <th style="width:8%">Total Qty
+                                    </th>
+                                    <th style="width:9%">Net Amount
+                                    </th>
+                                    <th style="width:9%">Amount Adjusted
+                                    </th>
+                                    <th style="width:9%">Due Amount
+                                    </th>
+                                    <th style="width:9%">Remarks
+                                    </th>
+
+
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-product let-i="rowIndex">
+                                <tr [pContextMenuRow]="product">
+                                    <td style="width: 3%">
+                                        <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                                    </td>
+                                    <td style="width:3%">{{i+1}}</td>
+
+                                    <td style="width:8%">CGST-{{product.InvNo}}</td>
+                                    <td style="width:10%">{{product.PartyName}}</td>
+                                    <td style="width:8%">{{product.PartyBillNo}}</td>
+                                    <td style="width:8%">{{product.BillDate}}</td>
+                                    <td style="width:8%">{{product.ReceivedDate}}</td>
+
+                                    <td style="width:8%">{{product.DueDate}}</td>
+                                    <td style="width:8%">{{product.TotPcs}}</td>
+                                    <td style="width:9%">{{product.NetAmt}}</td>
+                                    <td style="width:9%">{{product.AmtAdjusted}}</td>
+
+                                    <td style="width:9%">{{product.DueAmt}}</td>
+
+                                    <td style="width:9%">{{product.Remarks}}</td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="footer">
+                                <div class="d-flex justify-content-between align-items-center  custom-footer">
+                                    <div class="bd-highlight">
+                                        Showinng {{pageSize*(page-1)}} to
+                                        {{(pageSize*page)>totalRecords?totalRecords:pageSize*page}} of {{totalRecords}}
+                                        entries
+                                    </div>
+
+                                    <div class="bd-highlight" alignFrozen="right" pFrozenColumn>
+                                        <p-paginator styleClass="custom-paginator" [rows]="pageSize"
+                                            [totalRecords]="totalRecords" (onPageChange)="handlePagination($event)">
+                                        </p-paginator>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-table>
+                    </div>
+
+
+
+                    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+                </div>
+            </div>
+        </div>
+    </div>

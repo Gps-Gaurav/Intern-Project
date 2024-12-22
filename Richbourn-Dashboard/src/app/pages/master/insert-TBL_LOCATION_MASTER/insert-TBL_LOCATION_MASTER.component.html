@@ -1,0 +1,248 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" LOCATION MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+              <div class="mb-2 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Location Code :</span>
+                  </div>
+                  <input #myinput type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                    formControlName="Location" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.Location.errors}">
+
+                  <div *ngIf="submit && form.Location.errors" class="invalid-feedback">
+                    <span *ngIf="form.Location.errors.required">Please enter a Location Code.</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Description :</span>
+                  </div>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" type="text" tabIndex="2"
+                    class="form-control" id="validationTooltipUsername" formControlName="Description" placeholder=""
+                    aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.Description.errors}"></textarea>
+
+                  <div *ngIf="submit && form.Description.errors" class="invalid-feedback">
+                    <span *ngIf="form.Description.errors.required">Please enter a valid Description.</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Location Type :</span>
+                  </div>
+                  <p-autoComplete tabIndex="3" pInputText class="p-inputtext-sm" tabIndex="3" [style]="{'height':'36px'}"
+                  formControlName="LocationType" [suggestions]="LocationData" (completeMethod)="_fetchLocation($event)"
+                  [dropdown]="true" field="name">
+                  <ng-template let-employee pTemplate="item">
+                    {{employee.name}}
+                  </ng-template>
+                  <ng-template let-employee pTemplate="selectedItem">
+                    {{employee.name}}
+                  </ng-template>
+                </p-autoComplete>
+
+                  <div *ngIf="submit && form.LocationType.errors" class="invalid-feedback">
+                    <span *ngIf="form.LocationType.errors.required">Please enter a valid LocationType .</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Address :</span>
+                  </div>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" type="text" tabIndex="4"
+                    class="form-control" id="validationTooltipUsername" formControlName="Address" placeholder=""
+                    aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.Address.errors}"></textarea>
+
+                  <div *ngIf="submit && form.Address.errors" class="invalid-feedback">
+                    <span *ngIf="form.Address.errors.required">Please enter a valid Address .</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">City :</span>
+                  </div>
+                  <!-- <p-dropdown tabIndex="5" [style]="{'height':'37px'}" [options]="cities" optionLabel="name" optionValue="code"
+                    formControlName="City"></p-dropdown> -->
+                  <!-- <p-dropdown [style]="{'height':'37px'}" tabIndex="6"[options]="cities" formControlName="City" optionLabel="name"></p-dropdown> -->
+                  <!-- <input type="text"  class="form-control" id="validationTooltipUsername"
+                    formControlName="City" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.City.errors}"> -->
+                    <p-autoComplete tabIndex="3" (onSelect)="onSelectCity($event)" pInputText class="p-inputtext-sm" tabIndex="3" [style]="{'height':'36px'}"
+                    formControlName="City" [suggestions]="cityData" (completeMethod)="_fetchCity($event)"
+                    [dropdown]="true" field="CityName">
+                    <ng-template let-employee pTemplate="item">
+                      {{employee.CityName}}
+                    </ng-template>
+                    <ng-template let-employee pTemplate="selectedItem">
+                      {{employee.CityName}}
+                    </ng-template>
+                  </p-autoComplete>
+                  <div *ngIf="submit && form.City.errors" class="invalid-feedback">
+                    <span *ngIf="form.City.errors.required">Please enter a valid City.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Zip Code :</span>
+                  </div>
+                  <p-inputMask [style]="{'height':'37px'}" mask="999999" placeholder="" formControlName="Zip"
+                    tabIndex="7" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.Zip.errors}"></p-inputMask>
+
+                  <div *ngIf="submit && form.Zip.errors" class="invalid-feedback">
+                    <span *ngIf="form.Zip.errors.required">Please enter a Zip.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">State :</span>
+                  </div>
+               
+                  <!-- <p-dropdown [style]="{'height':'37px'}"[options]="states" formControlName="State" optionLabel="name"></p-dropdown> -->
+                  <input type="text" readonly tabIndex="6" class="form-control" id="validationTooltipUsername"
+                    formControlName="State" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.State.errors}"> 
+
+                  <div *ngIf="submit && form.State.errors" class="invalid-feedback">
+                    <span *ngIf="form.State.errors.required">Please enter a valid State.</span>
+                  </div>
+                </div>
+              </div>
+             
+              
+              <div class="mb-2 col-sm-9 position-relative"></div>
+              <div class="mb-2 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Country :</span>
+                  </div>
+                  <input type="text" readonly tabIndex="8" class="form-control" id="validationTooltipUsername"
+                    formControlName="Country" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.Country.errors}">
+
+                  <div *ngIf="submit && form.Country.errors" class="invalid-feedback">
+                    <span *ngIf="form.Country.errors.required">Please enter a valid Country.</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mb-2 col-sm-9 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Telephone :</span>
+                  </div>
+                  <p-inputMask [style]="{'height':'37px'}" mask="9999999999" placeholder="" formControlName="Telephone"
+                    tabIndex="9" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.Telephone.errors}"></p-inputMask>
+
+                  <div *ngIf="submit && form.Telephone.errors" class="invalid-feedback">
+                    <span *ngIf="form.Telephone.errors.required">Please enter a valid Telephone.</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Email :</span>
+                  </div>
+                  <input type="text" tabIndex="10" class="form-control" id="validationTooltipUsername"
+                    formControlName="Email" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.Email.errors}">
+
+                  <div *ngIf="submit && form.Email.errors" class="invalid-feedback">
+                    <span *ngIf="form.Email.errors.required">Please enter a valid Email.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <div class="mb-2 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Contact Person :</span>
+                  </div>
+                  <!-- <p-inputMask [style]="{'height':'37px'}" mask="9999999999" placeholder="" formControlName="Contact"
+                    tabIndex="11" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.Contact.errors}"></p-inputMask> -->
+                    <input type="text" tabIndex="10" class="form-control" id="validationTooltipUsername"
+                    formControlName="Contact" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.Contact.errors}">
+
+                  <div *ngIf="submit && form.Contact.errors" class="invalid-feedback">
+                    <span *ngIf="form.Contact.errors.required">Please enter a valid Contact.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-2 col-sm-6 position-relative"></div>
+              <!-- <div class="mb-2 col-sm-1 position-relative"><p-checkbox name="groupname" value="val1" ></p-checkbox> Active</div>
+              <div class="mb-2 col-sm-1 position-relative"><p-checkbox name="groupname" value="val2" ></p-checkbox> Visible</div>
+              <div class="mb-2 col-sm-2 position-relative"><p-checkbox name="groupname" value="val2" ></p-checkbox> Stock Maintain</div>
+
+             -->
+
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button tabIndex="12"type="submit" class="btn btn-primary">Save Changes</button>
+                <button tabIndex="13" (click)="Close()" type="button" class="btn btn-secondary">Cancel</button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

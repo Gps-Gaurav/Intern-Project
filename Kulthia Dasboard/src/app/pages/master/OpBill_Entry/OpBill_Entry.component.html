@@ -1,0 +1,120 @@
+<p-toast></p-toast>
+
+
+<div class="container-fluid">
+    <app-page-title title=" OPENING BILL ENTRY MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row mb-2">
+                  <div class="col-sm-3">
+                    <div class="search-box me-2 mb-2 d-inline-block">
+                      <div class="position-relative">
+                        <span [style]="{'display': 'inline-flex'}" class="p-input-icon-left">
+                            <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger mr-2" (click)="deleteSelectedProducts()" [disabled]="!selectedItems || !selectedItems.length"></button>&nbsp;
+                            <input  class="form-control" pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-9">
+                    <div class="d-flex justify-content-between bd-highlight">
+                        <div class="p-2 bd-highlight"> 
+                          
+                        </div>
+                        
+                        <div class="p-2 bd-highlight">
+                            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+                        </div>
+                      </div>
+                   
+                  </div>
+                  <!-- end col-->
+                </div>
+                <div class="table-responsive">
+                    <p-table [scrollable]="true" scrollHeight="400px" scrollDirection="both" styleClass="table-panel" #dt [value]="items" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
+                    [(selection)]="selectedItems" [rowHover]="true" dataKey="SlNo"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3rem">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th  style="width:175px" pSortableColumn="BillType">Bill Type<p-sortIcon field="BillType"></p-sortIcon>
+                    </th>
+                    <th style="width:175px"  pSortableColumn="BillNo">Bill No.<p-sortIcon field="BillNo"></p-sortIcon>
+                    </th>
+                    <th style="width:175px"  pSortableColumn="BillDate">Bill Date<p-sortIcon field="BillDate"></p-sortIcon>
+                    </th>
+                    <th  style="width:175px" pSortableColumn="GeneralLedger">GL A/c<p-sortIcon field="GeneralLedger"></p-sortIcon>
+                    </th>
+                
+                    <th style="width:175px"  pSortableColumn="Party">Party<p-sortIcon field="Party"></p-sortIcon>
+                    </th>
+                
+                    <th style="width:175px"  pSortableColumn="GrossWt">Gross Wt<p-sortIcon field="GrossWt"></p-sortIcon>
+                    </th>
+                
+                    <th style="width:175px"  pSortableColumn="DmdWt">Dmd. Wt<p-sortIcon field="DmdWt"></p-sortIcon>
+                    </th>
+                
+         
+                    <th  style="width:175px" pSortableColumn="StnWt">Stn. Wt <p-sortIcon field="StnWt"></p-sortIcon>
+                    </th> 
+
+                    <th  style="width:175px" pSortableColumn="NettWt">Nett. Wt. <p-sortIcon field="NettWt"></p-sortIcon>
+                    </th> 
+
+                    <th  style="width:175px" pSortableColumn="BillAmount">Bill Amount <p-sortIcon field="BillAmount"></p-sortIcon>
+                    </th> 
+
+                    <th  style="width:175px" pSortableColumn="DueAmount">Due Amount <p-sortIcon field="DueAmount"></p-sortIcon>
+                    </th> 
+
+                    <th style="width:175px"  pSortableColumn="inventoryStatus">Status <p-sortIcon field="inventoryStatus"></p-sortIcon>
+                    </th> 
+                    
+                    <th styles="width=200px" alignFrozen="right" pFrozenColumn >Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>
+                        <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                    </td>
+                    <td style="width:175px" >{{product.BillType}}</td>
+                    <td style="width:175px" >{{product.BillNo}}</td>
+                    <td style="width:175px" >{{product.BillDate}}</td>
+                    <td style="width:175px" >{{product.GeneralLedger}}</td>
+                    <td style="width:175px" >{{product.Party}}</td>
+                    <td style="width:175px" >{{product.GrossWt}}</td>
+                    <td style="width:175px" >{{product.DmdWt}}</td>
+                    <td style="width:175px" >{{product.StnWt}}</td>
+                    <td style="width:175px" >{{product.NettWt}}</td>
+                    <td style="width:175px" >{{product.BillAmount}}</td>
+                    <td style="width:175px" >{{product.DueAmount}}</td>
+                   
+                   
+                    <td style="width:200px" ><span [class]="'product-badge status-instock'">Active</span></td>
+                    <td style="width:200px"  [style]="{'display': 'inline-flex'}">
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                            (click)="editProduct(product)"></button>&nbsp;
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                            (click)="deleteProduct(product)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between">
+                    In total there are {{items ? items.length : 0 }} products.
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+
+
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+</div>

@@ -1,0 +1,184 @@
+<p-toast></p-toast>
+<app-loader></app-loader>
+
+
+<div class="container-fluid">
+
+  <!-- start page title -->
+
+  <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <!-- end page title -->
+
+  <div class="row border border-dark">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="invoice-title">
+
+            <div class="float-end m-3 py-3">
+              <img src="assets/images/rich.jpg" alt="richborn" height="60">
+            </div>
+            <div class="">
+              <h2>OPA (INDIA)</h2>
+
+              <div> Purti Virat Complex, 23, Brabourne Road, 2nd Floor <br>
+                Kolkata 700001 <br>
+                E-Mail : rajesh.arora@richborn.com<br>Web Site : www.richborn.com <br>
+                Phone : +91 6289 311314 &nbsp;
+                GST No. :19ACZPA6399K1ZK
+              </div>
+            </div>
+          </div>
+
+          <div class="row text-center">
+            <div class="border-top border-bottom border-dark">
+              <h1>TAX INVOICE</h1>
+              <h3>EXTRA COPY</h3>
+            </div>
+          </div>
+
+          <div class="row border-bottom border-dark">
+            <div class="col-6 border-left border-dark billAdd">
+
+              <strong>{{purchaseData["PartyName"]}}</strong>
+              D K ROAD,<br>
+              NORTH LAKHIMPUR<br>
+              <br>
+              1234 Main<br>
+              Apt. 4B<br>
+
+            </div>
+
+            <div class="col-6 text-sm-end button-items">
+
+              <div class="text-start">
+                <h5 class="border-bottom border-dark mt-2"> Bill No.: 654</h5>
+                <h5 class="border-bottom border-dark"> Bill Date :{{purchaseData["EntryDate"]}}</h5>
+                <h5 class="border-bottom border-dark"> Full Bill No. : 7654</h5>
+                <h5 class="border-bottom border-dark"> Party GST No. : {{purchaseData["GSTNo"]}}</h5>
+                <br>
+
+              </div>
+
+            </div>
+          </div>
+
+          <br>
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="border border-dark">
+                <tr>
+                  <th style="width: 70px;">Sl No.</th>
+
+                  <th>Product Code</th>
+                  <th>HSN Code</th>
+                  <th>Quantity</th>
+                  <th>MRP</th>
+                  <th>Rate</th>
+                  <th>Discount</th>
+                  <th class="text-end">Amount</th>
+                </tr>
+              </thead>
+              <tbody class="border border-dark">
+                <tr *ngFor="let row of prodData; let i = index">
+                  <td>{{i+1}}</td>
+                  <td>{{row.ProdCode}}</td>
+
+                  <td>{{row.HSNCode}} </td>
+                  <td>{{row.Qty}} </td>
+                  <td>{{row.MRP}} </td>
+                  <td>{{row.Rate}} </td>
+                  <td>{{row.Discount}} </td>
+                  <td class="text-end">{{row.Amt}}</td>
+                </tr>
+
+
+
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="row">
+            <div class="col-8"></div>
+            <div class="col-4"></div>
+          </div>
+          <div class="row">
+            <div class="col-10">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="border border-dark">
+                    <tr>
+                      <th style="width: 70px;">Sl No.</th>
+                      <th>HSN Code</th>
+                      <th>Taxable Amt</th>
+                      <th>Quantity</th>
+                      <th>IGST</th>
+                      <th class="text-end"> Total Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody class="border border-dark">
+                    <tr *ngFor="let item of prodData; let i = index">
+                      <td>{{i+1}}</td>
+                      <td>{{item.HSNCode}}</td>
+                      <td>{{item.TaxableAmount}} </td>
+                      <td>{{item.Qty}} </td>
+                      <td>{{item.IGST}} </td>
+                      <td class="text-end">{{item.Amt}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row border-top border-dark ">
+
+            <div class="col-4 border-bottom border-dark billAdd">
+              <b>Bank Name :{{purchaseData["BankName"]}}</b>
+
+              <h6> Branch :{{purchaseData["BankBranchName"]}}</h6>
+              <b>A/c No : {{purchaseData["BankAcNo"]}}</b>
+              <h6>IFSC Code :{{purchaseData["BankIfscCode"]}}</h6>
+
+            </div>
+            <div class="col-4 border-bottom border-dark billAdd">
+              <b> Bank Name : HDFC BANK</b>
+              <h6> Branch : P34, India Exchange Place</h6>
+              <b> A/c No : 12422560001654</b>
+              <h6> IFS Code : HDFC0001242</h6>
+            </div>
+            <div class="col-4">
+              <h6>E. & O.E.</h6>
+              <h2 class="text-center"> for OPA(INDIA)</h2>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-8">
+
+              <h6 class="mt-1"> DEALERS Retain Barcode for 6 Months Warranty for Manufacturing defects.(Hooks & Used
+                only repairs)</h6>
+              <h6> CONSUMER WARRANTY FOR 3 MONTHS AGAINST MANUFACTURING DEFECTS</h6>
+              <b> Subject to Kolkata Jurisdiction</b><br>
+              <b> Pay by A/c Payee Cheque or NEFT / RTGS only.</b>
+            </div>
+            <div class="col-4 text-center">
+             
+              <h4 class="mt-3"> <br><br><br> Authorised Signatory</h4>
+            </div>
+          </div>
+          <div class="d-print-none">
+            <div class="float-end">
+              <a href="javascript:window.print()" class="btn btn-success"><i class="fa fa-print"></i></a>
+              <a href="javascript: void(0);" class="btn btn-primary w-md ms-1">Send</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

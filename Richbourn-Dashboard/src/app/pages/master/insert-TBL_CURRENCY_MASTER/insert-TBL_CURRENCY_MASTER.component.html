@@ -1,0 +1,125 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" CURRENCY MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+              <div class="mb-3 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Currency Name.</span>
+                  </div>
+                  <input #myinput type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                    formControlName="CurrencyName" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.CurrencyName.errors}">
+
+                  <div *ngIf="submit && form.CurrencyName.errors" class="invalid-feedback">
+                    <span *ngIf="form.CurrencyName.errors.required">Please enter a Currency Name.</span>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="mb-3 col-sm-6 position-relative"></div>
+              <div class="mb-3 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Short Name</span>
+                  </div>
+                  <input type="text" tabIndex="2" class="form-control" id="validationTooltipUsername"
+                    formControlName="ShortName" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.ShortName.errors}">
+
+                  <div *ngIf="submit && form.ShortName.errors" class="invalid-feedback">
+                    <span *ngIf="form.ShortName.errors.required">Please enter a valid Short Name.</span>
+                  </div>
+                </div>
+              </div>
+            
+
+
+              <div class="mb-3 col-sm-6 position-relative"></div>
+              <div class="mb-3 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Currency Description</span>
+                  </div>
+                  <input type="text" tabIndex="3" class="form-control" id="validationTooltipUsername"
+                    formControlName="CurrDesc" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.CurrDesc.errors}">
+
+                  <div *ngIf="submit && form.CurrDesc.errors" class="invalid-feedback">
+                    <span *ngIf="form.CurrDesc.errors.required">Please enter a valid Currency Description.</span>
+                  </div>
+                </div>
+              </div>
+            
+              
+              <div class="mb-3 col-sm-6 position-relative"></div>
+              <div class="mb-3 col-sm-5 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Curr Sign</span>
+                  </div>
+                  <input type="text" tabIndex="4" class="form-control" id="validationTooltipUsername"
+                    formControlName="CurrSign" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.CurrSign.errors}">
+
+                  <div *ngIf="submit && form.CurrSign.errors" class="invalid-feedback">
+                    <span *ngIf="form.CurrSign.errors.required">Please enter a valid CurrSign .</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mb-3 col-sm-6 position-relative"></div>
+              <div class="mb-3 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Default Curr</span>
+                  </div>
+                  <!-- <p-dropdown [style]="{'width': '100%','height':'37px'}" tabIndex="5"panelStyleClass="dropdown-panel" [options]="[{name: 'YES', code: 'Y'},{name: 'NO', code: 'N'}]" formControlName="DefaCurr" optionLabel="name" optionValue="code"></p-dropdown> -->
+                  <p-autoComplete tabIndex="2" pInputText class="p-inputtext-sm"  [style]="{'height':'36px'}"
+                  formControlName="DefaCurr" [suggestions]="booleanItem"  (completeMethod)="_fetchBoolean($event)"
+                  [dropdown]="true" field="name">
+                  <ng-template let-employee pTemplate="item">
+                    {{employee.name}}
+                  </ng-template>
+                  <ng-template let-employee pTemplate="selectedItem">
+                    {{employee.name}}
+                  </ng-template>
+                </p-autoComplete>
+                  <div *ngIf="submit && form.DefaCurr.errors" class="invalid-feedback">
+                    <span *ngIf="form.DefaCurr.errors.required">Please enter a valid Default Curr .</span>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button tabIndex="6" type="submit" class="btn btn-primary">Save Changes</button>
+                <button tabIndex="7" type="button" (click)="Close()" class="btn btn-secondary">Cancel</button>
+               
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

@@ -1,0 +1,95 @@
+<p-toast></p-toast>
+<app-loader></app-loader>
+
+
+<div class="container-fluid">
+
+  <!-- start page title -->
+
+  <app-page-title title="" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <!-- end page title -->
+
+  <div class="row border border-dark">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="row">
+            <div  style="width:100%" *ngFor="let row of itemarray; let i = index">
+              <div  style="width:100%">
+              <div class="row">
+                <div  style="width:50%">
+                  <img width="70" src="assets/images/logo.jpg" alt="Header Avatar">
+                </div>
+                <div style="width:50%">
+                  <div class="qrcodeImage">
+                    <qrcode
+                      [qrdata]="row.ProdCode"
+                      [allowEmptyString]="true"
+                      [ariaLabel]="'QR Code image with the following content...'"
+                      [cssClass]="'center'"
+                      [colorDark]="'#000000ff'"
+                      [colorLight]="'#ffffffff'"
+                      [elementType]="'canvas'"
+                      [errorCorrectionLevel]="'M'"
+                      [margin]="4"
+                      [scale]="1"
+                      [title]="'A custom title attribute'"
+                      [width]="70"
+                    ></qrcode>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <table>
+                 
+                  <tr>
+                    <td>Product :</td>
+                    <td>  {{row.ProdCate}} </td>
+                  </tr>
+                  <tr>
+                    <td> <strong>Style Code :</strong></td>
+                    <td>  <strong>   {{row.ProdCode}} </strong></td>
+                  </tr>
+                  <tr>
+                    <td> <strong>Quantity :</strong></td>
+                    <td>  <strong>   {{row.Qty}} pcs </strong></td>
+                  </tr>
+                  <tr>
+                    <td> {{item.ReceivedDate}} </td>
+                    <td>   {{row.ProdCode}} </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"> Your Price </td>
+                   
+                  </tr>
+                  <tr>
+                    <td colspan="2"><strong>₹  {{row.MRP}} </strong></td>
+                   
+                  </tr>
+                  <tr>
+                    <td> <strong>Size :</strong></td>
+                    <td>  <strong>   {{row.Qty}} pcs </strong></td>
+                  </tr>
+                </table>
+             
+            </div>
+          </div>
+            </div>
+          </div>
+         
+          <br>
+          <br>
+          <div class="d-print-none">
+            <div class="float-end">
+              <a href="javascript:window.print()" class="btn btn-success"><i class="fa fa-print"></i></a>
+              <a href="javascript: void(0);" class="btn btn-primary w-md ms-1">Send</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

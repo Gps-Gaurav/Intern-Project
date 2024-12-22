@@ -1,0 +1,132 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+
+              <div class="row">
+
+                <div formArrayName="usersDetails">
+                  <p-table [value]="usersDetails.controls"  [resizableColumns]="true" [autoLayout]="true" [scrollable]="true"  styleClass="table-panel"
+                   [(selection)]="selectedUsers">
+                    <ng-template pTemplate="header">
+                      <tr>
+
+                        <th > Code</th>
+
+                        <th > Color</th>
+                        <th> Size</th>
+                        <th > Image</th>
+                        <th > Location</th>
+                        <th> Stock</th>
+                        <th > HSN</th>
+                        <th > M.R.P</th>
+                        <th> Discount %</th>
+                        <th > Quantity</th>
+                        <th > Rate</th>
+                        <th > Amount</th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-controls let-i="rowIndex">
+                      <tr style="margin-top:10px ;margin-bottom: 10px;" [formGroupName]="i">
+
+
+                        <td >
+
+                          <input type="text" tabindex="-1" style="width: 80px;" formControlName="ProdCode" pInputText readonly
+                            class="p-inputtext-sm " placeholder="">
+                        </td>
+                        <td >
+                          <input type="text" tabindex="-1" style="width: 80px;" formControlName="ColoursName" pInputText readonly
+                            class="p-inputtext-sm " placeholder="">
+                          <input style="width:90px" tabindex="-1" type="hidden" formControlName="ColorID" pInputText
+                            class="p-inputtext-sm" />
+                        </td>
+                        <td >
+                          <input type="text" tabindex="-1" style="width: 80px;" formControlName="Size" pInputText readonly
+                            class="p-inputtext-sm " placeholder="">
+                        
+                        </td>
+                        <td >
+
+
+                          <p-image
+                            [src]="ImgUrl+controls.get('ProdCode').value+'_'+controls.get('ColoursName').value+'.jpg?'"
+                            [alt]="controls.get('ProductImage').value" width="50" height="50"
+                            [preview]="true"></p-image>
+                        </td>
+                        <td >
+                          <input type="text" tabindex="-1" style="width:80px" formControlName="Location" pInputText
+                            class="p-inputtext-sm" />
+                          <input style="width:90px" type="hidden" formControlName="LocationID" pInputText
+                            class="p-inputtext-sm" />
+
+                        </td>
+
+                        <td><p-inputNumber tabindex="-1" mode="decimal" (onInput)="ChangeDiscount($event, i)"
+                            styleClass="inputOnDataTable" formControlName="Stock" pInputText
+                            class="p-inputtext-sm"></p-inputNumber>
+                        </td>
+                        <td ><input type="text" tabindex="-1" style="width: 90px" formControlName="HSNCode"
+                            pInputText class="p-inputtext-sm" /></td>
+                        <td ><input type="text" style="width:80px" tabindex="-1" formControlName="MRP" pInputText
+                            class="p-inputtext-sm" /></td>
+                        <td ><p-inputNumber mode="decimal" tabindex="-1" (onInput)="ChangeDiscount($event, i)"
+                            styleClass="inputOnDataTable" formControlName="Discount" pInputText
+                            class="p-inputtext-sm"></p-inputNumber>
+                        </td>
+                        <td >
+                          <p-inputNumber mode="decimal" inputId="withoutgrouping" [useGrouping]="false"
+                            styleClass="inputOnDataTable" formControlName="Qty" (onInput)="ChangeQty($event, i)">
+                          </p-inputNumber>
+                        </td>
+                        <td >
+                          <p-inputNumber mode="decimal" inputId="withoutgrouping" [useGrouping]="false"
+                            styleClass="inputOnDataTable" formControlName="Rate" (onInput)="ChangeRate($event, i)">
+                          </p-inputNumber>
+                        </td>
+                        <td >
+                          <p-inputNumber mode="decimal" tabindex="-1" inputId="withoutgrouping" [useGrouping]="false"
+                            styleClass="inputOnDataTable" formControlName="Amt">
+                          </p-inputNumber>
+                        </td>
+
+                      </tr>
+
+                    </ng-template>
+                  </p-table>
+                </div>
+
+
+
+                <div>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="d-flex justify-content-end flex-wrap">
+      <button style="height: 50px ;" pButton pRipple [label]="'Close'" class="p-button-danger mr-2"
+        (click)="onDialogClose()"></button>&nbsp;
+      <button style="height:50px ;" pButton pRipple label="Save" class="p-button-success mr-1"
+        (click)="validSubmit()"></button>
+
+    </div>
+  </div>
+
+  <!-- end row -->
+</div>

@@ -1,0 +1,82 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" PRODUCT COLOR MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="mb-1 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Colour Name</span>
+                  </div>
+                  <!-- <p-autoComplete class="form-control border-0 p-0" [style]="{'height':'36px'}"  [dropdown]="true" formControlName="Colours" [suggestions]="colorsData" (completeMethod)="_fetchColors($event)" [multiple]="true"></p-autoComplete> -->
+                  <input #myinput type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                  formControlName="Name" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                  [ngClass]="{'is-invalid': submit && form.Name.errors}">
+
+                  <div *ngIf="submit && form.Name.errors" class="invalid-feedback">
+                    <span *ngIf="form.Name.errors.required">Please enter a Colours.</span>
+                  </div>
+                </div>
+              </div>
+
+             
+                 
+   
+              <div class="mb-2 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Color Code</span>
+                  </div>
+                  <input type="text" tabIndex="2" class="form-control" id="validationTooltipUsername"
+                    formControlName="Code" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.Code.errors}">
+                    <p-colorPicker formControlName="Color"></p-colorPicker> 
+                  <div *ngIf="submit && form.Code.errors" class="invalid-feedback">
+                    <span *ngIf="form.Code.errors.required">Please enter a valid Color Code.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-1 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Index Order</span>
+                  </div>
+                  <!-- <p-autoComplete class="form-control border-0 p-0" [style]="{'height':'36px'}"  [dropdown]="true" formControlName="Colours" [suggestions]="colorsData" (completeMethod)="_fetchColors($event)" [multiple]="true"></p-autoComplete> -->
+                  <input type="text" tabIndex="3" class="form-control" id="validationTooltipUsername"
+                  formControlName="IndexOrder" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                  [ngClass]="{'is-invalid': submit && form.IndexOrder.errors}">
+
+                  <div *ngIf="submit && form.IndexOrder.errors" class="invalid-feedback">
+                    <span *ngIf="form.IndexOrder.errors.required">Please enter Index Order.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="btn btn-secondary">Cancel</button>
+               
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

@@ -1,0 +1,102 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="  UNIT RELATION MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+              <div class="mb-2 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">From Unit</span>
+                  </div>
+                  <p-autoComplete pInputText class="p-inputtext-sm"  [style]="{'height':'36px'}"
+                  formControlName="FromUnit" [suggestions]="unitData"
+                  (completeMethod)="_fetchUnit($event)" [dropdown]="true" field="ShortName">
+                  <ng-template let-employee pTemplate="item">
+                    {{employee.ShortName}}
+                  </ng-template>
+                  <ng-template let-employee pTemplate="selectedItem">
+                    {{employee.ShortName}}
+                  </ng-template>
+                </p-autoComplete>
+
+                  <div *ngIf="submit && form.FromUnit.errors" class="invalid-feedback">
+                    <span *ngIf="form.FromUnit.errors.required">Please enter a From Unit.</span>
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="mb-2 col-sm-8 position-relative"></div>
+              <div class="mb-2 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">To Unit</span>
+                  </div>
+                  <p-autoComplete pInputText class="p-inputtext-sm"  [style]="{'height':'36px'}"
+                  formControlName="ToUnit" [suggestions]="unitData"
+                  (completeMethod)="_fetchUnit($event)" [dropdown]="true" field="ShortName">
+                  <ng-template let-employee pTemplate="item">
+                    {{employee.ShortName}}
+                  </ng-template>
+                  <ng-template let-employee pTemplate="selectedItem">
+                    {{employee.ShortName}}
+                  </ng-template>
+                </p-autoComplete>
+
+                  <div *ngIf="submit && form.ToUnit.errors" class="invalid-feedback">
+                    <span *ngIf="form.ToUnit.errors.required">Please enter a valid To Unit.</span>
+                  </div>
+                </div>
+              </div>
+            
+
+
+              <div class="mb-2 col-sm-8 position-relative"></div>
+              <div class="mb-2 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Conv.Factor</span>
+                  </div>
+                  <input type="text" tabIndex="3" class="form-control" id="validationTooltipUsername"
+                    formControlName="ConvFactor" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{'is-invalid': submit && form.ConvFactor.errors}">
+
+                  <div *ngIf="submit && form.ConvFactor.errors" class="invalid-feedback">
+                    <span *ngIf="form.ConvFactor.errors.required">Please enter a valid Unit Conv.Factor.</span>
+                  </div>
+                </div>
+              </div>
+            
+              
+             
+            
+
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="btn btn-secondary">Cancel</button>
+               
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

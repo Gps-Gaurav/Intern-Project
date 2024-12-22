@@ -1,0 +1,42 @@
+<div class="ps-home__promo-top  p-3">
+    <div class="container">
+        <div class="row" >
+            <div class="col-12 col-md-6 ps-promo__women mb-3" *ngFor="let item of Category">
+                <div class="ps-promo ps-promo--left"><img class="ps-promo__banner" [src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key" />
+                    <div class="ps-promo__content">
+                        <h4 class="ps-promo__title text-dark">Women</h4>
+                        <div class="ps-promo__link text-dark"> <a href="shop-list.html"><span>Shop Now</span><img [src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key"/></a></div>
+                    </div>
+                </div>
+            </div>
+<div class="col-12 col-md-6 mb-3">
+                <div class="row" >
+                    <div class="col-12 ps-promo__men"*ngFor="let item of Category">
+                        <div class="ps-promo ps-promo--left"><img class="ps-promo__banner" [src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key"  alt="alt" />
+                            <div class="ps-promo__content">
+                                <h4 class="ps-promo__title text-dark">Men</h4>
+                                <div class="ps-promo__link text-dark"> <a href="shop-list.html"><span>Shop Now</span><img [src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key"alt="" /></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 ps-promo__item  mt-3" *ngFor="let item of Category">
+                        <div class="ps-promo ps-promo--left"><img class="ps-promo__banner" [src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key"  alt="alt" />
+                            <div class="ps-promo__content">
+                                <h4 class="ps-promo__title text-dark">Accessories</h4>
+                                <div class="ps-promo__link text-dark"> <a href="shop-list.html"><span>Shop Now</span><img [src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key"alt="" /></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 ps-promo__item mb-3 mt-3"*ngFor="let item of Category">
+                        <div class="ps-promo ps-promo--left"><img class="ps-promo__banner"[src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key" alt="alt" />
+                            <div class="ps-promo__content">
+                                <h4 class="ps-promo__title text-dark">Shoes</h4>
+                                <div class="ps-promo__link text-dark"> <a href="shop-list.html"><span>Shop Now</span><img [src]="ImgUrl+item.ProdCode+'_'+item.ColoursName+'.jpg?'+unique_key"alt="" /></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

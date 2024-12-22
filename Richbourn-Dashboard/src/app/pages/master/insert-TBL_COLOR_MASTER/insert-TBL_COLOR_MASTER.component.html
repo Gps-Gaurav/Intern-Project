@@ -1,0 +1,94 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" PRODUCT COLOR MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+              <div class="mb-2 col-sm-5 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Colour Name</span>
+                  </div>
+
+                  <!-- <p-autoComplete class="form-control border-0 p-0" [style]="{'height':'36px'}"  [dropdown]="true" formControlName="Colours" [suggestions]="colorsData" (completeMethod)="_fetchColors($event)" [multiple]="true"></p-autoComplete> -->
+                  <input #myinput type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                    formControlName="ColorName" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('ColorName').dirty || formData.get('ColorName').touched) && form.ColorName.errors}">
+
+                  <div *ngIf="submit && form.ColorName.errors" class="invalid-feedback">
+                    <span *ngIf="form.ColorName.errors.required">Please enter a Colours.</span>
+                    <span *ngIf="
+                      !formData.get('ColorName')?.valid &&
+                      (formData.get('ColorName')?.touched || formData.get('ColorName')?.dirty)
+                    ">
+                      {{
+                      formData.get('ColorName')?.hasError('ColorName')
+                      ? ''
+                      : formData.get('ColorName')?.getError('invalid')
+                      }}
+
+                    </span>
+
+                  </div>
+                </div>
+               </div>
+
+              <div class="mb-3 col-sm-7 position-relative"></div>
+           
+              <div class="mb-2 col-sm-5 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text " id="validationTooltipUsernamePrepend">Color Code</span>
+                  </div>
+
+                  <!-- <p-autoComplete class="form-control border-0 p-0" [style]="{'height':'36px'}"  [dropdown]="true" formControlName="Colours" [suggestions]="colorsData" (completeMethod)="_fetchColors($event)" [multiple]="true"></p-autoComplete> -->
+                  <input maxlength="3" minlength="3" type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                    formControlName="ColorCode" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('ColorCode').dirty || formData.get('ColorCode').touched) && form.ColorCode.errors}">
+
+                  <div *ngIf="submit && form.ColorCode.errors" class="invalid-feedback">
+                    <span *ngIf="form.ColorCode.errors.required">Please enter a Colours.</span>
+                    <span *ngIf="
+                      !formData.get('ColorCode')?.valid &&
+                      (formData.get('ColorCode')?.touched || formData.get('ColorCode')?.dirty)
+                    ">
+                      {{
+                      formData.get('ColorCode')?.hasError('ColorCode')
+                      ? ''
+                      : formData.get('ColorCode')?.getError('invalid')
+                      }}
+
+                    </span>
+
+                  </div>
+                </div>
+               </div>
+
+              <div class="mb-3 col-sm-7 position-relative"></div>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button tabIndex="6" type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" (click)="Close()" class="btn btn-secondary">Cancel</button>
+               
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  </div>
+             

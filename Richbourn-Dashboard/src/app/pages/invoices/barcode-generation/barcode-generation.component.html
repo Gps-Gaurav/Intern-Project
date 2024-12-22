@@ -1,0 +1,245 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title=" BARCODE INVOICE" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+
+              <div class="mb-2 col-sm-11 position-relative">
+                <div class="row">
+
+                 
+
+                  <div class="mb-2 col-sm-3 position-relative">
+                    <div class="input-group ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">Production  Date :</span>
+                      </div>
+                      <input type="date" tabIndex="2" class="form-control" id="validationTooltipUsername"
+                        formControlName="ReceivedDate" placeholder=""
+                        aria-describedby="validationTooltipUsernamePrepend"
+                        [ngClass]="{'is-invalid': submit && form.ReceivedDate.errors}">
+
+                      <div *ngIf="submit && form.ReceivedDate.errors" class="invalid-feedback">
+                        <span *ngIf="form.ReceivedDate.errors.required">Please enter a unique and valid
+                          Received Date.</span>
+                      </div>
+                    </div>
+                  </div>
+
+            
+
+                  <div class="mb-2 col-sm-6 position-relative">
+
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Party Name</span>
+                      </div>
+                      
+                      <p-autoComplete tabIndex="3" class="form-control border-0 p-0"
+                        [style]="{'height':'36px','width':'100%'}" formControlName="PartyID" [suggestions]="PartyData"
+                        (completeMethod)="_fetchParty($event)" [dropdown]="true" field="GLName">
+                        <ng-template let-employee pTemplate="item">
+                          {{employee.GLName}}
+                        </ng-template>
+                        <ng-template let-employee pTemplate="selectedItem">
+                          {{employee.GLName}}
+                        </ng-template>
+                      </p-autoComplete>
+                      <div *ngIf="submit && form.PartyID.errors" class="invalid-feedback">
+                        <span *ngIf="form.PartyID.errors.required">Please enter a valid Party.</span>
+                      </div>
+                    </div>
+                  </div>
+                 
+
+                  <div class="mb-0 col-sm-3 position-relative"></div>
+               
+
+                 
+                </div>
+
+              </div>
+
+
+              <!-- <p-autoComplete [(ngModel)]="selectedProduct"   [style]="{'height':'28px','width':'140px','align-items': 'center'}" (onChange)="onSelect($event,0)" [showEmptyMessage]="true" [suggestions]="productData_distinct" (completeMethod)="_fetchProductFilter($event)" field="ProdCode" [minLength]="1"></p-autoComplete> -->
+              <div class="row mt-2">
+                <div class="col-sm-4 position-relative justify-content-center m-2">
+                  
+                </div>
+                <div class="col-sm-4 position-relative justify-content-center m-2">
+                  <form (ngSubmit)="submitTemplateForm(form.value)">
+                    <div class="container">
+                      <div class="ng-autocomplete">
+                        <ng-autocomplete #ngAutoCompleteStatic [data]="productData_distinct" name="name"
+                          [(ngModel)]="selectedProduct" [initialValue]="" [placeholder]="placeholder"
+                          [searchKeyword]="keyword" (selected)="selectEvent($event)" notFoundText="Not found"
+                          [itemTemplate]="itemTemplateStatic" [notFoundTemplate]="notFoundTemplate">
+                        </ng-autocomplete>
+
+                        <ng-template #itemTemplateStatic let-item>
+                          <a [innerHTML]="item.ProdCode"></a>
+                        </ng-template>
+
+                        <ng-template #notFoundTemplate let-notFound>
+                          <div [innerHTML]="notFound"></div>
+                        </ng-template>
+                      </div>
+
+                    </div>
+                  </form>
+
+                </div>
+                <div class="col-sm-4">
+
+                </div>
+
+
+              </div>
+
+
+              <div class="row">
+
+                <div formArrayName="usersDetails">
+                  <p-table [value]="usersDetails.controls" [resizableColumns]="true" [responsive]="true"
+                    [autoLayout]="true" [scrollable]="true" styleClass="table-grid p-datatable-gridlines"
+                    scrollDirection="both" [(selection)]="selectedUsers">
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th style="width:4%"> </th>
+                        <th style="width:18%"> Code</th>
+
+                        <th style="width:8%"> Color</th>
+                        <th style="width:16%"> Category</th>
+                        
+                        <th style="width:8%"> Size</th>
+                        <th style="width:6%"> Image</th>
+                        <th style="width:9%"> Location</th>
+                        <th style="width:7%"> HSN</th>
+                        <th style="width:9%"> M.R.P</th>
+                        <th style="width:8%"> Discount %</th>
+                        <th style="width:7%"> Quantity</th>
+                      
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-controls let-i="rowIndex">
+                      <tr [formGroupName]="i">
+                        <td style="width:4%">
+                          <p-tableCheckbox [value]="i+1"></p-tableCheckbox>
+                          <input type="hidden" style="width: 110px;" formControlName="SlNo" pInputText
+                            class="p-inputtext-sm ">
+                        </td>
+
+                        <td style="width:18%">
+                          <!-- <input type="hidden" style="width: 110px;" formControlName="ProdCode" pInputText
+                          class="p-inputtext-sm "> -->
+                          <p-dropdown [filter]="true" readonly="true" placeholder="ProductCode"
+                            formControlName="ProdCode" class="p-inputtext-sm" [options]="productData_distinct"
+                            optionLabel="ProdCode" optionValue="ProdCode" appendTo="body"
+                            [style]="{'height':'28px','width':'100%','align-items': 'center'}"></p-dropdown>
+                          <button (click)="onItemSelect(i)" pButton pRipple type="button" icon="pi pi-search"
+                            class="p-button-rounded p-button-success"></button>
+                        </td>
+
+                        <td style="width:8%;"><input style="width:90px" type="text" formControlName="ColoursName"
+                            pInputText class="p-inputtext-sm" />
+                          <input style="width:90px" type="hidden" formControlName="ColorID" pInputText
+                            class="p-inputtext-sm" />
+
+                        </td>
+
+                        <td style="width:16%;"><input style="width:90px" type="text" formControlName="ProdCate"
+                          pInputText class="p-inputtext-sm" />
+                       
+
+                      </td>
+
+                        <td style="width:8%;"><input style="width:90px" type="text" formControlName="Size"
+                          pInputText class="p-inputtext-sm" />
+                        <input style="width:90px" type="hidden" formControlName="SizeID" pInputText
+                          class="p-inputtext-sm" />
+
+                      </td>
+                        <td style="width:6%">
+                          <p-image
+                            [src]="ImgUrl+controls.get('ProdCode').value+'_'+controls.get('ColoursName').value+'.jpg?'+unique_key"
+                            [alt]="controls.get('ProductImage').value" height="50" width="50"
+                            [preview]="true"></p-image>
+                        </td>
+                        <td style="width:9%;">
+                          <input type="text" style="width:80px" formControlName="Location" pInputText
+                            class="p-inputtext-sm" />
+                          <input style="width:90px" type="hidden" formControlName="LocationID" pInputText
+                            class="p-inputtext-sm" />
+                        </td>
+                        <td style="width:7%;"><input type="text" style="width:50px" formControlName="HSNCode" pInputText
+                            class="p-inputtext-sm" /></td>
+                        <td style="width:9%;"><input type="text" style="width:80px" formControlName="MRP" pInputText
+                            class="p-inputtext-sm" /></td>
+                        <td style="width:8%;"><p-inputNumber mode="decimal" (onInput)="ChangeDiscount($event, i)"
+                            styleClass="inputOnDataTable" formControlName="Discount" pInputText
+                            class="p-inputtext-sm"></p-inputNumber></td>
+                        <td style="width:7%;">
+                          <p-inputNumber mode="decimal" inputId="withoutgrouping" [useGrouping]="false"
+                            styleClass="inputOnDataTable" formControlName="Qty" (onInput)="ChangeQty($event, i)">
+                          </p-inputNumber>
+                        </td>
+                      
+
+                      </tr>
+
+                    </ng-template>
+                  </p-table>
+                </div>
+
+                <div class="d-flex justify-content-end flex-wrap gap-2 mt-1">
+
+                  <button style="height: 30px ;" pButton pRipple [label]="'Delete'" icon="pi pi-trash"
+                    class="p-button-danger mr-2" (click)="onDelete()"
+                    [disabled]="usersDetails.controls.length === 1"></button>&nbsp;
+                  <!-- <button style="height: 30px ;" pButton pRipple label="New" icon="pi pi-plus"
+                    class="p-button-success mr-1" (click)="onAdd()"></button> -->
+
+                </div>
+                <p-toast [style]="{marginTop: '80px'}"></p-toast>
+                <div>
+                </div>
+              </div>
+
+
+            
+              <div class="row">
+               
+
+
+
+                <div class="d-flex flex-wrap gap-2 mt-2 justify-content-end">
+
+                  <button pButton pRipple type="button" (click)="Close()" label="Close"
+                    class="p-button-raised p-button-danger"></button>
+                  <button pButton pRipple type="button" *ngIf="app_name==='work'" label="Save Draft"
+                    class="p-button-raised p-button-warning"></button>
+                  <button pButton pRipple type="submit" label="Save Invoice"
+                    class="p-button-raised p-button-success"></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- end row -->
+</div>

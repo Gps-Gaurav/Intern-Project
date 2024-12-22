@@ -1,0 +1,248 @@
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+/* You can add global styles to this file, and also import other style files */
+.modal-holder {
+  animation-name: example;
+  animation-duration: 0.3s;
+}
+
+@keyframes example {
+  0% {
+    transform: scale(0.5)
+  }
+
+  100% {
+    transform: scale(1)
+  }
+}
+input {
+  text-transform: uppercase;
+}
+.inputlower{
+  text-transform: lowercase!important;
+}
+.carousel-item {
+  transition: opacity 0.7s ease !important;
+  position: absolute !important;
+  display: block !important;
+  opacity: 0;
+}
+
+.carousel-item.active {
+  position: relative !important;
+  opacity: 1;
+}
+
+.form-control:focus {
+  outline: none !important;
+  border:1px solid #99FF99 !important;
+  background-color: #99FF99!important;
+  box-shadow: 0 0 3px #99FF99 !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+  background-image: url(/assets/images/layouts/bg.jpg) ;
+}
+.table-panel .p-datatable-table{
+	.p-datatable-thead > tr > th {
+        background: #944655;
+        color: #fff;
+        height: 30px;
+        font-size: 12px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .p-datatable-tbody> tr > td {
+      text-align: center;
+        height: 30px;
+        font-size: 12px;
+       
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       // white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .p-datatable-tbody> tr > td .p-button.p-button-icon-only.p-button-rounded {
+        border-radius: 10%; 
+         height: 0rem; 
+    }
+}
+
+
+.table-panel-img .p-datatable-table{
+	.p-datatable-thead > tr > th {
+        background: #944655;
+        color: #fff;
+        height: 30px;
+        font-size: 12px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .p-datatable-tbody> tr > td {
+      text-align: center;
+       
+        font-size: 12px;
+        max-height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .p-datatable-tbody> tr > td .p-button.p-button-icon-only.p-button-rounded {
+        border-radius: 10%; 
+         height: 0rem; 
+    }
+}
+
+
+
+.dropdown-panel {
+  
+    height: 30px!important;
+    font-size: 12px;
+
+}
+
+
+.table-array 
+.p-datatable-table{
+
+ 
+
+	.p-datatable-thead > tr > th {
+        background: #944655;
+        color: #fff;
+        height: 30px;
+        font-size: 12px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .p-datatable-tbody{
+   
+      overflow: visible;
+    }
+    .p-datatable-tbody> tr > td {
+      text-align: center;
+        height: 30px;
+        font-size: 12px;
+       
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: ellipsis;
+    }
+    .p-datatable-tbody> tr > td .p-button.p-button-icon-only.p-button-rounded {
+        border-radius: 10%; 
+         height: 0rem; 
+    }
+   
+ 
+}
+
+.inputOnDataTable input
+{
+    width: 100% !important;  
+    height: 30px;
+
+}
+.inputno-150 input
+{
+    width: 150px !important;  
+    height: 30px;
+
+}
+.inputno-120 input
+{
+    width: 135px !important;  
+    height: 35px;
+
+}
+.inputno-110 input
+{
+    width: 110px !important;  
+    height: 35px;
+
+}
+.inputno-100 input
+{
+    width: 100px !important;  
+    height: 35px;
+
+}
+.inputno-70 input
+{
+    width: 70px !important;  
+    height: 35px;
+
+}
+.wd-150{
+  width: 150px !important;  
+}
+
+.card {
+  background-color: transparent !important;
+}
+
+.custom-footer {
+  background: #f8f9fa;
+  color: #343a40;
+  border: 1px solid #dee2e6;
+  border-width: 0 0 1px 0;
+  padding: 0rem 0rem 0rem 1rem;
+  font-weight: 700;
+}
+.input-group-text {
+
+  background-color: #944655 !important;
+  color: #ffffff !important;
+}
+
+.custom-paginator  {
+   
+    
+  .p-paginator-pages .p-paginator-page.p-highlight {
+      background: #00ff22;
+  }
+
+   .p-paginator-pages .p-paginator-page {
+      background-color: transparent;
+      border: 0 none;
+      color: #6c757d;
+      min-width: 2rem;
+      height: 2rem;
+      margin: 0.143rem;
+      transition: box-shadow 0.2s;
+      border-radius: 50%;
+  }
+
+   .p-paginator-first, .p-paginator-prev, .p-paginator-next,  .p-paginator-last {
+      background-color: transparent;
+      border: 0 none;
+      color: #6c757d;
+      min-width: 3rem;
+      height: 1rem;
+      margin: 0.143rem;
+      transition: box-shadow 0.2s;
+      border-radius: 50%;
+  }
+
+  
+}
+
+input[type="email"] {
+  text-transform: lowercase;
+}

@@ -1,0 +1,256 @@
+<p-toast></p-toast>
+<app-loader></app-loader>
+
+
+<div class="container-fluid">
+    <app-page-title title="PRODUCT MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <p-contextMenu #cm [model]="righmenu"></p-contextMenu>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-sm-3">
+                            <div class="search-box me-2 mb-2 d-inline-block">
+                                <div class="position-relative">
+                                    <span [style]="{'display': 'inline-flex', 'height':'35px'}"class="p-input-icon-left">
+                                        <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger mr-2" (click)="deleteSelectedProducts()" [disabled]="!selectedItems || !selectedItems.length"></button>&nbsp;
+                                        <input class="form-control" pInputText type="text" [(ngModel)]="term"
+                                        (ngModelChange)='searchChanged.next($event)'
+                                            placeholder="Search..." />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="d-flex justify-content-between bd-highlight">
+                                <div class="p-2 bd-highlight">
+
+                                </div>
+
+                                <div class="p-2 bd-highlight"[style]="{'display': 'inline-flex', 'height':'50px'}">
+                                    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2"
+                                        (click)="openNew()"></button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- end col-->
+                    </div>
+                    <div class="">
+                        <p-table id="myTable" [scrollable]="true" [(contextMenuSelection)]="selectedProduct" [contextMenu]="cm" scrollHeight="400px" scrollDirection="both"
+                            styleClass="table-panel-img" #dt [value]="items" [rows]="10" [paginator]="false"
+                            [globalFilterFields]="['name','country.name','representative.name','status']"
+                            responsiveLayout="scroll" [(selection)]="selectedItems" [rowHover]="true" dataKey="SlNo"
+                            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                            [showCurrentPageReport]="true">
+
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th style="width:100px">
+                                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                    </th>
+                                    <th style="width:100px" pSortableColumn="ProdCode">Product Code<p-sortIcon
+                                            field="ProdCode"></p-sortIcon>
+                                    </th>
+
+                                    <th style="width:200px" pSortableColumn="ProdPicName">Image <p-sortIcon
+                                            field="ProdPicName"></p-sortIcon>
+                                    </th>
+                                    <th style="width:200px" pSortableColumn="ProdCateID">Category<p-sortIcon
+                                            field="ProdCateID"></p-sortIcon>
+                                    </th>
+                                    <th style="width:200px" pSortableColumn="Size">Size<p-sortIcon field="Size">
+                                    </p-sortIcon>
+                                </th>
+                                  
+                                    <th style="width:200px" pSortableColumn="ProdColors">Colours<p-sortIcon
+                                        field="ProdColors"></p-sortIcon>
+                                </th>
+                                   
+                                    <th style="width:200px" pSortableColumn="ProdDesc">Description<p-sortIcon
+                                            field="ProdDesc"></p-sortIcon>
+                                    </th>
+                                    <th style="width:200px" pSortableColumn="GroupID">Group<p-sortIcon field="GroupID">
+                                    </p-sortIcon>
+                                </th>
+                                    <th style="width:200px" pSortableColumn="Cost">C-T<p-sortIcon field="Cost">
+                                        </p-sortIcon>
+                                    </th>
+                                    <th style="width:200px" pSortableColumn="M.R.P">M.R.P<p-sortIcon field="M.R.P">
+                                        </p-sortIcon>
+                                    </th>
+                                    <th style="width:200px"pSortableColumn="ReOrdQty">Re-order Level<p-sortIcon field="ReOrdQty">
+                                        </p-sortIcon>
+                                    </th>
+                                    <th style="width:200px" pSortableColumn="BaseQty">Base Qty<p-sortIcon
+                                            field="BaseQty"></p-sortIcon>
+                                    </th>
+                                    <th style="width:200px" pSortableColumn="SubCateID">Sub Category<p-sortIcon
+                                      field="SubCateID"></p-sortIcon>
+                              </th>
+                                  
+                                    <th style="width:200px" pSortableColumn="HSNCode">HSN Code<p-sortIcon
+                                            field="HSNCode"></p-sortIcon>
+                                    </th>
+                                    <th style="width:200px" pSortableColumn="LabourRate">Labour Rt.<p-sortIcon
+                                            field="LabourRate"></p-sortIcon>
+                                    </th>
+                                    <th style="width:200px" pSortableColumn="DesignCode">Design Code<p-sortIcon
+                                            field="DesignCode"></p-sortIcon>
+                                    </th>
+                                    <th style="width:200px" pSortableColumn="OnlineSKU">Online SKU<p-sortIcon
+                                            field="OnlineSKU"></p-sortIcon>
+                                    </th>
+                                    <th style="width:200px" pSortableColumn="ARTNo">ART No<p-sortIcon field="ARTNo">
+                                        </p-sortIcon>
+                                    </th>
+                                    <th style="width:200px" pSortableColumn="MRP2">MRP 2 <p-sortIcon field="MRP2">
+                                        </p-sortIcon>
+                                    </th>
+                                    
+                                    <th style="width:200px" alignFrozen="right" pFrozenColumn>Action
+                                    </th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-product>
+                                <tr [pContextMenuRow]="product">
+                                    <td style="width:100px">
+                                        <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                                    </td>
+                                    <td style="width:100px">{{product.ProdCode}}</td>
+                                    <td style="width:200px">
+                                        
+                                        <p-image [src]="ImgUrl+product.ProdCode+'_'+product.ColoursName+'.jpg?'+unique_key" [alt]="product.ProdCode" width="80" height="80" [preview]="true"></p-image>
+                                        
+                                    </td>
+                                  
+                                    <td style="width:200px">{{product.ProdCate}}</td>
+                                    <td style="width:200px">{{product.SizeName}}</td>
+                                    <td style="width:200px">{{product.ColoursName}}</td>
+                                    <td style="width:200px">{{product.ProdDesc}}</td>
+                               
+                                    <td style="width:200px">{{product.GroupCode}}</td>
+                                    <td style="width:200px">{{product.Cost}}</td>
+                                    <td style="width:200px">{{product.MRP}}</td>
+                                    <td style="width:200px">{{product.ReOrdQty}}</td>
+                                    <td style="width:200px">{{product.BaseQty}}</td>
+                                 
+                                    <td style="width:200px">{{product.SubCate}}</td>
+                                    <td style="width:200px">{{product.HSNCode}}</td>
+                                    <td style="width:200px">{{product.LabourRate}}</td>
+                                    <td style="width:200px">{{product.DesignCode}}</td>
+                                    <td style="width:200px">{{product.OnlineSKU}}</td>
+                                    <td style="width:200px">{{product.ArtNo}}</td>
+                                    <td style="width:200px">{{product.MRP2}}</td>
+                                  
+                                    <td style="width:200px" alignFrozen="right" pFrozenColumn>
+                                        <button pButton pRipple icon="pi pi-pencil"
+                                            class="p-button-rounded p-button-success mr-2"
+                                            (click)="editProduct(product)"></button>
+                                        <button pButton pRipple icon="pi pi-trash"
+                                            class="p-button-rounded p-button-warning"
+                                            (click)="deleteProduct(product)"></button>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="footer">
+                                <div class="d-flex justify-content-between align-items-center  custom-footer">
+                                    <div class="bd-highlight" >
+                                        Showinng {{pageSize*(page-1)}} to {{(pageSize*page)>totalRecords?totalRecords:pageSize*page}} of {{totalRecords}} entries
+                                    </div>
+                                   
+                                    <div class="bd-highlight" alignFrozen="right" pFrozenColumn>
+                                        <p-paginator styleClass="custom-paginator" [rows]="pageSize" [totalRecords]="totalRecords"
+                                        (onPageChange)="handlePagination($event)"></p-paginator>
+                                    </div>
+                                  </div>
+                            </ng-template>
+                        </p-table>
+                    </div>
+
+
+                    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+                    <p-dialog header="Title" [(visible)]="display" [position]="'top'" [style]="{'min-height':'486px','width':'850px'}">
+                        <form (ngSubmit)="AddVarient()">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row">
+            
+                                
+                               
+            
+                                 
+                               
+                                  <div class="mb-1 col-sm-6 position-relative">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend wd-150">
+                                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Colours</span>
+                                      </div>
+                                      <!-- <p-autoComplete class="form-control border-0 p-0" [style]="{'height':'36px'}"  [dropdown]="true" formControlName="Colours" [suggestions]="colorsData" (completeMethod)="_fetchColors($event)" [multiple]="true"></p-autoComplete> -->
+                                      <p-dropdown [filter]="true"  tabIndex="11" class="form-control border-0 p-0"
+                                        [style]="{'height':'38px','width':'100%','align-items': 'center'}" [options]="colorsData"
+                                        optionLabel="ColorName" optionValue="SlNo" [(ngModel)]="ColorID">
+                                      </p-dropdown>
+            
+                                    
+                                    </div>
+                                  </div>
+                                
+            
+                                 
+                               
+                                  <div class="mb-1 col-sm-6 position-relative">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend wd-150">
+                                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Size</span>
+                                      </div>
+                                      <!-- <p-autoComplete class="form-control border-0 p-0" [style]="{'height':'36px'}"  [dropdown]="true" formControlName="Colours" [suggestions]="colorsData" (completeMethod)="_fetchColors($event)" [multiple]="true"></p-autoComplete> -->
+                                      <p-dropdown [filter]="true"  tabIndex="11" class="form-control border-0 p-0"
+                                        [style]="{'height':'38px','width':'100%','align-items': 'center'}" [options]="sizeData"
+                                        optionLabel="SizeName" optionValue="SlNo"  [(ngModel)]="SizeID">
+                                      </p-dropdown>
+            
+                                    
+                                    </div>
+                                  </div>
+                                  <div class="mb-2 col-sm-6 position-relative">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend wd-150">
+                                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Age Group</span>
+                                      </div>
+                                      <p-inputNumber [style]="{'height':'36px','width':'100%'}" mode="decimal"
+                                      inputId="withoutgrouping" [useGrouping]="false" tabIndex="3" id="validationTooltipUsername"
+                                      [(ngModel)]="Age"></p-inputNumber>
+
+                                    </div>
+                                  </div>
+                                 
+                                  <div class="mb-2 col-sm-6 position-relative">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend wd-150">
+                                        <span class="input-group-text " id="validationTooltipUsernamePrepend">Product Code</span>
+                                      </div>
+                                      <input type="text" class="form-control" 
+                                        [value]="ProdCode" readonly="true" placeholder="" 
+                                     >
+
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+            
+            
+            
+            
+            
+                            
+                            </div>
+                          </form>
+                          <ng-template pTemplate="footer">
+                            <p-button (click)="CloseVarient()" label="No" styleClass="p-button-text"></p-button>
+                            <p-button (click)="AddVarient()" label="Yes" styleClass="p-button-text"></p-button>
+                            </ng-template>
+                    </p-dialog>
+                </div>

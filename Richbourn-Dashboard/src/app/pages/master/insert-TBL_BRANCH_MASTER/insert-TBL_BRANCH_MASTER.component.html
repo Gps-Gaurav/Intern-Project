@@ -1,0 +1,381 @@
+<div class="container-fluid">
+
+     <!-- start page title -->
+     <app-page-title title=" BRANCH MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+     <!-- end page title -->
+   
+     <div class="row">
+       <div class="col-12">
+         <div class="card">
+           <div class="card-body">
+   
+             <!-- <h4 class="card-title">Basic Information</h4>
+             <p class="card-title-desc">Fill all information below</p> -->
+   
+             <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+               <div class="row">
+                 <div class="col-sm-6">
+                    <!-- <div class='mb-3'>
+                     <label for='ID'>ID</label>
+                     <input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'
+                       formControlName='ID' [ngClass]="{ 'is-invalid': submit && form.ID.errors}" />
+                     <div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+                       <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+                     </div>
+                   </div>  -->
+                   <div class='mb-3'>
+                     <label for='BRANCH_CODE'>Branch Code </label>
+   
+                     <input uppercase class='form-control' #myinput  placeholder='Enter Branch Code' minlength="3" maxlength="3" type='text' name='BRANCH_CODE'
+   
+                     autocomplete='off' formControlName='BRANCH_CODE'
+                     [ngClass]="{ 'is-invalid': (submit || formData.get('BRANCH_CODE').dirty || formData.get('BRANCH_CODE').touched) && form.BRANCH_CODE.errors}" />
+                     <div *ngIf="(submit || formData.get('BRANCH_CODE').dirty || formData.get('BRANCH_CODE').touched) && form.BRANCH_CODE.errors" class='invalid-feedback'>
+                       <span *ngIf='form.BRANCH_CODE.errors.required'>Branch Code is required.</span>
+                       <span
+                       *ngIf="
+                         !formData.get('BRANCH_CODE')?.valid &&
+                         (formData.get('BRANCH_CODE')?.touched || formData.get('BRANCH_CODE')?.dirty)
+                       "
+                     >
+                       {{
+                         formData.get('BRANCH_CODE')?.hasError('BRANCH_CODE')
+                           ? ''
+                           : formData.get('BRANCH_CODE')?.getError('invalid')
+                       }}
+                 
+                 </span>
+                     </div>
+                   </div>
+                   <div class='mb-3'>
+                     <label for='BRANCH_NAME'>Branch Name </label>
+                     <input uppercase class='form-control' placeholder='Enter Branch Name' maxlength="50" type='text' name='BRANCH_NAME'
+                       autocomplete='off' formControlName='BRANCH_NAME'
+                       [ngClass]="{ 'is-invalid': (submit || formData.get('BRANCH_NAME').dirty || formData.get('BRANCH_NAME').touched) && form.BRANCH_NAME.errors}" />
+                     <div *ngIf="(submit || formData.get('BRANCH_NAME').dirty || formData.get('BRANCH_NAME').touched) && form.BRANCH_NAME.errors" class='invalid-feedback'>
+                       <span *ngIf='form.BRANCH_NAME.errors.required'>Branch Name is required.</span>
+                     </div>
+                   </div>
+                   <!-- <div class='mb-3'>
+                     <label for='STATE_CODE'>State Code</label>
+                     <input uppercase class='form-control' placeholder='Enter State Code' type='text' name='STATE_CODE'
+                     autocomplete='off' formControlName='STATE_CODE'
+                     [ngClass]="{ 'is-invalid': submit && form.STATE_CODE.errors}" />
+                     <div *ngIf='submit && form.STATE_CODE.errors' class='invalid-feedback'>
+                       <span *ngIf='form.STATE_CODE.errors.required'>State Code Name is required.</span>
+                     </div>
+                   </div> -->
+                    
+                   <div class='mb-3'>
+                     <label for='STATE_CODE'>State Code</label>
+                     <ng-select [items]="stateData"  bindLabel="stateName" 
+                     bindValue="stateCode" placeholder="Select State"  formControlName="STATE_CODE" [ngClass]="{ 'is-invalid': (submit || formData.get('STATE_CODE').dirty || formData.get('STATE_CODE').touched) && form.STATE_CODE.errors}"
+                     ></ng-select>       
+                     
+                     <div *ngIf="(submit || formData.get('STATE_CODE').dirty || formData.get('STATE_CODE').touched) && form.STATE_CODE.errors" class='invalid-feedback'>
+                      <span *ngIf='form.STATE_CODE.errors.required'>State Code is required.</span>
+                      </div>
+                      </div>
+   
+   
+   
+                   <div class='mb-3'>
+                     <label for='MANAGER_NAME'>Manager Name</label>
+                     <input uppercase class='form-control' placeholder='Enter Manager Name' maxlength="50" type='text' name='MANAGER_NAME'
+                     autocomplete='off' formControlName='MANAGER_NAME'
+                     [ngClass]="{ 'is-invalid': (submit || formData.get('MANAGER_NAME').dirty || formData.get('MANAGER_NAME').touched) && form.MANAGER_NAME.errors}" />
+                     <div *ngIf="(submit || formData.get('MANAGER_NAME').dirty || formData.get('MANAGER_NAME').touched) && form.MANAGER_NAME.errors" class='invalid-feedback'>
+                       <span *ngIf='form.MANAGER_NAME.errors.required'>Manager Name is required.</span>
+                     </div>
+                   </div>
+                   <div class='mb-3'>
+                     <label for='ADDRESS'>Branch Address</label>
+                     <textarea class="form-control" id="metadescription" maxlength="200" formControlName='ADDRESS' rows="3"  [ngClass]=
+                     "{ 'is-invalid':  (submit || formData.get('ADDRESS').dirty || formData.get('ADDRESS').touched) && form.ADDRESS.errors}"></textarea>                  
+                     <div *ngIf="(submit || formData.get('ADDRESS').dirty || formData.get('ADDRESS').touched) && form.ADDRESS.errors" class='invalid-feedback'>
+                      <span *ngIf='form.ADDRESS.errors.required'>Branch Address is required.</span>
+                      </div>
+                      </div>
+   <!--                
+                   <div class='mb-3'>
+                     <label for='ADDRESS'>Branch Address</label>
+                     <input uppercase class='form-control' placeholder='Enter Branch Address'  type='text' name='ADDRESS' autocomplete='off'
+                       formControlName='ADDRESS' [ngClass]="{ 'is-invalid': submit && form.ADDRESS.errors}" />
+                     <div *ngIf='submit && form.ADDRESS.errors' class='invalid-feedback'>
+                       <span *ngIf='form.ADDRESS.errors.required'>Branch Address is required.</span>
+                     </div>
+                   </div> -->
+                   <div class='mb-3'>
+                     <label for='MOBILE'>Mobile</label>
+                     <input uppercase class='form-control' (keypress)="numberOnly($event)" placeholder='Enter Mobile' maxlength="10" type='text' name='MOBILE' autocomplete='off'
+                     formControlName='MOBILE' [ngClass]="{ 'is-invalid':  (submit || formData.get('MOBILE').dirty || formData.get('MOBILE').touched) && form.MOBILE.errors}" />
+                     <div *ngIf="(submit || formData.get('MOBILE').dirty || formData.get('MOBILE').touched) && form.MOBILE.errors" class='invalid-feedback'>
+                       <span *ngIf='form.MOBILE.errors.required'>Mobile is required.</span>
+                       <span *ngIf='form.MOBILE.errors.pattern'>MOBILE Name is invalid.</span>
+                     </div>
+                   </div>
+                    <!-- <div class='mb-3'>
+                     <label for='STATE_NAME'>STATE_NAME</label>
+                     <input uppercase class='form-control' placeholder='Enter STATE_NAME' type='text' name='STATE_NAME'
+                       autocomplete='off' formControlName='STATE_NAME'
+                       [ngClass]="{ 'is-invalid': submit && form.STATE_NAME.errors}" />
+                     <div *ngIf='submit && form.STATE_NAME.errors' class='invalid-feedback'>
+                       <span *ngIf='form.STATE_NAME.errors.required'>STATE_NAME Name is required.</span>
+                     </div>
+                   </div> -->
+                   <!-- <div class='mb-3'>
+                     <label for='PIN'>PIN</label>
+                     <input uppercase class='form-control' placeholder='Enter PIN' type='text' name='PIN' autocomplete='off'
+                       formControlName='PIN' [ngClass]="{ 'is-invalid': submit && form.PIN.errors}" />
+                     <div *ngIf='submit && form.PIN.errors' class='invalid-feedback'>
+                       <span *ngIf='form.PIN.errors.required'>PIN Name is required.</span>
+                     </div>
+                   </div> -->
+                  
+                   <!-- <div class='mb-3'>
+                     <label for='FAX_NO'>FAX_NO</label>
+                     <input uppercase class='form-control' placeholder='Enter FAX_NO' type='text' name='FAX_NO' autocomplete='off'
+                       formControlName='FAX_NO' [ngClass]="{ 'is-invalid': submit && form.FAX_NO.errors}" />
+                     <div *ngIf='submit && form.FAX_NO.errors' class='invalid-feedback'>
+                       <span *ngIf='form.FAX_NO.errors.required'>FAX_NO Name is required.</span>
+                     </div>
+                   </div> -->
+                   
+                   <!-- <div class='mb-3'>
+                     <label for='PHONE_RESI'>PHONE_RESI</label>
+                     <input uppercase class='form-control' placeholder='Enter PHONE_RESI' type='text' name='PHONE_RESI'
+                       autocomplete='off' formControlName='PHONE_RESI'
+                       [ngClass]="{ 'is-invalid': submit && form.PHONE_RESI.errors}" />
+                     <div *ngIf='submit && form.PHONE_RESI.errors' class='invalid-feedback'>
+                       <span *ngIf='form.PHONE_RESI.errors.required'>PHONE_RESI Name is required.</span>
+                     </div>
+                   </div> -->
+                  
+                   <!-- <div class='mb-3'>
+                     <label for='PAGER'>PAGER</label>
+                     <input uppercase class='form-control' placeholder='Enter PAGER' type='text' name='PAGER' autocomplete='off'
+                       formControlName='PAGER' [ngClass]="{ 'is-invalid': submit && form.PAGER.errors}" />
+                     <div *ngIf='submit && form.PAGER.errors' class='invalid-feedback'>
+                       <span *ngIf='form.PAGER.errors.required'>PAGER Name is required.</span>
+                     </div>
+                   </div> -->
+                   
+                  
+                  
+                   <!-- <div class='mb-3'>
+                     <label for='CASH_LIMIT'>CASH_LIMIT</label>
+                     <input uppercase class='form-control' placeholder='Enter CASH_LIMIT' type='text' name='CASH_LIMIT'
+                       autocomplete='off' formControlName='CASH_LIMIT'
+                       [ngClass]="{ 'is-invalid': submit && form.CASH_LIMIT.errors}" />
+                     <div *ngIf='submit && form.CASH_LIMIT.errors' class='invalid-feedback'>
+                       <span *ngIf='form.CASH_LIMIT.errors.required'>CASH_LIMIT Name is required.</span>
+                     </div>
+                   </div> -->
+                  
+                   <!-- <div class='mb-3'>
+                     <label for='OPENING_DATE'>OPENING_DATE</label>
+                     <input uppercase class='form-control' placeholder='Enter OPENING_DATE' type='text' name='OPENING_DATE'
+                       autocomplete='off' formControlName='OPENING_DATE'
+                       [ngClass]="{ 'is-invalid': submit && form.OPENING_DATE.errors}" />
+                     <div *ngIf='submit && form.OPENING_DATE.errors' class='invalid-feedback'>
+                       <span *ngIf='form.OPENING_DATE.errors.required'>OPENING_DATE Name is required.</span>
+                     </div>
+                   </div> -->
+                  
+                   <!-- <div class='mb-3'>
+                     <label for='STATION_CODE'>STATION_CODE</label>
+                     <input uppercase class='form-control' placeholder='Enter STATION_CODE' type='text' name='STATION_CODE'
+                       autocomplete='off' formControlName='STATION_CODE'
+                       [ngClass]="{ 'is-invalid': submit && form.STATION_CODE.errors}" />
+                     <div *ngIf='submit && form.STATION_CODE.errors' class='invalid-feedback'>
+                       <span *ngIf='form.STATION_CODE.errors.required'>STATION_CODE Name is required.</span>
+                     </div>
+                   </div> -->               
+              
+                   <!-- <div class='mb-3'>
+                     <label for='SHORTING_GROUP_CODE'>SHORTING_GROUP_CODE</label>
+                     <input uppercase class='form-control' placeholder='Enter SHORTING_GROUP_CODE' type='text'
+                       name='SHORTING_GROUP_CODE' autocomplete='off' formControlName='SHORTING_GROUP_CODE'
+                       [ngClass]="{ 'is-invalid': submit && form.SHORTING_GROUP_CODE.errors}" />
+                     <div *ngIf='submit && form.SHORTING_GROUP_CODE.errors' class='invalid-feedback'>
+                       <span *ngIf='form.SHORTING_GROUP_CODE.errors.required'>SHORTING_GROUP_CODE Name is required.</span>
+                     </div>
+                   </div> -->
+                   
+                   <!-- <div class='mb-3'>
+                     <label for='ENTERDATE'>ENTERDATE</label>
+                     <input uppercase class='form-control' placeholder='Enter ENTERDATE' type='text' name='ENTERDATE'
+                       autocomplete='off' formControlName='ENTERDATE'
+                       [ngClass]="{ 'is-invalid': submit && form.ENTERDATE.errors}" />
+                     <div *ngIf='submit && form.ENTERDATE.errors' class='invalid-feedback'>
+                       <span *ngIf='form.ENTERDATE.errors.required'>ENTERDATE Name is required.</span>
+                     </div>
+                   </div> -->
+                  
+                 </div>
+   
+                 <div class="col-sm-6">
+                  
+                
+                   <!-- <div class='mb-3'>
+                     <label for='CITY'>CITY</label>
+                     <input uppercase class='form-control' placeholder='Enter CITY' type='text' name='CITY' autocomplete='off'
+                     formControlName='CITY' [ngClass]="{ 'is-invalid': submit && form.CITY.errors}" />
+                     <div *ngIf='submit && form.CITY.errors' class='invalid-feedback'>
+                       <span *ngIf='form.CITY.errors.required'>CITY Name is required.</span>
+                     </div>
+                   </div> -->
+                   <!-- <div class='mb-3'>
+                     <label for='STD_CODE'>STD_CODE</label>
+                     <input uppercase class='form-control' placeholder='Enter STD_CODE' type='text' name='STD_CODE' autocomplete='off'
+                     formControlName='STD_CODE' [ngClass]="{ 'is-invalid': submit && form.STD_CODE.errors}" />
+                     <div *ngIf='submit && form.STD_CODE.errors' class='invalid-feedback'>
+                       <span *ngIf='form.STD_CODE.errors.required'>STD_CODE Name is required.</span>
+                     </div>
+                   </div> -->
+                   <!-- <div class='mb-3'>
+                     <label for='PHONE_OFFICE'>PHONE_OFFICE</label>
+                     <input uppercase class='form-control' placeholder='Enter PHONE_OFFICE' type='text' name='PHONE_OFFICE'
+                     autocomplete='off' formControlName='PHONE_OFFICE'
+                     [ngClass]="{ 'is-invalid': submit && form.PHONE_OFFICE.errors}" />
+                     <div *ngIf='submit && form.PHONE_OFFICE.errors' class='invalid-feedback'>
+                       <span *ngIf='form.PHONE_OFFICE.errors.required'>PHONE_OFFICE Name is required.</span>
+                     </div>
+                   </div> -->
+                 
+                   <div class='mb-3'>
+                     <label for='EMAIL'>Email Id</label>
+                     <input lowercase class='form-control inputlower' placeholder='Enter EMAIL' type='text' name='EMAIL' autocomplete='off'  formControlName='EMAIL' [ngClass]=
+                     "{ 'is-invalid':  (submit || formData.get('EMAIL').dirty || formData.get('EMAIL').touched) && form.EMAIL.errors}"/>
+                     <div *ngIf="(submit || formData.get('EMAIL').dirty || formData.get('EMAIL').touched) && form.EMAIL.errors" class='invalid-feedback'>
+                      <span *ngIf='form.EMAIL.errors.required'>EMAIL Name is required.</span>
+                      <span *ngIf='form.EMAIL.errors.pattern'>EMAIL Name is invalid.</span>
+                    
+                      </div>
+                   </div>
+                   <div class='mb-3'>
+                     <label for='AGENT_BRANCH'>Agent/Branch</label>
+                     <!-- <input uppercase class='form-control' placeholder='Enter AGENT_BRANCH' type='text' name='AGENT_BRANCH'
+                       autocomplete='off' formControlName='AGENT_BRANCH'
+                       [ngClass]="{ 'is-invalid': submit && form.AGENT_BRANCH.errors}" /> -->
+                       <ng-select [items]="['AGENT','BRANCH']" placeholder="Select Agent/Branch" formControlName="AGENT_BRANCH" [ngClass]="{ 'is-invalid':  (submit || formData.get('AGENT_BRANCH').dirty || formData.get('AGENT_BRANCH').touched) && form.AGENT_BRANCH.errors}"
+                       ></ng-select>
+   
+                     <div *ngIf="(submit || formData.get('AGENT_BRANCH').dirty || formData.get('AGENT_BRANCH').touched) && form.AGENT_BRANCH.errors" class='invalid-feedback'>
+                       <span *ngIf='form.AGENT_BRANCH.errors.required'>Agent/Branch is required.</span>
+                     </div>
+                   </div>
+                   
+                   <div class='mb-3'>
+                     <label for='ZONE'>Zone</label>
+                     <ng-select [items]="['SOUTH','NORTH','EAST','WEST']" placeholder="Select Zone" formControlName="ZONE" [ngClass]="{ 'is-invalid': (submit || formData.get('ZONE').dirty || formData.get('ZONE').touched) && form.ZONE.errors}"
+                     ></ng-select>
+                   
+                     <div *ngIf="(submit || formData.get('ZONE').dirty || formData.get('ZONE').touched) && form.ZONE.errors" class='invalid-feedback'>
+                       <span *ngIf='form.ZONE.errors.required'>Zone Name is required.</span>
+                     </div>
+                   </div>
+                   <div class='mb-3'>
+                     <label for='REGIONAL_BRANCH'>Regional Branch</label>                  
+                     <input uppercase class='form-control' placeholder='Enter Regional Branch' type='text' name='REGIONAL_BRANCH'
+                     autocomplete='off' formControlName='REGIONAL_BRANCH'
+                     [ngClass]="{ 'is-invalid': (submit || formData.get('REGIONAL_BRANCH').dirty || formData.get('REGIONAL_BRANCH').touched) && form.REGIONAL_BRANCH.errors}" />
+                     <div *ngIf="(submit || formData.get('REGIONAL_BRANCH').dirty || formData.get('REGIONAL_BRANCH').touched) && form.REGIONAL_BRANCH.errors" class='invalid-feedback'>
+                       <span *ngIf='form.REGIONAL_BRANCH.errors.required'>Regional Branch Name is required.</span>
+                     </div>
+                   </div>
+                   <div class='mb-3'>
+                     <label for='BANK_LIMIT'>Financial Cash/Bank Limit </label>
+                     <input uppercase class='form-control' (keypress)="numberOnly($event)" maxlength="9" placeholder='Enter Financial Cash/Bank Limit ' type='text' name='BANK_LIMIT'
+                     autocomplete='off' formControlName='BANK_LIMIT'
+                     [ngClass]="{'is-invalid': (submit || formData.get('BANK_LIMIT').dirty || formData.get('BANK_LIMIT').touched) && form.BANK_LIMIT.errors}" />
+                     <div *ngIf="(submit || formData.get('BANK_LIMIT').dirty || formData.get('BANK_LIMIT').touched) && form.BANK_LIMIT.errors" class='invalid-feedback'>
+                       <span *ngIf='form.BANK_LIMIT.errors.required'>Financial Cash/Bank Limit is required.</span>
+                     </div>
+                   </div>
+                   <div class='mb-3'>
+                     <label for='ESI_DEDUCT'>ESI Deduct </label>
+                     <!-- <input uppercase class='form-control' placeholder='Enter ESI_DEDUCT' type='text' name='ESI_DEDUCT'
+                       autocomplete='off' formControlName='ESI_DEDUCT'
+                       [ngClass]="{ 'is-invalid': submit && form.ESI_DEDUCT.errors}" /> -->
+   
+                       <ng-select [searchable]="false" [items]="['YES','NO']" placeholder="ESI Deduct" formControlName="ESI_DEDUCT" [ngClass]="{ 'is-invalid': (submit || formData.get('ESI_DEDUCT').dirty || formData.get('ESI_DEDUCT').touched) && form.ESI_DEDUCT.errors}"
+                       ></ng-select>
+   
+                     <div *ngIf="(submit || formData.get('ESI_DEDUCT').dirty || formData.get('ESI_DEDUCT').touched) && form.ESI_DEDUCT.errors" class='invalid-feedback'>
+                       <span *ngIf='form.ESI_DEDUCT.errors.required'>ESI Deduct is required.</span>
+                     </div>
+                   </div>
+                   
+                   <!-- <div class='mb-3'>
+                     <label for='ADDRESS_OF_REGIONAL_BRANCK'>ADDRESS_OF_REGIONAL_BRANCK</label>
+                     <input uppercase class='form-control' placeholder='Enter ADDRESS_OF_REGIONAL_BRANCK' type='text'
+                     name='ADDRESS_OF_REGIONAL_BRANCK' autocomplete='off' formControlName='ADDRESS_OF_REGIONAL_BRANCK'
+                     [ngClass]="{ 'is-invalid': submit && form.ADDRESS_OF_REGIONAL_BRANCK.errors}" />
+                     <div *ngIf='submit && form.ADDRESS_OF_REGIONAL_BRANCK.errors' class='invalid-feedback'>
+                       <span *ngIf='form.ADDRESS_OF_REGIONAL_BRANCK.errors.required'>ADDRESS_OF_REGIONAL_BRANCK Name is
+                         required.</span>
+                     </div>
+                   </div> -->
+                   
+                   <!-- <div class='mb-3'>
+                     <label for='CLOSING_DATE'>CLOSING_DATE</label>
+                     <input uppercase class='form-control' placeholder='Enter CLOSING_DATE' type='text' name='CLOSING_DATE'
+                     autocomplete='off' formControlName='CLOSING_DATE'
+                     [ngClass]="{ 'is-invalid': submit && form.CLOSING_DATE.errors}" />
+                     <div *ngIf='submit && form.CLOSING_DATE.errors' class='invalid-feedback'>
+                       <span *ngIf='form.CLOSING_DATE.errors.required'>CLOSING_DATE Name is required.</span>
+                     </div>
+                   </div> -->
+                   <!-- <div class='mb-3'>
+                     <label for='STATION_NAME'>STATION_NAME</label>
+                     <input uppercase class='form-control' placeholder='Enter STATION_NAME' type='text' name='STATION_NAME'
+                     autocomplete='off' formControlName='STATION_NAME'
+                     [ngClass]="{ 'is-invalid': submit && form.STATION_NAME.errors}" />
+                     <div *ngIf='submit && form.STATION_NAME.errors' class='invalid-feedback'>
+                       <span *ngIf='form.STATION_NAME.errors.required'>STATION_NAME Name is required.</span>
+                     </div>
+                   </div>
+                   <div class='mb-3'>
+                     <label for='SALARY_QUIT'>SALARY_QUIT</label>
+                     <input uppercase class='form-control' placeholder='Enter SALARY_QUIT' type='text' name='SALARY_QUIT'
+                     autocomplete='off' formControlName='SALARY_QUIT'
+                     [ngClass]="{ 'is-invalid': submit && form.SALARY_QUIT.errors}" />
+                     <div *ngIf='submit && form.SALARY_QUIT.errors' class='invalid-feedback'>
+                       <span *ngIf='form.SALARY_QUIT.errors.required'>SALARY_QUIT Name is required.</span>
+                     </div>
+                   </div>
+                   <div class='mb-3'>
+                     <label for='ENTERBY'>ENTERBY</label>
+                     <input uppercase class='form-control' placeholder='Enter ENTERBY' type='text' name='ENTERBY' autocomplete='off'
+                     formControlName='ENTERBY' [ngClass]="{ 'is-invalid': submit && form.ENTERBY.errors}" />
+                     <div *ngIf='submit && form.ENTERBY.errors' class='invalid-feedback'>
+                       <span *ngIf='form.ENTERBY.errors.required'>ENTERBY Name is required.</span>
+                     </div>
+                   </div> -->
+                   <!-- <div class='mb-3'>
+                     <label for='ADDRESS2'>ADDRESS2</label>
+                     <input uppercase class='form-control' placeholder='Enter ADDRESS2' type='text' name='ADDRESS2' autocomplete='off'
+                     formControlName='ADDRESS2' [ngClass]="{ 'is-invalid': submit && form.ADDRESS2.errors}" />
+                     <div *ngIf='submit && form.ADDRESS2.errors' class='invalid-feedback'>
+                       <span *ngIf='form.ADDRESS2.errors.required'>ADDRESS2 Name is required.</span>
+                     </div>
+                   </div> -->
+   
+                 </div>
+               </div>
+   
+               <div class="d-flex flex-wrap gap-2 mt-2">
+                 <button type="submit" class="btn btn-primary">Save Changes</button>
+                 <button type="submit" class="btn btn-secondary">Cancel</button>
+               </div>
+             </form>
+           </div>
+         </div>
+   
+   
+       </div>
+     </div>
+     <!-- end row -->
+   
+   </div> <!-- container-fluid -->
