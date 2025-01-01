@@ -1,0 +1,140 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_MONEY_RECIPT" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+        
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class='mb-3'>
+                  <label for='BRANCH_CODE'> Branch</label>
+                  <ng-select [items]="branchData" bindLabel="brancH_NAME" bindValue="brancH_CODE"
+                    placeholder="Select From Branch" formControlName="BRANCH_CODE"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('BRANCH_CODE').dirty || formData.get('BRANCH_CODE').touched) && form.BRANCH_CODE.errors}">
+                  </ng-select>
+                  <!-- <input uppercase class='form-control' placeholder='Enter From Branch ' type='text' name='FROM_BR_CODE' autocomplete='off'  formControlName='FROM_BR_CODE' [ngClass]=
+                      "{ 'is-invalid': submit && form.FROM_BR_CODE.errors}"/> -->
+                  <div *ngIf='submit && form.BRANCH_CODE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.BRANCH_CODE.errors.required'> Branch Code  is required.</span>
+                  </div>
+                </div>
+               
+
+<div class='mb-3'>
+<label for='MR_DATE'>MR DATE</label>
+<input uppercase class='form-control' placeholder='Enter MR DATE' type='date' name='MR_DATE' autocomplete='off'  formControlName='MR_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.MR_DATE.errors}"/><div *ngIf='submit && form.MR_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.MR_DATE.errors.required'>MR DATE  is required.</span>
+ </div>
+ </div>
+
+ <div class='mb-3'>
+  <label for='RECD_FROM'>RECD FROM</label>
+  <input uppercase class='form-control' placeholder='Enter RECD FROM' type='text' name='RECD_FROM' autocomplete='off'  formControlName='RECD_FROM' [ngClass]=
+  "{ 'is-invalid': submit && form.RECD_FROM.errors}"/><div *ngIf='submit && form.RECD_FROM.errors' class='invalid-feedback'>
+   <span *ngIf='form.RECD_FROM.errors.required'>RECD FROM  is required.</span>
+   </div>
+   </div>
+
+   <div class='mb-3'>
+    <label for='AC_CODE'>AC_CODE</label>
+    <input uppercase class='form-control' placeholder='Enter AC_CODE' type='text' name='AC_CODE' autocomplete='off'  formControlName='AC_CODE' [ngClass]=
+    "{ 'is-invalid': submit && form.AC_CODE.errors}"/><div *ngIf='submit && form.AC_CODE.errors' class='invalid-feedback'>
+     <span *ngIf='form.AC_CODE.errors.required'>AC_CODE Name is required.</span>
+     </div>
+     </div>
+
+              </div>
+
+              <div class="col-sm-4">
+                <div class='mb-3'>
+                  <label for='ON_AC_ADJUST'>ON A/C ADJUSTMENT</label>
+                  <input uppercase class='form-control' placeholder='Enter ON_AC_ADJUST' type='text' name='ON_AC_ADJUST' autocomplete='off'  formControlName='ON_AC_ADJUST' [ngClass]=
+                  "{ 'is-invalid': submit && form.ON_AC_ADJUST.errors}"/><div *ngIf='submit && form.ON_AC_ADJUST.errors' class='invalid-feedback'>
+                   <span *ngIf='form.ON_AC_ADJUST.errors.required'>ON_AC_ADJUST Name is required.</span>
+                   </div>
+                   </div>
+
+
+                   <div class='mb-3'>
+                    <label for='CASH_AMT'>CASH/CHQ AMT.</label>
+                    <input uppercase class='form-control' placeholder='Enter CASH/CHQ AMT.' (keypress)="numberOnly($event)" maxlength="9"  type='text' name='CASH_AMT' autocomplete='off'  formControlName='CASH_AMT' [ngClass]=
+                    "{ 'is-invalid': submit && form.CASH_AMT.errors}"/><div *ngIf='submit && form.CASH_AMT.errors' class='invalid-feedback'>
+                     <span *ngIf='form.CASH_AMT.errors.required'>CASH_AMT Name is required.</span>
+                     </div>
+                     </div>
+
+                     <div class='mb-3'>
+                      <label for='BANK_NAME'>BANK NAME</label>
+                      <input uppercase class='form-control' placeholder='Enter BANK NAME' type='text' name='BANK_NAME' autocomplete='off'  formControlName='BANK_NAME' [ngClass]=
+                      "{ 'is-invalid': submit && form.BANK_NAME.errors}"/><div *ngIf='submit && form.BANK_NAME.errors' class='invalid-feedback'>
+                       <span *ngIf='form.BANK_NAME.errors.required'>BANK NAME  is required.</span>
+                       </div>
+                       </div>
+
+                       <div class='mb-3'>
+                        <label for='ENTRY_DATE'> DATE</label>
+                        <input uppercase class='form-control' placeholder='Enter DATE' type='date' name='ENTRY_DATE' autocomplete='off'  formControlName='ENTRY_DATE' [ngClass]=
+                        "{ 'is-invalid': submit && form.ENTRY_DATE.errors}"/><div *ngIf='submit && form.ENTRY_DATE.errors' class='invalid-feedback'>
+                         <span *ngIf='form.ENTRY_DATE.errors.required'>ENTRY DATE is required.</span>
+                         </div>
+                         </div>
+
+                      
+
+
+              </div>
+              <div class="col-sm-4">
+               
+                  <div class='mb-3'>
+                  <label for='TDS_DEDUCT'>TDS DEDUCT</label>
+                  <input uppercase class='form-control' placeholder='Enter TDS_DEDUCT' (keypress)="numberOnly($event)" type='text' name='TDS_DEDUCT' autocomplete='off'  formControlName='TDS_DEDUCT' [ngClass]=
+                  "{ 'is-invalid': submit && form.TDS_DEDUCT.errors}"/><div *ngIf='submit && form.TDS_DEDUCT.errors' class='invalid-feedback'>
+                   <span *ngIf='form.TDS_DEDUCT.errors.required'>TDS_DEDUCT Name is required.</span>
+                   </div>
+                   </div>
+
+
+
+              
+              
+                <div class='mb-3'>
+                <label for='TDS_PER'>TDS PER</label>
+                <input uppercase class='form-control' placeholder='Enter TDS_PER' maxlength="3" (keypress)="numberOnly($event)"  type='text' name='TDS_PER' autocomplete='off'  formControlName='TDS_PER' [ngClass]=
+                "{ 'is-invalid': submit && form.TDS_PER.errors}"/><div *ngIf='submit && form.TDS_PER.errors' class='invalid-feedback'>
+                 <span *ngIf='form.TDS_PER.errors.required'>TDS_PER Name is required.</span>
+                 </div>
+                 </div>
+              
+                 <div class='mb-3'>
+                  <label for='TDS'>TDS</label>
+                  <input uppercase class='form-control' placeholder='Enter TDS' type='text' name='TDS' autocomplete='off'  formControlName='TDS' [ngClass]=
+                  "{ 'is-invalid': submit && form.TDS.errors}"/><div *ngIf='submit && form.TDS.errors' class='invalid-feedback'>
+                   <span *ngIf='form.TDS.errors.required'>TDS Name is required.</span>
+                   </div>
+                   </div>
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

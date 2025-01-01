@@ -1,0 +1,63 @@
+<app-breadcrumb [title]="'Basic'" [items]="['Tables', 'Data Tables']" [active_item]="'Basic'"></app-breadcrumb>
+<!-- Container-fluid starts -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h5>No Search Data</h5>
+        </div>
+        <div class="card-body custom-datatable noscroll">
+          <div class="custom-datatable table-responsive">
+
+            <p-table [tableStyle]="{ 'min-width': '50rem' }" [styleClass]="'p-datatable-gridlines'"
+            [value]="items">
+    <ng-template pTemplate="header" >
+        <tr >
+            <th style="width: 5%" >
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+
+            <th>
+              Location ID
+            </th>
+            <th>Location Name</th>
+
+            <th># of Stops</th>
+
+            <th pFrozenColumn>Action
+            </th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-product  let-controls let-i="rowIndex">
+        <tr>
+            <td style="width: 5%">
+                <p-tableCheckbox [value]="product"></p-tableCheckbox>
+           </td>
+            <td >{{product.id}}</td>
+            <td >{{product.locationName}}</td>
+            <td >{{product.locationName}}</td>
+            <td  alignFrozen="right" pFrozenColumn>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button p-button-success mr-2"
+                    (click)="editProduct(product)"></button>
+                    &nbsp;
+                <button pButton pRipple icon="pi pi-trash" class="p-button p-button-warning"
+                    (click)="deleteProduct(product)"></button>
+
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+
+
+    </ng-template>
+</p-table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Container-fluid Ends -->

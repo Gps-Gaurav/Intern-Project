@@ -1,0 +1,109 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_ARRIVAL_BREAKUP" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p>
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='LOT_NO_BILL'>LOT_NO_BILL</label>
+<input uppercase class='form-control' placeholder='Enter LOT_NO_BILL' type='text' name='LOT_NO_BILL' autocomplete='off'  formControlName='LOT_NO_BILL' [ngClass]=
+"{ 'is-invalid': submit && form.LOT_NO_BILL.errors}"/><div *ngIf='submit && form.LOT_NO_BILL.errors' class='invalid-feedback'>
+ <span *ngIf='form.LOT_NO_BILL.errors.required'>LOT_NO_BILL Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='INVOICE_NO'>INVOICE_NO</label>
+<input uppercase class='form-control' placeholder='Enter INVOICE_NO' type='text' name='INVOICE_NO' autocomplete='off'  formControlName='INVOICE_NO' [ngClass]=
+"{ 'is-invalid': submit && form.INVOICE_NO.errors}"/><div *ngIf='submit && form.INVOICE_NO.errors' class='invalid-feedback'>
+ <span *ngIf='form.INVOICE_NO.errors.required'>INVOICE_NO Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='FRESH_SHORTAGE'>FRESH_SHORTAGE</label>
+<input uppercase class='form-control' placeholder='Enter FRESH_SHORTAGE' type='text' name='FRESH_SHORTAGE' autocomplete='off'  formControlName='FRESH_SHORTAGE' [ngClass]=
+"{ 'is-invalid': submit && form.FRESH_SHORTAGE.errors}"/><div *ngIf='submit && form.FRESH_SHORTAGE.errors' class='invalid-feedback'>
+ <span *ngIf='form.FRESH_SHORTAGE.errors.required'>FRESH_SHORTAGE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='RETURNSS'>RETURNSS</label>
+<input uppercase class='form-control' placeholder='Enter RETURNSS' type='text' name='RETURNSS' autocomplete='off'  formControlName='RETURNSS' [ngClass]=
+"{ 'is-invalid': submit && form.RETURNSS.errors}"/><div *ngIf='submit && form.RETURNSS.errors' class='invalid-feedback'>
+ <span *ngIf='form.RETURNSS.errors.required'>RETURNSS Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                 <div class='mb-3'>
+<label for='CHALLAN_ID'>CHALLAN_ID</label>
+<input uppercase class='form-control' placeholder='Enter CHALLAN_ID' type='text' name='CHALLAN_ID' autocomplete='off'  formControlName='CHALLAN_ID' [ngClass]=
+"{ 'is-invalid': submit && form.CHALLAN_ID.errors}"/><div *ngIf='submit && form.CHALLAN_ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.CHALLAN_ID.errors.required'>CHALLAN_ID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='GARDEN_NAME'>GARDEN_NAME</label>
+<input uppercase class='form-control' placeholder='Enter GARDEN_NAME' type='text' name='GARDEN_NAME' autocomplete='off'  formControlName='GARDEN_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.GARDEN_NAME.errors}"/><div *ngIf='submit && form.GARDEN_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.GARDEN_NAME.errors.required'>GARDEN_NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='DELIEVERY_PKG'>DELIEVERY_PKG</label>
+<input uppercase class='form-control' placeholder='Enter DELIEVERY_PKG' type='text' name='DELIEVERY_PKG' autocomplete='off'  formControlName='DELIEVERY_PKG' [ngClass]=
+"{ 'is-invalid': submit && form.DELIEVERY_PKG.errors}"/><div *ngIf='submit && form.DELIEVERY_PKG.errors' class='invalid-feedback'>
+ <span *ngIf='form.DELIEVERY_PKG.errors.required'>DELIEVERY_PKG Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BROKEN_SHORTAGE'>BROKEN_SHORTAGE</label>
+<input uppercase class='form-control' placeholder='Enter BROKEN_SHORTAGE' type='text' name='BROKEN_SHORTAGE' autocomplete='off'  formControlName='BROKEN_SHORTAGE' [ngClass]=
+"{ 'is-invalid': submit && form.BROKEN_SHORTAGE.errors}"/><div *ngIf='submit && form.BROKEN_SHORTAGE.errors' class='invalid-feedback'>
+ <span *ngIf='form.BROKEN_SHORTAGE.errors.required'>BROKEN_SHORTAGE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='REMARKS'>REMARKS</label>
+<input uppercase class='form-control' placeholder='Enter REMARKS' type='text' name='REMARKS' autocomplete='off'  formControlName='REMARKS' [ngClass]=
+"{ 'is-invalid': submit && form.REMARKS.errors}"/><div *ngIf='submit && form.REMARKS.errors' class='invalid-feedback'>
+ <span *ngIf='form.REMARKS.errors.required'>REMARKS Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

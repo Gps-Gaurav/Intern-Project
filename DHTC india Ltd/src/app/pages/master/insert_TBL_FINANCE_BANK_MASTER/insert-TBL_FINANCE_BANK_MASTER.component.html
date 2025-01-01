@@ -1,0 +1,139 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="BANK ACCOUNT MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <!-- <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div> -->
+ <div class='mb-3'>
+  <label for='BRANCH_CODE'>Branch</label>
+  <input uppercase class='form-control' placeholder='Enter Branch' type='text' name='BRANCH_CODE' autocomplete='off'  formControlName='BRANCH_CODE' [ngClass]=
+  "{ 'is-invalid': (submit || formData.get('BRANCH_CODE').dirty || formData.get('BRANCH_CODE').touched) && form.BRANCH_CODE.errors}" />
+  <div *ngIf="(submit || formData.get('BRANCH_CODE').dirty || formData.get('BRANCH_CODE').touched) && form.BRANCH_CODE.errors" class='invalid-feedback'>
+   <span *ngIf='form.BRANCH_CODE.errors.required'>Branch is required.</span>
+   </div>
+   </div>
+   <div class='mb-3'>
+    <label for='BANK_CODE'>Bank Code</label>
+    <input uppercase class='form-control' maxlength="6" placeholder='Enter Bank Code' type='text' name='BANK_CODE' autocomplete='off'  formControlName='BANK_CODE' [ngClass]=
+    "{ 'is-invalid': (submit || formData.get('BANK_CODE').dirty || formData.get('BANK_CODE').touched) && form.BANK_CODE.errors}" />
+    <div *ngIf="(submit || formData.get('BANK_CODE').dirty || formData.get('BANK_CODE').touched) && form.BANK_CODE.errors" class='invalid-feedback'>
+     <span *ngIf='form.BANK_CODE.errors.required'>Bank Code is required.</span>
+     </div>
+     </div>
+<!-- <div class='mb-3'>
+<label for='BRANCH_NAME'>BRANCH_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_NAME' type='text' name='BRANCH_NAME' autocomplete='off'  formControlName='BRANCH_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.BRANCH_NAME.errors}"/><div *ngIf='submit && form.BRANCH_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.BRANCH_NAME.errors.required'>BRANCH_NAME Name is required.</span>
+ </div>
+ </div> -->
+<!-- <div class='mb-3'>
+<label for='BANK'>BANK</label>
+<input uppercase class='form-control' placeholder='Enter BANK' type='text' name='BANK' autocomplete='off'  formControlName='BANK' [ngClass]=
+"{ 'is-invalid': submit && form.BANK.errors}"/><div *ngIf='submit && form.BANK.errors' class='invalid-feedback'>
+ <span *ngIf='form.BANK.errors.required'>BANK Name is required.</span>
+ </div>
+ </div> -->
+ <div class='mb-3'>
+  <label for='PRINT_RPT'>Print Report </label>             
+    <ng-select [items]="['YES','NO']" placeholder="select Print Report" formControlName="PRINT_RPT" [ngClass]="{ 'is-invalid': (submit || formData.get('PRINT_RPT').dirty || formData.get('PRINT_RPT').touched) && form.PRINT_RPT.errors}"
+    ></ng-select>
+  <div *ngIf="(submit || formData.get('PRINT_RPT').dirty || formData.get('PRINT_RPT').touched) && form.PRINT_RPT.errors" class='invalid-feedback'>
+    <span *ngIf='form.PRINT_RPT.errors.required'>Print Report is required.</span>
+  </div>
+</div> 
+
+
+
+<!-- <div class='mb-3'>
+<label for='AVERAGE_BAL'>AVERAGE_BAL</label>
+<input uppercase class='form-control' placeholder='Enter AVERAGE_BAL' type='text' name='AVERAGE_BAL' autocomplete='off'  formControlName='AVERAGE_BAL' [ngClass]=
+"{ 'is-invalid': submit && form.AVERAGE_BAL.errors}"/><div *ngIf='submit && form.AVERAGE_BAL.errors' class='invalid-feedback'>
+ <span *ngIf='form.AVERAGE_BAL.errors.required'>AVERAGE_BAL Name is required.</span>
+ </div>
+ </div> -->
+<!-- <div class='mb-3'>
+<label for='CLOSING_DATE'>CLOSING_DATE</label>
+<input uppercase class='form-control' placeholder='Enter CLOSING_DATE' type='text' name='CLOSING_DATE' autocomplete='off'  formControlName='CLOSING_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.CLOSING_DATE.errors}"/><div *ngIf='submit && form.CLOSING_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.CLOSING_DATE.errors.required'>CLOSING_DATE Name is required.</span>
+ </div>
+ </div> -->
+
+              </div>
+
+              <div class="col-sm-6">
+               
+                <div class='mb-3'>
+                  <label for='BANK_NAME'>Bank Name </label>
+                  <input uppercase class='form-control' placeholder='Enter Bank Name' type='text' name='BANK_NAME' autocomplete='off'  formControlName='BANK_NAME' [ngClass]=
+                  "{ 'is-invalid': (submit || formData.get('BANK_NAME').dirty || formData.get('BANK_NAME').touched) && form.BANK_NAME.errors}" />
+                  <div *ngIf="(submit || formData.get('BANK_NAME').dirty || formData.get('BANK_NAME').touched) && form.BANK_NAME.errors" class='invalid-feedback'>
+                   <span *ngIf='form.BANK_NAME.errors.required'>Bank Name is required.</span>
+                   </div>
+                   </div>
+<!-- 
+                <div class='mb-3'>
+                  <label for='PRINT_RPT'>PRINT_RPT</label>
+                  <input uppercase class='form-control' placeholder='Enter PRINT_RPT' type='text' name='PRINT_RPT' autocomplete='off'  formControlName='PRINT_RPT' [ngClass]=
+                  "{ 'is-invalid': submit && form.PRINT_RPT.errors}"/><div *ngIf='submit && form.PRINT_RPT.errors' class='invalid-feedback'>
+                   <span *ngIf='form.PRINT_RPT.errors.required'>PRINT_RPT Name is required.</span>
+                   </div>
+                   </div> -->
+
+<!-- <div class='mb-3'>
+<label for='OD_LIMIT'>OD_LIMIT</label>
+<input uppercase class='form-control' placeholder='Enter OD_LIMIT' type='text' name='OD_LIMIT' autocomplete='off'  formControlName='OD_LIMIT' [ngClass]=
+"{ 'is-invalid': submit && form.OD_LIMIT.errors}"/><div *ngIf='submit && form.OD_LIMIT.errors' class='invalid-feedback'>
+ <span *ngIf='form.OD_LIMIT.errors.required'>OD_LIMIT Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='OPEN_DATE'>OPEN_DATE</label>
+<input uppercase class='form-control' placeholder='Enter OPEN_DATE' type='text' name='OPEN_DATE' autocomplete='off'  formControlName='OPEN_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.OPEN_DATE.errors}"/><div *ngIf='submit && form.OPEN_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.OPEN_DATE.errors.required'>OPEN_DATE Name is required.</span>
+ </div>
+ </div> -->
+<div class='mb-3'>
+<label for='ACC_NO'>A/c No.</label>
+<input uppercase class='form-control' (keypress)="numberOnly($event)" maxlength="20" placeholder='Enter A/c No.' type='text' name='ACC_NO' autocomplete='off'  formControlName='ACC_NO' [ngClass]=
+"{ 'is-invalid': (submit || formData.get('ACC_NO').dirty || formData.get('ACC_NO').touched) && form.ACC_NO.errors}" />
+<div *ngIf="(submit || formData.get('ACC_NO').dirty || formData.get('ACC_NO').touched) && form.ACC_NO.errors" class='invalid-feedback'>
+ <span *ngIf='form.ACC_NO.errors.required'>A/c No. is required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

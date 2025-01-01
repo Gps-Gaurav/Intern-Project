@@ -1,0 +1,213 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="BROKER MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <!-- <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div> -->
+<div class='mb-3'>
+<label for='BRANCH_CODE'>Branch</label>
+<ng-select #myinput  [items]="branchData"  bindLabel="brancH_NAME" 
+bindValue="brancH_CODE" placeholder="Select Branch" formControlName="BRANCH_CODE" [ngClass]="{ 'is-invalid': (submit || formData.get('BRANCH_CODE').dirty || formData.get('BRANCH_CODE').touched) && form.BRANCH_CODE.errors}"
+></ng-select>
+
+<div *ngIf="(submit || formData.get('BRANCH_CODE').dirty || formData.get('BRANCH_CODE').touched) && form.BRANCH_CODE.errors" class='invalid-feedback'>
+  <span *ngIf='form.BRANCH_CODE.errors.required'>Branch Name is required.</span>
+  <span *ngIf='form.BRANCH_CODE.errors.pattern'>BRANCH_NAME Name is invalid.</span>
+</div>
+ </div>
+ <div class='mb-3'>
+  <label for='BR_CODE'>Broker Code</label>
+  <input uppercase class='form-control' placeholder='Enter Broker Code' type='text' minlength="6" maxlength="6" name='BR_CODE' autocomplete='off'  formControlName='BR_CODE' 
+  [ngClass]="{ 'is-invalid': (submit || formData.get('BR_CODE').dirty || formData.get('BR_CODE').touched) && form.BR_CODE.errors}" />
+                  <div *ngIf="(submit || formData.get('BR_CODE').dirty || formData.get('BR_CODE').touched) && form.BR_CODE.errors" class='invalid-feedback'>
+                    <span *ngIf='form.BR_CODE.errors.required'>BR CODE is required.</span>
+                    <span *ngIf='form.BR_CODE.errors.pattern'>BR CODE  is invalid.</span>
+                  </div>
+   </div>
+<div class='mb-3'>
+<label for='BR_NAME'>Broker Name </label>
+<input uppercase class='form-control' placeholder='Enter Broker Name ' type='text' name='BR_NAME' autocomplete='off'  formControlName='BR_NAME' 
+[ngClass]="{ 'is-invalid': (submit || formData.get('BR_NAME').dirty || formData.get('BR_NAME').touched) && form.BR_NAME.errors}" />
+                  <div *ngIf="(submit || formData.get('BR_NAME').dirty || formData.get('BR_NAME').touched) && form.BR_NAME.errors" class='invalid-feedback'>
+                    <span *ngIf='form.BR_NAME.errors.required'>BR_NAME  is required.</span>
+                    <span *ngIf='form.BR_NAME.errors.pattern'>BR NAME  is invalid.</span>
+                  </div>
+ </div>
+ <div class='mb-3'>
+  <label for='CONTACT_PERSON'>Contact Person </label>
+  <input uppercase class='form-control' placeholder='Enter Contact Person ' type='text' name='CONTACT_PERSON' autocomplete='off'  formControlName='CONTACT_PERSON' [ngClass]=
+  "{ 'is-invalid': submit && form.CONTACT_PERSON.errors}"/><div *ngIf='submit && form.CONTACT_PERSON.errors' class='invalid-feedback'>
+   <span *ngIf='form.CONTACT_PERSON.errors.required'>Contact Person Name is required.</span>
+   </div>
+   </div>
+
+<!-- <div class='mb-3'>
+<label for='PHONE_OFF2'>PHONE_OFF2</label>
+<input uppercase class='form-control' placeholder='Enter PHONE_OFF2' type='text' name='PHONE_OFF2' autocomplete='off'  formControlName='PHONE_OFF2' [ngClass]=
+"{ 'is-invalid': submit && form.PHONE_OFF2.errors}"/><div *ngIf='submit && form.PHONE_OFF2.errors' class='invalid-feedback'>
+ <span *ngIf='form.PHONE_OFF2.errors.required'>PHONE_OFF2 Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PHONE_RES2'>PHONE_RES2</label>
+<input uppercase class='form-control' placeholder='Enter PHONE_RES2' type='text' name='PHONE_RES2' autocomplete='off'  formControlName='PHONE_RES2' [ngClass]=
+"{ 'is-invalid': submit && form.PHONE_RES2.errors}"/><div *ngIf='submit && form.PHONE_RES2.errors' class='invalid-feedback'>
+ <span *ngIf='form.PHONE_RES2.errors.required'>PHONE_RES2 Name is required.</span>
+ </div>
+ </div> -->
+
+<!-- <div class='mb-3'>
+<label for='COM_PHONE'>COM_PHONE</label>
+<input uppercase class='form-control' placeholder='Enter COM_PHONE' type='text' name='COM_PHONE' autocomplete='off'  formControlName='COM_PHONE' [ngClass]=
+"{ 'is-invalid': submit && form.COM_PHONE.errors}"/><div *ngIf='submit && form.COM_PHONE.errors' class='invalid-feedback'>
+ <span *ngIf='form.COM_PHONE.errors.required'>COM_PHONE Name is required.</span>
+ </div>
+ </div> -->
+<!-- <div class='mb-3'>
+<label for='STATUS'>STATUS</label>
+<input uppercase class='form-control' placeholder='Enter STATUS' type='text' name='STATUS' autocomplete='off'  formControlName='STATUS' [ngClass]=
+"{ 'is-invalid': submit && form.STATUS.errors}"/><div *ngIf='submit && form.STATUS.errors' class='invalid-feedback'>
+ <span *ngIf='form.STATUS.errors.required'>STATUS Name is required.</span>
+ </div>
+ </div> -->
+<!-- <div class='mb-3'>
+<label for='FAXNO'>FAXNO</label>
+<input uppercase class='form-control' placeholder='Enter FAXNO' type='text' name='FAXNO' autocomplete='off'  formControlName='FAXNO' [ngClass]=
+"{ 'is-invalid': submit && form.FAXNO.errors}"/><div *ngIf='submit && form.FAXNO.errors' class='invalid-feedback'>
+ <span *ngIf='form.FAXNO.errors.required'>FAXNO Name is required.</span>
+ </div>
+ </div> -->
+
+<!-- <div class='mb-3'>
+<label for='ENTER_BY'>ENTER_BY</label>
+<input uppercase class='form-control' placeholder='Enter ENTER_BY' type='text' name='ENTER_BY' autocomplete='off'  formControlName='ENTER_BY' [ngClass]=
+"{ 'is-invalid': submit && form.ENTER_BY.errors}"/><div *ngIf='submit && form.ENTER_BY.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTER_BY.errors.required'>ENTER_BY Name is required.</span>
+ </div> 
+ </div>-->
+
+              </div>
+
+              <div class="col-sm-6">
+                <div class='mb-3'>
+                  <label for='ADDRESS'>Address 1 </label>
+                  <textarea class='form-control' [rows]="3" placeholder='Enter Address 1 ' type='text' name='ADDRESS' autocomplete='off'  formControlName='ADDRESS' [ngClass]=
+                  "{ 'is-invalid': submit && form.ADDRESS.errors}"></textarea><div *ngIf='submit && form.ADDRESS.errors' class='invalid-feedback'>
+                   <span *ngIf='form.ADDRESS.errors.required'>Address 1 is required.</span>
+                   </div>
+                   </div>
+                <div class='mb-3'>
+                  <label for='COM_ADDRESS'>Address 2 </label>
+                  <textarea class='form-control' [rows]="3" placeholder='Enter Address 2 ' type='text' name='COM_ADDRESS' autocomplete='off'  formControlName='COM_ADDRESS' [ngClass]=
+                  "{ 'is-invalid': submit && form.COM_ADDRESS.errors}"></textarea><div *ngIf='submit && form.COM_ADDRESS.errors' class='invalid-feedback'>
+                   <span *ngIf='form.COM_ADDRESS.errors.required'>Address 2  Name is required.</span>
+                   </div>
+                   </div>
+                <div class='mb-3'>
+                  <label for='MOBILE'>Phone</label>
+                  <input uppercase class='form-control' placeholder='Enter Phone' (keypress)="numberOnly($event)"  type='text' name='MOBILE' autocomplete='off' maxlength="10"  formControlName='MOBILE' [ngClass]=
+                  "{ 'is-invalid': submit && form.MOBILE.errors}"/><div *ngIf='submit && form.MOBILE.errors' class='invalid-feedback'>
+                   <span *ngIf='form.MOBILE.errors.required'>Phone Name is required.</span>
+                   </div>
+                   </div>
+
+<!-- <div class='mb-3'>
+<label for='BR_CODE'>BR_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BR_CODE' type='text' name='BR_CODE' autocomplete='off'  formControlName='BR_CODE' [ngClass]=
+"{ 'is-invalid': submit && form.BR_CODE.errors}"/><div *ngIf='submit && form.BR_CODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.BR_CODE.errors.required'>BR_CODE Name is required.</span>
+ </div>
+ </div> -->
+
+<!-- <div class='mb-3'>
+<label for='PHONE_OFF1'>PHONE_OFF1</label>
+<input uppercase class='form-control' placeholder='Enter PHONE_OFF1' type='text' name='PHONE_OFF1' autocomplete='off'  formControlName='PHONE_OFF1' [ngClass]=
+"{ 'is-invalid': submit && form.PHONE_OFF1.errors}"/><div *ngIf='submit && form.PHONE_OFF1.errors' class='invalid-feedback'>
+ <span *ngIf='form.PHONE_OFF1.errors.required'>PHONE_OFF1 Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PHONE_RES1'>PHONE_RES1</label>
+<input uppercase class='form-control' placeholder='Enter PHONE_RES1' type='text' name='PHONE_RES1' autocomplete='off'  formControlName='PHONE_RES1' [ngClass]=
+"{ 'is-invalid': submit && form.PHONE_RES1.errors}"/><div *ngIf='submit && form.PHONE_RES1.errors' class='invalid-feedback'>
+ <span *ngIf='form.PHONE_RES1.errors.required'>PHONE_RES1 Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='DESTINATE_COMPANY'>DESTINATE_COMPANY</label>
+<input uppercase class='form-control' placeholder='Enter DESTINATE_COMPANY' type='text' name='DESTINATE_COMPANY' autocomplete='off'  formControlName='DESTINATE_COMPANY' [ngClass]=
+"{ 'is-invalid': submit && form.DESTINATE_COMPANY.errors}"/><div *ngIf='submit && form.DESTINATE_COMPANY.errors' class='invalid-feedback'>
+ <span *ngIf='form.DESTINATE_COMPANY.errors.required'>DESTINATE_COMPANY Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='COM_CONTACT_PERSON'>COM_CONTACT_PERSON</label>
+<input uppercase class='form-control' placeholder='Enter COM_CONTACT_PERSON' type='text' name='COM_CONTACT_PERSON' autocomplete='off'  formControlName='COM_CONTACT_PERSON' [ngClass]=
+"{ 'is-invalid': submit && form.COM_CONTACT_PERSON.errors}"/><div *ngIf='submit && form.COM_CONTACT_PERSON.errors' class='invalid-feedback'>
+ <span *ngIf='form.COM_CONTACT_PERSON.errors.required'>COM_CONTACT_PERSON Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='REMARKS'>REMARKS</label>
+<input uppercase class='form-control' placeholder='Enter REMARKS' type='text' name='REMARKS' autocomplete='off'  formControlName='REMARKS' [ngClass]=
+"{ 'is-invalid': submit && form.REMARKS.errors}"/><div *ngIf='submit && form.REMARKS.errors' class='invalid-feedback'>
+ <span *ngIf='form.REMARKS.errors.required'>REMARKS Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='STDNO'>STDNO</label>
+<input uppercase class='form-control' placeholder='Enter STDNO' type='text' name='STDNO' autocomplete='off'  formControlName='STDNO' [ngClass]=
+"{ 'is-invalid': submit && form.STDNO.errors}"/><div *ngIf='submit && form.STDNO.errors' class='invalid-feedback'>
+ <span *ngIf='form.STDNO.errors.required'>STDNO Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PAGER'>PAGER</label>
+<input uppercase class='form-control' placeholder='Enter PAGER' type='text' name='PAGER' autocomplete='off'  formControlName='PAGER' [ngClass]=
+"{ 'is-invalid': submit && form.PAGER.errors}"/><div *ngIf='submit && form.PAGER.errors' class='invalid-feedback'>
+ <span *ngIf='form.PAGER.errors.required'>PAGER Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ENTER_DATE'>ENTER_DATE</label>
+<input uppercase class='form-control' placeholder='Enter ENTER_DATE' type='text' name='ENTER_DATE' autocomplete='off'  formControlName='ENTER_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.ENTER_DATE.errors}"/><div *ngIf='submit && form.ENTER_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTER_DATE.errors.required'>ENTER_DATE Name is required.</span>
+ </div> -->
+               </div>
+
+              </div>
+           
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

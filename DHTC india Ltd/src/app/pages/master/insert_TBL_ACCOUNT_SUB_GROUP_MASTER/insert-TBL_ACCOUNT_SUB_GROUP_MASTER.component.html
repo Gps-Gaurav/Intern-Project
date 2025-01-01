@@ -1,0 +1,84 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="ACCOUNT SUB GROUP MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <!-- <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div> -->
+<!-- <div class='mb-3'>
+<label for='ACC_GRP_NAME'>ACC_GRP_NAME</label>
+<input uppercase class='form-control' placeholder='Enter ACC_GRP_NAME' type='text' name='ACC_GRP_NAME' autocomplete='off'  formControlName='ACC_GRP_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.ACC_GRP_NAME.errors}"/><div *ngIf='submit && form.ACC_GRP_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.ACC_GRP_NAME.errors.required'>ACC_GRP_NAME Name is required.</span>
+ </div>
+ </div> -->
+ <div class='mb-3'>
+  <label for='ACC_SUB_GRP_CODE'>Sub-Group Code</label>
+  <input uppercase class='form-control' maxlength="2"  minlength="2" (keypress)="numberOnly($event)" placeholder='Enter Sub-Group Code' type='text' name='ACC_SUB_GRP_CODE' autocomplete='off'  formControlName='ACC_SUB_GRP_CODE' [ngClass]=
+  "{ 'is-invalid':  (submit || formData.get('ACC_SUB_GRP_CODE').dirty || formData.get('ACC_SUB_GRP_CODE').touched) && form.ACC_SUB_GRP_CODE.errors}"/>
+  <div *ngIf="(submit || formData.get('ACC_SUB_GRP_CODE').dirty || formData.get('ACC_SUB_GRP_CODE').touched) && form.ACC_SUB_GRP_CODE.errors" class='invalid-feedback'>
+   <span *ngIf='form.ACC_SUB_GRP_CODE.errors.required'>Sub-Group Code Name is required.</span>
+   </div>
+   </div>
+
+
+              </div>
+
+              <div class="col-sm-6">
+                 <!-- <div class='mb-3'>
+<label for='ACC_GRP_CODE'>ACC_GRP_CODE</label>
+<input uppercase class='form-control' placeholder='Enter ACC_GRP_CODE' type='text' name='ACC_GRP_CODE' autocomplete='off'  formControlName='ACC_GRP_CODE' [ngClass]=
+"{ 'is-invalid': submit && form.ACC_GRP_CODE.errors}"/><div *ngIf='submit && form.ACC_GRP_CODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.ACC_GRP_CODE.errors.required'>ACC_GRP_CODE Name is required.</span>
+ </div>
+ </div> -->
+ <div class='mb-3'>
+  <label for='ACC_SUB_GRP_NAME'>Sub Group Name </label>
+  <input uppercase class='form-control' placeholder='Enter Sub Group Name' type='text' name='ACC_SUB_GRP_NAME' autocomplete='off'  formControlName='ACC_SUB_GRP_NAME' [ngClass]=
+  "{ 'is-invalid':  (submit || formData.get('ACC_SUB_GRP_NAME').dirty || formData.get('ACC_SUB_GRP_NAME').touched) && form.ACC_SUB_GRP_NAME.errors}"/>
+  <div *ngIf="(submit || formData.get('ACC_SUB_GRP_NAME').dirty || formData.get('ACC_SUB_GRP_NAME').touched) && form.ACC_SUB_GRP_NAME.errors" class='invalid-feedback'>
+   <span *ngIf='form.ACC_SUB_GRP_NAME.errors.required'>Sub Group Name is required.</span>
+   </div>
+   </div>
+<!-- <div class='mb-3'>
+<label for='TYPE'>TYPE</label>
+<input uppercase class='form-control' placeholder='Enter TYPE' type='text' name='TYPE' autocomplete='off'  formControlName='TYPE' [ngClass]=
+"{ 'is-invalid': submit && form.TYPE.errors}"/><div *ngIf='submit && form.TYPE.errors' class='invalid-feedback'>
+ <span *ngIf='form.TYPE.errors.required'>TYPE Name is required.</span>
+ </div>
+ </div> -->
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

@@ -1,0 +1,146 @@
+<div class="container-fluid">
+
+  <app-page-title title="Customers" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input uppercase type="text" class="form-control" placeholder="Search..." [(ngModel)]="term" />
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end button-items">
+                <button type="button" class="btn btn-success btn-rounded mb-2 mr-2" (click)="openModal(content)">
+                  <i class="mdi mdi-plus me-1"></i> New TBL_HR_HOLIDAY_MASTER
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap">
+              <thead class="table-light">
+                <tr>
+                  <th> ID</th>
+<th> BRANCH_CODE</th>
+<th> BRANCH_NAME</th>
+<th> YEARS</th>
+<th> HOLIDAY_NAME</th>
+<th> HOLI_DATE</th>
+
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableData  | filter:term ;let i = index;">
+
+                  <td>{{item.id}}</td>
+<td>{{item.brancH_CODE}}</td>
+<td>{{item.brancH_NAME}}</td>
+<td>{{item.years}}</td>
+<td>{{item.holidaY_NAME}}</td>
+<td>{{item.holI_DATE}}</td>
+
+
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                        ngbDropdownToggle aria-expanded="false">
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <li><a href="javascript: void(0);" class="dropdown-item" (click)="edit(item,content)"><i
+                              class="fas fa-pencil-alt text-success me-1"></i>
+                            Edit</a></li>
+                        <li><a href="javascript: void(0);" (click)="confirm(item.id)" class="dropdown-item"><i
+                              class="fas fa-trash-alt text-danger me-1"></i>
+                            Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- pagination -->
+          <div class="row justify-content-md-between align-items-md-center mt-2">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+                {{startIndex}} to
+                {{endIndex}} of {{totalRecords}}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination [collectionSize]="total$ | async"  [maxSize]="7"[(page)]="page" [pageSize]="pageSize"
+                  (pageChange)="loadPage($event)">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div>
+
+<!-- Standard Modal -->
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Add TBL_HR_HOLIDAY_MASTER</h5>
+    <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="saveData()" [formGroup]="formData">
+      <div class="row">
+        <div class="col-12">
+          <div class='mb-3'>
+<label class='control-label'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submitted && form.ID.errors}"/><div *ngIf='submitted && form.ID.errors' class='invalid-feedback'> <span *ngIf='form.ID.errors.required'>ID is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_CODE' type='text' name='BRANCH_CODE' autocomplete='off'  formControlName='BRANCH_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_CODE.errors}"/><div *ngIf='submitted && form.BRANCH_CODE.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_CODE.errors.required'>BRANCH_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_NAME' type='text' name='BRANCH_NAME' autocomplete='off'  formControlName='BRANCH_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_NAME.errors}"/><div *ngIf='submitted && form.BRANCH_NAME.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_NAME.errors.required'>BRANCH_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>YEARS</label>
+<input uppercase class='form-control' placeholder='Enter YEARS' type='text' name='YEARS' autocomplete='off'  formControlName='YEARS' [ngClass]=
+"{ 'is-invalid': submitted && form.YEARS.errors}"/><div *ngIf='submitted && form.YEARS.errors' class='invalid-feedback'> <span *ngIf='form.YEARS.errors.required'>YEARS is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>HOLIDAY_NAME</label>
+<input uppercase class='form-control' placeholder='Enter HOLIDAY_NAME' type='text' name='HOLIDAY_NAME' autocomplete='off'  formControlName='HOLIDAY_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.HOLIDAY_NAME.errors}"/><div *ngIf='submitted && form.HOLIDAY_NAME.errors' class='invalid-feedback'> <span *ngIf='form.HOLIDAY_NAME.errors.required'>HOLIDAY_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>HOLI_DATE</label>
+<input uppercase class='form-control' placeholder='Enter HOLI_DATE' type='text' name='HOLI_DATE' autocomplete='off'  formControlName='HOLI_DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.HOLI_DATE.errors}"/><div *ngIf='submitted && form.HOLI_DATE.errors' class='invalid-feedback'> <span *ngIf='form.HOLI_DATE.errors.required'>HOLI_DATE is required.</span> </div>
+</div>
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" id="btn-save-event">
+        Save
+      </button>
+    </form>
+  </div>
+</ng-template>

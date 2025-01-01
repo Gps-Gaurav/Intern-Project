@@ -1,0 +1,826 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="BILTY ENTRY" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              
+
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='BILTYNO'>Bilty/LR No</label>
+                  <input keyHandler  tabIndex="1" uppercase class='form-control' #myinput placeholder='Enter Bilty/LR  No' minlength="7" maxlength="7" type='text' name='BILTYNO'
+                    autocomplete='off' formControlName='BILTYNO'
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('BILTYNO').dirty || formData.get('BILTYNO').touched) && form.BILTYNO.errors}" />
+                    <div *ngIf="(submit || formData.get('BILTYNO').dirty || formData.get('BILTYNO').touched) && form.BILTYNO.errors" class='invalid-feedback'>
+                    <span *ngIf='form.BILTYNO.errors.required'>Bilty/LR No is required.</span>
+                    <span
+                    *ngIf="
+                      !formData.get('BILTYNO')?.valid &&
+                      (formData.get('BILTYNO')?.touched || formData.get('BILTYNO')?.dirty)
+                    "
+                  >
+                    {{
+                      formData.get('BILTYNO')?.hasError('BILTYNO')
+                        ? ''
+                        : formData.get('BILTYNO')?.getError('invalid')
+                    }}
+              
+              </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='DATE'>Date</label>
+                  <input tabIndex="2" keyHandler uppercase class='form-control' placeholder='Enter Date' type='Date' [max]="getToday()" name='DATE' autocomplete='off'
+                    formControlName='DATE' [ngClass]="{ 'is-invalid': submit && form.DATE.errors}" />
+                  <div *ngIf='submit && form.DATE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.DATE.errors.required'>Date is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='STBY'>GST by</label>
+                  <ng-select tabIndex="3" [items]="['Consignor','Consignee','NA']" placeholder="Select GST by" formControlName="STBY"
+                    [ngClass]="{ 'is-invalid':  (submit || formData.get('STBY').dirty || formData.get('STBY').touched) && form.STBY.errors}">
+                  </ng-select>
+                  <div
+                    *ngIf="(submit || formData.get('STBY').dirty || formData.get('STBY').touched) && form.STBY.errors"
+                    class='invalid-feedback'>
+                    <span *ngIf='form.STBY.errors.required'>GST By required.</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-sm-3">
+
+                <div class='mb-3'>
+                  <label for='PACK'>PACKAGES</label>
+                  <input  tabIndex="41" keyHandler  uppercase class='form-control' placeholder='Enter PACKAGES' appTwoDigitDecimaNumber type='text'
+                    name='PACK' autocomplete='off' formControlName='PACK'
+                    [ngClass]="{ 'is-invalid': submit && form.PACK.errors}" />
+                  <div *ngIf='submit && form.PACK.errors' class='invalid-feedback'>
+                    <span *ngIf='form.PACK.errors.required'>PACK Name is required.</span>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='FROM_STATION'>From Station</label>
+                  <ng-select tabIndex="4" [items]="stationData" bindLabel="statioN_NAME" bindValue="statioN_CODE"
+                    placeholder="Select Station" formControlName="FROM_STATION"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('FROM_STATION').dirty || formData.get('FROM_STATION').touched) && form.FROM_STATION.errors}">
+                  </ng-select>
+                  <!-- <input keyHandler uppercase class='form-control' placeholder='Enter From Station' type='text' name='FROM_STATION' autocomplete='off'  formControlName='FROM_STATION' [ngClass]=
+                  "{ 'is-invalid': submit && form.FROM_STATION.errors}"/> -->
+                  <div *ngIf='submit && form.FROM_STATION.errors' class='invalid-feedback'>
+                    <span *ngIf='form.FROM_STATION.errors.required'>From Station Name is required.</span>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='TO_STATION'>To Station</label>
+                  <ng-select tabIndex="5"  [items]="stationData" bindLabel="statioN_NAME" bindValue="statioN_CODE"
+                    placeholder="Select Station" formControlName="TO_STATION"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('TO_STATION').dirty || formData.get('TO_STATION').touched) && form.TO_STATION.errors}">
+                  </ng-select>
+                  <!-- <input keyHandler uppercase class='form-control' placeholder='Enter To Station' type='text' name='TO_STATION' autocomplete='off'  formControlName='TO_STATION' [ngClass]=
+                  "{ 'is-invalid': submit && form.TO_STATION.errors}"/>
+                   -->
+                  <div *ngIf='submit && form.TO_STATION.errors' class='invalid-feedback'>
+                    <span *ngIf='form.TO_STATION.errors.required'>To Station Name is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='CNGE'>Consignee </label>
+                 
+                  <ng-select tabIndex="6"  [items]="partyData" bindLabel="partY_NAME" bindValue="partY_CODE"
+                  placeholder="Select Consignee" formControlName="CNGE"
+                  [ngClass]="{ 'is-invalid': (submit || formData.get('CNGE').dirty || formData.get('CNGE').touched) && form.CNGE.errors}">
+                </ng-select>
+                  <!-- <input keyHandler uppercase class='form-control' placeholder='Enter Consignee ' type='text' name='CNGE' autocomplete='off'  formControlName='CNGE' [ngClass]=
+                  "{ 'is-invalid': submit && form.CNGE.errors}"/> -->
+                  <div *ngIf='submit && form.CNGE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.CNGE.errors.required'>Consignee Name is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+
+                <div class='mb-3'>
+                  <label for='NET_WT'>Net Weight</label>
+                  <input  tabIndex="42" keyHandler uppercase class='form-control' placeholder='Enter Net Weight' appTwoDigitDecimaNumber
+                    maxlength="14" type='text' name='NET_WT' autocomplete='off' formControlName='NET_WT'
+                    [ngClass]="{ 'is-invalid': submit && form.NET_WT.errors}" />
+                  <div *ngIf='submit && form.NET_WT.errors' class='invalid-feedback'>
+                    <span *ngIf='form.NET_WT.errors.required'>Net Weight is required.</span>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+
+
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='CNGR'>Consignor </label>
+                  <ng-select tabIndex="7"  [items]="partyData" bindLabel="partY_NAME" bindValue="partY_CODE"
+                  placeholder="Select Consignor" formControlName="CNGR"
+                  [ngClass]="{ 'is-invalid': (submit || formData.get('CNGR').dirty || formData.get('CNGR').touched) && form.CNGR.errors}">
+                </ng-select>
+                  
+                  <!-- <input keyHandler uppercase class='form-control' placeholder='Enter Consignor ' type='text' name='CNGR' autocomplete='off'  formControlName='CNGR' [ngClass]=
+                  "{ 'is-invalid': submit && form.CNGR.errors}"/> -->
+                  <div *ngIf='submit && form.CNGR.errors' class='invalid-feedback'>
+                    <span *ngIf='form.CNGR.errors.required'>Consignor Name is required.</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='PARTY'>Party</label>
+                  <ng-select tabIndex="8"  [items]="partyData" bindLabel="partY_NAME" bindValue="partY_CODE"
+                  placeholder="Select Consignor" formControlName="PARTY"
+                  [ngClass]="{ 'is-invalid': (submit || formData.get('PARTY').dirty || formData.get('PARTY').touched) && form.PARTY.errors}">
+                </ng-select>
+                  <!-- <ng-select  tabIndex="8" (search)="_fetchPartyData($event)"
+                    placeholder="Select Party" formControlName="PARTY"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('PARTY').dirty || formData.get('PARTY').touched) && form.PARTY.errors}">
+                 
+                    <ng-option *ngFor="let item of partyData" >
+                      {{ item.partY_NAME +"(" + item.partY_CODE+")"}} 
+                  </ng-option>
+                  </ng-select> -->
+                  <!-- <input keyHandler uppercase class='form-control' placeholder='Enter Party' type='text' name='PARTY' autocomplete='off'  formControlName='PARTY' [ngClass]=
+                  "{ 'is-invalid': submit && form.PARTY.errors}"/> -->
+                  <div *ngIf='submit && form.PARTY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.PARTY.errors.required'>Party is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='CALCEL'>Cancel</label>
+                  <ng-select  tabIndex="9" [items]="['YES','NO']" placeholder="Cancel" formControlName="CALCEL"
+                    [ngClass]="{ 'is-invalid':  (submit || formData.get('CALCEL').dirty || formData.get('CALCEL').touched) && form.CALCEL.errors}">
+                  </ng-select>
+                  <div
+                    *ngIf="(submit || formData.get('CALCEL').dirty || formData.get('CALCEL').touched) && form.CALCEL.errors"
+                    class='invalid-feedback'>
+                    <span *ngIf='form.CALCEL.errors.required'>Cancel required.</span>
+                  </div>
+                </div>
+                <!-- <div class='mb-3'>
+                    <label for='SHRT_PKG'>SHRT PKG</label>
+                    <input keyHandler uppercase class='form-control' placeholder='Enter SHRT PKG' type='text' name='SHRT_PKG' autocomplete='off'  formControlName='SHRT_PKG' [ngClass]=
+                    "{ 'is-invalid': submit && form.SHRT_PKG.errors}"/><div *ngIf='submit && form.SHRT_PKG.errors' class='invalid-feedback'>
+                     <span *ngIf='form.SHRT_PKG.errors.required'>SHRT PKG is required.</span>
+                     </div>
+                     </div> -->
+
+              </div>
+              <div class="col-sm-3">
+
+                <div class='mb-3'>
+                  <label for='GROSS_WT'>Gross Weight</label>
+                  <input  tabIndex="43"  keyHandler uppercase class='form-control' placeholder='Enter Gross Weight' appTwoDigitDecimaNumber
+                    maxlength="14" type='text' name='GROSS_WT' autocomplete='off' formControlName='GROSS_WT'
+                    [ngClass]="{ 'is-invalid': submit && form.GROSS_WT.errors}" />
+                  <div *ngIf='submit && form.GROSS_WT.errors' class='invalid-feedback'>
+                    <span *ngIf='form.GROSS_WT.errors.required'>Gross Weight is required.</span>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+              <div class="col-sm-3">
+
+                <div class='mb-3'>
+                  <label for='CNGR_STATE_CODE'>STATE CODE</label>
+                  <ng-select tabIndex="10"  [items]="stateData" bindLabel="stateName" bindValue="stateCode" placeholder="Select State"
+                    formControlName="CNGR_STATE_CODE"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('CNGR_STATE_CODE').dirty || formData.get('CNGR_STATE_CODE').touched) && form.CNGR_STATE_CODE.errors}">
+                  </ng-select>
+
+
+                  <!-- <input keyHandler uppercase class='form-control' placeholder='Enter CNGR_STATE_CODE' type='text' name='CNGR_STATE_CODE' autocomplete='off'  formControlName='CNGR_STATE_CODE' [ngClass]=
+                  "{ 'is-invalid': submit && form.CNGR_STATE_CODE.errors}"/>
+                   -->
+                  <div *ngIf='submit && form.CNGR_STATE_CODE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.CNGR_STATE_CODE.errors.required'>CNGR_STATE_CODE Name is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='ITEM'>Item </label>
+                  <ng-select  tabIndex="11" [items]="itemData" bindLabel="iteM_NAME" bindValue="iteM_CODE" placeholder="Select Item"
+                    formControlName="ITEM"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('ITEM').dirty || formData.get('ITEM').touched) && form.ITEM.errors}">
+                  </ng-select>
+                  <!-- <input keyHandler uppercase class='form-control' placeholder='Enter Item' type='text' name='ITEM' autocomplete='off'
+                    formControlName='ITEM' [ngClass]="{ 'is-invalid': submit && form.ITEM.errors}" /> -->
+                  <div *ngIf='submit && form.ITEM.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ITEM.errors.required'>Item Name is required.</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='FROM_BR_CODE'>From Branch</label>
+                  <ng-select  tabIndex="12" [items]="branchData" bindLabel="brancH_NAME" bindValue="brancH_CODE"
+                    placeholder="Select From Branch" formControlName="FROM_BR_CODE"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('FROM_BR_CODE').dirty || formData.get('FROM_BR_CODE').touched) && form.FROM_BR_CODE.errors}">
+                  </ng-select>
+                  <!-- <input keyHandler uppercase class='form-control' placeholder='Enter From Branch ' type='text' name='FROM_BR_CODE' autocomplete='off'  formControlName='FROM_BR_CODE' [ngClass]=
+                  "{ 'is-invalid': submit && form.FROM_BR_CODE.errors}"/> -->
+                  <div *ngIf='submit && form.FROM_BR_CODE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.FROM_BR_CODE.errors.required'>From Branch Code Name is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+
+                <div class='mb-3'>
+                  <label for='CHARGES_WT'>Chg Weight</label>
+                  <input  tabIndex="44" keyHandler uppercase class='form-control' placeholder='Enter Chg Weight' maxlength="14"
+                    appTwoDigitDecimaNumber type='text' name='CHARGES_WT' autocomplete='off'
+                    formControlName='CHARGES_WT' [ngClass]="{ 'is-invalid': submit && form.CHARGES_WT.errors}" />
+                  <div *ngIf='submit && form.CHARGES_WT.errors' class='invalid-feedback'>
+                    <span *ngIf='form.CHARGES_WT.errors.required'>Chg Weight is required.</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='TO_BR_CODE'>To Branch</label>
+                  <ng-select tabIndex="13" [items]="branchData" bindLabel="brancH_NAME" bindValue="brancH_CODE"
+                    placeholder="Select To Branch" formControlName="TO_BR_CODE"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('TO_BR_CODE').dirty || formData.get('TO_BR_CODE').touched) && form.TO_BR_CODE.errors}">
+                  </ng-select>
+                  <!-- <input keyHandler uppercase class='form-control' placeholder='Enter To Branch' type='text' name='TO_BR_CODE' autocomplete='off'  formControlName='TO_BR_CODE' [ngClass]=
+                  "{ 'is-invalid': submit && form.TO_BR_CODE.errors}"/> -->
+                  <div *ngIf='submit && form.TO_BR_CODE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.TO_BR_CODE.errors.required'>To Branch Name is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='RISK'>Risk Type</label>
+                  <ng-select tabIndex="14" [items]="['CARRIER','PARTY','INSURANCE INCLUDED']" placeholder="Risk Type" formControlName="RISK"
+                    [ngClass]="{ 'is-invalid':  (submit || formData.get('RISK').dirty || formData.get('RISK').touched) && form.RISK.errors}">
+                  </ng-select>
+                  <div
+                    *ngIf="(submit || formData.get('RISK').dirty || formData.get('RISK').touched) && form.RISK.errors"
+                    class='invalid-feedback'>
+                    <span *ngIf='form.RISK.errors.required'>Risk Type required.</span>
+                  </div>
+                </div>
+                <!-- <div class='mb-3'>
+                    <label for='S_TAX'>S TAX</label>
+                    <input keyHandler uppercase class='form-control' placeholder='Enter S TAX' type='text' name='S_TAX' autocomplete='off'  formControlName='S_TAX' [ngClass]=
+                    "{ 'is-invalid': submit && form.S_TAX.errors}"/><div *ngIf='submit && form.S_TAX.errors' class='invalid-feedback'>
+                     <span *ngIf='form.S_TAX.errors.required'>S TAX is required.</span>
+                     </div>
+                     </div> -->
+
+              </div>
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='COLLBY'>Collection </label>
+                  <ng-select tabIndex="15" [items]="['YES','NO']" placeholder="Collection " formControlName="COLLBY"
+                    [ngClass]="{ 'is-invalid':  (submit || formData.get('COLLBY').dirty || formData.get('COLLBY').touched) && form.COLLBY.errors}">
+                  </ng-select>
+                  <div
+                    *ngIf="(submit || formData.get('COLLBY').dirty || formData.get('COLLBY').touched) && form.COLLBY.errors"
+                    class='invalid-feedback'>
+                    <span *ngIf='form.COLLBY.errors.required'>Collection required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class='mb-3'>
+                  <label for='GOODS_VALUES'>Goods Value</label>
+                  <input  tabIndex="45" keyHandler uppercase class='form-control' placeholder='Enter Goods Value' type='text' maxlength="14"
+                    appTwoDigitDecimaNumber name='GOODS_VALUES' autocomplete='off'
+                    formControlName='GOODS_VALUES' [ngClass]="{ 'is-invalid': submit && form.GOODS_VALUES.errors}" />
+                  <div *ngIf='submit && form.GOODS_VALUES.errors' class='invalid-feedback'>
+                    <span *ngIf='form.GOODS_VALUES.errors.required'>Goods Value Name is required.</span>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='IN_AC'>a/c No</label>
+                    <input tabIndex="16" keyHandler uppercase class='form-control' maxlength="5" placeholder='Enter A/C No' type='text' name='IN_AC'
+                      autocomplete='off' formControlName='IN_AC'
+                      [ngClass]="{ 'is-invalid': submit && form.IN_AC.errors}" />
+                    <div *ngIf='submit && form.IN_AC.errors' class='invalid-feedback'>
+                      <span *ngIf='form.IN_AC.errors.required'>A/C No is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='IN_AC'>INV No</label>
+                    <input tabIndex="17" keyHandler uppercase class='form-control' placeholder='Enter INV No' maxlength="30" type='text' name='INVNO'
+                      autocomplete='off' formControlName='INVNO'
+                      [ngClass]="{ 'is-invalid': submit && form.INVNO.errors}" />
+                    <div *ngIf='submit && form.INVNO.errors' class='invalid-feedback'>
+                      <span *ngIf='form.INVNO.errors.required'>INV No is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='LORRYNO'>Lorry No</label>
+                    <input tabIndex="18" keyHandler uppercase class='form-control' placeholder='Enter Lorry No' type='text' name='LORRYNO'
+                      autocomplete='off' formControlName='LORRYNO'
+                      [ngClass]="{ 'is-invalid': submit && form.LORRYNO.errors}" />
+                    <div *ngIf='submit && form.LORRYNO.errors' class='invalid-feedback'>
+                      <span *ngIf='form.LORRYNO.errors.required'>Lorry No is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='RATE'>Rate </label>
+                    <input   tabIndex="46"keyHandler uppercase class='form-control' placeholder='Enter Rate ' maxlength="14" appTwoDigitDecimaNumber
+                      type='text' name='RATE' autocomplete='off' formControlName='RATE'
+                      [ngClass]="{ 'is-invalid': submit && form.RATE.errors}" />
+                    <div *ngIf='submit && form.RATE.errors' class='invalid-feedback'>
+                      <span *ngIf='form.RATE.errors.required'>Rate is required.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="row">
+                    <div class='mb-3 col-sm-6'>
+                      <label for='CFT1'>CFT1</label>
+                      <input keyHandler tabIndex="19"  class='form-control' maxlength="4" placeholder='CFT1' type='text' name='CFT1'
+                        autocomplete='off'  appTwoDigitDecimaNumber formControlName='CFT1'
+                        [ngClass]="{ 'is-invalid': submit && form.CFT1.errors}" />
+                      <div *ngIf='submit && form.CFT1.errors' class='invalid-feedback'>
+                        <span *ngIf='form.CFT1.errors.required'>CFT1 Name is required.</span>
+                      </div>
+                    </div>
+                    <div class='mb-3 col-sm-6'>
+                      <label for='CFT1'>CFT2</label>
+                      <input keyHandler tabIndex="20" uppercase class='form-control' maxlength="4"   appTwoDigitDecimaNumber placeholder='CFT2' type='text' name='CFT2'
+                        autocomplete='off' formControlName='CFT2'
+                        [ngClass]="{ 'is-invalid': submit && form.CFT2.errors}" />
+                      <div *ngIf='submit && form.CFT2.errors' class='invalid-feedback'>
+                        <span *ngIf='form.CFT2.errors.required'>CFT2 Name is required.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-sm-3">
+                  <div class="row">
+                    <div class='mb-3 col-sm-6'>
+                      <label for='CFT3'>CFT3</label>
+                      <input keyHandler tabIndex="21" uppercase class='form-control' maxlength="4"
+                      appTwoDigitDecimaNumber placeholder=' CFT3' type='text' name='CFT3'
+                        autocomplete='off' formControlName='CFT3'
+                        [ngClass]="{ 'is-invalid': submit && form.CFT3.errors}" />
+                      <div *ngIf='submit && form.CFT3.errors' class='invalid-feedback'>
+                        <span *ngIf='form.CFT3.errors.required'>CFT3 is required.</span>
+                      </div>
+                    </div>
+                    <div class='mb-3 col-sm-6'>
+                      <label for='CFTEQL'>CFTEQL</label>
+                      <input tabIndex="22" keyHandler uppercase class='form-control'  maxlength="14"
+                      appTwoDigitDecimaNumber placeholder=' CFTEQL' type='text' name='CFTEQL'
+                        autocomplete='off' formControlName='CFTEQL'
+                        [ngClass]="{ 'is-invalid': submit && form.CFTEQL.errors}" />
+                      <div *ngIf='submit && form.CFTEQL.errors' class='invalid-feedback'>
+                        <span *ngIf='form.CFTEQL.errors.required'>CFTEQL Name is required.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='BILTY_REMARLS'>Bilty Remarks</label>
+                    <textarea tabIndex="23" class='form-control' placeholder='Enter Bilty Remarks' [rows]="3" type='text'
+                      name='BILTY_REMARLS' autocomplete='off' formControlName='BILTY_REMARLS'
+                      [ngClass]="{ 'is-invalid': submit && form.BILTY_REMARLS.errors}"></textarea>
+                    <div *ngIf='submit && form.BILTY_REMARLS.errors' class='invalid-feedback'>
+                      <span *ngIf='form.BILTY_REMARLS.errors.required'>Bilty Remarks is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='FRIGHT'>FRIGHT</label>
+                    <input disabled="tre" keyHandler uppercase class='form-control' placeholder='Enter FRIGHT' type='text' name='FRIGHT' autocomplete='off'
+                      formControlName='FRIGHT' maxlength="14"
+                      appTwoDigitDecimaNumber [ngClass]="{ 'is-invalid': submit && form.FRIGHT.errors}" />
+                    <div *ngIf='submit && form.FRIGHT.errors' class='invalid-feedback'>
+                      <span *ngIf='form.FRIGHT.errors.required'>FRIGHT Name is required.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='Freight_Confirm'>Freight Confirm </label>
+                    <input tabIndex="24" keyHandler uppercase class='form-control' placeholder='Enter Freight ' type='text' name='Freight_Confirm'
+                      autocomplete='off' formControlName='Freight_Confirm'
+                      [ngClass]="{ 'is-invalid': submit && form.Freight_Confirm.errors}" />
+                    <div *ngIf='submit && form.Freight_Confirm.errors' class='invalid-feedback'>
+                      <span *ngIf='form.Freight_Confirm.errors.required'>Freight is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='GATE_PASS'>Gate Pass</label>
+                    <input keyHandler tabIndex="25" uppercase class='form-control' placeholder='Enter Gate Pass' maxlength="20" type='text'
+                      name='GATE_PASS' autocomplete='off' formControlName='GATE_PASS'
+                      [ngClass]="{ 'is-invalid': submit && form.GATE_PASS.errors}" />
+                    <div *ngIf='submit && form.GATE_PASS.errors' class='invalid-feedback'>
+                      <span *ngIf='form.GATE_PASS.errors.required'>Gate Pass Name is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='CHARGES_WT'>OTHER EXPENSE</label>
+                    <input keyHandler tabIndex="26" uppercase class='form-control' placeholder='Enter OTHER EXP' maxlength="14"
+                      appTwoDigitDecimaNumber type='text' name='OTHER_EXP' autocomplete='off'
+                      formControlName='OTHER_EXP' [ngClass]="{ 'is-invalid': submit && form.OTHER_EXP.errors}" />
+                    <div *ngIf='submit && form.OTHER_EXP.errors' class='invalid-feedback'>
+                      <span *ngIf='form.OTHER_EXP.errors.required'>OTHER EXP is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='CHARGES_WT'>SUR CHARGE</label>
+                    <input  tabIndex="47" keyHandler uppercase class='form-control' placeholder='Enter SUR CHARGE' maxlength="14"
+                      appTwoDigitDecimaNumber type='text' name='SURCHARGE' autocomplete='off'
+                      formControlName='SURCHARGE' [ngClass]="{ 'is-invalid': submit && form.SURCHARGE.errors}" />
+                    <div *ngIf='submit && form.SURCHARGE.errors' class='invalid-feedback'>
+                      <span *ngIf='form.SURCHARGE.errors.required'>SURCHARGE is required.</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='UNLOAD'>UNLOAD</label>
+                    <input tabIndex="27" keyHandler uppercase class='form-control' placeholder='Enter UNLOAD' type='text' name='UNLOAD' autocomplete='off'
+                      formControlName='UNLOAD' [ngClass]="{ 'is-invalid': submit && form.UNLOAD.errors}" />
+                    <div *ngIf='submit && form.UNLOAD.errors' class='invalid-feedback'>
+                      <span *ngIf='form.UNLOAD.errors.required'>UNLOAD Name is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='BANK'>Bank Bilty </label>
+                    <input tabIndex="28" keyHandler uppercase class='form-control' placeholder='Enter Bank Bilty ' type='text' name='BANK'
+                      autocomplete='off' formControlName='BANK'
+                      [ngClass]="{ 'is-invalid': submit && form.BANK.errors}" />
+                    <div *ngIf='submit && form.BANK.errors' class='invalid-feedback'>
+                      <span *ngIf='form.BANK.errors.required'>Bank Bilty is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='EWay_Bill_No'>EWay Bill No</label>
+                    <input tabIndex="29" keyHandler uppercase class='form-control' placeholder='Enter EWay Bill No' type='text' name='EWay_Bill_No'
+                      autocomplete='off' formControlName='EWay_Bill_No' minlength="12" maxlength="12" appTwoDigitDecimaNumber
+                      [ngClass]="{ 'is-invalid': submit && form.EWay_Bill_No.errors}" />
+                    <div *ngIf='submit && form.EWay_Bill_No.errors' class='invalid-feedback'>
+                      <span *ngIf='form.EWay_Bill_No.errors.required'>EWay Bill No is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='GOODS_VALUES'>INS</label>
+                    <input  tabIndex="48" keyHandler uppercase class='form-control' placeholder='Enter INS' type='text' maxlength="14"
+                      appTwoDigitDecimaNumber name='INS' autocomplete='off'
+                      formControlName='INS' [ngClass]="{ 'is-invalid': submit && form.INS.errors}" />
+                    <div *ngIf='submit && form.INS.errors' class='invalid-feedback'>
+                      <span *ngIf='form.INS.errors.required'>INS is required.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='Expiry_Date'>Expiry Date</label>
+                    <input tabIndex="30" keyHandler uppercase class='form-control' placeholder='Enter Expiry Date' type='Date' [max]="getToday()" name='Expiry_Date' [max]="getToday()"
+                      autocomplete='off' formControlName='Expiry_Date'
+                      [ngClass]="{ 'is-invalid': submit && form.Expiry_Date.errors}" />
+                    <div *ngIf='submit && form.Expiry_Date.errors' class='invalid-feedback'>
+                      <span *ngIf='form.Expiry_Date.errors.required'>Expiry Date is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='CC'>Cc attached </label>
+                    <ng-select tabIndex="31" [items]="['YES','NO']" placeholder="Cc attached " formControlName="CC"
+                      [ngClass]="{ 'is-invalid':  (submit || formData.get('CC').dirty || formData.get('CC').touched) && form.CC.errors}">
+                    </ng-select>
+                    <div *ngIf="(submit || formData.get('CC').dirty || formData.get('CC').touched) && form.CC.errors"
+                      class='invalid-feedback'>
+                      <span *ngIf='form.CC.errors.required'>Cc attached required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+
+                    <label for='CLAIM_RATE'>Claim Rate </label>
+                    <input tabIndex="32" keyHandler uppercase class='form-control'  maxlength="14"
+                    appTwoDigitDecimaNumber placeholder='Enter Claim Rate ' type='text' name='CLAIM_RATE'
+                      autocomplete='off' formControlName='CLAIM_RATE'
+                      [ngClass]="{ 'is-invalid': submit && form.CLAIM_RATE.errors}" />
+                    <div *ngIf='submit && form.CLAIM_RATE.errors' class='invalid-feedback'>
+                      <span *ngIf='form.CLAIM_RATE.errors.required'>Claim Rate is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+
+                  <div class='mb-3'>
+                    <label for='CHARGES_WT'>HANDEL</label>
+                    <input  tabIndex="49" keyHandler uppercase class='form-control' placeholder='Enter HANDEL' maxlength="14"
+                      appTwoDigitDecimaNumber type='text' name='HANDEL' autocomplete='off'
+                      formControlName='HANDEL' [ngClass]="{ 'is-invalid': submit && form.HANDEL.errors}" />
+                    <div *ngIf='submit && form.HANDEL.errors' class='invalid-feedback'>
+                      <span *ngIf='form.HANDEL.errors.required'>HANDEL is required.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='DLY_DATE'>Dly Date</label>
+                    <input tabIndex="33" keyHandler uppercase class='form-control' placeholder='Enter Dly Date' type='Date' [max]="getToday()" name='DLY_DATE'
+                      autocomplete='off' formControlName='DLY_DATE'
+                      [ngClass]="{ 'is-invalid': submit && form.DLY_DATE.errors}" />
+                    <div *ngIf='submit && form.DLY_DATE.errors' class='invalid-feedback'>
+                      <span *ngIf='form.DLY_DATE.errors.required'>Dly Date Name is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='SHRT_PKG'>SHRT PKG</label>
+                    <input tabIndex="34" keyHandler uppercase class='form-control' maxlength="10"
+                    appTwoDigitDecimaNumber placeholder='Enter SHRT PKG' type='text' name='SHRT_PKG' autocomplete='off'  formControlName='SHRT_PKG' [ngClass]=
+                    "{ 'is-invalid': submit && form.SHRT_PKG.errors}"/><div *ngIf='submit && form.SHRT_PKG.errors' class='invalid-feedback'>
+                     <span *ngIf='form.SHRT_PKG.errors.required'>SHRT PKG is required.</span>
+                     </div>
+                     </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='SHRT_WT'>Short weight</label>
+                    <input tabIndex="35" keyHandler uppercase class='form-control' placeholder='Enter Short weight' type='text' name='SHRT_WT'
+                      autocomplete='off' maxlength="15"
+                      appTwoDigitDecimaNumber formControlName='SHRT_WT'
+                      [ngClass]="{ 'is-invalid': submit && form.SHRT_WT.errors}" />
+                    <div *ngIf='submit && form.SHRT_WT.errors' class='invalid-feedback'>
+                      <span *ngIf='form.SHRT_WT.errors.required'>Short weight Name is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='CPC'>CPC</label>
+                    <input  tabIndex="50" keyHandler uppercase class='form-control' placeholder='Enter CPC' appTwoDigitDecimaNumber
+                      maxlength="14" type='text' name='CPC' autocomplete='off' formControlName='CPC'
+                      [ngClass]="{ 'is-invalid': submit && form.CPC.errors}" />
+                    <div *ngIf='submit && form.CPC.errors' class='invalid-feedback'>
+                      <span *ngIf='form.CPC.errors.required'>CPC is required.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='CPC'>ENTRY_BY</label>
+                    <input disabled="true" keyHandler uppercase class='form-control' placeholder='Enter ENTRY_BY' 
+                      maxlength="30" type='text' name='ENTRY_BY' autocomplete='off' formControlName='ENTRY_BY'
+                      [ngClass]="{ 'is-invalid': submit && form.ENTRY_BY.errors}" />
+                    <div *ngIf='submit && form.ENTRY_BY.errors' class='invalid-feedback'>
+                      <span *ngIf='form.ENTRY_BY.errors.required'>ENTRY_BY is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='ENTRY_DATE'>ENTRY_DATE</label>
+                    <input tabIndex="36" keyHandler uppercase class='form-control' placeholder='Enter ENTRY_DATE' type='Date' [max]="getToday()" name='ENTRY_DATE' autocomplete='off'  formControlName='ENTRY_DATE' [ngClass]=
+                    "{ 'is-invalid': submit && form.ENTRY_DATE.errors}"/><div *ngIf='submit && form.ENTRY_DATE.errors' class='invalid-feedback'>
+                     <span *ngIf='form.ENTRY_DATE.errors.required'>ENTRY_DATE Name is required.</span>
+                     </div>
+                     </div>
+                </div>
+                <div class="col-sm-3">
+                  
+                  <div class='mb-3'>
+                    <label for='Packing_Method'>Packing Method</label>
+                    <textarea tabIndex="37" class='form-control' placeholder='Enter Packing Method' type='text' name='Packing_Method'
+                      autocomplete='off' formControlName='Packing_Method' [rows]="3"
+                      [ngClass]="{ 'is-invalid': submit && form.Packing_Method.errors}"></textarea>
+                    <div *ngIf='submit && form.Packing_Method.errors' class='invalid-feedback'>
+                      <span *ngIf='form.Packing_Method.errors.required'>Packing Method is required.</span>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='ST'>St </label>
+                    <input tabIndex="51" keyHandler uppercase class='form-control' placeholder='Enter St ' appTwoDigitDecimaNumber
+                      maxlength="14" type='text' name='ST' autocomplete='off' formControlName='ST'
+                      [ngClass]="{ 'is-invalid': submit && form.ST.errors}" />
+                    <div *ngIf='submit && form.ST.errors' class='invalid-feedback'>
+                      <span *ngIf='form.ST.errors.required'>St is required.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='Breakup_Description'>Breakup Description</label>
+                    <textarea tabIndex="38" class='form-control'[rows]="3" placeholder='Enter Breakup Description' type='text'
+                      name='Breakup_Description' autocomplete='off' formControlName='Breakup_Description'
+                      [ngClass]="{ 'is-invalid': submit && form.Breakup_Description.errors}"></textarea>
+                    <div *ngIf='submit && form.Breakup_Description.errors' class='invalid-feedback'>
+                      <span *ngIf='form.Breakup_Description.errors.required'>Breakup Description is required.</span>
+                    </div>
+                  </div>
+
+                </div>
+               
+
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='PRIVATE_MARKS'>PRIVATE MARKS</label>
+                    <input tabIndex="39" keyHandler uppercase class='form-control' placeholder='Enter PRIVATE MARKS'  type='text' name='PRIVATE_MARKS' autocomplete='off' formControlName='PRIVATE_MARKS'
+                      [ngClass]="{ 'is-invalid': submit && form.PRIVATE_MARKS.errors}" />
+                    <div *ngIf='submit && form.PRIVATE_MARKS.errors' class='invalid-feedback'>
+                      <span *ngIf='form.PRIVATE_MARKS.errors.required'>PRIVATE MARKS is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='WH'>W/H Number </label>
+                    <input keyHandler tabIndex="40" uppercase class='form-control' placeholder='Enter W/H Number' type='text' name='WH'
+                      autocomplete='off'  appTwoDigitDecimaNumber maxlength="15" formControlName='WH' [ngClass]="{ 'is-invalid': submit && form.WH.errors}" />
+                    <div *ngIf='submit && form.WH.errors' class='invalid-feedback'>
+                      <span *ngIf='form.WH.errors.required'>W/H Number is required.</span>
+                    </div>
+                  </div> 
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='HAMALI'>HAMALI</label>
+                    <input  tabIndex="52" keyHandler uppercase class='form-control' placeholder='Enter HAMALI' type='text' name='HAMALI'
+                      autocomplete='off' formControlName='HAMALI' appTwoDigitDecimaNumber maxlength="15"
+                      [ngClass]="{ 'is-invalid': submit && form.HAMALI.errors}" />
+                    <div *ngIf='submit && form.HAMALI.errors' class='invalid-feedback'>
+                      <span *ngIf='form.HAMALI.errors.required'>HAMALI Name is required.</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='OTHERS'>OTHERS</label>
+                    <input  tabIndex="53" keyHandler uppercase class='form-control' placeholder='Enter OTHERS' type='text'
+                      appTwoDigitDecimaNumber maxlength="15" name='OTHERS' autocomplete='off'
+                      formControlName='OTHERS' [ngClass]="{ 'is-invalid': submit && form.OTHERS.errors}" />
+                    <div *ngIf='submit && form.OTHERS.errors' class='invalid-feedback'>
+                      <span *ngIf='form.OTHERS.errors.required'>OTHERS is required.</span>
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="col-sm-2">
+                  <div class='mb-3'>
+                    <label for='SGST'>SGST</label>
+                    <input  tabIndex="54" keyHandler uppercase class='form-control' placeholder='Enter SGST' appTwoDigitDecimaNumber
+                      maxlength="18" type='text' name='SGST' autocomplete='off' formControlName='SGST'
+                      [ngClass]="{ 'is-invalid': submit && form.SGST.errors}" />
+                    <div *ngIf='submit && form.SGST.errors' class='invalid-feedback'>
+                      <span *ngIf='form.SGST.errors.required'>SGST is required.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <div class='mb-3'>
+                    <label for='CGST'>CGST</label>
+                    <input  tabIndex="55" keyHandler uppercase class='form-control' placeholder='Enter CGST' appTwoDigitDecimaNumber
+                      maxlength="18" type='text' name='CGST' autocomplete='off' formControlName='CGST'
+                      [ngClass]="{ 'is-invalid': submit && form.CGST.errors}" />
+                    <div *ngIf='submit && form.CGST.errors' class='invalid-feedback'>
+                      <span *ngIf='form.CGST.errors.required'>CGST is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class='mb-3'>
+                    <label for='IGST'>IGST</label>
+                    <input  tabIndex="56" keyHandler uppercase class='form-control' placeholder='Enter IGST' appTwoDigitDecimaNumber
+                      maxlength="18" type='text' name='IGST' autocomplete='off' formControlName='IGST'
+                      [ngClass]="{ 'is-invalid': submit && form.IGST.errors}" />
+                    <div *ngIf='submit && form.IGST.errors' class='invalid-feedback'>
+                      <span *ngIf='form.IGST.errors.required'>IGST is required.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class='mb-3'>
+                    <label for='NettTotal'>Nett Total</label>
+                    <input  tabIndex="57" keyHandler uppercase class='form-control' placeholder='Enter NettTotal' appTwoDigitDecimaNumber
+                      maxlength="18" type='text' name='NettTotal' autocomplete='off' formControlName='NettTotal'
+                      [ngClass]="{ 'is-invalid': submit && form.NettTotal.errors}" />
+                    <div *ngIf='submit && form.NettTotal.errors' class='invalid-feedback'>
+                      <span *ngIf='form.NettTotal.errors.required'>NettTotal Name is required.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+
+
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="btn btn-secondary">Cancel</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

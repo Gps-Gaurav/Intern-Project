@@ -1,0 +1,95 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_USER_MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p>
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <div class='mb-3'>
+<label for='USER_ID'>USER_ID</label>
+<input uppercase class='form-control' placeholder='Enter USER_ID' type='text' name='USER_ID' autocomplete='off'  formControlName='USER_ID' [ngClass]=
+"{ 'is-invalid': submit && form.USER_ID.errors}"/><div *ngIf='submit && form.USER_ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.USER_ID.errors.required'>USER_ID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='NAME'>NAME</label>
+<input uppercase class='form-control' placeholder='Enter NAME' type='text' name='NAME' autocomplete='off'  formControlName='NAME' [ngClass]=
+"{ 'is-invalid': submit && form.NAME.errors}"/><div *ngIf='submit && form.NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.NAME.errors.required'>NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ISACTIVE'>ISACTIVE</label>
+<input uppercase class='form-control' placeholder='Enter ISACTIVE' type='text' name='ISACTIVE' autocomplete='off'  formControlName='ISACTIVE' [ngClass]=
+"{ 'is-invalid': submit && form.ISACTIVE.errors}"/><div *ngIf='submit && form.ISACTIVE.errors' class='invalid-feedback'>
+ <span *ngIf='form.ISACTIVE.errors.required'>ISACTIVE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ENTRY_DATE'>ENTRY_DATE</label>
+<input uppercase class='form-control' placeholder='Enter ENTRY_DATE' type='text' name='ENTRY_DATE' autocomplete='off'  formControlName='ENTRY_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.ENTRY_DATE.errors}"/><div *ngIf='submit && form.ENTRY_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTRY_DATE.errors.required'>ENTRY_DATE Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                 <div class='mb-3'>
+<label for='USER_NAME'>USER_NAME</label>
+<input uppercase class='form-control' placeholder='Enter USER_NAME' type='text' name='USER_NAME' autocomplete='off'  formControlName='USER_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.USER_NAME.errors}"/><div *ngIf='submit && form.USER_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.USER_NAME.errors.required'>USER_NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PASSWORD'>PASSWORD</label>
+<input uppercase class='form-control' placeholder='Enter PASSWORD' type='text' name='PASSWORD' autocomplete='off'  formControlName='PASSWORD' [ngClass]=
+"{ 'is-invalid': submit && form.PASSWORD.errors}"/><div *ngIf='submit && form.PASSWORD.errors' class='invalid-feedback'>
+ <span *ngIf='form.PASSWORD.errors.required'>PASSWORD Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='LAST_LOGIN_DD_TT'>LAST_LOGIN_DD_TT</label>
+<input uppercase class='form-control' placeholder='Enter LAST_LOGIN_DD_TT' type='text' name='LAST_LOGIN_DD_TT' autocomplete='off'  formControlName='LAST_LOGIN_DD_TT' [ngClass]=
+"{ 'is-invalid': submit && form.LAST_LOGIN_DD_TT.errors}"/><div *ngIf='submit && form.LAST_LOGIN_DD_TT.errors' class='invalid-feedback'>
+ <span *ngIf='form.LAST_LOGIN_DD_TT.errors.required'>LAST_LOGIN_DD_TT Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='USER_TYPE'>USER_TYPE</label>
+<input uppercase class='form-control' placeholder='Enter USER_TYPE' type='text' name='USER_TYPE' autocomplete='off'  formControlName='USER_TYPE' [ngClass]=
+"{ 'is-invalid': submit && form.USER_TYPE.errors}"/><div *ngIf='submit && form.USER_TYPE.errors' class='invalid-feedback'>
+ <span *ngIf='form.USER_TYPE.errors.required'>USER_TYPE Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

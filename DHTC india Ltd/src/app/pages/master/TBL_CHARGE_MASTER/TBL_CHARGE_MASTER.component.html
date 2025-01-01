@@ -1,0 +1,321 @@
+<div class="container-fluid">
+
+  <app-page-title title="Customers" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input uppercase type="text" class="form-control" placeholder="Search..." [(ngModel)]="term" />
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end button-items">
+                <button type="button" class="btn btn-success btn-rounded mb-2 mr-2" (click)="openModal(content)">
+                  <i class="mdi mdi-plus me-1"></i> New TBL_CHARGE_MASTER
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap">
+              <thead class="table-light">
+                <tr>
+                  <th> CODE</th>
+<th> ITEMCODE</th>
+<th> ITEMNAME</th>
+<th> BRANCH_CODE</th>
+<th> BRANCH_NAME</th>
+<th> Mode</th>
+<th> Loadcharge</th>
+<th> Unloadcharge</th>
+<th> L_PKG_CHARGE</th>
+<th> U_PKG_CHARGE</th>
+<th> L_WT_CHARGE</th>
+<th> U_WT_CHARGE</th>
+<th> L_TON_CHARGE</th>
+<th> U_TON_CHARGE</th>
+<th> L_TRUCK_CH_WT</th>
+<th> U_TRUCK_CH_WT</th>
+<th> L_TRUCK_LT_WT</th>
+<th> U_TRUCK_LT_WT</th>
+<th> L_TRUCK_LT_PK</th>
+<th> U_TRUCK_LT_PK</th>
+<th> L_TRUCK_CH_PK</th>
+<th> U_TRUCK_CH_PK</th>
+<th> L_MIM_CH</th>
+<th> U_MIM_CH</th>
+<th> L_TYPE</th>
+<th> U_TYPE</th>
+<th> L_QTY</th>
+<th> U_QTY</th>
+<th> ENTER_DATE</th>
+<th> ENTER_BY</th>
+<th> COVER</th>
+
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableData  | filter:term ;let i = index;">
+
+                  <td>{{item.code}}</td>
+<td>{{item.itemcode}}</td>
+<td>{{item.itemname}}</td>
+<td>{{item.brancH_CODE}}</td>
+<td>{{item.brancH_NAME}}</td>
+<td>{{item.mode}}</td>
+<td>{{item.loadcharge}}</td>
+<td>{{item.unloadcharge}}</td>
+<td>{{item.l_PKG_CHARGE}}</td>
+<td>{{item.u_PKG_CHARGE}}</td>
+<td>{{item.l_WT_CHARGE}}</td>
+<td>{{item.u_WT_CHARGE}}</td>
+<td>{{item.l_TON_CHARGE}}</td>
+<td>{{item.u_TON_CHARGE}}</td>
+<td>{{item.l_TRUCK_CH_WT}}</td>
+<td>{{item.u_TRUCK_CH_WT}}</td>
+<td>{{item.l_TRUCK_LT_WT}}</td>
+<td>{{item.u_TRUCK_LT_WT}}</td>
+<td>{{item.l_TRUCK_LT_PK}}</td>
+<td>{{item.u_TRUCK_LT_PK}}</td>
+<td>{{item.l_TRUCK_CH_PK}}</td>
+<td>{{item.u_TRUCK_CH_PK}}</td>
+<td>{{item.l_MIM_CH}}</td>
+<td>{{item.u_MIM_CH}}</td>
+<td>{{item.l_TYPE}}</td>
+<td>{{item.u_TYPE}}</td>
+<td>{{item.l_QTY}}</td>
+<td>{{item.u_QTY}}</td>
+<td>{{item.enteR_DATE}}</td>
+<td>{{item.enteR_BY}}</td>
+<td>{{item.cover}}</td>
+
+
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                        ngbDropdownToggle aria-expanded="false">
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <li><a href="javascript: void(0);" class="dropdown-item" (click)="edit(item,content)"><i
+                              class="fas fa-pencil-alt text-success me-1"></i>
+                            Edit</a></li>
+                        <li><a href="javascript: void(0);" (click)="confirm(item.id)" class="dropdown-item"><i
+                              class="fas fa-trash-alt text-danger me-1"></i>
+                            Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- pagination -->
+          <div class="row justify-content-md-between align-items-md-center mt-2">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+                {{startIndex}} to
+                {{endIndex}} of {{totalRecords}}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination [collectionSize]="total$ | async"  [maxSize]="7"[(page)]="page" [pageSize]="pageSize"
+                  (pageChange)="loadPage($event)">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div>
+
+<!-- Standard Modal -->
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Add TBL_CHARGE_MASTER</h5>
+    <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="saveData()" [formGroup]="formData">
+      <div class="row">
+        <div class="col-12">
+          <div class='mb-3'>
+<label class='control-label'>CODE</label>
+<input uppercase class='form-control' placeholder='Enter CODE' type='text' name='CODE' autocomplete='off'  formControlName='CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.CODE.errors}"/><div *ngIf='submitted && form.CODE.errors' class='invalid-feedback'> <span *ngIf='form.CODE.errors.required'>CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ITEMCODE</label>
+<input uppercase class='form-control' placeholder='Enter ITEMCODE' type='text' name='ITEMCODE' autocomplete='off'  formControlName='ITEMCODE' [ngClass]=
+"{ 'is-invalid': submitted && form.ITEMCODE.errors}"/><div *ngIf='submitted && form.ITEMCODE.errors' class='invalid-feedback'> <span *ngIf='form.ITEMCODE.errors.required'>ITEMCODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ITEMNAME</label>
+<input uppercase class='form-control' placeholder='Enter ITEMNAME' type='text' name='ITEMNAME' autocomplete='off'  formControlName='ITEMNAME' [ngClass]=
+"{ 'is-invalid': submitted && form.ITEMNAME.errors}"/><div *ngIf='submitted && form.ITEMNAME.errors' class='invalid-feedback'> <span *ngIf='form.ITEMNAME.errors.required'>ITEMNAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_CODE' type='text' name='BRANCH_CODE' autocomplete='off'  formControlName='BRANCH_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_CODE.errors}"/><div *ngIf='submitted && form.BRANCH_CODE.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_CODE.errors.required'>BRANCH_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_NAME' type='text' name='BRANCH_NAME' autocomplete='off'  formControlName='BRANCH_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_NAME.errors}"/><div *ngIf='submitted && form.BRANCH_NAME.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_NAME.errors.required'>BRANCH_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>Mode</label>
+<input uppercase class='form-control' placeholder='Enter Mode' type='text' name='mode' autocomplete='off'  formControlName='mode' [ngClass]=
+"{ 'is-invalid': submitted && form.mode.errors}"/><div *ngIf='submitted && form.mode.errors' class='invalid-feedback'> <span *ngIf='form.mode.errors.required'>Mode is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>Loadcharge</label>
+<input uppercase class='form-control' placeholder='Enter Loadcharge' type='text' name='loadcharge' autocomplete='off'  formControlName='loadcharge' [ngClass]=
+"{ 'is-invalid': submitted && form.loadcharge.errors}"/><div *ngIf='submitted && form.loadcharge.errors' class='invalid-feedback'> <span *ngIf='form.loadcharge.errors.required'>Loadcharge is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>Unloadcharge</label>
+<input uppercase class='form-control' placeholder='Enter Unloadcharge' type='text' name='unloadcharge' autocomplete='off'  formControlName='unloadcharge' [ngClass]=
+"{ 'is-invalid': submitted && form.unloadcharge.errors}"/><div *ngIf='submitted && form.unloadcharge.errors' class='invalid-feedback'> <span *ngIf='form.unloadcharge.errors.required'>Unloadcharge is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>L_PKG_CHARGE</label>
+<input uppercase class='form-control' placeholder='Enter L_PKG_CHARGE' type='text' name='L_PKG_CHARGE' autocomplete='off'  formControlName='L_PKG_CHARGE' [ngClass]=
+"{ 'is-invalid': submitted && form.L_PKG_CHARGE.errors}"/><div *ngIf='submitted && form.L_PKG_CHARGE.errors' class='invalid-feedback'> <span *ngIf='form.L_PKG_CHARGE.errors.required'>L_PKG_CHARGE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>U_PKG_CHARGE</label>
+<input uppercase class='form-control' placeholder='Enter U_PKG_CHARGE' type='text' name='U_PKG_CHARGE' autocomplete='off'  formControlName='U_PKG_CHARGE' [ngClass]=
+"{ 'is-invalid': submitted && form.U_PKG_CHARGE.errors}"/><div *ngIf='submitted && form.U_PKG_CHARGE.errors' class='invalid-feedback'> <span *ngIf='form.U_PKG_CHARGE.errors.required'>U_PKG_CHARGE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>L_WT_CHARGE</label>
+<input uppercase class='form-control' placeholder='Enter L_WT_CHARGE' type='text' name='L_WT_CHARGE' autocomplete='off'  formControlName='L_WT_CHARGE' [ngClass]=
+"{ 'is-invalid': submitted && form.L_WT_CHARGE.errors}"/><div *ngIf='submitted && form.L_WT_CHARGE.errors' class='invalid-feedback'> <span *ngIf='form.L_WT_CHARGE.errors.required'>L_WT_CHARGE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>U_WT_CHARGE</label>
+<input uppercase class='form-control' placeholder='Enter U_WT_CHARGE' type='text' name='U_WT_CHARGE' autocomplete='off'  formControlName='U_WT_CHARGE' [ngClass]=
+"{ 'is-invalid': submitted && form.U_WT_CHARGE.errors}"/><div *ngIf='submitted && form.U_WT_CHARGE.errors' class='invalid-feedback'> <span *ngIf='form.U_WT_CHARGE.errors.required'>U_WT_CHARGE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>L_TON_CHARGE</label>
+<input uppercase class='form-control' placeholder='Enter L_TON_CHARGE' type='text' name='L_TON_CHARGE' autocomplete='off'  formControlName='L_TON_CHARGE' [ngClass]=
+"{ 'is-invalid': submitted && form.L_TON_CHARGE.errors}"/><div *ngIf='submitted && form.L_TON_CHARGE.errors' class='invalid-feedback'> <span *ngIf='form.L_TON_CHARGE.errors.required'>L_TON_CHARGE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>U_TON_CHARGE</label>
+<input uppercase class='form-control' placeholder='Enter U_TON_CHARGE' type='text' name='U_TON_CHARGE' autocomplete='off'  formControlName='U_TON_CHARGE' [ngClass]=
+"{ 'is-invalid': submitted && form.U_TON_CHARGE.errors}"/><div *ngIf='submitted && form.U_TON_CHARGE.errors' class='invalid-feedback'> <span *ngIf='form.U_TON_CHARGE.errors.required'>U_TON_CHARGE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>L_TRUCK_CH_WT</label>
+<input uppercase class='form-control' placeholder='Enter L_TRUCK_CH_WT' type='text' name='L_TRUCK_CH_WT' autocomplete='off'  formControlName='L_TRUCK_CH_WT' [ngClass]=
+"{ 'is-invalid': submitted && form.L_TRUCK_CH_WT.errors}"/><div *ngIf='submitted && form.L_TRUCK_CH_WT.errors' class='invalid-feedback'> <span *ngIf='form.L_TRUCK_CH_WT.errors.required'>L_TRUCK_CH_WT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>U_TRUCK_CH_WT</label>
+<input uppercase class='form-control' placeholder='Enter U_TRUCK_CH_WT' type='text' name='U_TRUCK_CH_WT' autocomplete='off'  formControlName='U_TRUCK_CH_WT' [ngClass]=
+"{ 'is-invalid': submitted && form.U_TRUCK_CH_WT.errors}"/><div *ngIf='submitted && form.U_TRUCK_CH_WT.errors' class='invalid-feedback'> <span *ngIf='form.U_TRUCK_CH_WT.errors.required'>U_TRUCK_CH_WT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>L_TRUCK_LT_WT</label>
+<input uppercase class='form-control' placeholder='Enter L_TRUCK_LT_WT' type='text' name='L_TRUCK_LT_WT' autocomplete='off'  formControlName='L_TRUCK_LT_WT' [ngClass]=
+"{ 'is-invalid': submitted && form.L_TRUCK_LT_WT.errors}"/><div *ngIf='submitted && form.L_TRUCK_LT_WT.errors' class='invalid-feedback'> <span *ngIf='form.L_TRUCK_LT_WT.errors.required'>L_TRUCK_LT_WT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>U_TRUCK_LT_WT</label>
+<input uppercase class='form-control' placeholder='Enter U_TRUCK_LT_WT' type='text' name='U_TRUCK_LT_WT' autocomplete='off'  formControlName='U_TRUCK_LT_WT' [ngClass]=
+"{ 'is-invalid': submitted && form.U_TRUCK_LT_WT.errors}"/><div *ngIf='submitted && form.U_TRUCK_LT_WT.errors' class='invalid-feedback'> <span *ngIf='form.U_TRUCK_LT_WT.errors.required'>U_TRUCK_LT_WT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>L_TRUCK_LT_PK</label>
+<input uppercase class='form-control' placeholder='Enter L_TRUCK_LT_PK' type='text' name='L_TRUCK_LT_PK' autocomplete='off'  formControlName='L_TRUCK_LT_PK' [ngClass]=
+"{ 'is-invalid': submitted && form.L_TRUCK_LT_PK.errors}"/><div *ngIf='submitted && form.L_TRUCK_LT_PK.errors' class='invalid-feedback'> <span *ngIf='form.L_TRUCK_LT_PK.errors.required'>L_TRUCK_LT_PK is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>U_TRUCK_LT_PK</label>
+<input uppercase class='form-control' placeholder='Enter U_TRUCK_LT_PK' type='text' name='U_TRUCK_LT_PK' autocomplete='off'  formControlName='U_TRUCK_LT_PK' [ngClass]=
+"{ 'is-invalid': submitted && form.U_TRUCK_LT_PK.errors}"/><div *ngIf='submitted && form.U_TRUCK_LT_PK.errors' class='invalid-feedback'> <span *ngIf='form.U_TRUCK_LT_PK.errors.required'>U_TRUCK_LT_PK is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>L_TRUCK_CH_PK</label>
+<input uppercase class='form-control' placeholder='Enter L_TRUCK_CH_PK' type='text' name='L_TRUCK_CH_PK' autocomplete='off'  formControlName='L_TRUCK_CH_PK' [ngClass]=
+"{ 'is-invalid': submitted && form.L_TRUCK_CH_PK.errors}"/><div *ngIf='submitted && form.L_TRUCK_CH_PK.errors' class='invalid-feedback'> <span *ngIf='form.L_TRUCK_CH_PK.errors.required'>L_TRUCK_CH_PK is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>U_TRUCK_CH_PK</label>
+<input uppercase class='form-control' placeholder='Enter U_TRUCK_CH_PK' type='text' name='U_TRUCK_CH_PK' autocomplete='off'  formControlName='U_TRUCK_CH_PK' [ngClass]=
+"{ 'is-invalid': submitted && form.U_TRUCK_CH_PK.errors}"/><div *ngIf='submitted && form.U_TRUCK_CH_PK.errors' class='invalid-feedback'> <span *ngIf='form.U_TRUCK_CH_PK.errors.required'>U_TRUCK_CH_PK is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>L_MIM_CH</label>
+<input uppercase class='form-control' placeholder='Enter L_MIM_CH' type='text' name='L_MIM_CH' autocomplete='off'  formControlName='L_MIM_CH' [ngClass]=
+"{ 'is-invalid': submitted && form.L_MIM_CH.errors}"/><div *ngIf='submitted && form.L_MIM_CH.errors' class='invalid-feedback'> <span *ngIf='form.L_MIM_CH.errors.required'>L_MIM_CH is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>U_MIM_CH</label>
+<input uppercase class='form-control' placeholder='Enter U_MIM_CH' type='text' name='U_MIM_CH' autocomplete='off'  formControlName='U_MIM_CH' [ngClass]=
+"{ 'is-invalid': submitted && form.U_MIM_CH.errors}"/><div *ngIf='submitted && form.U_MIM_CH.errors' class='invalid-feedback'> <span *ngIf='form.U_MIM_CH.errors.required'>U_MIM_CH is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>L_TYPE</label>
+<input uppercase class='form-control' placeholder='Enter L_TYPE' type='text' name='L_TYPE' autocomplete='off'  formControlName='L_TYPE' [ngClass]=
+"{ 'is-invalid': submitted && form.L_TYPE.errors}"/><div *ngIf='submitted && form.L_TYPE.errors' class='invalid-feedback'> <span *ngIf='form.L_TYPE.errors.required'>L_TYPE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>U_TYPE</label>
+<input uppercase class='form-control' placeholder='Enter U_TYPE' type='text' name='U_TYPE' autocomplete='off'  formControlName='U_TYPE' [ngClass]=
+"{ 'is-invalid': submitted && form.U_TYPE.errors}"/><div *ngIf='submitted && form.U_TYPE.errors' class='invalid-feedback'> <span *ngIf='form.U_TYPE.errors.required'>U_TYPE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>L_QTY</label>
+<input uppercase class='form-control' placeholder='Enter L_QTY' type='text' name='L_QTY' autocomplete='off'  formControlName='L_QTY' [ngClass]=
+"{ 'is-invalid': submitted && form.L_QTY.errors}"/><div *ngIf='submitted && form.L_QTY.errors' class='invalid-feedback'> <span *ngIf='form.L_QTY.errors.required'>L_QTY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>U_QTY</label>
+<input uppercase class='form-control' placeholder='Enter U_QTY' type='text' name='U_QTY' autocomplete='off'  formControlName='U_QTY' [ngClass]=
+"{ 'is-invalid': submitted && form.U_QTY.errors}"/><div *ngIf='submitted && form.U_QTY.errors' class='invalid-feedback'> <span *ngIf='form.U_QTY.errors.required'>U_QTY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ENTER_DATE</label>
+<input uppercase class='form-control' placeholder='Enter ENTER_DATE' type='text' name='ENTER_DATE' autocomplete='off'  formControlName='ENTER_DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.ENTER_DATE.errors}"/><div *ngIf='submitted && form.ENTER_DATE.errors' class='invalid-feedback'> <span *ngIf='form.ENTER_DATE.errors.required'>ENTER_DATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ENTER_BY</label>
+<input uppercase class='form-control' placeholder='Enter ENTER_BY' type='text' name='ENTER_BY' autocomplete='off'  formControlName='ENTER_BY' [ngClass]=
+"{ 'is-invalid': submitted && form.ENTER_BY.errors}"/><div *ngIf='submitted && form.ENTER_BY.errors' class='invalid-feedback'> <span *ngIf='form.ENTER_BY.errors.required'>ENTER_BY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>COVER</label>
+<input uppercase class='form-control' placeholder='Enter COVER' type='text' name='COVER' autocomplete='off'  formControlName='COVER' [ngClass]=
+"{ 'is-invalid': submitted && form.COVER.errors}"/><div *ngIf='submitted && form.COVER.errors' class='invalid-feedback'> <span *ngIf='form.COVER.errors.required'>COVER is required.</span> </div>
+</div>
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" id="btn-save-event">
+        Save
+      </button>
+    </form>
+  </div>
+</ng-template>

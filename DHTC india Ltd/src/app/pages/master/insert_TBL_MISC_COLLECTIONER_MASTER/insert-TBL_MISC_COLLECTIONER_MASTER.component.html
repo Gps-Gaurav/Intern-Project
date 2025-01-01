@@ -1,0 +1,123 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_MISC_COLLECTIONER_MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p>
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='COLLECTIONER_NAME'>COLLECTIONER_NAME</label>
+<input uppercase class='form-control' placeholder='Enter COLLECTIONER_NAME' type='text' name='COLLECTIONER_NAME' autocomplete='off'  formControlName='COLLECTIONER_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.COLLECTIONER_NAME.errors}"/><div *ngIf='submit && form.COLLECTIONER_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.COLLECTIONER_NAME.errors.required'>COLLECTIONER_NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BRANCH_NAME'>BRANCH_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_NAME' type='text' name='BRANCH_NAME' autocomplete='off'  formControlName='BRANCH_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.BRANCH_NAME.errors}"/><div *ngIf='submit && form.BRANCH_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.BRANCH_NAME.errors.required'>BRANCH_NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ADDRESS2'>ADDRESS2</label>
+<input uppercase class='form-control' placeholder='Enter ADDRESS2' type='text' name='ADDRESS2' autocomplete='off'  formControlName='ADDRESS2' [ngClass]=
+"{ 'is-invalid': submit && form.ADDRESS2.errors}"/><div *ngIf='submit && form.ADDRESS2.errors' class='invalid-feedback'>
+ <span *ngIf='form.ADDRESS2.errors.required'>ADDRESS2 Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='STATE'>STATE</label>
+<input uppercase class='form-control' placeholder='Enter STATE' type='text' name='STATE' autocomplete='off'  formControlName='STATE' [ngClass]=
+"{ 'is-invalid': submit && form.STATE.errors}"/><div *ngIf='submit && form.STATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.STATE.errors.required'>STATE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='MOBILE_NO'>MOBILE_NO</label>
+<input uppercase class='form-control' placeholder='Enter MOBILE_NO' type='text' name='MOBILE_NO' autocomplete='off'  formControlName='MOBILE_NO' [ngClass]=
+"{ 'is-invalid': submit && form.MOBILE_NO.errors}"/><div *ngIf='submit && form.MOBILE_NO.errors' class='invalid-feedback'>
+ <span *ngIf='form.MOBILE_NO.errors.required'>MOBILE_NO Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                 <div class='mb-3'>
+<label for='COLLECTIONER_CODE'>COLLECTIONER_CODE</label>
+<input uppercase class='form-control' placeholder='Enter COLLECTIONER_CODE' type='text' name='COLLECTIONER_CODE' autocomplete='off'  formControlName='COLLECTIONER_CODE' [ngClass]=
+"{ 'is-invalid': submit && form.COLLECTIONER_CODE.errors}"/><div *ngIf='submit && form.COLLECTIONER_CODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.COLLECTIONER_CODE.errors.required'>COLLECTIONER_CODE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BRANCH_CODE'>BRANCH_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_CODE' type='text' name='BRANCH_CODE' autocomplete='off'  formControlName='BRANCH_CODE' [ngClass]=
+"{ 'is-invalid': submit && form.BRANCH_CODE.errors}"/><div *ngIf='submit && form.BRANCH_CODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.BRANCH_CODE.errors.required'>BRANCH_CODE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ADDRESS1'>ADDRESS1</label>
+<input uppercase class='form-control' placeholder='Enter ADDRESS1' type='text' name='ADDRESS1' autocomplete='off'  formControlName='ADDRESS1' [ngClass]=
+"{ 'is-invalid': submit && form.ADDRESS1.errors}"/><div *ngIf='submit && form.ADDRESS1.errors' class='invalid-feedback'>
+ <span *ngIf='form.ADDRESS1.errors.required'>ADDRESS1 Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='CITY'>CITY</label>
+<input uppercase class='form-control' placeholder='Enter CITY' type='text' name='CITY' autocomplete='off'  formControlName='CITY' [ngClass]=
+"{ 'is-invalid': submit && form.CITY.errors}"/><div *ngIf='submit && form.CITY.errors' class='invalid-feedback'>
+ <span *ngIf='form.CITY.errors.required'>CITY Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PIN_CODE'>PIN_CODE</label>
+<input uppercase class='form-control' placeholder='Enter PIN_CODE' type='text' name='PIN_CODE' autocomplete='off'  formControlName='PIN_CODE' [ngClass]=
+"{ 'is-invalid': submit && form.PIN_CODE.errors}"/><div *ngIf='submit && form.PIN_CODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.PIN_CODE.errors.required'>PIN_CODE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ACC_CODE'>ACC_CODE</label>
+<input uppercase class='form-control' placeholder='Enter ACC_CODE' type='text' name='ACC_CODE' autocomplete='off'  formControlName='ACC_CODE' [ngClass]=
+"{ 'is-invalid': submit && form.ACC_CODE.errors}"/><div *ngIf='submit && form.ACC_CODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.ACC_CODE.errors.required'>ACC_CODE Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

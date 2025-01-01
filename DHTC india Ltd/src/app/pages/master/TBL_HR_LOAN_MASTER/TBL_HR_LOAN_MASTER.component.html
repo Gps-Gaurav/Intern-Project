@@ -1,0 +1,202 @@
+<div class="container-fluid">
+
+  <app-page-title title="Customers" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input uppercase type="text" class="form-control" placeholder="Search..." [(ngModel)]="term" />
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end button-items">
+                <button type="button" class="btn btn-success btn-rounded mb-2 mr-2" (click)="openModal(content)">
+                  <i class="mdi mdi-plus me-1"></i> New TBL_HR_LOAN_MASTER
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap">
+              <thead class="table-light">
+                <tr>
+                  <th> RNo</th>
+<th> ID</th>
+<th> TRANS_NO</th>
+<th> TRANS_DATE</th>
+<th> USER_CODE</th>
+<th> USER_NAME</th>
+<th> BRANCH_CODE</th>
+<th> BRANCH_NAME</th>
+<th> LOAN_ISSUE_DATE</th>
+<th> LOAN_AMOUNT</th>
+<th> NO_OF_MONTHS</th>
+<th> MONTHS</th>
+<th> YEAR</th>
+<th> AMOUNT</th>
+
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableData  | filter:term ;let i = index;">
+
+                  <td>{{item.rNo}}</td>
+<td>{{item.id}}</td>
+<td>{{item.tranS_NO}}</td>
+<td>{{item.tranS_DATE}}</td>
+<td>{{item.useR_CODE}}</td>
+<td>{{item.useR_NAME}}</td>
+<td>{{item.brancH_CODE}}</td>
+<td>{{item.brancH_NAME}}</td>
+<td>{{item.loaN_ISSUE_DATE}}</td>
+<td>{{item.loaN_AMOUNT}}</td>
+<td>{{item.No_Of_Months}}</td>
+<td>{{item.months}}</td>
+<td>{{item.year}}</td>
+<td>{{item.amount}}</td>
+
+
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                        ngbDropdownToggle aria-expanded="false">
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <li><a href="javascript: void(0);" class="dropdown-item" (click)="edit(item,content)"><i
+                              class="fas fa-pencil-alt text-success me-1"></i>
+                            Edit</a></li>
+                        <li><a href="javascript: void(0);" (click)="confirm(item.id)" class="dropdown-item"><i
+                              class="fas fa-trash-alt text-danger me-1"></i>
+                            Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- pagination -->
+          <div class="row justify-content-md-between align-items-md-center mt-2">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+                {{startIndex}} to
+                {{endIndex}} of {{totalRecords}}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination [collectionSize]="total$ | async"  [maxSize]="7"[(page)]="page" [pageSize]="pageSize"
+                  (pageChange)="loadPage($event)">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div>
+
+<!-- Standard Modal -->
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Add TBL_HR_LOAN_MASTER</h5>
+    <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="saveData()" [formGroup]="formData">
+      <div class="row">
+        <div class="col-12">
+          <div class='mb-3'>
+<label class='control-label'>RNo</label>
+<input uppercase class='form-control' placeholder='Enter RNo' type='text' name='RNo' autocomplete='off'  formControlName='RNo' [ngClass]=
+"{ 'is-invalid': submitted && form.RNo.errors}"/><div *ngIf='submitted && form.RNo.errors' class='invalid-feedback'> <span *ngIf='form.RNo.errors.required'>RNo is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submitted && form.ID.errors}"/><div *ngIf='submitted && form.ID.errors' class='invalid-feedback'> <span *ngIf='form.ID.errors.required'>ID is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>TRANS_NO</label>
+<input uppercase class='form-control' placeholder='Enter TRANS_NO' type='text' name='TRANS_NO' autocomplete='off'  formControlName='TRANS_NO' [ngClass]=
+"{ 'is-invalid': submitted && form.TRANS_NO.errors}"/><div *ngIf='submitted && form.TRANS_NO.errors' class='invalid-feedback'> <span *ngIf='form.TRANS_NO.errors.required'>TRANS_NO is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>TRANS_DATE</label>
+<input uppercase class='form-control' placeholder='Enter TRANS_DATE' type='text' name='TRANS_DATE' autocomplete='off'  formControlName='TRANS_DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.TRANS_DATE.errors}"/><div *ngIf='submitted && form.TRANS_DATE.errors' class='invalid-feedback'> <span *ngIf='form.TRANS_DATE.errors.required'>TRANS_DATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>USER_CODE</label>
+<input uppercase class='form-control' placeholder='Enter USER_CODE' type='text' name='USER_CODE' autocomplete='off'  formControlName='USER_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.USER_CODE.errors}"/><div *ngIf='submitted && form.USER_CODE.errors' class='invalid-feedback'> <span *ngIf='form.USER_CODE.errors.required'>USER_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>USER_NAME</label>
+<input uppercase class='form-control' placeholder='Enter USER_NAME' type='text' name='USER_NAME' autocomplete='off'  formControlName='USER_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.USER_NAME.errors}"/><div *ngIf='submitted && form.USER_NAME.errors' class='invalid-feedback'> <span *ngIf='form.USER_NAME.errors.required'>USER_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_CODE' type='text' name='BRANCH_CODE' autocomplete='off'  formControlName='BRANCH_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_CODE.errors}"/><div *ngIf='submitted && form.BRANCH_CODE.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_CODE.errors.required'>BRANCH_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_NAME' type='text' name='BRANCH_NAME' autocomplete='off'  formControlName='BRANCH_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_NAME.errors}"/><div *ngIf='submitted && form.BRANCH_NAME.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_NAME.errors.required'>BRANCH_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>LOAN_ISSUE_DATE</label>
+<input uppercase class='form-control' placeholder='Enter LOAN_ISSUE_DATE' type='text' name='LOAN_ISSUE_DATE' autocomplete='off'  formControlName='LOAN_ISSUE_DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.LOAN_ISSUE_DATE.errors}"/><div *ngIf='submitted && form.LOAN_ISSUE_DATE.errors' class='invalid-feedback'> <span *ngIf='form.LOAN_ISSUE_DATE.errors.required'>LOAN_ISSUE_DATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>LOAN_AMOUNT</label>
+<input uppercase class='form-control' placeholder='Enter LOAN_AMOUNT' type='text' name='LOAN_AMOUNT' autocomplete='off'  formControlName='LOAN_AMOUNT' [ngClass]=
+"{ 'is-invalid': submitted && form.LOAN_AMOUNT.errors}"/><div *ngIf='submitted && form.LOAN_AMOUNT.errors' class='invalid-feedback'> <span *ngIf='form.LOAN_AMOUNT.errors.required'>LOAN_AMOUNT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>NO_OF_MONTHS</label>
+<input uppercase class='form-control' placeholder='Enter NO_OF_MONTHS' type='text' name='NO_OF_MONTHS' autocomplete='off'  formControlName='NO_OF_MONTHS' [ngClass]=
+"{ 'is-invalid': submitted && form.NO_OF_MONTHS.errors}"/><div *ngIf='submitted && form.NO_OF_MONTHS.errors' class='invalid-feedback'> <span *ngIf='form.NO_OF_MONTHS.errors.required'>NO_OF_MONTHS is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>MONTHS</label>
+<input uppercase class='form-control' placeholder='Enter MONTHS' type='text' name='MONTHS' autocomplete='off'  formControlName='MONTHS' [ngClass]=
+"{ 'is-invalid': submitted && form.MONTHS.errors}"/><div *ngIf='submitted && form.MONTHS.errors' class='invalid-feedback'> <span *ngIf='form.MONTHS.errors.required'>MONTHS is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>YEAR</label>
+<input uppercase class='form-control' placeholder='Enter YEAR' type='text' name='YEAR' autocomplete='off'  formControlName='YEAR' [ngClass]=
+"{ 'is-invalid': submitted && form.YEAR.errors}"/><div *ngIf='submitted && form.YEAR.errors' class='invalid-feedback'> <span *ngIf='form.YEAR.errors.required'>YEAR is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>AMOUNT</label>
+<input uppercase class='form-control' placeholder='Enter AMOUNT' type='text' name='AMOUNT' autocomplete='off'  formControlName='AMOUNT' [ngClass]=
+"{ 'is-invalid': submitted && form.AMOUNT.errors}"/><div *ngIf='submitted && form.AMOUNT.errors' class='invalid-feedback'> <span *ngIf='form.AMOUNT.errors.required'>AMOUNT is required.</span> </div>
+</div>
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" id="btn-save-event">
+        Save
+      </button>
+    </form>
+  </div>
+</ng-template>

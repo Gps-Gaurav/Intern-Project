@@ -1,0 +1,223 @@
+<div class="container-fluid">
+
+  <app-page-title title="Customers" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input uppercase type="text" class="form-control" placeholder="Search..." [(ngModel)]="term" />
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end button-items">
+                <button type="button" class="btn btn-success btn-rounded mb-2 mr-2" (click)="openModal(content)">
+                  <i class="mdi mdi-plus me-1"></i> New TBL_MODULE_DETAILS_MASTER
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap">
+              <thead class="table-light">
+                <tr>
+                  <th> ID</th>
+<th> USER_CODE</th>
+<th> USER_NAME</th>
+<th> MODULE_NAME</th>
+<th> FORMS_NAME</th>
+<th> CAT</th>
+<th> ADD_ENTRY</th>
+<th> EDIT_ENTRY</th>
+<th> DELETE_ENTRY</th>
+<th> VIEW_DATA</th>
+<th> VIEW_FORM</th>
+<th> FROM_DATE</th>
+<th> TO_DATE</th>
+<th> ADD_DAYS_BEFORE</th>
+<th> ADD_DAYS_AFTER</th>
+<th> EDIT_DAYS_BEFORE</th>
+<th> EDIT_DAYS_AFTER</th>
+
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableData  | filter:term ;let i = index;">
+
+                  <td>{{item.id}}</td>
+<td>{{item.useR_CODE}}</td>
+<td>{{item.useR_NAME}}</td>
+<td>{{item.modulE_NAME}}</td>
+<td>{{item.formS_NAME}}</td>
+<td>{{item.cat}}</td>
+<td>{{item.adD_ENTRY}}</td>
+<td>{{item.ediT_ENTRY}}</td>
+<td>{{item.deletE_ENTRY}}</td>
+<td>{{item.vieW_DATA}}</td>
+<td>{{item.vieW_FORM}}</td>
+<td>{{item.froM_DATE}}</td>
+<td>{{item.tO_DATE}}</td>
+<td>{{item.adD_DAYS_BEFORE}}</td>
+<td>{{item.adD_DAYS_AFTER}}</td>
+<td>{{item.ediT_DAYS_BEFORE}}</td>
+<td>{{item.ediT_DAYS_AFTER}}</td>
+
+
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                        ngbDropdownToggle aria-expanded="false">
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <li><a href="javascript: void(0);" class="dropdown-item" (click)="edit(item,content)"><i
+                              class="fas fa-pencil-alt text-success me-1"></i>
+                            Edit</a></li>
+                        <li><a href="javascript: void(0);" (click)="confirm(item.id)" class="dropdown-item"><i
+                              class="fas fa-trash-alt text-danger me-1"></i>
+                            Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- pagination -->
+          <div class="row justify-content-md-between align-items-md-center mt-2">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+                {{startIndex}} to
+                {{endIndex}} of {{totalRecords}}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination [collectionSize]="total$ | async"  [maxSize]="7"[(page)]="page" [pageSize]="pageSize"
+                  (pageChange)="loadPage($event)">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div>
+
+<!-- Standard Modal -->
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Add TBL_MODULE_DETAILS_MASTER</h5>
+    <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="saveData()" [formGroup]="formData">
+      <div class="row">
+        <div class="col-12">
+          <div class='mb-3'>
+<label class='control-label'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submitted && form.ID.errors}"/><div *ngIf='submitted && form.ID.errors' class='invalid-feedback'> <span *ngIf='form.ID.errors.required'>ID is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>USER_CODE</label>
+<input uppercase class='form-control' placeholder='Enter USER_CODE' type='text' name='USER_CODE' autocomplete='off'  formControlName='USER_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.USER_CODE.errors}"/><div *ngIf='submitted && form.USER_CODE.errors' class='invalid-feedback'> <span *ngIf='form.USER_CODE.errors.required'>USER_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>USER_NAME</label>
+<input uppercase class='form-control' placeholder='Enter USER_NAME' type='text' name='USER_NAME' autocomplete='off'  formControlName='USER_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.USER_NAME.errors}"/><div *ngIf='submitted && form.USER_NAME.errors' class='invalid-feedback'> <span *ngIf='form.USER_NAME.errors.required'>USER_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>MODULE_NAME</label>
+<input uppercase class='form-control' placeholder='Enter MODULE_NAME' type='text' name='MODULE_NAME' autocomplete='off'  formControlName='MODULE_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.MODULE_NAME.errors}"/><div *ngIf='submitted && form.MODULE_NAME.errors' class='invalid-feedback'> <span *ngIf='form.MODULE_NAME.errors.required'>MODULE_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>FORMS_NAME</label>
+<input uppercase class='form-control' placeholder='Enter FORMS_NAME' type='text' name='FORMS_NAME' autocomplete='off'  formControlName='FORMS_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.FORMS_NAME.errors}"/><div *ngIf='submitted && form.FORMS_NAME.errors' class='invalid-feedback'> <span *ngIf='form.FORMS_NAME.errors.required'>FORMS_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>CAT</label>
+<input uppercase class='form-control' placeholder='Enter CAT' type='text' name='CAT' autocomplete='off'  formControlName='CAT' [ngClass]=
+"{ 'is-invalid': submitted && form.CAT.errors}"/><div *ngIf='submitted && form.CAT.errors' class='invalid-feedback'> <span *ngIf='form.CAT.errors.required'>CAT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ADD_ENTRY</label>
+<input uppercase class='form-control' placeholder='Enter ADD_ENTRY' type='text' name='ADD_ENTRY' autocomplete='off'  formControlName='ADD_ENTRY' [ngClass]=
+"{ 'is-invalid': submitted && form.ADD_ENTRY.errors}"/><div *ngIf='submitted && form.ADD_ENTRY.errors' class='invalid-feedback'> <span *ngIf='form.ADD_ENTRY.errors.required'>ADD_ENTRY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>EDIT_ENTRY</label>
+<input uppercase class='form-control' placeholder='Enter EDIT_ENTRY' type='text' name='EDIT_ENTRY' autocomplete='off'  formControlName='EDIT_ENTRY' [ngClass]=
+"{ 'is-invalid': submitted && form.EDIT_ENTRY.errors}"/><div *ngIf='submitted && form.EDIT_ENTRY.errors' class='invalid-feedback'> <span *ngIf='form.EDIT_ENTRY.errors.required'>EDIT_ENTRY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>DELETE_ENTRY</label>
+<input uppercase class='form-control' placeholder='Enter DELETE_ENTRY' type='text' name='DELETE_ENTRY' autocomplete='off'  formControlName='DELETE_ENTRY' [ngClass]=
+"{ 'is-invalid': submitted && form.DELETE_ENTRY.errors}"/><div *ngIf='submitted && form.DELETE_ENTRY.errors' class='invalid-feedback'> <span *ngIf='form.DELETE_ENTRY.errors.required'>DELETE_ENTRY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>VIEW_DATA</label>
+<input uppercase class='form-control' placeholder='Enter VIEW_DATA' type='text' name='VIEW_DATA' autocomplete='off'  formControlName='VIEW_DATA' [ngClass]=
+"{ 'is-invalid': submitted && form.VIEW_DATA.errors}"/><div *ngIf='submitted && form.VIEW_DATA.errors' class='invalid-feedback'> <span *ngIf='form.VIEW_DATA.errors.required'>VIEW_DATA is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>VIEW_FORM</label>
+<input uppercase class='form-control' placeholder='Enter VIEW_FORM' type='text' name='VIEW_FORM' autocomplete='off'  formControlName='VIEW_FORM' [ngClass]=
+"{ 'is-invalid': submitted && form.VIEW_FORM.errors}"/><div *ngIf='submitted && form.VIEW_FORM.errors' class='invalid-feedback'> <span *ngIf='form.VIEW_FORM.errors.required'>VIEW_FORM is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>FROM_DATE</label>
+<input uppercase class='form-control' placeholder='Enter FROM_DATE' type='text' name='FROM_DATE' autocomplete='off'  formControlName='FROM_DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.FROM_DATE.errors}"/><div *ngIf='submitted && form.FROM_DATE.errors' class='invalid-feedback'> <span *ngIf='form.FROM_DATE.errors.required'>FROM_DATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>TO_DATE</label>
+<input uppercase class='form-control' placeholder='Enter TO_DATE' type='text' name='TO_DATE' autocomplete='off'  formControlName='TO_DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.TO_DATE.errors}"/><div *ngIf='submitted && form.TO_DATE.errors' class='invalid-feedback'> <span *ngIf='form.TO_DATE.errors.required'>TO_DATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ADD_DAYS_BEFORE</label>
+<input uppercase class='form-control' placeholder='Enter ADD_DAYS_BEFORE' type='text' name='ADD_DAYS_BEFORE' autocomplete='off'  formControlName='ADD_DAYS_BEFORE' [ngClass]=
+"{ 'is-invalid': submitted && form.ADD_DAYS_BEFORE.errors}"/><div *ngIf='submitted && form.ADD_DAYS_BEFORE.errors' class='invalid-feedback'> <span *ngIf='form.ADD_DAYS_BEFORE.errors.required'>ADD_DAYS_BEFORE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ADD_DAYS_AFTER</label>
+<input uppercase class='form-control' placeholder='Enter ADD_DAYS_AFTER' type='text' name='ADD_DAYS_AFTER' autocomplete='off'  formControlName='ADD_DAYS_AFTER' [ngClass]=
+"{ 'is-invalid': submitted && form.ADD_DAYS_AFTER.errors}"/><div *ngIf='submitted && form.ADD_DAYS_AFTER.errors' class='invalid-feedback'> <span *ngIf='form.ADD_DAYS_AFTER.errors.required'>ADD_DAYS_AFTER is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>EDIT_DAYS_BEFORE</label>
+<input uppercase class='form-control' placeholder='Enter EDIT_DAYS_BEFORE' type='text' name='EDIT_DAYS_BEFORE' autocomplete='off'  formControlName='EDIT_DAYS_BEFORE' [ngClass]=
+"{ 'is-invalid': submitted && form.EDIT_DAYS_BEFORE.errors}"/><div *ngIf='submitted && form.EDIT_DAYS_BEFORE.errors' class='invalid-feedback'> <span *ngIf='form.EDIT_DAYS_BEFORE.errors.required'>EDIT_DAYS_BEFORE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>EDIT_DAYS_AFTER</label>
+<input uppercase class='form-control' placeholder='Enter EDIT_DAYS_AFTER' type='text' name='EDIT_DAYS_AFTER' autocomplete='off'  formControlName='EDIT_DAYS_AFTER' [ngClass]=
+"{ 'is-invalid': submitted && form.EDIT_DAYS_AFTER.errors}"/><div *ngIf='submitted && form.EDIT_DAYS_AFTER.errors' class='invalid-feedback'> <span *ngIf='form.EDIT_DAYS_AFTER.errors.required'>EDIT_DAYS_AFTER is required.</span> </div>
+</div>
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" id="btn-save-event">
+        Save
+      </button>
+    </form>
+  </div>
+</ng-template>

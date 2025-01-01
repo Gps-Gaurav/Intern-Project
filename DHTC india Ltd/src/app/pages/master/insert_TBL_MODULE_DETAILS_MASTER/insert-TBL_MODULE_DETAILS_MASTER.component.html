@@ -1,0 +1,158 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_MODULE_DETAILS_MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p>
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='USER_NAME'>USER_NAME</label>
+<input uppercase class='form-control' placeholder='Enter USER_NAME' type='text' name='USER_NAME' autocomplete='off'  formControlName='USER_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.USER_NAME.errors}"/><div *ngIf='submit && form.USER_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.USER_NAME.errors.required'>USER_NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='FORMS_NAME'>FORMS_NAME</label>
+<input uppercase class='form-control' placeholder='Enter FORMS_NAME' type='text' name='FORMS_NAME' autocomplete='off'  formControlName='FORMS_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.FORMS_NAME.errors}"/><div *ngIf='submit && form.FORMS_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.FORMS_NAME.errors.required'>FORMS_NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ADD_ENTRY'>ADD_ENTRY</label>
+<input uppercase class='form-control' placeholder='Enter ADD_ENTRY' type='text' name='ADD_ENTRY' autocomplete='off'  formControlName='ADD_ENTRY' [ngClass]=
+"{ 'is-invalid': submit && form.ADD_ENTRY.errors}"/><div *ngIf='submit && form.ADD_ENTRY.errors' class='invalid-feedback'>
+ <span *ngIf='form.ADD_ENTRY.errors.required'>ADD_ENTRY Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='DELETE_ENTRY'>DELETE_ENTRY</label>
+<input uppercase class='form-control' placeholder='Enter DELETE_ENTRY' type='text' name='DELETE_ENTRY' autocomplete='off'  formControlName='DELETE_ENTRY' [ngClass]=
+"{ 'is-invalid': submit && form.DELETE_ENTRY.errors}"/><div *ngIf='submit && form.DELETE_ENTRY.errors' class='invalid-feedback'>
+ <span *ngIf='form.DELETE_ENTRY.errors.required'>DELETE_ENTRY Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='VIEW_FORM'>VIEW_FORM</label>
+<input uppercase class='form-control' placeholder='Enter VIEW_FORM' type='text' name='VIEW_FORM' autocomplete='off'  formControlName='VIEW_FORM' [ngClass]=
+"{ 'is-invalid': submit && form.VIEW_FORM.errors}"/><div *ngIf='submit && form.VIEW_FORM.errors' class='invalid-feedback'>
+ <span *ngIf='form.VIEW_FORM.errors.required'>VIEW_FORM Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='TO_DATE'>TO_DATE</label>
+<input uppercase class='form-control' placeholder='Enter TO_DATE' type='text' name='TO_DATE' autocomplete='off'  formControlName='TO_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.TO_DATE.errors}"/><div *ngIf='submit && form.TO_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.TO_DATE.errors.required'>TO_DATE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ADD_DAYS_AFTER'>ADD_DAYS_AFTER</label>
+<input uppercase class='form-control' placeholder='Enter ADD_DAYS_AFTER' type='text' name='ADD_DAYS_AFTER' autocomplete='off'  formControlName='ADD_DAYS_AFTER' [ngClass]=
+"{ 'is-invalid': submit && form.ADD_DAYS_AFTER.errors}"/><div *ngIf='submit && form.ADD_DAYS_AFTER.errors' class='invalid-feedback'>
+ <span *ngIf='form.ADD_DAYS_AFTER.errors.required'>ADD_DAYS_AFTER Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='EDIT_DAYS_AFTER'>EDIT_DAYS_AFTER</label>
+<input uppercase class='form-control' placeholder='Enter EDIT_DAYS_AFTER' type='text' name='EDIT_DAYS_AFTER' autocomplete='off'  formControlName='EDIT_DAYS_AFTER' [ngClass]=
+"{ 'is-invalid': submit && form.EDIT_DAYS_AFTER.errors}"/><div *ngIf='submit && form.EDIT_DAYS_AFTER.errors' class='invalid-feedback'>
+ <span *ngIf='form.EDIT_DAYS_AFTER.errors.required'>EDIT_DAYS_AFTER Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                 <div class='mb-3'>
+<label for='USER_CODE'>USER_CODE</label>
+<input uppercase class='form-control' placeholder='Enter USER_CODE' type='text' name='USER_CODE' autocomplete='off'  formControlName='USER_CODE' [ngClass]=
+"{ 'is-invalid': submit && form.USER_CODE.errors}"/><div *ngIf='submit && form.USER_CODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.USER_CODE.errors.required'>USER_CODE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='MODULE_NAME'>MODULE_NAME</label>
+<input uppercase class='form-control' placeholder='Enter MODULE_NAME' type='text' name='MODULE_NAME' autocomplete='off'  formControlName='MODULE_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.MODULE_NAME.errors}"/><div *ngIf='submit && form.MODULE_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.MODULE_NAME.errors.required'>MODULE_NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='CAT'>CAT</label>
+<input uppercase class='form-control' placeholder='Enter CAT' type='text' name='CAT' autocomplete='off'  formControlName='CAT' [ngClass]=
+"{ 'is-invalid': submit && form.CAT.errors}"/><div *ngIf='submit && form.CAT.errors' class='invalid-feedback'>
+ <span *ngIf='form.CAT.errors.required'>CAT Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='EDIT_ENTRY'>EDIT_ENTRY</label>
+<input uppercase class='form-control' placeholder='Enter EDIT_ENTRY' type='text' name='EDIT_ENTRY' autocomplete='off'  formControlName='EDIT_ENTRY' [ngClass]=
+"{ 'is-invalid': submit && form.EDIT_ENTRY.errors}"/><div *ngIf='submit && form.EDIT_ENTRY.errors' class='invalid-feedback'>
+ <span *ngIf='form.EDIT_ENTRY.errors.required'>EDIT_ENTRY Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='VIEW_DATA'>VIEW_DATA</label>
+<input uppercase class='form-control' placeholder='Enter VIEW_DATA' type='text' name='VIEW_DATA' autocomplete='off'  formControlName='VIEW_DATA' [ngClass]=
+"{ 'is-invalid': submit && form.VIEW_DATA.errors}"/><div *ngIf='submit && form.VIEW_DATA.errors' class='invalid-feedback'>
+ <span *ngIf='form.VIEW_DATA.errors.required'>VIEW_DATA Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='FROM_DATE'>FROM_DATE</label>
+<input uppercase class='form-control' placeholder='Enter FROM_DATE' type='text' name='FROM_DATE' autocomplete='off'  formControlName='FROM_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.FROM_DATE.errors}"/><div *ngIf='submit && form.FROM_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.FROM_DATE.errors.required'>FROM_DATE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ADD_DAYS_BEFORE'>ADD_DAYS_BEFORE</label>
+<input uppercase class='form-control' placeholder='Enter ADD_DAYS_BEFORE' type='text' name='ADD_DAYS_BEFORE' autocomplete='off'  formControlName='ADD_DAYS_BEFORE' [ngClass]=
+"{ 'is-invalid': submit && form.ADD_DAYS_BEFORE.errors}"/><div *ngIf='submit && form.ADD_DAYS_BEFORE.errors' class='invalid-feedback'>
+ <span *ngIf='form.ADD_DAYS_BEFORE.errors.required'>ADD_DAYS_BEFORE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='EDIT_DAYS_BEFORE'>EDIT_DAYS_BEFORE</label>
+<input uppercase class='form-control' placeholder='Enter EDIT_DAYS_BEFORE' type='text' name='EDIT_DAYS_BEFORE' autocomplete='off'  formControlName='EDIT_DAYS_BEFORE' [ngClass]=
+"{ 'is-invalid': submit && form.EDIT_DAYS_BEFORE.errors}"/><div *ngIf='submit && form.EDIT_DAYS_BEFORE.errors' class='invalid-feedback'>
+ <span *ngIf='form.EDIT_DAYS_BEFORE.errors.required'>EDIT_DAYS_BEFORE Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

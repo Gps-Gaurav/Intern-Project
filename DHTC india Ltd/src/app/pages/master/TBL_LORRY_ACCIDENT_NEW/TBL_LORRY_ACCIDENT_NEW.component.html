@@ -1,0 +1,293 @@
+<div class="container-fluid">
+
+  <app-page-title title="Customers" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="term" />
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end">
+                <button type="button" class="btn btn-success btn-rounded mb-2 mr-2" (click)="openModal(content)">
+                  <i class="mdi mdi-plus me-1"></i> New TBL_LORRY_ACCIDENT_NEW
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap">
+              <thead class="table-light">
+                <tr>
+                  <th> ID</th>
+<th> FROM_STATION_CODE</th>
+<th> FROM_STATION_NAME</th>
+<th> CHALLAN_NO</th>
+<th> FILE_NO</th>
+<th> LORRY_NO</th>
+<th> ACCIDENT_AT</th>
+<th> CONT_NU</th>
+<th> BRANCH_CODE</th>
+<th> BRANCH_NAME</th>
+<th> POLICE_STATION</th>
+<th> FIR_LODGE</th>
+<th> PHOTO_RECEIVE</th>
+<th> GOODS_COLLECTED_BY</th>
+<th> BILTY_WISE_ENTRY</th>
+<th> NAME_OF_PERSON</th>
+<th> REASON_FOR_SHORTAGE</th>
+<th> DAMAGE</th>
+<th> LYING_SWEEPING_AT</th>
+<th> ADV_DEDUCT</th>
+<th> SHORTAGE_WT</th>
+<th> SHORTAGE_PKG</th>
+<th> SHORTAGE_VALUE</th>
+<th> SWEEPING_WT</th>
+<th> SWEEPING_PKG</th>
+<th> SWEEPING_VALUE</th>
+<th> REMARKS</th>
+
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableData  | filter:term ;let i = index;">
+
+                  <td>{{item.ID}}</td>
+<td>{{item.FROM_STATION_CODE}}</td>
+<td>{{item.FROM_STATION_NAME}}</td>
+<td>{{item.CHALLAN_NO}}</td>
+<td>{{item.FILE_NO}}</td>
+<td>{{item.LORRY_NO}}</td>
+<td>{{item.ACCIDENT_AT}}</td>
+<td>{{item.CONT_NU}}</td>
+<td>{{item.BRANCH_CODE}}</td>
+<td>{{item.BRANCH_NAME}}</td>
+<td>{{item.POLICE_STATION}}</td>
+<td>{{item.FIR_LODGE}}</td>
+<td>{{item.PHOTO_RECEIVE}}</td>
+<td>{{item.GOODS_COLLECTED_BY}}</td>
+<td>{{item.BILTY_WISE_ENTRY}}</td>
+<td>{{item.NAME_OF_PERSON}}</td>
+<td>{{item.REASON_FOR_SHORTAGE}}</td>
+<td>{{item.DAMAGE}}</td>
+<td>{{item.LYING_SWEEPING_AT}}</td>
+<td>{{item.ADV_DEDUCT}}</td>
+<td>{{item.SHORTAGE_WT}}</td>
+<td>{{item.SHORTAGE_PKG}}</td>
+<td>{{item.SHORTAGE_VALUE}}</td>
+<td>{{item.SWEEPING_WT}}</td>
+<td>{{item.SWEEPING_PKG}}</td>
+<td>{{item.SWEEPING_VALUE}}</td>
+<td>{{item.REMARKS}}</td>
+
+
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                        ngbDropdownToggle aria-expanded="false">
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <li><a href="javascript: void(0);" class="dropdown-item" (click)="edit(item,content)"><i
+                              class="fas fa-pencil-alt text-success me-1"></i>
+                            Edit</a></li>
+                        <li><a href="javascript: void(0);" (click)="confirm(item.id)" class="dropdown-item"><i
+                              class="fas fa-trash-alt text-danger me-1"></i>
+                            Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- pagination -->
+          <div class="row justify-content-md-between align-items-md-center mt-2">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+                {{startIndex}} to
+                {{endIndex}} of {{totalRecords}}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination [collectionSize]="total$ | async" [(page)]="page" [pageSize]="pageSize"
+                  (pageChange)="loadPage($event)">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div>
+
+<!-- Standard Modal -->
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Add TBL_LORRY_ACCIDENT_NEW</h5>
+    <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="saveData()" [formGroup]="formData">
+      <div class="row">
+        <div class="col-12">
+          <div class='mb-3'>
+<label class='control-label'>ID</label>
+<input class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submitted && form.ID.errors}"/><div *ngIf='submitted && form.ID.errors' class='invalid-feedback'> <span *ngIf='form.ID.errors.required'>ID is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>FROM_STATION_CODE</label>
+<input class='form-control' placeholder='Enter FROM_STATION_CODE' type='text' name='FROM_STATION_CODE' autocomplete='off'  formControlName='FROM_STATION_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.FROM_STATION_CODE.errors}"/><div *ngIf='submitted && form.FROM_STATION_CODE.errors' class='invalid-feedback'> <span *ngIf='form.FROM_STATION_CODE.errors.required'>FROM_STATION_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>FROM_STATION_NAME</label>
+<input class='form-control' placeholder='Enter FROM_STATION_NAME' type='text' name='FROM_STATION_NAME' autocomplete='off'  formControlName='FROM_STATION_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.FROM_STATION_NAME.errors}"/><div *ngIf='submitted && form.FROM_STATION_NAME.errors' class='invalid-feedback'> <span *ngIf='form.FROM_STATION_NAME.errors.required'>FROM_STATION_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>CHALLAN_NO</label>
+<input class='form-control' placeholder='Enter CHALLAN_NO' type='text' name='CHALLAN_NO' autocomplete='off'  formControlName='CHALLAN_NO' [ngClass]=
+"{ 'is-invalid': submitted && form.CHALLAN_NO.errors}"/><div *ngIf='submitted && form.CHALLAN_NO.errors' class='invalid-feedback'> <span *ngIf='form.CHALLAN_NO.errors.required'>CHALLAN_NO is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>FILE_NO</label>
+<input class='form-control' placeholder='Enter FILE_NO' type='text' name='FILE_NO' autocomplete='off'  formControlName='FILE_NO' [ngClass]=
+"{ 'is-invalid': submitted && form.FILE_NO.errors}"/><div *ngIf='submitted && form.FILE_NO.errors' class='invalid-feedback'> <span *ngIf='form.FILE_NO.errors.required'>FILE_NO is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>LORRY_NO</label>
+<input class='form-control' placeholder='Enter LORRY_NO' type='text' name='LORRY_NO' autocomplete='off'  formControlName='LORRY_NO' [ngClass]=
+"{ 'is-invalid': submitted && form.LORRY_NO.errors}"/><div *ngIf='submitted && form.LORRY_NO.errors' class='invalid-feedback'> <span *ngIf='form.LORRY_NO.errors.required'>LORRY_NO is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ACCIDENT_AT</label>
+<input class='form-control' placeholder='Enter ACCIDENT_AT' type='text' name='ACCIDENT_AT' autocomplete='off'  formControlName='ACCIDENT_AT' [ngClass]=
+"{ 'is-invalid': submitted && form.ACCIDENT_AT.errors}"/><div *ngIf='submitted && form.ACCIDENT_AT.errors' class='invalid-feedback'> <span *ngIf='form.ACCIDENT_AT.errors.required'>ACCIDENT_AT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>CONT_NU</label>
+<input class='form-control' placeholder='Enter CONT_NU' type='text' name='CONT_NU' autocomplete='off'  formControlName='CONT_NU' [ngClass]=
+"{ 'is-invalid': submitted && form.CONT_NU.errors}"/><div *ngIf='submitted && form.CONT_NU.errors' class='invalid-feedback'> <span *ngIf='form.CONT_NU.errors.required'>CONT_NU is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_CODE</label>
+<input class='form-control' placeholder='Enter BRANCH_CODE' type='text' name='BRANCH_CODE' autocomplete='off'  formControlName='BRANCH_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_CODE.errors}"/><div *ngIf='submitted && form.BRANCH_CODE.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_CODE.errors.required'>BRANCH_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_NAME</label>
+<input class='form-control' placeholder='Enter BRANCH_NAME' type='text' name='BRANCH_NAME' autocomplete='off'  formControlName='BRANCH_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_NAME.errors}"/><div *ngIf='submitted && form.BRANCH_NAME.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_NAME.errors.required'>BRANCH_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>POLICE_STATION</label>
+<input class='form-control' placeholder='Enter POLICE_STATION' type='text' name='POLICE_STATION' autocomplete='off'  formControlName='POLICE_STATION' [ngClass]=
+"{ 'is-invalid': submitted && form.POLICE_STATION.errors}"/><div *ngIf='submitted && form.POLICE_STATION.errors' class='invalid-feedback'> <span *ngIf='form.POLICE_STATION.errors.required'>POLICE_STATION is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>FIR_LODGE</label>
+<input class='form-control' placeholder='Enter FIR_LODGE' type='text' name='FIR_LODGE' autocomplete='off'  formControlName='FIR_LODGE' [ngClass]=
+"{ 'is-invalid': submitted && form.FIR_LODGE.errors}"/><div *ngIf='submitted && form.FIR_LODGE.errors' class='invalid-feedback'> <span *ngIf='form.FIR_LODGE.errors.required'>FIR_LODGE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PHOTO_RECEIVE</label>
+<input class='form-control' placeholder='Enter PHOTO_RECEIVE' type='text' name='PHOTO_RECEIVE' autocomplete='off'  formControlName='PHOTO_RECEIVE' [ngClass]=
+"{ 'is-invalid': submitted && form.PHOTO_RECEIVE.errors}"/><div *ngIf='submitted && form.PHOTO_RECEIVE.errors' class='invalid-feedback'> <span *ngIf='form.PHOTO_RECEIVE.errors.required'>PHOTO_RECEIVE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>GOODS_COLLECTED_BY</label>
+<input class='form-control' placeholder='Enter GOODS_COLLECTED_BY' type='text' name='GOODS_COLLECTED_BY' autocomplete='off'  formControlName='GOODS_COLLECTED_BY' [ngClass]=
+"{ 'is-invalid': submitted && form.GOODS_COLLECTED_BY.errors}"/><div *ngIf='submitted && form.GOODS_COLLECTED_BY.errors' class='invalid-feedback'> <span *ngIf='form.GOODS_COLLECTED_BY.errors.required'>GOODS_COLLECTED_BY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BILTY_WISE_ENTRY</label>
+<input class='form-control' placeholder='Enter BILTY_WISE_ENTRY' type='text' name='BILTY_WISE_ENTRY' autocomplete='off'  formControlName='BILTY_WISE_ENTRY' [ngClass]=
+"{ 'is-invalid': submitted && form.BILTY_WISE_ENTRY.errors}"/><div *ngIf='submitted && form.BILTY_WISE_ENTRY.errors' class='invalid-feedback'> <span *ngIf='form.BILTY_WISE_ENTRY.errors.required'>BILTY_WISE_ENTRY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>NAME_OF_PERSON</label>
+<input class='form-control' placeholder='Enter NAME_OF_PERSON' type='text' name='NAME_OF_PERSON' autocomplete='off'  formControlName='NAME_OF_PERSON' [ngClass]=
+"{ 'is-invalid': submitted && form.NAME_OF_PERSON.errors}"/><div *ngIf='submitted && form.NAME_OF_PERSON.errors' class='invalid-feedback'> <span *ngIf='form.NAME_OF_PERSON.errors.required'>NAME_OF_PERSON is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>REASON_FOR_SHORTAGE</label>
+<input class='form-control' placeholder='Enter REASON_FOR_SHORTAGE' type='text' name='REASON_FOR_SHORTAGE' autocomplete='off'  formControlName='REASON_FOR_SHORTAGE' [ngClass]=
+"{ 'is-invalid': submitted && form.REASON_FOR_SHORTAGE.errors}"/><div *ngIf='submitted && form.REASON_FOR_SHORTAGE.errors' class='invalid-feedback'> <span *ngIf='form.REASON_FOR_SHORTAGE.errors.required'>REASON_FOR_SHORTAGE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>DAMAGE</label>
+<input class='form-control' placeholder='Enter DAMAGE' type='text' name='DAMAGE' autocomplete='off'  formControlName='DAMAGE' [ngClass]=
+"{ 'is-invalid': submitted && form.DAMAGE.errors}"/><div *ngIf='submitted && form.DAMAGE.errors' class='invalid-feedback'> <span *ngIf='form.DAMAGE.errors.required'>DAMAGE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>LYING_SWEEPING_AT</label>
+<input class='form-control' placeholder='Enter LYING_SWEEPING_AT' type='text' name='LYING_SWEEPING_AT' autocomplete='off'  formControlName='LYING_SWEEPING_AT' [ngClass]=
+"{ 'is-invalid': submitted && form.LYING_SWEEPING_AT.errors}"/><div *ngIf='submitted && form.LYING_SWEEPING_AT.errors' class='invalid-feedback'> <span *ngIf='form.LYING_SWEEPING_AT.errors.required'>LYING_SWEEPING_AT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ADV_DEDUCT</label>
+<input class='form-control' placeholder='Enter ADV_DEDUCT' type='text' name='ADV_DEDUCT' autocomplete='off'  formControlName='ADV_DEDUCT' [ngClass]=
+"{ 'is-invalid': submitted && form.ADV_DEDUCT.errors}"/><div *ngIf='submitted && form.ADV_DEDUCT.errors' class='invalid-feedback'> <span *ngIf='form.ADV_DEDUCT.errors.required'>ADV_DEDUCT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>SHORTAGE_WT</label>
+<input class='form-control' placeholder='Enter SHORTAGE_WT' type='text' name='SHORTAGE_WT' autocomplete='off'  formControlName='SHORTAGE_WT' [ngClass]=
+"{ 'is-invalid': submitted && form.SHORTAGE_WT.errors}"/><div *ngIf='submitted && form.SHORTAGE_WT.errors' class='invalid-feedback'> <span *ngIf='form.SHORTAGE_WT.errors.required'>SHORTAGE_WT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>SHORTAGE_PKG</label>
+<input class='form-control' placeholder='Enter SHORTAGE_PKG' type='text' name='SHORTAGE_PKG' autocomplete='off'  formControlName='SHORTAGE_PKG' [ngClass]=
+"{ 'is-invalid': submitted && form.SHORTAGE_PKG.errors}"/><div *ngIf='submitted && form.SHORTAGE_PKG.errors' class='invalid-feedback'> <span *ngIf='form.SHORTAGE_PKG.errors.required'>SHORTAGE_PKG is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>SHORTAGE_VALUE</label>
+<input class='form-control' placeholder='Enter SHORTAGE_VALUE' type='text' name='SHORTAGE_VALUE' autocomplete='off'  formControlName='SHORTAGE_VALUE' [ngClass]=
+"{ 'is-invalid': submitted && form.SHORTAGE_VALUE.errors}"/><div *ngIf='submitted && form.SHORTAGE_VALUE.errors' class='invalid-feedback'> <span *ngIf='form.SHORTAGE_VALUE.errors.required'>SHORTAGE_VALUE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>SWEEPING_WT</label>
+<input class='form-control' placeholder='Enter SWEEPING_WT' type='text' name='SWEEPING_WT' autocomplete='off'  formControlName='SWEEPING_WT' [ngClass]=
+"{ 'is-invalid': submitted && form.SWEEPING_WT.errors}"/><div *ngIf='submitted && form.SWEEPING_WT.errors' class='invalid-feedback'> <span *ngIf='form.SWEEPING_WT.errors.required'>SWEEPING_WT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>SWEEPING_PKG</label>
+<input class='form-control' placeholder='Enter SWEEPING_PKG' type='text' name='SWEEPING_PKG' autocomplete='off'  formControlName='SWEEPING_PKG' [ngClass]=
+"{ 'is-invalid': submitted && form.SWEEPING_PKG.errors}"/><div *ngIf='submitted && form.SWEEPING_PKG.errors' class='invalid-feedback'> <span *ngIf='form.SWEEPING_PKG.errors.required'>SWEEPING_PKG is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>SWEEPING_VALUE</label>
+<input class='form-control' placeholder='Enter SWEEPING_VALUE' type='text' name='SWEEPING_VALUE' autocomplete='off'  formControlName='SWEEPING_VALUE' [ngClass]=
+"{ 'is-invalid': submitted && form.SWEEPING_VALUE.errors}"/><div *ngIf='submitted && form.SWEEPING_VALUE.errors' class='invalid-feedback'> <span *ngIf='form.SWEEPING_VALUE.errors.required'>SWEEPING_VALUE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>REMARKS</label>
+<input class='form-control' placeholder='Enter REMARKS' type='text' name='REMARKS' autocomplete='off'  formControlName='REMARKS' [ngClass]=
+"{ 'is-invalid': submitted && form.REMARKS.errors}"/><div *ngIf='submitted && form.REMARKS.errors' class='invalid-feedback'> <span *ngIf='form.REMARKS.errors.required'>REMARKS is required.</span> </div>
+</div>
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" id="btn-save-event">
+        Save
+      </button>
+    </form>
+  </div>
+</ng-template>

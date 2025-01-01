@@ -1,0 +1,224 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="GROUP MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <!-- <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div> -->
+ <div class='mb-3'>
+  <label for='GROUP_CODE'>Group Code </label>
+  <input uppercase class='form-control' minlength="2" maxlength="2" #myinput  placeholder='Enter GROUP CODE' type='text' name='GROUP_CODE' autocomplete='off'  formControlName='GROUP_CODE' [ngClass]=
+  "{ 'is-invalid': (submit || formData.get('GROUP_CODE').dirty || formData.get('GROUP_CODE').touched) && form.GROUP_CODE.errors}"/>
+  <div *ngIf="(submit || formData.get('GROUP_CODE').dirty || formData.get('GROUP_CODE').touched) && form.GROUP_CODE.errors" class='invalid-feedback'>
+   <span *ngIf='form.GROUP_CODE.errors.required'>Group Code is required.</span>
+   </div>
+   </div>
+<div class='mb-3'>
+<label for='GROUP_NAME'>Group Name </label>
+<input uppercase class='form-control' placeholder='Enter GROUP NAME' type='text' name='GROUP_NAME' autocomplete='off'  formControlName='GROUP_NAME' [ngClass]=
+"{ 'is-invalid': (submit || formData.get('GROUP_NAME').dirty || formData.get('GROUP_NAME').touched) && form.GROUP_NAME.errors}"/>
+<div *ngIf="(submit || formData.get('GROUP_NAME').dirty || formData.get('GROUP_NAME').touched) && form.GROUP_NAME.errors" class='invalid-feedback'>
+ <span *ngIf='form.GROUP_NAME.errors.required'>Group Name is required.</span>
+ </div>
+ </div>
+ <div class='mb-3'>
+  <label for='CONTACT_PERSON'>Contact Person</label>
+  <input uppercase class='form-control' placeholder='Enter CONTACT PERSON' type='text' name='CONTACT_PERSON' autocomplete='off'  formControlName='CONTACT_PERSON' [ngClass]=
+  "{ 'is-invalid': submit && form.CONTACT_PERSON.errors}"/><div *ngIf='submit && form.CONTACT_PERSON.errors' class='invalid-feedback'>
+   <span *ngIf='form.CONTACT_PERSON.errors.required'>Contact Person Name is required.</span>
+   </div>
+   </div>
+
+ <div class='mb-3'>
+  <label for='ADDRESS'>Address</label>
+  <textarea class="form-control" id="metadescription" maxlength="200" formControlName='ADDRESS' rows="3"  [ngClass]=
+  "{ 'is-invalid':  (submit || formData.get('ADDRESS').dirty || formData.get('ADDRESS').touched) && form.ADDRESS.errors}"></textarea>                  
+  <div *ngIf="(submit || formData.get('ADDRESS').dirty || formData.get('ADDRESS').touched) && form.ADDRESS.errors" class='invalid-feedback'>
+   <span *ngIf='form.ADDRESS.errors.required'> Address is required.</span>
+   </div>
+   </div>
+
+
+
+ <div class='mb-3'>
+  <label for='CITY'>City</label>
+  <input uppercase class='form-control' placeholder='Enter City' type='text' name='CITY' autocomplete='off'  formControlName='CITY' [ngClass]=
+  "{ 'is-invalid': submit && form.CITY.errors}"/><div *ngIf='submit && form.CITY.errors' class='invalid-feedback'>
+   <span *ngIf='form.CITY.errors.required'>City is required.</span>
+   </div>
+   </div>
+<!-- <div class='mb-3'>
+<label for='PIN'>PIN</label>
+<input uppercase class='form-control' placeholder='Enter PIN' type='text' name='PIN' autocomplete='off'  formControlName='PIN' [ngClass]=
+"{ 'is-invalid': submit && form.PIN.errors}"/><div *ngIf='submit && form.PIN.errors' class='invalid-feedback'>
+ <span *ngIf='form.PIN.errors.required'>PIN Name is required.</span>
+ </div>
+ </div> -->
+<!-- <div class='mb-3'>
+<label for='PHONE_OFFICE'>PHONE_OFFICE</label>
+<input uppercase class='form-control' placeholder='Enter PHONE_OFFICE' type='text' name='PHONE_OFFICE' autocomplete='off'  formControlName='PHONE_OFFICE' [ngClass]=
+"{ 'is-invalid': submit && form.PHONE_OFFICE.errors}"/><div *ngIf='submit && form.PHONE_OFFICE.errors' class='invalid-feedback'>
+ <span *ngIf='form.PHONE_OFFICE.errors.required'>PHONE_OFFICE Name is required.</span>
+ </div>
+ </div> -->
+
+<!-- <div class='mb-3'>
+<label for='IS_CONTACT_GROUP'>IS_CONTACT_GROUP</label>
+<input uppercase class='form-control' placeholder='Enter IS_CONTACT_GROUP' type='text' name='IS_CONTACT_GROUP' autocomplete='off'  formControlName='IS_CONTACT_GROUP' [ngClass]=
+"{ 'is-invalid': submit && form.IS_CONTACT_GROUP.errors}"/><div *ngIf='submit && form.IS_CONTACT_GROUP.errors' class='invalid-feedback'>
+ <span *ngIf='form.IS_CONTACT_GROUP.errors.required'>IS_CONTACT_GROUP Name is required.</span>
+ </div>
+ </div> -->
+<!-- <div class='mb-3'>
+<label for='HAMAIL_REMARKS'>HAMAIL_REMARKS</label>
+<input uppercase class='form-control' placeholder='Enter HAMAIL_REMARKS' type='text' name='HAMAIL_REMARKS' autocomplete='off'  formControlName='HAMAIL_REMARKS' [ngClass]=
+"{ 'is-invalid': submit && form.HAMAIL_REMARKS.errors}"/><div *ngIf='submit && form.HAMAIL_REMARKS.errors' class='invalid-feedback'>
+ <span *ngIf='form.HAMAIL_REMARKS.errors.required'>HAMAIL_REMARKS Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='UNLOAD_REMARKS'>UNLOAD_REMARKS</label>
+<input uppercase class='form-control' placeholder='Enter UNLOAD_REMARKS' type='text' name='UNLOAD_REMARKS' autocomplete='off'  formControlName='UNLOAD_REMARKS' [ngClass]=
+"{ 'is-invalid': submit && form.UNLOAD_REMARKS.errors}"/><div *ngIf='submit && form.UNLOAD_REMARKS.errors' class='invalid-feedback'>
+ <span *ngIf='form.UNLOAD_REMARKS.errors.required'>UNLOAD_REMARKS Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ENTER_BY'>ENTER_BY</label>
+<input uppercase class='form-control' placeholder='Enter ENTER_BY' type='text' name='ENTER_BY' autocomplete='off'  formControlName='ENTER_BY' [ngClass]=
+"{ 'is-invalid': submit && form.ENTER_BY.errors}"/><div *ngIf='submit && form.ENTER_BY.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTER_BY.errors.required'>ENTER_BY Name is required.</span>
+ </div>
+ </div> -->
+
+              </div>
+
+              <div class="col-sm-6">
+                <!-- <div class='mb-3'>
+                  <label for='STATE'>State</label>
+                  <input uppercase class='form-control' placeholder='Enter State' type='text' name='STATE' autocomplete='off'  formControlName='STATE' [ngClass]=
+                  "{ 'is-invalid': submit && form.STATE.errors}"/><div *ngIf='submit && form.STATE.errors' class='invalid-feedback'>
+                   <span *ngIf='form.STATE.errors.required'>State is required.</span>
+                   </div>
+                   </div> -->
+                   <div class='mb-3'>
+                    <label for='STATE_CODE'>State </label>
+                    <ng-select [items]="stateData" placeholder="Select State"  bindLabel="stateName" 
+                    bindValue="stateCode"  formControlName="STATE" [ngClass]="{ 'is-invalid': submit && form.STATE.errors}"
+                    ></ng-select>      
+                    
+                    <div *ngIf='submit && form.STATE.errors' class='invalid-feedback'>
+                     <span *ngIf='form.STATE.errors.required'>State is required.</span>
+                     </div>
+                     </div>
+
+                <div class='mb-3'>
+                  <label for='MOBILE'>Mobile</label>
+                  <input uppercase class='form-control' (keypress)="numberOnly($event)" placeholder='Enter Mobile' maxlength="10" type='text' name='MOBILE' autocomplete='off'
+                  formControlName='MOBILE' [ngClass]="{ 'is-invalid':  (submit || formData.get('MOBILE').dirty || formData.get('MOBILE').touched) && form.MOBILE.errors}" />
+                  <div *ngIf="(submit || formData.get('MOBILE').dirty || formData.get('MOBILE').touched) && form.MOBILE.errors" class='invalid-feedback'>
+                    <span *ngIf='form.MOBILE.errors.required'>Mobile is required.</span>
+                    <span *ngIf='form.MOBILE.errors.pattern'>MOBILE Name is invalid.</span>
+                  </div>
+                </div>
+
+                   <div class='mb-3'>
+                    <label for='EMAIL'>Email Id</label>
+                    <input lowercase class='form-control inputlower' placeholder='Enter EMAIL' type='text' name='EMAIL' autocomplete='off'  formControlName='EMAIL' [ngClass]=
+                    "{ 'is-invalid':  (submit || formData.get('EMAIL').dirty || formData.get('EMAIL').touched) && form.EMAIL.errors}"/>
+                    <div *ngIf="(submit || formData.get('EMAIL').dirty || formData.get('EMAIL').touched) && form.EMAIL.errors" class='invalid-feedback'>
+                     <span *ngIf='form.EMAIL.errors.required'>EMAIL Name is required.</span>
+                     <span *ngIf='form.EMAIL.errors.pattern'>EMAIL Name is invalid.</span>
+                   
+                     </div>
+                  </div>
+
+<!-- <div class='mb-3'>
+<label for='PHONE_RESIDENCE'>PHONE_RESIDENCE</label>
+<input uppercase class='form-control' placeholder='Enter PHONE_RESIDENCE' type='text' name='PHONE_RESIDENCE' autocomplete='off'  formControlName='PHONE_RESIDENCE' [ngClass]=
+"{ 'is-invalid': submit && form.PHONE_RESIDENCE.errors}"/><div *ngIf='submit && form.PHONE_RESIDENCE.errors' class='invalid-feedback'>
+ <span *ngIf='form.PHONE_RESIDENCE.errors.required'>PHONE_RESIDENCE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='FAX'>FAX</label>
+<input uppercase class='form-control' placeholder='Enter FAX' type='text' name='FAX' autocomplete='off'  formControlName='FAX' [ngClass]=
+"{ 'is-invalid': submit && form.FAX.errors}"/><div *ngIf='submit && form.FAX.errors' class='invalid-feedback'>
+ <span *ngIf='form.FAX.errors.required'>FAX Name is required.</span>
+ </div>
+ </div> -->
+
+ <div class='mb-3'>
+  <label for='GROUP_TYPE'>Group Type</label>
+  <ng-select [items]="['Consignor','Consignee']" placeholder="Group Type" formControlName="GROUP_TYPE" [ngClass]="{ 'is-invalid': (submit || formData.get('GROUP_TYPE').dirty || formData.get('GROUP_TYPE').touched) && form.GROUP_TYPE.errors}"
+  ></ng-select>
+
+  <div *ngIf="(submit || formData.get('GROUP_TYPE').dirty || formData.get('GROUP_TYPE').touched) && form.GROUP_TYPE.errors" class='invalid-feedback'>
+    <span *ngIf='form.GROUP_TYPE.errors.required'>Group Type is required.</span>
+  </div>
+</div>
+
+
+<!-- <div class='mb-3'>
+<label for='GROUP_TYPE'>Group Type</label>
+<input uppercase class='form-control' placeholder='Enter Group Type' type='text' name='GROUP_TYPE' autocomplete='off'  formControlName='GROUP_TYPE' [ngClass]=
+"{ 'is-invalid': submit && form.GROUP_TYPE.errors}"/><div *ngIf='submit && form.GROUP_TYPE.errors' class='invalid-feedback'>
+ <span *ngIf='form.GROUP_TYPE.errors.required'>Group Type is required.</span>
+ </div>
+ </div> -->
+<!-- <div class='mb-3'>
+<label for='HAMAIL_TERM'>HAMAIL_TERM</label>
+<input uppercase class='form-control' placeholder='Enter HAMAIL_TERM' type='text' name='HAMAIL_TERM' autocomplete='off'  formControlName='HAMAIL_TERM' [ngClass]=
+"{ 'is-invalid': submit && form.HAMAIL_TERM.errors}"/><div *ngIf='submit && form.HAMAIL_TERM.errors' class='invalid-feedback'>
+ <span *ngIf='form.HAMAIL_TERM.errors.required'>HAMAIL_TERM Name is required.</span>
+ </div>
+ </div> -->
+<!-- <div class='mb-3'>
+<label for='UNLOAD_TERM'>UNLOAD_TERM</label>
+<input uppercase class='form-control' placeholder='Enter UNLOAD_TERM' type='text' name='UNLOAD_TERM' autocomplete='off'  formControlName='UNLOAD_TERM' [ngClass]=
+"{ 'is-invalid': submit && form.UNLOAD_TERM.errors}"/><div *ngIf='submit && form.UNLOAD_TERM.errors' class='invalid-feedback'>
+ <span *ngIf='form.UNLOAD_TERM.errors.required'>UNLOAD_TERM Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ENTRY_DATE'>ENTRY_DATE</label>
+<input uppercase class='form-control' placeholder='Enter ENTRY_DATE' type='text' name='ENTRY_DATE' autocomplete='off'  formControlName='ENTRY_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.ENTRY_DATE.errors}"/><div *ngIf='submit && form.ENTRY_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTRY_DATE.errors.required'>ENTRY_DATE Name is required.</span>
+ </div>
+ </div> -->
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

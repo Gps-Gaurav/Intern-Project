@@ -1,0 +1,67 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TblAccMaster" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p>
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='VOUCHER_NO'>VOUCHER_NO</label>
+<input uppercase class='form-control' placeholder='Enter VOUCHER_NO' type='text' name='VOUCHER_NO' autocomplete='off'  formControlName='VOUCHER_NO' [ngClass]=
+"{ 'is-invalid': submit && form.VOUCHER_NO.errors}"/><div *ngIf='submit && form.VOUCHER_NO.errors' class='invalid-feedback'>
+ <span *ngIf='form.VOUCHER_NO.errors.required'>VOUCHER_NO Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                 <div class='mb-3'>
+<label for='VDATE'>VDATE</label>
+<input uppercase class='form-control' placeholder='Enter VDATE' type='text' name='VDATE' autocomplete='off'  formControlName='VDATE' [ngClass]=
+"{ 'is-invalid': submit && form.VDATE.errors}"/><div *ngIf='submit && form.VDATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.VDATE.errors.required'>VDATE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='VTYPE'>VTYPE</label>
+<input uppercase class='form-control' placeholder='Enter VTYPE' type='text' name='VTYPE' autocomplete='off'  formControlName='VTYPE' [ngClass]=
+"{ 'is-invalid': submit && form.VTYPE.errors}"/><div *ngIf='submit && form.VTYPE.errors' class='invalid-feedback'>
+ <span *ngIf='form.VTYPE.errors.required'>VTYPE Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

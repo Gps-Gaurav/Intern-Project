@@ -1,0 +1,180 @@
+<div class="container-fluid">
+
+  <app-page-title title="MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input uppercase type="text" class="form-control" placeholder="Search..." [(ngModel)]="term" (ngModelChange)='searchChanged.next($event)'/>
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end button-items">
+                <button  type="button" *ngIf="IsChecked" class="btn btn-danger" (click)="confirm(SelectedId)">DELETE TRANSIT TIME </button>
+                <button  type="button" *ngIf="IsChecked" class="btn btn-warning" (click)="edit(SelectedId)" >EDIT TRANSIT TIME</button>
+                <button type="button" class="btn btn-success btn-rounded mb-2 mr-2" (click)="openModal(content)">
+                  ADD NEW TRANSIT TIME
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap">
+              <thead class="table-light">
+                <tr>
+                  <th style="width: 20px;">
+                    <div class="form-check font-size-16 align-middle">
+                      <input uppercase class="form-check-input" type="checkbox" id="transactionCheck01">
+                      <label class="form-check-label" for="transactionCheck01"></label>
+                    </div>
+                  </th> 
+<th> FROM_CODE</th> 
+<th> FROM_NAME</th>
+<!-- <th> TO_CODE</th> -->
+
+<th> TRANSIT_DAYS</th>
+<th> DISTANCE</th>
+<!-- <th> ENTERBY</th>
+<th> ENTERDATE</th> -->
+
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableData  | filter:term ;let i = index;">
+                  <td>
+                    <div class="form-check font-size-16">
+                      <input uppercase class="form-check-input" type="checkbox" (change)="updateCheckBoxVal(item, $event.target);" [checked]="item.IsChecked"  id="transactionCheck{{item.index}}">
+                      <label class="form-check-label" for="transactionCheck{{item.index}}"></label>
+                    </div>
+                  </td>
+                  <!-- <td>{{item.id}}</td>
+<td>{{item.froM_CODE}}</td> -->
+<td>{{item.froM_NAME}}</td>
+<!-- <td>{{item.tO_CODE}}</td> -->
+<td>{{item.tO_NAME}}</td>
+
+<td>{{item.distance}}</td>
+<td>{{item.transiT_DAYS}}</td> 
+<!-- <td>{{item.enterby}}</td>
+<td>{{item.enterdate}}</td> -->
+
+
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                        ngbDropdownToggle aria-expanded="false">
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <li><a href="javascript: void(0);" class="dropdown-item" (click)="edit(item.primary_Id)"><i
+                              class="fas fa-pencil-alt text-success me-1"></i>
+                            Edit</a></li>
+                        <li><a href="javascript: void(0);" (click)="confirm(item.id)" class="dropdown-item"><i
+                              class="fas fa-trash-alt text-danger me-1"></i>
+                            Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- pagination -->
+          <div class="row justify-content-md-between align-items-md-center mt-2">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+                {{startIndex}} to
+                {{endIndex}} of {{totalRecords}}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination [collectionSize]="total$ | async"  [maxSize]="7"[(page)]="page" [pageSize]="pageSize"
+                  (pageChange)="loadPage($event)">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div>
+
+<!-- Standard Modal -->
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Add TBL_TRANSIT_TIME_MASTER</h5>
+    <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="saveData()" [formGroup]="formData">
+      <div class="row">
+        <div class="col-12">
+          <div class='mb-3'>
+<label class='control-label'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submitted && form.ID.errors}"/><div *ngIf='submitted && form.ID.errors' class='invalid-feedback'> <span *ngIf='form.ID.errors.required'>ID is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>FROM_CODE</label>
+<input uppercase class='form-control' placeholder='Enter FROM_CODE' type='text' name='FROM_CODE' autocomplete='off'  formControlName='FROM_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.FROM_CODE.errors}"/><div *ngIf='submitted && form.FROM_CODE.errors' class='invalid-feedback'> <span *ngIf='form.FROM_CODE.errors.required'>FROM_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>FROM_NAME</label>
+<input uppercase class='form-control' placeholder='Enter FROM_NAME' type='text' name='FROM_NAME' autocomplete='off'  formControlName='FROM_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.FROM_NAME.errors}"/><div *ngIf='submitted && form.FROM_NAME.errors' class='invalid-feedback'> <span *ngIf='form.FROM_NAME.errors.required'>FROM_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>TO_CODE</label>
+<input uppercase class='form-control' placeholder='Enter TO_CODE' type='text' name='TO_CODE' autocomplete='off'  formControlName='TO_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.TO_CODE.errors}"/><div *ngIf='submitted && form.TO_CODE.errors' class='invalid-feedback'> <span *ngIf='form.TO_CODE.errors.required'>TO_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>TO_NAME</label>
+<input uppercase class='form-control' placeholder='Enter TO_NAME' type='text' name='TO_NAME' autocomplete='off'  formControlName='TO_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.TO_NAME.errors}"/><div *ngIf='submitted && form.TO_NAME.errors' class='invalid-feedback'> <span *ngIf='form.TO_NAME.errors.required'>TO_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>TRANSIT_DAYS</label>
+<input uppercase class='form-control' placeholder='Enter TRANSIT_DAYS' type='text' name='TRANSIT_DAYS' autocomplete='off'  formControlName='TRANSIT_DAYS' [ngClass]=
+"{ 'is-invalid': submitted && form.TRANSIT_DAYS.errors}"/><div *ngIf='submitted && form.TRANSIT_DAYS.errors' class='invalid-feedback'> <span *ngIf='form.TRANSIT_DAYS.errors.required'>TRANSIT_DAYS is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>DISTANCE</label>
+<input uppercase class='form-control' placeholder='Enter DISTANCE' type='text' name='DISTANCE' autocomplete='off'  formControlName='DISTANCE' [ngClass]=
+"{ 'is-invalid': submitted && form.DISTANCE.errors}"/><div *ngIf='submitted && form.DISTANCE.errors' class='invalid-feedback'> <span *ngIf='form.DISTANCE.errors.required'>DISTANCE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ENTERBY</label>
+<input uppercase class='form-control' placeholder='Enter ENTERBY' type='text' name='ENTERBY' autocomplete='off'  formControlName='ENTERBY' [ngClass]=
+"{ 'is-invalid': submitted && form.ENTERBY.errors}"/><div *ngIf='submitted && form.ENTERBY.errors' class='invalid-feedback'> <span *ngIf='form.ENTERBY.errors.required'>ENTERBY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ENTERDATE</label>
+<input uppercase class='form-control' placeholder='Enter ENTERDATE' type='text' name='ENTERDATE' autocomplete='off'  formControlName='ENTERDATE' [ngClass]=
+"{ 'is-invalid': submitted && form.ENTERDATE.errors}"/><div *ngIf='submitted && form.ENTERDATE.errors' class='invalid-feedback'> <span *ngIf='form.ENTERDATE.errors.required'>ENTERDATE is required.</span> </div>
+</div>
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" id="btn-save-event">
+        Save
+      </button>
+    </form>
+  </div>
+</ng-template>

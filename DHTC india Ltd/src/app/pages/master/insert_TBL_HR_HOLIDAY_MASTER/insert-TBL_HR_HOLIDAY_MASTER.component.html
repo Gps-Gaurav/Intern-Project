@@ -1,0 +1,81 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_HR_HOLIDAY_MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p>
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BRANCH_NAME'>BRANCH_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_NAME' type='text' name='BRANCH_NAME' autocomplete='off'  formControlName='BRANCH_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.BRANCH_NAME.errors}"/><div *ngIf='submit && form.BRANCH_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.BRANCH_NAME.errors.required'>BRANCH_NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='HOLIDAY_NAME'>HOLIDAY_NAME</label>
+<input uppercase class='form-control' placeholder='Enter HOLIDAY_NAME' type='text' name='HOLIDAY_NAME' autocomplete='off'  formControlName='HOLIDAY_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.HOLIDAY_NAME.errors}"/><div *ngIf='submit && form.HOLIDAY_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.HOLIDAY_NAME.errors.required'>HOLIDAY_NAME Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                 <div class='mb-3'>
+<label for='BRANCH_CODE'>BRANCH_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_CODE' type='text' name='BRANCH_CODE' autocomplete='off'  formControlName='BRANCH_CODE' [ngClass]=
+"{ 'is-invalid': submit && form.BRANCH_CODE.errors}"/><div *ngIf='submit && form.BRANCH_CODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.BRANCH_CODE.errors.required'>BRANCH_CODE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='YEARS'>YEARS</label>
+<input uppercase class='form-control' placeholder='Enter YEARS' type='text' name='YEARS' autocomplete='off'  formControlName='YEARS' [ngClass]=
+"{ 'is-invalid': submit && form.YEARS.errors}"/><div *ngIf='submit && form.YEARS.errors' class='invalid-feedback'>
+ <span *ngIf='form.YEARS.errors.required'>YEARS Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='HOLI_DATE'>HOLI_DATE</label>
+<input uppercase class='form-control' placeholder='Enter HOLI_DATE' type='text' name='HOLI_DATE' autocomplete='off'  formControlName='HOLI_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.HOLI_DATE.errors}"/><div *ngIf='submit && form.HOLI_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.HOLI_DATE.errors.required'>HOLI_DATE Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

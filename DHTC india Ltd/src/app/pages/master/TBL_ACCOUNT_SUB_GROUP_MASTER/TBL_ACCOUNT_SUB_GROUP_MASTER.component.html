@@ -1,0 +1,159 @@
+<div class="container-fluid">
+
+  <app-page-title title="ACCOUNT SUB GROUP MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input uppercase type="text" class="form-control" placeholder="Search..." [(ngModel)]="term" />
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end button-items">
+                <button  type="button" *ngIf="IsChecked" class="btn btn-danger" (click)="confirm(SelectedId)">DELETE ACCOUNT SUB GROUP </button>
+                <button  type="button" *ngIf="IsChecked" class="btn btn-warning" (click)="edit(SelectedId)" >EDIT ACCOUNT SUB GROUP</button>
+                <button type="button" class="btn btn-success btn-rounded mb-2 mr-2" (click)="openModal(content)">
+                 ADD NEW ACCOUNT SUB GROUP
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap">
+              <thead class="table-light">
+                <tr>
+                  <th style="width: 20px;">
+                    <div class="form-check font-size-16 align-middle">
+                      <input uppercase class="form-check-input" type="checkbox" id="transactionCheck01">
+                      <label class="form-check-label" for="transactionCheck01"></label>
+                    </div>
+                  </th>  
+                  <!-- <th> ID</th> -->
+<!-- <th> ACC_GRP_CODE</th>
+<th> ACC_GRP_NAME</th> -->
+<th> Sub Group Code </th>
+<th> Sub Group Name </th>
+<!-- <th> TYPE</th> -->
+
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableData  | filter:term ;let i = index;">
+                  <td>
+                    <div class="form-check font-size-16">
+                      <input uppercase class="form-check-input" type="checkbox" (change)="updateCheckBoxVal(item, $event.target);" [checked]="item.IsChecked"  id="transactionCheck{{item.index}}">
+                      <label class="form-check-label" for="transactionCheck{{item.index}}"></label>
+                    </div>
+                  </td>
+                  <!-- <td>{{item.id}}</td>
+<td>{{item.acC_GRP_CODE}}</td>
+<td>{{item.acC_GRP_NAME}}</td> -->
+<td>{{item.acC_SUB_GRP_CODE}}</td>
+<td>{{item.acC_SUB_GRP_NAME}}</td>
+<!-- <td>{{item.type}}</td> -->
+
+
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                        ngbDropdownToggle aria-expanded="false">
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <li><a href="javascript: void(0);" class="dropdown-item" (click)="edit(item.primary_Id)"><i
+                              class="fas fa-pencil-alt text-success me-1"></i>
+                            Edit</a></li>
+                        <li><a href="javascript: void(0);" (click)="confirm(item.id)" class="dropdown-item"><i
+                              class="fas fa-trash-alt text-danger me-1"></i>
+                            Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- pagination -->
+          <div class="row justify-content-md-between align-items-md-center mt-2">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+                {{startIndex}} to
+                {{endIndex}} of {{totalRecords}}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination [collectionSize]="total$ | async"  [maxSize]="7"[(page)]="page" [pageSize]="pageSize"
+                  (pageChange)="loadPage($event)">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div>
+
+<!-- Standard Modal -->
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Add TBL_ACCOUNT_SUB_GROUP_MASTER</h5>
+    <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="saveData()" [formGroup]="formData">
+      <div class="row">
+        <div class="col-12">
+          <div class='mb-3'>
+<label class='control-label'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submitted && form.ID.errors}"/><div *ngIf='submitted && form.ID.errors' class='invalid-feedback'> <span *ngIf='form.ID.errors.required'>ID is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ACC_GRP_CODE</label>
+<input uppercase class='form-control' placeholder='Enter ACC_GRP_CODE' type='text' name='ACC_GRP_CODE' autocomplete='off'  formControlName='ACC_GRP_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.ACC_GRP_CODE.errors}"/><div *ngIf='submitted && form.ACC_GRP_CODE.errors' class='invalid-feedback'> <span *ngIf='form.ACC_GRP_CODE.errors.required'>ACC_GRP_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ACC_GRP_NAME</label>
+<input uppercase class='form-control' placeholder='Enter ACC_GRP_NAME' type='text' name='ACC_GRP_NAME' autocomplete='off'  formControlName='ACC_GRP_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.ACC_GRP_NAME.errors}"/><div *ngIf='submitted && form.ACC_GRP_NAME.errors' class='invalid-feedback'> <span *ngIf='form.ACC_GRP_NAME.errors.required'>ACC_GRP_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ACC_SUB_GRP_CODE</label>
+<input uppercase class='form-control' placeholder='Enter ACC_SUB_GRP_CODE' type='text' name='ACC_SUB_GRP_CODE' autocomplete='off'  formControlName='ACC_SUB_GRP_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.ACC_SUB_GRP_CODE.errors}"/><div *ngIf='submitted && form.ACC_SUB_GRP_CODE.errors' class='invalid-feedback'> <span *ngIf='form.ACC_SUB_GRP_CODE.errors.required'>ACC_SUB_GRP_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ACC_SUB_GRP_NAME</label>
+<input uppercase class='form-control' placeholder='Enter ACC_SUB_GRP_NAME' type='text' name='ACC_SUB_GRP_NAME' autocomplete='off'  formControlName='ACC_SUB_GRP_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.ACC_SUB_GRP_NAME.errors}"/><div *ngIf='submitted && form.ACC_SUB_GRP_NAME.errors' class='invalid-feedback'> <span *ngIf='form.ACC_SUB_GRP_NAME.errors.required'>ACC_SUB_GRP_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>TYPE</label>
+<input uppercase class='form-control' placeholder='Enter TYPE' type='text' name='TYPE' autocomplete='off'  formControlName='TYPE' [ngClass]=
+"{ 'is-invalid': submitted && form.TYPE.errors}"/><div *ngIf='submitted && form.TYPE.errors' class='invalid-feedback'> <span *ngIf='form.TYPE.errors.required'>TYPE is required.</span> </div>
+</div>
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" id="btn-save-event">
+        Save
+      </button>
+    </form>
+  </div>
+</ng-template>

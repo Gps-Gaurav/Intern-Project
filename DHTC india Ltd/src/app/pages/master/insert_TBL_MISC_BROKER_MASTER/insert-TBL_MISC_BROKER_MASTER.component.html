@@ -1,0 +1,123 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_MISC_BROKER_MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p>
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BROKER_NAME'>BROKER_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BROKER_NAME' type='text' name='BROKER_NAME' autocomplete='off'  formControlName='BROKER_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.BROKER_NAME.errors}"/><div *ngIf='submit && form.BROKER_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.BROKER_NAME.errors.required'>BROKER_NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BRANCH_NAME'>BRANCH_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_NAME' type='text' name='BRANCH_NAME' autocomplete='off'  formControlName='BRANCH_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.BRANCH_NAME.errors}"/><div *ngIf='submit && form.BRANCH_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.BRANCH_NAME.errors.required'>BRANCH_NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ADDRESS2'>ADDRESS2</label>
+<input uppercase class='form-control' placeholder='Enter ADDRESS2' type='text' name='ADDRESS2' autocomplete='off'  formControlName='ADDRESS2' [ngClass]=
+"{ 'is-invalid': submit && form.ADDRESS2.errors}"/><div *ngIf='submit && form.ADDRESS2.errors' class='invalid-feedback'>
+ <span *ngIf='form.ADDRESS2.errors.required'>ADDRESS2 Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='STATE'>STATE</label>
+<input uppercase class='form-control' placeholder='Enter STATE' type='text' name='STATE' autocomplete='off'  formControlName='STATE' [ngClass]=
+"{ 'is-invalid': submit && form.STATE.errors}"/><div *ngIf='submit && form.STATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.STATE.errors.required'>STATE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ENTRY_DATE'>ENTRY_DATE</label>
+<input uppercase class='form-control' placeholder='Enter ENTRY_DATE' type='text' name='ENTRY_DATE' autocomplete='off'  formControlName='ENTRY_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.ENTRY_DATE.errors}"/><div *ngIf='submit && form.ENTRY_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTRY_DATE.errors.required'>ENTRY_DATE Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                 <div class='mb-3'>
+<label for='BROKER_CODE'>BROKER_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BROKER_CODE' type='text' name='BROKER_CODE' autocomplete='off'  formControlName='BROKER_CODE' [ngClass]=
+"{ 'is-invalid': submit && form.BROKER_CODE.errors}"/><div *ngIf='submit && form.BROKER_CODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.BROKER_CODE.errors.required'>BROKER_CODE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BRANCH_CODE'>BRANCH_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_CODE' type='text' name='BRANCH_CODE' autocomplete='off'  formControlName='BRANCH_CODE' [ngClass]=
+"{ 'is-invalid': submit && form.BRANCH_CODE.errors}"/><div *ngIf='submit && form.BRANCH_CODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.BRANCH_CODE.errors.required'>BRANCH_CODE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ADDRESS1'>ADDRESS1</label>
+<input uppercase class='form-control' placeholder='Enter ADDRESS1' type='text' name='ADDRESS1' autocomplete='off'  formControlName='ADDRESS1' [ngClass]=
+"{ 'is-invalid': submit && form.ADDRESS1.errors}"/><div *ngIf='submit && form.ADDRESS1.errors' class='invalid-feedback'>
+ <span *ngIf='form.ADDRESS1.errors.required'>ADDRESS1 Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='CITY'>CITY</label>
+<input uppercase class='form-control' placeholder='Enter CITY' type='text' name='CITY' autocomplete='off'  formControlName='CITY' [ngClass]=
+"{ 'is-invalid': submit && form.CITY.errors}"/><div *ngIf='submit && form.CITY.errors' class='invalid-feedback'>
+ <span *ngIf='form.CITY.errors.required'>CITY Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='MOBILE_NO'>MOBILE_NO</label>
+<input uppercase class='form-control' placeholder='Enter MOBILE_NO' type='text' name='MOBILE_NO' autocomplete='off'  formControlName='MOBILE_NO' [ngClass]=
+"{ 'is-invalid': submit && form.MOBILE_NO.errors}"/><div *ngIf='submit && form.MOBILE_NO.errors' class='invalid-feedback'>
+ <span *ngIf='form.MOBILE_NO.errors.required'>MOBILE_NO Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ENTRY_BY'>ENTRY_BY</label>
+<input uppercase class='form-control' placeholder='Enter ENTRY_BY' type='text' name='ENTRY_BY' autocomplete='off'  formControlName='ENTRY_BY' [ngClass]=
+"{ 'is-invalid': submit && form.ENTRY_BY.errors}"/><div *ngIf='submit && form.ENTRY_BY.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTRY_BY.errors.required'>ENTRY_BY Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

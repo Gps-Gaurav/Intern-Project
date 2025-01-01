@@ -1,0 +1,102 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_TRUCK_GROUP_MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p>
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='TRUCKGROUPNAME'>TRUCKGROUPNAME</label>
+<input uppercase class='form-control' placeholder='Enter TRUCKGROUPNAME' type='text' name='TRUCKGROUPNAME' autocomplete='off'  formControlName='TRUCKGROUPNAME' [ngClass]=
+"{ 'is-invalid': submit && form.TRUCKGROUPNAME.errors}"/><div *ngIf='submit && form.TRUCKGROUPNAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.TRUCKGROUPNAME.errors.required'>TRUCKGROUPNAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='OWNER_TYPE'>OWNER_TYPE</label>
+<input uppercase class='form-control' placeholder='Enter OWNER_TYPE' type='text' name='OWNER_TYPE' autocomplete='off'  formControlName='OWNER_TYPE' [ngClass]=
+"{ 'is-invalid': submit && form.OWNER_TYPE.errors}"/><div *ngIf='submit && form.OWNER_TYPE.errors' class='invalid-feedback'>
+ <span *ngIf='form.OWNER_TYPE.errors.required'>OWNER_TYPE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PAN_NO'>PAN_NO</label>
+<input uppercase class='form-control' placeholder='Enter PAN_NO' type='text' name='PAN_NO' autocomplete='off'  formControlName='PAN_NO' [ngClass]=
+"{ 'is-invalid': submit && form.PAN_NO.errors}"/><div *ngIf='submit && form.PAN_NO.errors' class='invalid-feedback'>
+ <span *ngIf='form.PAN_NO.errors.required'>PAN_NO Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='REMARKS'>REMARKS</label>
+<input uppercase class='form-control' placeholder='Enter REMARKS' type='text' name='REMARKS' autocomplete='off'  formControlName='REMARKS' [ngClass]=
+"{ 'is-invalid': submit && form.REMARKS.errors}"/><div *ngIf='submit && form.REMARKS.errors' class='invalid-feedback'>
+ <span *ngIf='form.REMARKS.errors.required'>REMARKS Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                 <div class='mb-3'>
+<label for='TRUCKGROUPCODE'>TRUCKGROUPCODE</label>
+<input uppercase class='form-control' placeholder='Enter TRUCKGROUPCODE' type='text' name='TRUCKGROUPCODE' autocomplete='off'  formControlName='TRUCKGROUPCODE' [ngClass]=
+"{ 'is-invalid': submit && form.TRUCKGROUPCODE.errors}"/><div *ngIf='submit && form.TRUCKGROUPCODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.TRUCKGROUPCODE.errors.required'>TRUCKGROUPCODE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='OWNERNAME'>OWNERNAME</label>
+<input uppercase class='form-control' placeholder='Enter OWNERNAME' type='text' name='OWNERNAME' autocomplete='off'  formControlName='OWNERNAME' [ngClass]=
+"{ 'is-invalid': submit && form.OWNERNAME.errors}"/><div *ngIf='submit && form.OWNERNAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.OWNERNAME.errors.required'>OWNERNAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='OWNER_PHONE'>OWNER_PHONE</label>
+<input uppercase class='form-control' placeholder='Enter OWNER_PHONE' type='text' name='OWNER_PHONE' autocomplete='off'  formControlName='OWNER_PHONE' [ngClass]=
+"{ 'is-invalid': submit && form.OWNER_PHONE.errors}"/><div *ngIf='submit && form.OWNER_PHONE.errors' class='invalid-feedback'>
+ <span *ngIf='form.OWNER_PHONE.errors.required'>OWNER_PHONE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PAN_IMAGES'>PAN_IMAGES</label>
+<input uppercase class='form-control' placeholder='Enter PAN_IMAGES' type='text' name='PAN_IMAGES' autocomplete='off'  formControlName='PAN_IMAGES' [ngClass]=
+"{ 'is-invalid': submit && form.PAN_IMAGES.errors}"/><div *ngIf='submit && form.PAN_IMAGES.errors' class='invalid-feedback'>
+ <span *ngIf='form.PAN_IMAGES.errors.required'>PAN_IMAGES Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

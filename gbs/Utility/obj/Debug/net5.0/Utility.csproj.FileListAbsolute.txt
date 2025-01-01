@@ -1,5 +1,0 @@
-D:\Users\amit\source\repos\gbsinghstore\Utility\obj\Debug\net5.0\Utility.csproj.AssemblyReference.cache
-D:\Users\amit\source\repos\gbsinghstore\Utility\obj\Debug\net5.0\Utility.GeneratedMSBuildEditorConfig.editorconfig
-D:\Users\amit\source\repos\gbsinghstore\Utility\obj\Debug\net5.0\Utility.AssemblyInfoInputs.cache
-D:\Users\amit\source\repos\gbsinghstore\Utility\obj\Debug\net5.0\Utility.AssemblyInfo.cs
-D:\Users\amit\source\repos\gbsinghstore\Utility\obj\Debug\net5.0\Utility.csproj.CoreCompileInputs.cache

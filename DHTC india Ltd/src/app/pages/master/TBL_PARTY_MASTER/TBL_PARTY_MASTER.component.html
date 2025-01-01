@@ -1,0 +1,423 @@
+<div class="container-fluid">
+
+  <app-page-title title="PARTY MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input uppercase type="text" class="form-control" placeholder="Search..." [(ngModel)]="term"  (ngModelChange)='searchChanged.next($event)'/>
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end button-items">
+                <button  type="button" *ngIf="IsChecked" class="btn btn-danger" (click)="confirm(SelectedId)">DELETE PARTY  </button>
+                <button  type="button" *ngIf="IsChecked" class="btn btn-warning" (click)="edit(SelectedId)" >EDIT PARTY </button>
+                <button type="button" class="btn btn-success btn-rounded mb-2 mr-2" (click)="openModal(content)">
+                  ADD NEW PARTY
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap">
+              <thead class="table-light">
+                <tr>
+                  <th style="width: 20px;">
+                    <div class="form-check font-size-16 align-middle">
+                      <input uppercase class="form-check-input" type="checkbox" id="transactionCheck01">
+                      <label class="form-check-label" for="transactionCheck01"></label>
+                    </div>
+                  </th> 
+<th> Branch/Agent Code </th>
+<th> GST No</th>
+<th> PAN</th>
+<th> Code</th>
+<th> Legal Name </th>
+<th> Group</th>
+<th> Address 1 </th>
+<th> Address 2 </th>
+<th> City</th>
+<th> Pin Code </th>
+<th> State Code </th>
+<th> Contact Person </th>
+<th> GSTN By </th>
+<th> Party Type   </th>
+<th> Phone </th>
+<th> Email    </th>
+<th> Payment Terms </th>
+<th> Risk</th>
+<!-- <th> BRANCH_AGENT_NAME</th> -->
+<!-- <th> GROUP_CODE</th>
+<th> STATE</th>
+<th> PHONE_OFFICE</th>
+<th> PHONE_RESIDENCE</th>
+<th> FAX</th>
+<th> OPERATOR</th>
+<th> ENTRY_DATE</th>
+<th> INSURANCE</th>
+<th> INS_FROM_DATE</th>
+<th> INS_TO_DATE</th>
+<th> CST_NO</th>
+<th> DATE</th>
+<th> VAT</th>
+<th> SERVICE_TAX</th>
+<th> PARTY_REG_NO</th>
+<th> PAYMODE</th>
+<th> BILLEDAT</th>
+<th> GST1</th>
+<th> GST2</th>
+<th> GST3</th>
+<th> TANNO</th> -->
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableData  | filter:term ;let i = index;">
+                  <td>
+                    <div class="form-check font-size-16">
+                      <input uppercase class="form-check-input" type="checkbox" (change)="updateCheckBoxVal(item, $event.target);" [checked]="item.IsChecked"  id="transactionCheck{{item.index}}">
+                      <label class="form-check-label" for="transactionCheck{{item.index}}"></label>
+                    </div>
+                  </td>
+                  <!-- <td>{{item.id}}</td> -->
+<td>{{item.brancH_AGENT_CODE}}</td>
+<td>{{item.gstno}}</td>
+<td>{{item.panno}}</td>
+<td>{{item.partY_CODE}}</td>
+<td>{{item.partY_NAME}}</td>
+<td>{{item.grouP_NAME}}</td>
+<td>{{item.address}}</td>
+<td>{{item.address2}}</td>
+<td>{{item.city}}</td>
+<td>{{item.pin}}</td>
+<td>{{item.statE_CODE}}</td>
+<td>{{item.contacT_PERSON}}</td>
+<td>{{item.servicE_TAX_BY}}</td>
+<td>{{item.partY_TYPE}}</td>
+<td>{{item.mobile}}</td>
+<td>{{item.email}}</td>
+<td>{{item.paymenT_DAY}}</td>
+<td>{{item.risk}}</td>
+
+
+
+
+
+<!-- <td>{{item.brancH_AGENT_NAME}}</td> -->
+
+<!-- 
+<td>{{item.grouP_CODE}}</td>
+
+
+
+<td>{{item.state}}</td>
+
+<td>{{item.phonE_OFFICE}}</td>
+<td>{{item.phonE_RESIDENCE}}</td>
+
+<td>{{item.fax}}</td>
+
+
+<td>{{item.operator}}</td>
+<td>{{item.entrY_DATE}}</td>
+
+<td>{{item.insurence}}</td>
+<td>{{item.inS_FROM_DATE}}</td>
+<td>{{item.inS_TO_DATE}}</td>
+<td>{{item.csT_NO}}</td>
+<td>{{item.date}}</td>
+<td>{{item.vat}}</td>
+
+<td>{{item.servicE_TAX}}</td>
+
+<td>{{item.partY_REG_NO}}</td>
+<td>{{item.paymode}}</td>
+<td>{{item.billedat}}</td>
+
+
+<td>{{item.gst1}}</td>
+<td>{{item.gst2}}</td>
+<td>{{item.gst3}}</td>
+
+<td>{{item.tanno}}</td> -->
+
+
+
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                        ngbDropdownToggle aria-expanded="false">
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <li><a href="javascript: void(0);" class="dropdown-item" (click)="edit(item.primary_Id)"><i
+                              class="fas fa-pencil-alt text-success me-1"></i>
+                            Edit</a></li>
+                        <li><a href="javascript: void(0);" (click)="confirm(item.id)" class="dropdown-item"><i
+                              class="fas fa-trash-alt text-danger me-1"></i>
+                            Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- pagination -->
+          <div class="row justify-content-md-between align-items-md-center mt-2">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+                {{startIndex}} to
+                {{endIndex}} of {{totalRecords}}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination [collectionSize]="total$ | async"  [maxSize]="7"[(page)]="page" [pageSize]="pageSize"
+                  (pageChange)="loadPage($event)">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div>
+
+<!-- Standard Modal -->
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Add TBL_PARTY_MASTER</h5>
+    <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="saveData()" [formGroup]="formData">
+      <div class="row">
+        <div class="col-12">
+          <div class='mb-3'>
+<label class='control-label'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submitted && form.ID.errors}"/><div *ngIf='submitted && form.ID.errors' class='invalid-feedback'> <span *ngIf='form.ID.errors.required'>ID is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_AGENT_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_AGENT_CODE' type='text' name='BRANCH_AGENT_CODE' autocomplete='off'  formControlName='BRANCH_AGENT_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_AGENT_CODE.errors}"/><div *ngIf='submitted && form.BRANCH_AGENT_CODE.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_AGENT_CODE.errors.required'>BRANCH_AGENT_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_AGENT_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_AGENT_NAME' type='text' name='BRANCH_AGENT_NAME' autocomplete='off'  formControlName='BRANCH_AGENT_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_AGENT_NAME.errors}"/><div *ngIf='submitted && form.BRANCH_AGENT_NAME.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_AGENT_NAME.errors.required'>BRANCH_AGENT_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PARTY_CODE</label>
+<input uppercase class='form-control' placeholder='Enter PARTY_CODE' type='text' name='PARTY_CODE' autocomplete='off'  formControlName='PARTY_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.PARTY_CODE.errors}"/><div *ngIf='submitted && form.PARTY_CODE.errors' class='invalid-feedback'> <span *ngIf='form.PARTY_CODE.errors.required'>PARTY_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PARTY_NAME</label>
+<input uppercase class='form-control' placeholder='Enter PARTY_NAME' type='text' name='PARTY_NAME' autocomplete='off'  formControlName='PARTY_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.PARTY_NAME.errors}"/><div *ngIf='submitted && form.PARTY_NAME.errors' class='invalid-feedback'> <span *ngIf='form.PARTY_NAME.errors.required'>PARTY_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>GROUP_CODE</label>
+<input uppercase class='form-control' placeholder='Enter GROUP_CODE' type='text' name='GROUP_CODE' autocomplete='off'  formControlName='GROUP_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.GROUP_CODE.errors}"/><div *ngIf='submitted && form.GROUP_CODE.errors' class='invalid-feedback'> <span *ngIf='form.GROUP_CODE.errors.required'>GROUP_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>GROUP_NAME</label>
+<input uppercase class='form-control' placeholder='Enter GROUP_NAME' type='text' name='GROUP_NAME' autocomplete='off'  formControlName='GROUP_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.GROUP_NAME.errors}"/><div *ngIf='submitted && form.GROUP_NAME.errors' class='invalid-feedback'> <span *ngIf='form.GROUP_NAME.errors.required'>GROUP_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ADDRESS</label>
+<input uppercase class='form-control' placeholder='Enter ADDRESS' type='text' name='ADDRESS' autocomplete='off'  formControlName='ADDRESS' [ngClass]=
+"{ 'is-invalid': submitted && form.ADDRESS.errors}"/><div *ngIf='submitted && form.ADDRESS.errors' class='invalid-feedback'> <span *ngIf='form.ADDRESS.errors.required'>ADDRESS is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>CITY</label>
+<input uppercase class='form-control' placeholder='Enter CITY' type='text' name='CITY' autocomplete='off'  formControlName='CITY' [ngClass]=
+"{ 'is-invalid': submitted && form.CITY.errors}"/><div *ngIf='submitted && form.CITY.errors' class='invalid-feedback'> <span *ngIf='form.CITY.errors.required'>CITY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PIN</label>
+<input uppercase class='form-control' placeholder='Enter PIN' type='text' name='PIN' autocomplete='off'  formControlName='PIN' [ngClass]=
+"{ 'is-invalid': submitted && form.PIN.errors}"/><div *ngIf='submitted && form.PIN.errors' class='invalid-feedback'> <span *ngIf='form.PIN.errors.required'>PIN is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>STATE</label>
+<input uppercase class='form-control' placeholder='Enter STATE' type='text' name='STATE' autocomplete='off'  formControlName='STATE' [ngClass]=
+"{ 'is-invalid': submitted && form.STATE.errors}"/><div *ngIf='submitted && form.STATE.errors' class='invalid-feedback'> <span *ngIf='form.STATE.errors.required'>STATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>CONTACT_PERSON</label>
+<input uppercase class='form-control' placeholder='Enter CONTACT_PERSON' type='text' name='CONTACT_PERSON' autocomplete='off'  formControlName='CONTACT_PERSON' [ngClass]=
+"{ 'is-invalid': submitted && form.CONTACT_PERSON.errors}"/><div *ngIf='submitted && form.CONTACT_PERSON.errors' class='invalid-feedback'> <span *ngIf='form.CONTACT_PERSON.errors.required'>CONTACT_PERSON is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PHONE_OFFICE</label>
+<input uppercase class='form-control' placeholder='Enter PHONE_OFFICE' type='text' name='PHONE_OFFICE' autocomplete='off'  formControlName='PHONE_OFFICE' [ngClass]=
+"{ 'is-invalid': submitted && form.PHONE_OFFICE.errors}"/><div *ngIf='submitted && form.PHONE_OFFICE.errors' class='invalid-feedback'> <span *ngIf='form.PHONE_OFFICE.errors.required'>PHONE_OFFICE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PHONE_RESIDENCE</label>
+<input uppercase class='form-control' placeholder='Enter PHONE_RESIDENCE' type='text' name='PHONE_RESIDENCE' autocomplete='off'  formControlName='PHONE_RESIDENCE' [ngClass]=
+"{ 'is-invalid': submitted && form.PHONE_RESIDENCE.errors}"/><div *ngIf='submitted && form.PHONE_RESIDENCE.errors' class='invalid-feedback'> <span *ngIf='form.PHONE_RESIDENCE.errors.required'>PHONE_RESIDENCE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>MOBILE</label>
+<input uppercase class='form-control' placeholder='Enter MOBILE' type='text' name='MOBILE' autocomplete='off'  formControlName='MOBILE' [ngClass]=
+"{ 'is-invalid': submitted && form.MOBILE.errors}"/><div *ngIf='submitted && form.MOBILE.errors' class='invalid-feedback'> <span *ngIf='form.MOBILE.errors.required'>MOBILE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>FAX</label>
+<input uppercase class='form-control' placeholder='Enter FAX' type='text' name='FAX' autocomplete='off'  formControlName='FAX' [ngClass]=
+"{ 'is-invalid': submitted && form.FAX.errors}"/><div *ngIf='submitted && form.FAX.errors' class='invalid-feedback'> <span *ngIf='form.FAX.errors.required'>FAX is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>EMAIL</label>
+<input uppercase class='form-control' placeholder='Enter EMAIL' type='text' name='EMAIL' autocomplete='off'  formControlName='EMAIL' [ngClass]=
+"{ 'is-invalid': submitted && form.EMAIL.errors}"/><div *ngIf='submitted && form.EMAIL.errors' class='invalid-feedback'> <span *ngIf='form.EMAIL.errors.required'>EMAIL is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PARTY_TYPE</label>
+<input uppercase class='form-control' placeholder='Enter PARTY_TYPE' type='text' name='PARTY_TYPE' autocomplete='off'  formControlName='PARTY_TYPE' [ngClass]=
+"{ 'is-invalid': submitted && form.PARTY_TYPE.errors}"/><div *ngIf='submitted && form.PARTY_TYPE.errors' class='invalid-feedback'> <span *ngIf='form.PARTY_TYPE.errors.required'>PARTY_TYPE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>OPERATOR</label>
+<input uppercase class='form-control' placeholder='Enter OPERATOR' type='text' name='OPERATOR' autocomplete='off'  formControlName='OPERATOR' [ngClass]=
+"{ 'is-invalid': submitted && form.OPERATOR.errors}"/><div *ngIf='submitted && form.OPERATOR.errors' class='invalid-feedback'> <span *ngIf='form.OPERATOR.errors.required'>OPERATOR is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ENTRY_DATE</label>
+<input uppercase class='form-control' placeholder='Enter ENTRY_DATE' type='text' name='ENTRY_DATE' autocomplete='off'  formControlName='ENTRY_DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.ENTRY_DATE.errors}"/><div *ngIf='submitted && form.ENTRY_DATE.errors' class='invalid-feedback'> <span *ngIf='form.ENTRY_DATE.errors.required'>ENTRY_DATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PAYMENT_DAY</label>
+<input uppercase class='form-control' placeholder='Enter PAYMENT_DAY' type='text' name='PAYMENT_DAY' autocomplete='off'  formControlName='PAYMENT_DAY' [ngClass]=
+"{ 'is-invalid': submitted && form.PAYMENT_DAY.errors}"/><div *ngIf='submitted && form.PAYMENT_DAY.errors' class='invalid-feedback'> <span *ngIf='form.PAYMENT_DAY.errors.required'>PAYMENT_DAY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>INSURANCE</label>
+<input uppercase class='form-control' placeholder='Enter INSURANCE' type='text' name='INSURANCE' autocomplete='off'  formControlName='INSURANCE' [ngClass]=
+"{ 'is-invalid': submitted && form.INSURANCE.errors}"/><div *ngIf='submitted && form.INSURANCE.errors' class='invalid-feedback'> <span *ngIf='form.INSURANCE.errors.required'>INSURANCE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>INS_FROM_DATE</label>
+<input uppercase class='form-control' placeholder='Enter INS_FROM_DATE' type='text' name='INS_FROM_DATE' autocomplete='off'  formControlName='INS_FROM_DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.INS_FROM_DATE.errors}"/><div *ngIf='submitted && form.INS_FROM_DATE.errors' class='invalid-feedback'> <span *ngIf='form.INS_FROM_DATE.errors.required'>INS_FROM_DATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>INS_TO_DATE</label>
+<input uppercase class='form-control' placeholder='Enter INS_TO_DATE' type='text' name='INS_TO_DATE' autocomplete='off'  formControlName='INS_TO_DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.INS_TO_DATE.errors}"/><div *ngIf='submitted && form.INS_TO_DATE.errors' class='invalid-feedback'> <span *ngIf='form.INS_TO_DATE.errors.required'>INS_TO_DATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>CST_NO</label>
+<input uppercase class='form-control' placeholder='Enter CST_NO' type='text' name='CST_NO' autocomplete='off'  formControlName='CST_NO' [ngClass]=
+"{ 'is-invalid': submitted && form.CST_NO.errors}"/><div *ngIf='submitted && form.CST_NO.errors' class='invalid-feedback'> <span *ngIf='form.CST_NO.errors.required'>CST_NO is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>DATE</label>
+<input uppercase class='form-control' placeholder='Enter DATE' type='text' name='DATE' autocomplete='off'  formControlName='DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.DATE.errors}"/><div *ngIf='submitted && form.DATE.errors' class='invalid-feedback'> <span *ngIf='form.DATE.errors.required'>DATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>VAT</label>
+<input uppercase class='form-control' placeholder='Enter VAT' type='text' name='VAT' autocomplete='off'  formControlName='VAT' [ngClass]=
+"{ 'is-invalid': submitted && form.VAT.errors}"/><div *ngIf='submitted && form.VAT.errors' class='invalid-feedback'> <span *ngIf='form.VAT.errors.required'>VAT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>RISK</label>
+<input uppercase class='form-control' placeholder='Enter RISK' type='text' name='RISK' autocomplete='off'  formControlName='RISK' [ngClass]=
+"{ 'is-invalid': submitted && form.RISK.errors}"/><div *ngIf='submitted && form.RISK.errors' class='invalid-feedback'> <span *ngIf='form.RISK.errors.required'>RISK is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>SERVICE_TAX</label>
+<input uppercase class='form-control' placeholder='Enter SERVICE_TAX' type='text' name='SERVICE_TAX' autocomplete='off'  formControlName='SERVICE_TAX' [ngClass]=
+"{ 'is-invalid': submitted && form.SERVICE_TAX.errors}"/><div *ngIf='submitted && form.SERVICE_TAX.errors' class='invalid-feedback'> <span *ngIf='form.SERVICE_TAX.errors.required'>SERVICE_TAX is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>SERVICE_TAX_BY</label>
+<input uppercase class='form-control' placeholder='Enter SERVICE_TAX_BY' type='text' name='SERVICE_TAX_BY' autocomplete='off'  formControlName='SERVICE_TAX_BY' [ngClass]=
+"{ 'is-invalid': submitted && form.SERVICE_TAX_BY.errors}"/><div *ngIf='submitted && form.SERVICE_TAX_BY.errors' class='invalid-feedback'> <span *ngIf='form.SERVICE_TAX_BY.errors.required'>SERVICE_TAX_BY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PARTY_REG_NO</label>
+<input uppercase class='form-control' placeholder='Enter PARTY_REG_NO' type='text' name='PARTY_REG_NO' autocomplete='off'  formControlName='PARTY_REG_NO' [ngClass]=
+"{ 'is-invalid': submitted && form.PARTY_REG_NO.errors}"/><div *ngIf='submitted && form.PARTY_REG_NO.errors' class='invalid-feedback'> <span *ngIf='form.PARTY_REG_NO.errors.required'>PARTY_REG_NO is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PAYMODE</label>
+<input uppercase class='form-control' placeholder='Enter PAYMODE' type='text' name='PAYMODE' autocomplete='off'  formControlName='PAYMODE' [ngClass]=
+"{ 'is-invalid': submitted && form.PAYMODE.errors}"/><div *ngIf='submitted && form.PAYMODE.errors' class='invalid-feedback'> <span *ngIf='form.PAYMODE.errors.required'>PAYMODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BILLEDAT</label>
+<input uppercase class='form-control' placeholder='Enter BILLEDAT' type='text' name='BILLEDAT' autocomplete='off'  formControlName='BILLEDAT' [ngClass]=
+"{ 'is-invalid': submitted && form.BILLEDAT.errors}"/><div *ngIf='submitted && form.BILLEDAT.errors' class='invalid-feedback'> <span *ngIf='form.BILLEDAT.errors.required'>BILLEDAT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ADDRESS2</label>
+<input uppercase class='form-control' placeholder='Enter ADDRESS2' type='text' name='ADDRESS2' autocomplete='off'  formControlName='ADDRESS2' [ngClass]=
+"{ 'is-invalid': submitted && form.ADDRESS2.errors}"/><div *ngIf='submitted && form.ADDRESS2.errors' class='invalid-feedback'> <span *ngIf='form.ADDRESS2.errors.required'>ADDRESS2 is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PANNO</label>
+<input uppercase class='form-control' placeholder='Enter PANNO' type='text' name='PANNO' autocomplete='off'  formControlName='PANNO' [ngClass]=
+"{ 'is-invalid': submitted && form.PANNO.errors}"/><div *ngIf='submitted && form.PANNO.errors' class='invalid-feedback'> <span *ngIf='form.PANNO.errors.required'>PANNO is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>GST1</label>
+<input uppercase class='form-control' placeholder='Enter GST1' type='text' name='GST1' autocomplete='off'  formControlName='GST1' [ngClass]=
+"{ 'is-invalid': submitted && form.GST1.errors}"/><div *ngIf='submitted && form.GST1.errors' class='invalid-feedback'> <span *ngIf='form.GST1.errors.required'>GST1 is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>GST2</label>
+<input uppercase class='form-control' placeholder='Enter GST2' type='text' name='GST2' autocomplete='off'  formControlName='GST2' [ngClass]=
+"{ 'is-invalid': submitted && form.GST2.errors}"/><div *ngIf='submitted && form.GST2.errors' class='invalid-feedback'> <span *ngIf='form.GST2.errors.required'>GST2 is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>GST3</label>
+<input uppercase class='form-control' placeholder='Enter GST3' type='text' name='GST3' autocomplete='off'  formControlName='GST3' [ngClass]=
+"{ 'is-invalid': submitted && form.GST3.errors}"/><div *ngIf='submitted && form.GST3.errors' class='invalid-feedback'> <span *ngIf='form.GST3.errors.required'>GST3 is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>GSTNO</label>
+<input uppercase class='form-control' placeholder='Enter GSTNO' type='text' name='GSTNO' autocomplete='off'  formControlName='GSTNO' [ngClass]=
+"{ 'is-invalid': submitted && form.GSTNO.errors}"/><div *ngIf='submitted && form.GSTNO.errors' class='invalid-feedback'> <span *ngIf='form.GSTNO.errors.required'>GSTNO is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>TANNO</label>
+<input uppercase class='form-control' placeholder='Enter TANNO' type='text' name='TANNO' autocomplete='off'  formControlName='TANNO' [ngClass]=
+"{ 'is-invalid': submitted && form.TANNO.errors}"/><div *ngIf='submitted && form.TANNO.errors' class='invalid-feedback'> <span *ngIf='form.TANNO.errors.required'>TANNO is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>STATE_CODE</label>
+<input uppercase class='form-control' placeholder='Enter STATE_CODE' type='text' name='STATE_CODE' autocomplete='off'  formControlName='STATE_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.STATE_CODE.errors}"/><div *ngIf='submitted && form.STATE_CODE.errors' class='invalid-feedback'> <span *ngIf='form.STATE_CODE.errors.required'>STATE_CODE is required.</span> </div>
+</div>
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" id="btn-save-event">
+        Save
+      </button>
+    </form>
+  </div>
+</ng-template>

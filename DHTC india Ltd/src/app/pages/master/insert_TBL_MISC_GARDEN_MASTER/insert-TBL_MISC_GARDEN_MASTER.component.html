@@ -1,0 +1,95 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_MISC_GARDEN_MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p>
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='GARDEN_NAME'>GARDEN_NAME</label>
+<input uppercase class='form-control' placeholder='Enter GARDEN_NAME' type='text' name='GARDEN_NAME' autocomplete='off'  formControlName='GARDEN_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.GARDEN_NAME.errors}"/><div *ngIf='submit && form.GARDEN_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.GARDEN_NAME.errors.required'>GARDEN_NAME Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='AGENT_BRANCH'>AGENT_BRANCH</label>
+<input uppercase class='form-control' placeholder='Enter AGENT_BRANCH' type='text' name='AGENT_BRANCH' autocomplete='off'  formControlName='AGENT_BRANCH' [ngClass]=
+"{ 'is-invalid': submit && form.AGENT_BRANCH.errors}"/><div *ngIf='submit && form.AGENT_BRANCH.errors' class='invalid-feedback'>
+ <span *ngIf='form.AGENT_BRANCH.errors.required'>AGENT_BRANCH Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ENTRY_DATE'>ENTRY_DATE</label>
+<input uppercase class='form-control' placeholder='Enter ENTRY_DATE' type='text' name='ENTRY_DATE' autocomplete='off'  formControlName='ENTRY_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.ENTRY_DATE.errors}"/><div *ngIf='submit && form.ENTRY_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTRY_DATE.errors.required'>ENTRY_DATE Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                 <div class='mb-3'>
+<label for='GARDEN_CODE'>GARDEN_CODE</label>
+<input uppercase class='form-control' placeholder='Enter GARDEN_CODE' type='text' name='GARDEN_CODE' autocomplete='off'  formControlName='GARDEN_CODE' [ngClass]=
+"{ 'is-invalid': submit && form.GARDEN_CODE.errors}"/><div *ngIf='submit && form.GARDEN_CODE.errors' class='invalid-feedback'>
+ <span *ngIf='form.GARDEN_CODE.errors.required'>GARDEN_CODE Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ADDRESS'>ADDRESS</label>
+<input uppercase class='form-control' placeholder='Enter ADDRESS' type='text' name='ADDRESS' autocomplete='off'  formControlName='ADDRESS' [ngClass]=
+"{ 'is-invalid': submit && form.ADDRESS.errors}"/><div *ngIf='submit && form.ADDRESS.errors' class='invalid-feedback'>
+ <span *ngIf='form.ADDRESS.errors.required'>ADDRESS Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='GARDEN'>GARDEN</label>
+<input uppercase class='form-control' placeholder='Enter GARDEN' type='text' name='GARDEN' autocomplete='off'  formControlName='GARDEN' [ngClass]=
+"{ 'is-invalid': submit && form.GARDEN.errors}"/><div *ngIf='submit && form.GARDEN.errors' class='invalid-feedback'>
+ <span *ngIf='form.GARDEN.errors.required'>GARDEN Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ENTRY_BY'>ENTRY_BY</label>
+<input uppercase class='form-control' placeholder='Enter ENTRY_BY' type='text' name='ENTRY_BY' autocomplete='off'  formControlName='ENTRY_BY' [ngClass]=
+"{ 'is-invalid': submit && form.ENTRY_BY.errors}"/><div *ngIf='submit && form.ENTRY_BY.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTRY_BY.errors.required'>ENTRY_BY Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

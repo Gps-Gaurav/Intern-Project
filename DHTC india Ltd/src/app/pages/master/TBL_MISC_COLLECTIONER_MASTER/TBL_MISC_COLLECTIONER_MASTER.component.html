@@ -1,0 +1,188 @@
+<div class="container-fluid">
+
+  <app-page-title title="Customers" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input uppercase type="text" class="form-control" placeholder="Search..." [(ngModel)]="term" />
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end button-items">
+                <button type="button" class="btn btn-success btn-rounded mb-2 mr-2" (click)="openModal(content)">
+                  <i class="mdi mdi-plus me-1"></i> New TBL_MISC_COLLECTIONER_MASTER
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap">
+              <thead class="table-light">
+                <tr>
+                  <th> ID</th>
+<th> COLLECTIONER_CODE</th>
+<th> COLLECTIONER_NAME</th>
+<th> BRANCH_CODE</th>
+<th> BRANCH_NAME</th>
+<th> ADDRESS1</th>
+<th> ADDRESS2</th>
+<th> CITY</th>
+<th> STATE</th>
+<th> PIN_CODE</th>
+<th> MOBILE_NO</th>
+<th> ACC_CODE</th>
+
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableData  | filter:term ;let i = index;">
+
+                  <td>{{item.id}}</td>
+<td>{{item.collectioneR_CODE}}</td>
+<td>{{item.collectioneR_NAME}}</td>
+<td>{{item.brancH_CODE}}</td>
+<td>{{item.brancH_NAME}}</td>
+<td>{{item.address1}}</td>
+<td>{{item.address2}}</td>
+<td>{{item.city}}</td>
+<td>{{item.state}}</td>
+<td>{{item.piN_CODE}}</td>
+<td>{{item.mobilE_NO}}</td>
+<td>{{item.acC_CODE}}</td>
+
+
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                        ngbDropdownToggle aria-expanded="false">
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <li><a href="javascript: void(0);" class="dropdown-item" (click)="edit(item,content)"><i
+                              class="fas fa-pencil-alt text-success me-1"></i>
+                            Edit</a></li>
+                        <li><a href="javascript: void(0);" (click)="confirm(item.id)" class="dropdown-item"><i
+                              class="fas fa-trash-alt text-danger me-1"></i>
+                            Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- pagination -->
+          <div class="row justify-content-md-between align-items-md-center mt-2">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+                {{startIndex}} to
+                {{endIndex}} of {{totalRecords}}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination [collectionSize]="total$ | async"  [maxSize]="7"[(page)]="page" [pageSize]="pageSize"
+                  (pageChange)="loadPage($event)">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div>
+
+<!-- Standard Modal -->
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Add TBL_MISC_COLLECTIONER_MASTER</h5>
+    <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="saveData()" [formGroup]="formData">
+      <div class="row">
+        <div class="col-12">
+          <div class='mb-3'>
+<label class='control-label'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submitted && form.ID.errors}"/><div *ngIf='submitted && form.ID.errors' class='invalid-feedback'> <span *ngIf='form.ID.errors.required'>ID is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>COLLECTIONER_CODE</label>
+<input uppercase class='form-control' placeholder='Enter COLLECTIONER_CODE' type='text' name='COLLECTIONER_CODE' autocomplete='off'  formControlName='COLLECTIONER_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.COLLECTIONER_CODE.errors}"/><div *ngIf='submitted && form.COLLECTIONER_CODE.errors' class='invalid-feedback'> <span *ngIf='form.COLLECTIONER_CODE.errors.required'>COLLECTIONER_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>COLLECTIONER_NAME</label>
+<input uppercase class='form-control' placeholder='Enter COLLECTIONER_NAME' type='text' name='COLLECTIONER_NAME' autocomplete='off'  formControlName='COLLECTIONER_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.COLLECTIONER_NAME.errors}"/><div *ngIf='submitted && form.COLLECTIONER_NAME.errors' class='invalid-feedback'> <span *ngIf='form.COLLECTIONER_NAME.errors.required'>COLLECTIONER_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_CODE' type='text' name='BRANCH_CODE' autocomplete='off'  formControlName='BRANCH_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_CODE.errors}"/><div *ngIf='submitted && form.BRANCH_CODE.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_CODE.errors.required'>BRANCH_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_NAME' type='text' name='BRANCH_NAME' autocomplete='off'  formControlName='BRANCH_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_NAME.errors}"/><div *ngIf='submitted && form.BRANCH_NAME.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_NAME.errors.required'>BRANCH_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ADDRESS1</label>
+<input uppercase class='form-control' placeholder='Enter ADDRESS1' type='text' name='ADDRESS1' autocomplete='off'  formControlName='ADDRESS1' [ngClass]=
+"{ 'is-invalid': submitted && form.ADDRESS1.errors}"/><div *ngIf='submitted && form.ADDRESS1.errors' class='invalid-feedback'> <span *ngIf='form.ADDRESS1.errors.required'>ADDRESS1 is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ADDRESS2</label>
+<input uppercase class='form-control' placeholder='Enter ADDRESS2' type='text' name='ADDRESS2' autocomplete='off'  formControlName='ADDRESS2' [ngClass]=
+"{ 'is-invalid': submitted && form.ADDRESS2.errors}"/><div *ngIf='submitted && form.ADDRESS2.errors' class='invalid-feedback'> <span *ngIf='form.ADDRESS2.errors.required'>ADDRESS2 is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>CITY</label>
+<input uppercase class='form-control' placeholder='Enter CITY' type='text' name='CITY' autocomplete='off'  formControlName='CITY' [ngClass]=
+"{ 'is-invalid': submitted && form.CITY.errors}"/><div *ngIf='submitted && form.CITY.errors' class='invalid-feedback'> <span *ngIf='form.CITY.errors.required'>CITY is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>STATE</label>
+<input uppercase class='form-control' placeholder='Enter STATE' type='text' name='STATE' autocomplete='off'  formControlName='STATE' [ngClass]=
+"{ 'is-invalid': submitted && form.STATE.errors}"/><div *ngIf='submitted && form.STATE.errors' class='invalid-feedback'> <span *ngIf='form.STATE.errors.required'>STATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PIN_CODE</label>
+<input uppercase class='form-control' placeholder='Enter PIN_CODE' type='text' name='PIN_CODE' autocomplete='off'  formControlName='PIN_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.PIN_CODE.errors}"/><div *ngIf='submitted && form.PIN_CODE.errors' class='invalid-feedback'> <span *ngIf='form.PIN_CODE.errors.required'>PIN_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>MOBILE_NO</label>
+<input uppercase class='form-control' placeholder='Enter MOBILE_NO' type='text' name='MOBILE_NO' autocomplete='off'  formControlName='MOBILE_NO' [ngClass]=
+"{ 'is-invalid': submitted && form.MOBILE_NO.errors}"/><div *ngIf='submitted && form.MOBILE_NO.errors' class='invalid-feedback'> <span *ngIf='form.MOBILE_NO.errors.required'>MOBILE_NO is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ACC_CODE</label>
+<input uppercase class='form-control' placeholder='Enter ACC_CODE' type='text' name='ACC_CODE' autocomplete='off'  formControlName='ACC_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.ACC_CODE.errors}"/><div *ngIf='submitted && form.ACC_CODE.errors' class='invalid-feedback'> <span *ngIf='form.ACC_CODE.errors.required'>ACC_CODE is required.</span> </div>
+</div>
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" id="btn-save-event">
+        Save
+      </button>
+    </form>
+  </div>
+</ng-template>

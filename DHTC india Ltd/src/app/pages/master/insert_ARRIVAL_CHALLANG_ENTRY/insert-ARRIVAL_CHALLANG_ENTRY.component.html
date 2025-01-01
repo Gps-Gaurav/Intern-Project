@@ -1,0 +1,125 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="ARRIVAL_CHALLANG_ENTRY" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+        
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class='mb-3'>
+                  <label for='CHALLAN_NO'>CHALLAN NO</label>
+                  <input class='form-control' placeholder='Enter CHALLAN_NO' type='text' name='CHALLAN_NO' autocomplete='off'  formControlName='CHALLAN_NO' [ngClass]=
+                  "{ 'is-invalid': submit && form.CHALLAN_NO.errors}"/><div *ngIf='submit && form.CHALLAN_NO.errors' class='invalid-feedback'>
+                   <span *ngIf='form.CHALLAN_NO.errors.required'>CHALLAN NO is required.</span>
+                   </div>
+                   </div>
+
+                   <div class='mb-3'>
+                    <label for='UNLOAD_TERM'>UNLOAD AT</label>
+                    <ng-select [items]="['GARDEN','WARE HOUSE','OUR GODOWN','PARTY GODOWN']" placeholder="Select UNLOAD AT" formControlName="UNLOAD_TERM"
+                    [ngClass]="{ 'is-invalid':  (submit || formData.get('UNLOAD_TERM').dirty || formData.get('UNLOAD_TERM').touched) && form.UNLOAD_TERM.errors}">
+                    </ng-select>
+                    
+                    <div *ngIf='submit && form.UNLOAD_TERM.errors' class='invalid-feedback'>
+                     <span *ngIf='form.UNLOAD_TERM.errors.required'>UNLOAD AT is required.</span>
+                     </div>
+                     </div>
+<div class='mb-3'>
+<label for='DATE'>UNLDING/ARR DATE</label>
+<input class='form-control' placeholder='Enter DATE' type='date' name='DATE' autocomplete='off'  formControlName='DATE' [ngClass]=
+"{ 'is-invalid': submit && form.DATE.errors}"/><div *ngIf='submit && form.DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.DATE.errors.required'>UNLDING/ARR DATE required.</span>
+ </div>
+ </div>
+
+<div class='mb-3'>
+<label for='REMARKS'>REMARKS</label>
+<textarea class='form-control' [rows]="4" placeholder='Enter REMARKS' type='text' name='REMARKS' autocomplete='off'  formControlName='REMARKS' [ngClass]=
+"{ 'is-invalid': submit && form.REMARKS.errors}"></textarea><div *ngIf='submit && form.REMARKS.errors' class='invalid-feedback'>
+ <span *ngIf='form.REMARKS.errors.required'>REMARKS is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='OTHER'>OTHER</label>
+<input class='form-control' placeholder='Enter OTHER' type='text' name='OTHER' autocomplete='off'  formControlName='OTHER' [ngClass]=
+"{ 'is-invalid': submit && form.OTHER.errors}"/><div *ngIf='submit && form.OTHER.errors' class='invalid-feedback'>
+ <span *ngIf='form.OTHER.errors.required'>OTHER is required.</span>
+ </div>
+ </div>
+
+
+              </div>
+
+              <div class="col-sm-6">
+                <div class='mb-3'>
+                  <label for='FFROM'>FFROM</label>
+                  <ng-select [items]="stationData" bindLabel="statioN_NAME" bindValue="statioN_CODE"
+                  placeholder="Select Station" formControlName="FFROM"
+                  [ngClass]="{ 'is-invalid': (submit || formData.get('FFROM').dirty || formData.get('FFROM').touched) && form.FFROM.errors}">
+                  </ng-select>
+                  
+                  <div *ngIf='submit && form.FFROM.errors' class='invalid-feedback'>
+                   <span *ngIf='form.FFROM.errors.required'>FFROM Name is required.</span>
+                   </div>
+                   </div>
+
+                   <div class='mb-3'>
+                    <label for='TTO'>Arrival Branch</label>
+                    
+                    <ng-select [items]="branchData" bindLabel="brancH_NAME" bindValue="brancH_CODE"
+                    placeholder="Select Arrival Branch" formControlName="TTO"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('TTO').dirty || formData.get('TTO').touched) && form.TTO.errors}">
+                    </ng-select>
+                    <div *ngIf='submit && form.TTO.errors' class='invalid-feedback'>
+                     <span *ngIf='form.TTO.errors.required'>TTO Name is required.</span>
+                     </div>
+                     </div>
+<div class='mb-3'>
+<label for='DETENTION'>DETENTION</label>
+<input class='form-control' placeholder='Enter DETENTION' type='text' name='DETENTION' autocomplete='off'  formControlName='DETENTION' [ngClass]=
+"{ 'is-invalid': submit && form.DETENTION.errors}"/><div *ngIf='submit && form.DETENTION.errors' class='invalid-feedback'>
+ <span *ngIf='form.DETENTION.errors.required'>DETENTION is required.</span>
+ </div>
+ </div>
+
+<div class='mb-3'>
+<label for='UNLOADING_REMARKS'>UNLOADING REMARKS</label>
+<textarea class='form-control' [rows]="4" placeholder='Enter UNLOADING REMARKS' type='text' name='UNLOADING_REMARKS' autocomplete='off'  formControlName='UNLOADING_REMARKS' [ngClass]=
+"{ 'is-invalid': submit && form.UNLOADING_REMARKS.errors}"></textarea><div *ngIf='submit && form.UNLOADING_REMARKS.errors' class='invalid-feedback'>
+ <span *ngIf='form.UNLOADING_REMARKS.errors.required'>UNLOADING REMARKS is required.</span>
+ </div>
+ </div>
+
+<div class='mb-3'>
+<label for='LESS_ADVANCE'>LESS ADVANCE</label>
+<input class='form-control' placeholder='Enter LESS ADVANCE' type='text' name='LESS_ADVANCE' autocomplete='off'  formControlName='LESS_ADVANCE' [ngClass]=
+"{ 'is-invalid': submit && form.LESS_ADVANCE.errors}"/><div *ngIf='submit && form.LESS_ADVANCE.errors' class='invalid-feedback'>
+ <span *ngIf='form.LESS_ADVANCE.errors.required'>LESS ADVANCE required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

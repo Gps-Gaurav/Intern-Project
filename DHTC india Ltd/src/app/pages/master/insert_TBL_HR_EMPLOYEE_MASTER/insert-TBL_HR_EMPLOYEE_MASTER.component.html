@@ -1,0 +1,410 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_HR_EMPLOYEE_MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p>
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='EmpName'>EmpName</label>
+<input uppercase class='form-control' placeholder='Enter EmpName' type='text' name='EmpName' autocomplete='off'  formControlName='EmpName' [ngClass]=
+"{ 'is-invalid': submit && form.EmpName.errors}"/><div *ngIf='submit && form.EmpName.errors' class='invalid-feedback'>
+ <span *ngIf='form.EmpName.errors.required'>EmpName Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='Designation'>Designation</label>
+<input uppercase class='form-control' placeholder='Enter Designation' type='text' name='Designation' autocomplete='off'  formControlName='Designation' [ngClass]=
+"{ 'is-invalid': submit && form.Designation.errors}"/><div *ngIf='submit && form.Designation.errors' class='invalid-feedback'>
+ <span *ngIf='form.Designation.errors.required'>Designation Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PostedAtName'>PostedAtName</label>
+<input uppercase class='form-control' placeholder='Enter PostedAtName' type='text' name='PostedAtName' autocomplete='off'  formControlName='PostedAtName' [ngClass]=
+"{ 'is-invalid': submit && form.PostedAtName.errors}"/><div *ngIf='submit && form.PostedAtName.errors' class='invalid-feedback'>
+ <span *ngIf='form.PostedAtName.errors.required'>PostedAtName Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='Address1'>Address1</label>
+<input uppercase class='form-control' placeholder='Enter Address1' type='text' name='Address1' autocomplete='off'  formControlName='Address1' [ngClass]=
+"{ 'is-invalid': submit && form.Address1.errors}"/><div *ngIf='submit && form.Address1.errors' class='invalid-feedback'>
+ <span *ngIf='form.Address1.errors.required'>Address1 Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='City'>City</label>
+<input uppercase class='form-control' placeholder='Enter City' type='text' name='City' autocomplete='off'  formControlName='City' [ngClass]=
+"{ 'is-invalid': submit && form.City.errors}"/><div *ngIf='submit && form.City.errors' class='invalid-feedback'>
+ <span *ngIf='form.City.errors.required'>City Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='State'>State</label>
+<input uppercase class='form-control' placeholder='Enter State' type='text' name='State' autocomplete='off'  formControlName='State' [ngClass]=
+"{ 'is-invalid': submit && form.State.errors}"/><div *ngIf='submit && form.State.errors' class='invalid-feedback'>
+ <span *ngIf='form.State.errors.required'>State Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='login'>login</label>
+<input uppercase class='form-control' placeholder='Enter Login' type='text' name='login' autocomplete='off'  formControlName='login' [ngClass]=
+"{ 'is-invalid': submit && form.login.errors}"/><div *ngIf='submit && form.login.errors' class='invalid-feedback'>
+ <span *ngIf='form.login.errors.required'>login Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BasicCurrent'>BasicCurrent</label>
+<input uppercase class='form-control' placeholder='Enter BasicCurrent' type='text' name='BasicCurrent' autocomplete='off'  formControlName='BasicCurrent' [ngClass]=
+"{ 'is-invalid': submit && form.BasicCurrent.errors}"/><div *ngIf='submit && form.BasicCurrent.errors' class='invalid-feedback'>
+ <span *ngIf='form.BasicCurrent.errors.required'>BasicCurrent Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ConveyenceCurrent'>ConveyenceCurrent</label>
+<input uppercase class='form-control' placeholder='Enter ConveyenceCurrent' type='text' name='ConveyenceCurrent' autocomplete='off'  formControlName='ConveyenceCurrent' [ngClass]=
+"{ 'is-invalid': submit && form.ConveyenceCurrent.errors}"/><div *ngIf='submit && form.ConveyenceCurrent.errors' class='invalid-feedback'>
+ <span *ngIf='form.ConveyenceCurrent.errors.required'>ConveyenceCurrent Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='GrossCurrent'>GrossCurrent</label>
+<input uppercase class='form-control' placeholder='Enter GrossCurrent' type='text' name='GrossCurrent' autocomplete='off'  formControlName='GrossCurrent' [ngClass]=
+"{ 'is-invalid': submit && form.GrossCurrent.errors}"/><div *ngIf='submit && form.GrossCurrent.errors' class='invalid-feedback'>
+ <span *ngIf='form.GrossCurrent.errors.required'>GrossCurrent Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='HouseRentPrevious'>HouseRentPrevious</label>
+<input uppercase class='form-control' placeholder='Enter HouseRentPrevious' type='text' name='HouseRentPrevious' autocomplete='off'  formControlName='HouseRentPrevious' [ngClass]=
+"{ 'is-invalid': submit && form.HouseRentPrevious.errors}"/><div *ngIf='submit && form.HouseRentPrevious.errors' class='invalid-feedback'>
+ <span *ngIf='form.HouseRentPrevious.errors.required'>HouseRentPrevious Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='OtherPrevious'>OtherPrevious</label>
+<input uppercase class='form-control' placeholder='Enter OtherPrevious' type='text' name='OtherPrevious' autocomplete='off'  formControlName='OtherPrevious' [ngClass]=
+"{ 'is-invalid': submit && form.OtherPrevious.errors}"/><div *ngIf='submit && form.OtherPrevious.errors' class='invalid-feedback'>
+ <span *ngIf='form.OtherPrevious.errors.required'>OtherPrevious Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PayQuit'>PayQuit</label>
+<input uppercase class='form-control' placeholder='Enter PayQuit' type='text' name='PayQuit' autocomplete='off'  formControlName='PayQuit' [ngClass]=
+"{ 'is-invalid': submit && form.PayQuit.errors}"/><div *ngIf='submit && form.PayQuit.errors' class='invalid-feedback'>
+ <span *ngIf='form.PayQuit.errors.required'>PayQuit Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='VoluntaryPF'>VoluntaryPF</label>
+<input uppercase class='form-control' placeholder='Enter VoluntaryPF' type='text' name='VoluntaryPF' autocomplete='off'  formControlName='VoluntaryPF' [ngClass]=
+"{ 'is-invalid': submit && form.VoluntaryPF.errors}"/><div *ngIf='submit && form.VoluntaryPF.errors' class='invalid-feedback'>
+ <span *ngIf='form.VoluntaryPF.errors.required'>VoluntaryPF Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='DateOfJoining'>DateOfJoining</label>
+<input uppercase class='form-control' placeholder='Enter DateOfJoining' type='text' name='DateOfJoining' autocomplete='off'  formControlName='DateOfJoining' [ngClass]=
+"{ 'is-invalid': submit && form.DateOfJoining.errors}"/><div *ngIf='submit && form.DateOfJoining.errors' class='invalid-feedback'>
+ <span *ngIf='form.DateOfJoining.errors.required'>DateOfJoining Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='GauranterName'>GauranterName</label>
+<input uppercase class='form-control' placeholder='Enter GauranterName' type='text' name='GauranterName' autocomplete='off'  formControlName='GauranterName' [ngClass]=
+"{ 'is-invalid': submit && form.GauranterName.errors}"/><div *ngIf='submit && form.GauranterName.errors' class='invalid-feedback'>
+ <span *ngIf='form.GauranterName.errors.required'>GauranterName Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='GauranterAdd2'>GauranterAdd2</label>
+<input uppercase class='form-control' placeholder='Enter GauranterAdd2' type='text' name='GauranterAdd2' autocomplete='off'  formControlName='GauranterAdd2' [ngClass]=
+"{ 'is-invalid': submit && form.GauranterAdd2.errors}"/><div *ngIf='submit && form.GauranterAdd2.errors' class='invalid-feedback'>
+ <span *ngIf='form.GauranterAdd2.errors.required'>GauranterAdd2 Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='GauranterPin'>GauranterPin</label>
+<input uppercase class='form-control' placeholder='Enter GauranterPin' type='text' name='GauranterPin' autocomplete='off'  formControlName='GauranterPin' [ngClass]=
+"{ 'is-invalid': submit && form.GauranterPin.errors}"/><div *ngIf='submit && form.GauranterPin.errors' class='invalid-feedback'>
+ <span *ngIf='form.GauranterPin.errors.required'>GauranterPin Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='UANNo'>UANNo</label>
+<input uppercase class='form-control' placeholder='Enter UANNo' type='text' name='UANNo' autocomplete='off'  formControlName='UANNo' [ngClass]=
+"{ 'is-invalid': submit && form.UANNo.errors}"/><div *ngIf='submit && form.UANNo.errors' class='invalid-feedback'>
+ <span *ngIf='form.UANNo.errors.required'>UANNo Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ESINo'>ESINo</label>
+<input uppercase class='form-control' placeholder='Enter ESINo' type='text' name='ESINo' autocomplete='off'  formControlName='ESINo' [ngClass]=
+"{ 'is-invalid': submit && form.ESINo.errors}"/><div *ngIf='submit && form.ESINo.errors' class='invalid-feedback'>
+ <span *ngIf='form.ESINo.errors.required'>ESINo Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PANNo'>PANNo</label>
+<input uppercase class='form-control' placeholder='Enter PANNo' type='text' name='PANNo' autocomplete='off'  formControlName='PANNo' [ngClass]=
+"{ 'is-invalid': submit && form.PANNo.errors}"/><div *ngIf='submit && form.PANNo.errors' class='invalid-feedback'>
+ <span *ngIf='form.PANNo.errors.required'>PANNo Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='OtherDetails'>OtherDetails</label>
+<input uppercase class='form-control' placeholder='Enter OtherDetails' type='text' name='OtherDetails' autocomplete='off'  formControlName='OtherDetails' [ngClass]=
+"{ 'is-invalid': submit && form.OtherDetails.errors}"/><div *ngIf='submit && form.OtherDetails.errors' class='invalid-feedback'>
+ <span *ngIf='form.OtherDetails.errors.required'>OtherDetails Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='Imagename'>Imagename</label>
+<input uppercase class='form-control' placeholder='Enter Imagename' type='text' name='Imagename' autocomplete='off'  formControlName='Imagename' [ngClass]=
+"{ 'is-invalid': submit && form.Imagename.errors}"/><div *ngIf='submit && form.Imagename.errors' class='invalid-feedback'>
+ <span *ngIf='form.Imagename.errors.required'>Imagename Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='LPassword'>LPassword</label>
+<input uppercase class='form-control' placeholder='Enter LPassword' type='text' name='LPassword' autocomplete='off'  formControlName='LPassword' [ngClass]=
+"{ 'is-invalid': submit && form.LPassword.errors}"/><div *ngIf='submit && form.LPassword.errors' class='invalid-feedback'>
+ <span *ngIf='form.LPassword.errors.required'>LPassword Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='OutTime'>OutTime</label>
+<input uppercase class='form-control' placeholder='Enter OutTime' type='text' name='OutTime' autocomplete='off'  formControlName='OutTime' [ngClass]=
+"{ 'is-invalid': submit && form.OutTime.errors}"/><div *ngIf='submit && form.OutTime.errors' class='invalid-feedback'>
+ <span *ngIf='form.OutTime.errors.required'>OutTime Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BAllocation'>BAllocation</label>
+<input uppercase class='form-control' placeholder='Enter BAllocation' type='text' name='BAllocation' autocomplete='off'  formControlName='BAllocation' [ngClass]=
+"{ 'is-invalid': submit && form.BAllocation.errors}"/><div *ngIf='submit && form.BAllocation.errors' class='invalid-feedback'>
+ <span *ngIf='form.BAllocation.errors.required'>BAllocation Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+
+              <div class="col-sm-6">
+                 <div class='mb-3'>
+<label for='EmpCode'>EmpCode</label>
+<input uppercase class='form-control' placeholder='Enter EmpCode' type='text' name='EmpCode' autocomplete='off'  formControlName='EmpCode' [ngClass]=
+"{ 'is-invalid': submit && form.EmpCode.errors}"/><div *ngIf='submit && form.EmpCode.errors' class='invalid-feedback'>
+ <span *ngIf='form.EmpCode.errors.required'>EmpCode Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='Sex'>Sex</label>
+<input uppercase class='form-control' placeholder='Enter Sex' type='text' name='Sex' autocomplete='off'  formControlName='Sex' [ngClass]=
+"{ 'is-invalid': submit && form.Sex.errors}"/><div *ngIf='submit && form.Sex.errors' class='invalid-feedback'>
+ <span *ngIf='form.Sex.errors.required'>Sex Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PostedAtCode'>PostedAtCode</label>
+<input uppercase class='form-control' placeholder='Enter PostedAtCode' type='text' name='PostedAtCode' autocomplete='off'  formControlName='PostedAtCode' [ngClass]=
+"{ 'is-invalid': submit && form.PostedAtCode.errors}"/><div *ngIf='submit && form.PostedAtCode.errors' class='invalid-feedback'>
+ <span *ngIf='form.PostedAtCode.errors.required'>PostedAtCode Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='FatherName'>FatherName</label>
+<input uppercase class='form-control' placeholder='Enter FatherName' type='text' name='FatherName' autocomplete='off'  formControlName='FatherName' [ngClass]=
+"{ 'is-invalid': submit && form.FatherName.errors}"/><div *ngIf='submit && form.FatherName.errors' class='invalid-feedback'>
+ <span *ngIf='form.FatherName.errors.required'>FatherName Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='Address2'>Address2</label>
+<input uppercase class='form-control' placeholder='Enter Address2' type='text' name='Address2' autocomplete='off'  formControlName='Address2' [ngClass]=
+"{ 'is-invalid': submit && form.Address2.errors}"/><div *ngIf='submit && form.Address2.errors' class='invalid-feedback'>
+ <span *ngIf='form.Address2.errors.required'>Address2 Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='Pin'>Pin</label>
+<input uppercase class='form-control' placeholder='Enter Pin' type='text' name='Pin' autocomplete='off'  formControlName='Pin' [ngClass]=
+"{ 'is-invalid': submit && form.Pin.errors}"/><div *ngIf='submit && form.Pin.errors' class='invalid-feedback'>
+ <span *ngIf='form.Pin.errors.required'>Pin Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='casual'>casual</label>
+<input uppercase class='form-control' placeholder='Enter Casual' type='text' name='casual' autocomplete='off'  formControlName='casual' [ngClass]=
+"{ 'is-invalid': submit && form.casual.errors}"/><div *ngIf='submit && form.casual.errors' class='invalid-feedback'>
+ <span *ngIf='form.casual.errors.required'>casual Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BankAcNo'>BankAcNo</label>
+<input uppercase class='form-control' placeholder='Enter BankAcNo' type='text' name='BankAcNo' autocomplete='off'  formControlName='BankAcNo' [ngClass]=
+"{ 'is-invalid': submit && form.BankAcNo.errors}"/><div *ngIf='submit && form.BankAcNo.errors' class='invalid-feedback'>
+ <span *ngIf='form.BankAcNo.errors.required'>BankAcNo Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='HouseRentCurrent'>HouseRentCurrent</label>
+<input uppercase class='form-control' placeholder='Enter HouseRentCurrent' type='text' name='HouseRentCurrent' autocomplete='off'  formControlName='HouseRentCurrent' [ngClass]=
+"{ 'is-invalid': submit && form.HouseRentCurrent.errors}"/><div *ngIf='submit && form.HouseRentCurrent.errors' class='invalid-feedback'>
+ <span *ngIf='form.HouseRentCurrent.errors.required'>HouseRentCurrent Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='OtherCurrent'>OtherCurrent</label>
+<input uppercase class='form-control' placeholder='Enter OtherCurrent' type='text' name='OtherCurrent' autocomplete='off'  formControlName='OtherCurrent' [ngClass]=
+"{ 'is-invalid': submit && form.OtherCurrent.errors}"/><div *ngIf='submit && form.OtherCurrent.errors' class='invalid-feedback'>
+ <span *ngIf='form.OtherCurrent.errors.required'>OtherCurrent Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BasicPrevious'>BasicPrevious</label>
+<input uppercase class='form-control' placeholder='Enter BasicPrevious' type='text' name='BasicPrevious' autocomplete='off'  formControlName='BasicPrevious' [ngClass]=
+"{ 'is-invalid': submit && form.BasicPrevious.errors}"/><div *ngIf='submit && form.BasicPrevious.errors' class='invalid-feedback'>
+ <span *ngIf='form.BasicPrevious.errors.required'>BasicPrevious Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ConveyencePrevious'>ConveyencePrevious</label>
+<input uppercase class='form-control' placeholder='Enter ConveyencePrevious' type='text' name='ConveyencePrevious' autocomplete='off'  formControlName='ConveyencePrevious' [ngClass]=
+"{ 'is-invalid': submit && form.ConveyencePrevious.errors}"/><div *ngIf='submit && form.ConveyencePrevious.errors' class='invalid-feedback'>
+ <span *ngIf='form.ConveyencePrevious.errors.required'>ConveyencePrevious Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='GrossPrevious'>GrossPrevious</label>
+<input uppercase class='form-control' placeholder='Enter GrossPrevious' type='text' name='GrossPrevious' autocomplete='off'  formControlName='GrossPrevious' [ngClass]=
+"{ 'is-invalid': submit && form.GrossPrevious.errors}"/><div *ngIf='submit && form.GrossPrevious.errors' class='invalid-feedback'>
+ <span *ngIf='form.GrossPrevious.errors.required'>GrossPrevious Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PFDeduct'>PFDeduct</label>
+<input uppercase class='form-control' placeholder='Enter PFDeduct' type='text' name='PFDeduct' autocomplete='off'  formControlName='PFDeduct' [ngClass]=
+"{ 'is-invalid': submit && form.PFDeduct.errors}"/><div *ngIf='submit && form.PFDeduct.errors' class='invalid-feedback'>
+ <span *ngIf='form.PFDeduct.errors.required'>PFDeduct Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='DateOfBirth'>DateOfBirth</label>
+<input uppercase class='form-control' placeholder='Enter DateOfBirth' type='text' name='DateOfBirth' autocomplete='off'  formControlName='DateOfBirth' [ngClass]=
+"{ 'is-invalid': submit && form.DateOfBirth.errors}"/><div *ngIf='submit && form.DateOfBirth.errors' class='invalid-feedback'>
+ <span *ngIf='form.DateOfBirth.errors.required'>DateOfBirth Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='DateOfLeaving'>DateOfLeaving</label>
+<input uppercase class='form-control' placeholder='Enter DateOfLeaving' type='text' name='DateOfLeaving' autocomplete='off'  formControlName='DateOfLeaving' [ngClass]=
+"{ 'is-invalid': submit && form.DateOfLeaving.errors}"/><div *ngIf='submit && form.DateOfLeaving.errors' class='invalid-feedback'>
+ <span *ngIf='form.DateOfLeaving.errors.required'>DateOfLeaving Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='GauranterAdd1'>GauranterAdd1</label>
+<input uppercase class='form-control' placeholder='Enter GauranterAdd1' type='text' name='GauranterAdd1' autocomplete='off'  formControlName='GauranterAdd1' [ngClass]=
+"{ 'is-invalid': submit && form.GauranterAdd1.errors}"/><div *ngIf='submit && form.GauranterAdd1.errors' class='invalid-feedback'>
+ <span *ngIf='form.GauranterAdd1.errors.required'>GauranterAdd1 Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='GauranterCity'>GauranterCity</label>
+<input uppercase class='form-control' placeholder='Enter GauranterCity' type='text' name='GauranterCity' autocomplete='off'  formControlName='GauranterCity' [ngClass]=
+"{ 'is-invalid': submit && form.GauranterCity.errors}"/><div *ngIf='submit && form.GauranterCity.errors' class='invalid-feedback'>
+ <span *ngIf='form.GauranterCity.errors.required'>GauranterCity Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='GauranterState'>GauranterState</label>
+<input uppercase class='form-control' placeholder='Enter GauranterState' type='text' name='GauranterState' autocomplete='off'  formControlName='GauranterState' [ngClass]=
+"{ 'is-invalid': submit && form.GauranterState.errors}"/><div *ngIf='submit && form.GauranterState.errors' class='invalid-feedback'>
+ <span *ngIf='form.GauranterState.errors.required'>GauranterState Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='PFNo'>PFNo</label>
+<input uppercase class='form-control' placeholder='Enter PFNo' type='text' name='PFNo' autocomplete='off'  formControlName='PFNo' [ngClass]=
+"{ 'is-invalid': submit && form.PFNo.errors}"/><div *ngIf='submit && form.PFNo.errors' class='invalid-feedback'>
+ <span *ngIf='form.PFNo.errors.required'>PFNo Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='DutyTime'>DutyTime</label>
+<input uppercase class='form-control' placeholder='Enter DutyTime' type='text' name='DutyTime' autocomplete='off'  formControlName='DutyTime' [ngClass]=
+"{ 'is-invalid': submit && form.DutyTime.errors}"/><div *ngIf='submit && form.DutyTime.errors' class='invalid-feedback'>
+ <span *ngIf='form.DutyTime.errors.required'>DutyTime Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ADHAARNo'>ADHAARNo</label>
+<input uppercase class='form-control' placeholder='Enter ADHAARNo' type='text' name='ADHAARNo' autocomplete='off'  formControlName='ADHAARNo' [ngClass]=
+"{ 'is-invalid': submit && form.ADHAARNo.errors}"/><div *ngIf='submit && form.ADHAARNo.errors' class='invalid-feedback'>
+ <span *ngIf='form.ADHAARNo.errors.required'>ADHAARNo Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ImagePath'>ImagePath</label>
+<input uppercase class='form-control' placeholder='Enter ImagePath' type='text' name='ImagePath' autocomplete='off'  formControlName='ImagePath' [ngClass]=
+"{ 'is-invalid': submit && form.ImagePath.errors}"/><div *ngIf='submit && form.ImagePath.errors' class='invalid-feedback'>
+ <span *ngIf='form.ImagePath.errors.required'>ImagePath Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='LoginID'>LoginID</label>
+<input uppercase class='form-control' placeholder='Enter LoginID' type='text' name='LoginID' autocomplete='off'  formControlName='LoginID' [ngClass]=
+"{ 'is-invalid': submit && form.LoginID.errors}"/><div *ngIf='submit && form.LoginID.errors' class='invalid-feedback'>
+ <span *ngIf='form.LoginID.errors.required'>LoginID Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='InTime'>InTime</label>
+<input uppercase class='form-control' placeholder='Enter InTime' type='text' name='InTime' autocomplete='off'  formControlName='InTime' [ngClass]=
+"{ 'is-invalid': submit && form.InTime.errors}"/><div *ngIf='submit && form.InTime.errors' class='invalid-feedback'>
+ <span *ngIf='form.InTime.errors.required'>InTime Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='Etype'>Etype</label>
+<input uppercase class='form-control' placeholder='Enter Etype' type='text' name='Etype' autocomplete='off'  formControlName='Etype' [ngClass]=
+"{ 'is-invalid': submit && form.Etype.errors}"/><div *ngIf='submit && form.Etype.errors' class='invalid-feedback'>
+ <span *ngIf='form.Etype.errors.required'>Etype Name is required.</span>
+ </div>
+ </div>
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

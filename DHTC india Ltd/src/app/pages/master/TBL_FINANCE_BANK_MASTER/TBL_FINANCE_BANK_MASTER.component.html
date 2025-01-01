@@ -1,0 +1,201 @@
+<div class="container-fluid">
+
+  <app-page-title title="BANK ACCOUNT MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input uppercase type="text" class="form-control" placeholder="Search..." [(ngModel)]="term" />
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end button-items">
+                <button  type="button" *ngIf="IsChecked" class="btn btn-danger" (click)="confirm(SelectedId)">DELETE BANK ACCOUNT </button>
+                <button  type="button" *ngIf="IsChecked" class="btn btn-warning" (click)="edit(SelectedId)" >EDIT BANK ACCOUNT</button>
+                <button type="button" class="btn btn-success btn-rounded mb-2 mr-2" (click)="openModal(content)">
+                 ADD NEW BANK ACCOUNT
+                </button>
+              </div>
+            </div>
+            <!-- end col-->
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap">
+              <thead class="table-light">
+                <tr>
+                  <th style="width: 20px;">
+                    <div class="form-check font-size-16 align-middle">
+                      <input uppercase class="form-check-input" type="checkbox" id="transactionCheck01">
+                      <label class="form-check-label" for="transactionCheck01"></label>
+                    </div>
+                  </th>  
+                  <!-- <th> ID</th> -->
+<th> BRANCH_CODE</th>
+<!-- <th> BRANCH_NAME</th> -->
+<th> BANK_CODE</th>
+<!-- <th> BANK</th> -->
+<th> PRINT_RPT</th>
+<th> BANK_NAME</th>
+<!-- <th> OD_LIMIT</th>
+<th> AVERAGE_BAL</th>
+<th> OPEN_DATE</th>
+<th> CLOSING_DATE</th> -->
+<th> ACC_NO</th>
+
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableData  | filter:term ;let i = index;">
+                  <td>
+                    <div class="form-check font-size-16">
+                      <input uppercase class="form-check-input" type="checkbox" (change)="updateCheckBoxVal(item, $event.target);" [checked]="item.IsChecked"  id="transactionCheck{{item.index}}">
+                      <label class="form-check-label" for="transactionCheck{{item.index}}"></label>
+                    </div>
+                  </td>
+                  <!-- <td>{{item.id}}</td> -->
+<td>{{item.brancH_CODE}}</td>
+<!-- <td>{{item.brancH_NAME}}</td> -->
+<td>{{item.banK_CODE}}</td>
+<!-- <td>{{item.bank}}</td> -->
+<td>{{item.prinT_RPT}}</td>
+<td>{{item.banK_NAME}}</td>
+<!-- <td>{{item.oD_LIMIT}}</td>
+<td>{{item.averagE_BAL}}</td>
+<td>{{item.opeN_DATE}}</td>
+<td>{{item.closinG_DATE}}</td> -->
+<td>{{item.acC_NO}}</td>
+
+
+                  <td>
+                    <div class="dropdown" ngbDropdown placement="bottom-right">
+                      <a href="javascript: void(0);" class="dropdown-toggle card-drop" data-toggle="dropdown"
+                        ngbDropdownToggle aria-expanded="false">
+                        <i class="mdi mdi-dots-horizontal font-size-18"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <li><a href="javascript: void(0);" class="dropdown-item" (click)="edit(item.primary_Id)"><i
+                              class="fas fa-pencil-alt text-success me-1"></i>
+                            Edit</a></li>
+                        <li><a href="javascript: void(0);" (click)="confirm(item.id)" class="dropdown-item"><i
+                              class="fas fa-trash-alt text-danger me-1"></i>
+                            Delete</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- pagination -->
+          <div class="row justify-content-md-between align-items-md-center mt-2">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+                {{startIndex}} to
+                {{endIndex}} of {{totalRecords}}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination [collectionSize]="total$ | async"  [maxSize]="7"[(page)]="page" [pageSize]="pageSize"
+                  (pageChange)="loadPage($event)">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div>
+
+<!-- Standard Modal -->
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Add TBL_FINANCE_BANK_MASTER</h5>
+    <button type="button" class="btn-close" aria-hidden="true" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="saveData()" [formGroup]="formData">
+      <div class="row">
+        <div class="col-12">
+          <div class='mb-3'>
+<label class='control-label'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submitted && form.ID.errors}"/><div *ngIf='submitted && form.ID.errors' class='invalid-feedback'> <span *ngIf='form.ID.errors.required'>ID is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_CODE' type='text' name='BRANCH_CODE' autocomplete='off'  formControlName='BRANCH_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_CODE.errors}"/><div *ngIf='submitted && form.BRANCH_CODE.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_CODE.errors.required'>BRANCH_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BRANCH_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BRANCH_NAME' type='text' name='BRANCH_NAME' autocomplete='off'  formControlName='BRANCH_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.BRANCH_NAME.errors}"/><div *ngIf='submitted && form.BRANCH_NAME.errors' class='invalid-feedback'> <span *ngIf='form.BRANCH_NAME.errors.required'>BRANCH_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BANK_CODE</label>
+<input uppercase class='form-control' placeholder='Enter BANK_CODE' type='text' name='BANK_CODE' autocomplete='off'  formControlName='BANK_CODE' [ngClass]=
+"{ 'is-invalid': submitted && form.BANK_CODE.errors}"/><div *ngIf='submitted && form.BANK_CODE.errors' class='invalid-feedback'> <span *ngIf='form.BANK_CODE.errors.required'>BANK_CODE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BANK</label>
+<input uppercase class='form-control' placeholder='Enter BANK' type='text' name='BANK' autocomplete='off'  formControlName='BANK' [ngClass]=
+"{ 'is-invalid': submitted && form.BANK.errors}"/><div *ngIf='submitted && form.BANK.errors' class='invalid-feedback'> <span *ngIf='form.BANK.errors.required'>BANK is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>PRINT_RPT</label>
+<input uppercase class='form-control' placeholder='Enter PRINT_RPT' type='text' name='PRINT_RPT' autocomplete='off'  formControlName='PRINT_RPT' [ngClass]=
+"{ 'is-invalid': submitted && form.PRINT_RPT.errors}"/><div *ngIf='submitted && form.PRINT_RPT.errors' class='invalid-feedback'> <span *ngIf='form.PRINT_RPT.errors.required'>PRINT_RPT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>BANK_NAME</label>
+<input uppercase class='form-control' placeholder='Enter BANK_NAME' type='text' name='BANK_NAME' autocomplete='off'  formControlName='BANK_NAME' [ngClass]=
+"{ 'is-invalid': submitted && form.BANK_NAME.errors}"/><div *ngIf='submitted && form.BANK_NAME.errors' class='invalid-feedback'> <span *ngIf='form.BANK_NAME.errors.required'>BANK_NAME is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>OD_LIMIT</label>
+<input uppercase class='form-control' placeholder='Enter OD_LIMIT' type='text' name='OD_LIMIT' autocomplete='off'  formControlName='OD_LIMIT' [ngClass]=
+"{ 'is-invalid': submitted && form.OD_LIMIT.errors}"/><div *ngIf='submitted && form.OD_LIMIT.errors' class='invalid-feedback'> <span *ngIf='form.OD_LIMIT.errors.required'>OD_LIMIT is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>AVERAGE_BAL</label>
+<input uppercase class='form-control' placeholder='Enter AVERAGE_BAL' type='text' name='AVERAGE_BAL' autocomplete='off'  formControlName='AVERAGE_BAL' [ngClass]=
+"{ 'is-invalid': submitted && form.AVERAGE_BAL.errors}"/><div *ngIf='submitted && form.AVERAGE_BAL.errors' class='invalid-feedback'> <span *ngIf='form.AVERAGE_BAL.errors.required'>AVERAGE_BAL is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>OPEN_DATE</label>
+<input uppercase class='form-control' placeholder='Enter OPEN_DATE' type='text' name='OPEN_DATE' autocomplete='off'  formControlName='OPEN_DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.OPEN_DATE.errors}"/><div *ngIf='submitted && form.OPEN_DATE.errors' class='invalid-feedback'> <span *ngIf='form.OPEN_DATE.errors.required'>OPEN_DATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>CLOSING_DATE</label>
+<input uppercase class='form-control' placeholder='Enter CLOSING_DATE' type='text' name='CLOSING_DATE' autocomplete='off'  formControlName='CLOSING_DATE' [ngClass]=
+"{ 'is-invalid': submitted && form.CLOSING_DATE.errors}"/><div *ngIf='submitted && form.CLOSING_DATE.errors' class='invalid-feedback'> <span *ngIf='form.CLOSING_DATE.errors.required'>CLOSING_DATE is required.</span> </div>
+</div>
+<div class='mb-3'>
+<label class='control-label'>ACC_NO</label>
+<input uppercase class='form-control' placeholder='Enter ACC_NO' type='text' name='ACC_NO' autocomplete='off'  formControlName='ACC_NO' [ngClass]=
+"{ 'is-invalid': submitted && form.ACC_NO.errors}"/><div *ngIf='submitted && form.ACC_NO.errors' class='invalid-feedback'> <span *ngIf='form.ACC_NO.errors.required'>ACC_NO is required.</span> </div>
+</div>
+
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" id="btn-save-event">
+        Save
+      </button>
+    </form>
+  </div>
+</ng-template>

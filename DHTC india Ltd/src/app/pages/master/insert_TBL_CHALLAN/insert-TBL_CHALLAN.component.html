@@ -1,0 +1,658 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_CHALLAN" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">CH No</span>
+                  </div>
+                  <input type="text" tabIndex="1" class="form-control" id="validationTooltipUsername"
+                    formControlName="CHNO" placeholder="" aria-describedby="validationTooltipUsernamePrepend"
+                    minlength="7" maxlength="7" [ngClass]="{'is-invalid': submit && form.CHNO.errors}">
+
+                  <div *ngIf="submit && form.CHNO.errors" class="invalid-feedback">
+                    <span *ngIf="form.CHNO.errors.required">Please choose a unique and valid username.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">DATE</span>
+                  </div>
+                  <input type="date" tabIndex="2" class="form-control" formControlName="DATE" placeholder=""
+                    minlength="7" maxlength="7" [ngClass]="{ 'is-invalid': submit && form.DATE.errors}" />
+                  <div *ngIf='submit && form.DATE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.DATE.errors.required'>DATE Name is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Lorry No</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="3" class="form-control" formControlName="LNO1" placeholder=""
+                    maxlength="15" [ngClass]="{ 'is-invalid': submit && form.LNO1.errors}" />
+                  <div *ngIf='submit && form.LNO1.errors' class='invalid-feedback'>
+                    <span *ngIf='form.LNO1.errors.required'>Lorry no is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Driver</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="4" class="form-control" formControlName="DRIVERID"
+                    placeholder="" minlength="6" maxlength="7"
+                    [ngClass]="{ 'is-invalid': submit && form.DRIVERID.errors}" />
+                  <div *ngIf='submit && form.DRIVERID.errors' class='invalid-feedback'>
+                    <span *ngIf='form.DRIVERID.errors.required'>DRIVER is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-2 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">From</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="5" class="form-control" formControlName="FROMSTATION"
+                    placeholder="" minlength="3" maxlength="3"
+                    [ngClass]="{ 'is-invalid': submit && form.FROMSTATION.errors}" />
+                  <div *ngIf='submit && form.FROMSTATION.errors' class='invalid-feedback'>
+                    <span *ngIf='form.FROMSTATION.errors.required'>FROMSTATION is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-2 position-relative">
+                <div class="input-group">
+
+                  <input type="text" uppercase tabIndex="6" class="form-control" formControlName="FROMSTATION_Name"
+                    placeholder="" minlength="3" maxlength="3"
+                    [ngClass]="{ 'is-invalid': submit && form.FROMSTATION_Name.errors}" />
+                  <div *ngIf='submit && form.FROMSTATION_Name.errors' class='invalid-feedback'>
+                    <span *ngIf='form.FROMSTATION_Name.errors.required'>FROMSTATION_Name is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class=''>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">From</span>
+                    </div>
+                    <ng-select tabIndex="7" [items]="['GARDEN','WARE HOUSE','OUR GODOWN','PARTY GODOWN']"
+                      placeholder="Select From" formControlName="LOADFROM"
+                      [ngClass]="{ 'is-invalid':  (submit || formData.get('LOADFROM').dirty || formData.get('LOADFROM').touched) && form.LOADFROM.errors}">
+                    </ng-select>
+                  </div>
+
+                  <div *ngIf='submit && form.LOADFROM.errors' class='invalid-feedback'>
+                    <span *ngIf='form.LOADFROM.errors.required'>LOAD FROM is required.</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="mb-3 col-sm-2 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Days</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="8" class="form-control" formControlName="TRANSITDAY"
+                    placeholder="" minlength="1" maxlength="2"
+                    [ngClass]="{ 'is-invalid': submit && form.TRANSITDAY.errors}" />
+                  <div *ngIf='submit && form.TRANSITDAY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.TRANSITDAY.errors.required'>TRANSIT DAY is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Dept. Date</span>
+                  </div>
+                  <input type="date" uppercase tabIndex="9" class="form-control" formControlName="DEPT_DATE"
+                    placeholder="" minlength="1" maxlength="2"
+                    [ngClass]="{ 'is-invalid': submit && form.DEPT_DATE.errors}" />
+                  <div *ngIf='submit && form.DEPT_DATE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.DEPT_DATE.errors.required'>DEPT DATE is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-0 col-sm-2 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">To</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="TOSTATION"
+                    placeholder="" minlength="3" maxlength="3"
+                    [ngClass]="{ 'is-invalid': submit && form.TOSTATION.errors}" />
+                  <div *ngIf='submit && form.TOSTATION.errors' class='invalid-feedback'>
+                    <span *ngIf='form.TOSTATION.errors.required'>TO STATION is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-0 col-sm-2 position-relative">
+                <div class="input-group">
+
+                  <input type="text" uppercase tabIndex="11" class="form-control" formControlName="TOSTATION_Name"
+                    placeholder="" minlength="3" maxlength="3"
+                    [ngClass]="{ 'is-invalid': submit && form.TOSTATION_Name.errors}" />
+                  <div *ngIf='submit && form.TOSTATION_Name.errors' class='invalid-feedback'>
+                    <span *ngIf='form.TOSTATION_Name.errors.required'>TO STATION is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-0 col-sm-4 position-relative">
+                <div class=''>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">UNLOAD AT</span>
+                    </div>
+                    <ng-select tabIndex="12" [items]="['GARDEN','WARE HOUSE','OUR GODOWN','PARTY GODOWN']"
+                      placeholder="Select From" formControlName="UNLOADAT"
+                      [ngClass]="{ 'is-invalid':  (submit || formData.get('UNLOADAT').dirty || formData.get('UNLOADAT').touched) && form.UNLOADAT.errors}">
+                    </ng-select>
+                  </div>
+
+                  <div *ngIf='submit && form.UNLOADAT.errors' class='invalid-feedback'>
+                    <span *ngIf='form.UNLOADAT.errors.required'>UNLOAD AT is required.</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="mb-0 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Panalty Days</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="13" class="form-control" formControlName="PENALITYDAY"
+                    placeholder="" minlength="1" maxlength="2"
+                    [ngClass]="{ 'is-invalid': submit && form.PENALITYDAY.errors}" />
+                  <div *ngIf='submit && form.PENALITYDAY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.PENALITYDAY.errors.required'>PENALITY DAY is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-0 col-sm-2 position-relative">
+
+              </div>
+
+              <div class="card mt-1">
+
+                <div class="">
+
+                  <div formArrayName="usersDetails">
+                    <p-table [value]="usersDetails.controls" [(selection)]="selectedUsers">
+                      <ng-template pTemplate="header">
+                        <tr>
+                          <th style="width: 3%">
+                          </th>
+                          <th style="width: 10%">
+                            Date
+                          </th>
+                          <th style="width:12%">Bilty</th>
+                          <th style="width:10%">Pkgs</th>
+                          <th style="width:10%">Loaded</th>
+                          <th style="width:10%">From</th>
+                          <th style="width:11%">To</th>
+                          <th style="width:10%">Item</th>
+                          <th style="width:12%">Bilty Wt</th>
+                          <th style="width:13%">Load Wt</th>
+                        </tr>
+                      </ng-template>
+                      <ng-template pTemplate="body" let-controls let-i="rowIndex">
+                        <tr [formGroupName]="i">
+                          <td>
+                            <p-tableCheckbox [value]="i+1"></p-tableCheckbox>
+                          </td>
+                          <td>
+                            <input type="date" formControlName="summery_date" class="form-control" />
+                          </td>
+                          <td><input type="text" formControlName="bilty" class="form-control" /></td>
+                          <td><input type="text" formControlName="pkgs" class="form-control" /></td>
+                          <td><input type="text" formControlName="loaded" class="form-control" /></td>
+                          <td><input type="text" formControlName="from" class="form-control" /></td>
+                          <td><input type="text" formControlName="to" class="form-control" /></td>
+                          <td><input type="text" formControlName="item" class="form-control" /></td>
+                          <td><input type="text" formControlName="bilty_wt" class="form-control" /></td>
+                          <td><input type="text" formControlName="loaded_wt" class="form-control" /></td>
+                        </tr>
+
+                      </ng-template>
+                    </p-table>
+                  </div>
+
+                  <div class="d-flex justify-content-end flex-wrap gap-2 mt-2">
+                    <button class="btn btn-primary mr-1" (click)="onAdd()">Add New Row</button>
+                    <button [disabled]="usersDetails.controls.length === 1" class="btn btn-primary mr-1"
+                      (click)="onDelete()">Delete
+                      Selected Row</button>
+
+                  </div>
+                </div>
+              </div>
+              <p-toast [style]="{marginTop: '80px'}"></p-toast>
+              <div>
+
+              </div>
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Challan Wt</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="CHALLANWT"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.CHALLANWT.errors}" />
+                  <div *ngIf='submit && form.CHALLANWT.errors' class='invalid-feedback'>
+                    <span *ngIf='form.CHALLANWT.errors.required'>CHALLAN WT is required.</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mb-3 col-sm-6 position-relative">
+
+              </div>
+
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">SEAL NO </span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="SEAL_NO"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.SEAL_NO.errors}" />
+                  <div *ngIf='submit && form.SEAL_NO.errors' class='invalid-feedback'>
+                    <span *ngIf='form.SEAL_NO.errors.required'>SEAL NO is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">CHALLAN PKG </span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="CHALLAN_PKG"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.CHALLAN_PKG.errors}" />
+                  <div *ngIf='submit && form.CHALLAN_PKG.errors' class='invalid-feedback'>
+                    <span *ngIf='form.CHALLAN_PKG.errors.required'>CHALLAN PKG is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-8 position-relative">
+
+              </div>
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">RATE SETTLED</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="RATE_SETTED"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.RATE_SETTED.errors}" />
+                  <div *ngIf='submit && form.RATE_SETTED.errors' class='invalid-feedback'>
+                    <span *ngIf='form.RATE_SETTED.errors.required'>RATE SETTEDis required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+
+                  </div>
+                  <textarea type="text" uppercase tabIndex="10" rows="2" class="form-control"
+                    formControlName="RATE_SETTED" placeholder="" maxlength="9"
+                    [ngClass]="{ 'is-invalid': submit && form.RATE_SETTED.errors}"></textarea>
+                  <div *ngIf='submit && form.RATE_SETTED.errors' class='invalid-feedback'>
+                    <span *ngIf='form.RATE_SETTED.errors.required'>RATE SETTEDis required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Hire</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="OTHER" placeholder=""
+                    maxlength="9" [ngClass]="{ 'is-invalid': submit && form.OTHER.errors}" />
+                  <div *ngIf='submit && form.OTHER.errors' class='invalid-feedback'>
+                    <span *ngIf='form.OTHER.errors.required'>OTHER is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-3 position-relative">
+
+              </div>
+
+              <div class="mb-3 col-sm-6 position-relative">
+                <div class=''>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">RATE TYPE</span>
+                    </div>
+                    <ng-select tabIndex="12" [items]="['FIXED','KG','M.TON','PACKAGE']" placeholder="Select RATE TYPE"
+                      formControlName="RATE_TYPE"
+                      [ngClass]="{ 'is-invalid':  (submit || formData.get('RATE_TYPE').dirty || formData.get('RATE_TYPE').touched) && form.RATE_TYPE.errors}">
+                    </ng-select>
+                  </div>
+
+                  <div *ngIf='submit && form.RATE_TYPE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.RATE_TYPE.errors.required'>RATE TYPE is required.</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">OTHER</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="OTHER" placeholder=""
+                    maxlength="9" [ngClass]="{ 'is-invalid': submit && form.OTHER.errors}" />
+                  <div *ngIf='submit && form.OTHER.errors' class='invalid-feedback'>
+                    <span *ngIf='form.OTHER.errors.required'>OTHER is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">ENTERED</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Gaurantee Wt</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class=''>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Shop pay</span>
+                    </div>
+                    <ng-select tabIndex="12" [items]="['YES','NO']" placeholder="Select" formControlName="RATE_TYPE"
+                      [ngClass]="{ 'is-invalid':  (submit || formData.get('RATE_TYPE').dirty || formData.get('RATE_TYPE').touched) && form.RATE_TYPE.errors}">
+                    </ng-select>
+                  </div>
+
+                  <div *ngIf='submit && form.RATE_TYPE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.RATE_TYPE.errors.required'>RATE TYPE is required.</span>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Total Hire</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+
+                  </div>
+                  <textarea type="text" uppercase tabIndex="10" rows="2" class="form-control"
+                    formControlName="RATE_SETTED" placeholder="" maxlength="9"
+                    [ngClass]="{ 'is-invalid': submit && form.RATE_SETTED.errors}"></textarea>
+                  <div *ngIf='submit && form.RATE_SETTED.errors' class='invalid-feedback'>
+                    <span *ngIf='form.RATE_SETTED.errors.required'>RATE SETTEDis required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Balance Branch</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Adv. Branch</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Less Advance</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-2 position-relative">
+
+              </div>
+
+
+              <div class="mb-3 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Broker Code</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Branch Hire</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-4 position-relative">
+
+              </div>
+              <div class="mb-3 col-sm-6 position-relative">
+                <div class=''>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">T.P</span>
+                    </div>
+                    <ng-select tabIndex="12" [items]="['YES','NO']" placeholder="Select" formControlName="RATE_TYPE"
+                      [ngClass]="{ 'is-invalid':  (submit || formData.get('RATE_TYPE').dirty || formData.get('RATE_TYPE').touched) && form.RATE_TYPE.errors}">
+                    </ng-select>
+                  </div>
+
+                  <div *ngIf='submit && form.RATE_TYPE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.RATE_TYPE.errors.required'>RATE TYPE is required.</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="mb-3 col-sm-6 position-relative">
+                <div class=''>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">O.E</span>
+                    </div>
+                    <ng-select tabIndex="12" [items]="['YES','NO']" placeholder="Select" formControlName="RATE_TYPE"
+                      [ngClass]="{ 'is-invalid':  (submit || formData.get('RATE_TYPE').dirty || formData.get('RATE_TYPE').touched) && form.RATE_TYPE.errors}">
+                    </ng-select>
+                  </div>
+
+                  <div *ngIf='submit && form.RATE_TYPE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.RATE_TYPE.errors.required'>RATE TYPE is required.</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="mb-3 col-sm-6 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Permit No</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">No of Tirpal</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 col-sm-3 position-relative">
+                <div class=''>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Shop pay</span>
+                    </div>
+                    <ng-select tabIndex="12" [items]="['NONE','AGENT','WAREHOUSE','RAIL','LOCAL CHALLAN']"
+                      placeholder="Select" formControlName="RATE_TYPE"
+                      [ngClass]="{ 'is-invalid':  (submit || formData.get('RATE_TYPE').dirty || formData.get('RATE_TYPE').touched) && form.RATE_TYPE.errors}">
+                    </ng-select>
+                  </div>
+
+                  <div *ngIf='submit && form.RATE_TYPE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.RATE_TYPE.errors.required'>RATE TYPE is required.</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="mb-3 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Eway Bill</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Driver Mobile</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 col-sm-4 position-relative">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"> Mobile 2</span>
+                  </div>
+                  <input type="text" uppercase tabIndex="10" class="form-control" formControlName="ENTRYBY"
+                    placeholder="" maxlength="9" [ngClass]="{ 'is-invalid': submit && form.ENTRYBY.errors}" />
+                  <div *ngIf='submit && form.ENTRYBY.errors' class='invalid-feedback'>
+                    <span *ngIf='form.ENTRYBY.errors.required'>ENTRYBY is required.</span>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

@@ -1,0 +1,100 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="TBL_DELIVERY_STATEMENT_ENTRY" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+       
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class='mb-3'>
+                  <label for='BRANCH_CODE'> Branch</label>
+                  <ng-select [items]="branchData" bindLabel="brancH_NAME" bindValue="brancH_CODE"
+                    placeholder="Select  Branch" formControlName="CODE"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('CODE').dirty || formData.get('CODE').touched) && form.CODE.errors}">
+                  </ng-select>
+                  <!-- <input uppercase class='form-control' placeholder='Enter From Branch ' type='text' name='FROM_BR_CODE' autocomplete='off'  formControlName='FROM_BR_CODE' [ngClass]=
+                      "{ 'is-invalid': submit && form.FROM_BR_CODE.errors}"/> -->
+                  <div *ngIf='submit && form.CODE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.CODE.errors.required'> Branch Code  is required.</span>
+                  </div>
+                </div>
+                <div class='mb-3'>
+                  <label for='DELIVERY_NO'>DELIVERY NO</label>
+                  <input uppercase class='form-control' placeholder='Enter DELIVERY NO' minlength="7" maxlength="7" type='text' name='DELIVERY_NO' autocomplete='off'  formControlName='DELIVERY_NO' [ngClass]=
+                  "{ 'is-invalid': submit && form.DELIVERY_NO.errors}"/><div *ngIf='submit && form.DELIVERY_NO.errors' class='invalid-feedback'>
+                   <span *ngIf='form.DELIVERY_NO.errors.required'>DELIVERY_NO Name is required.</span>
+                   </div>
+                   </div>
+
+                   <div class='mb-3'>
+                    <label for='D_Date'>Delivery Date</label>
+                    <input uppercase class='form-control' placeholder='Enter D_Date' type='date' name='D_Date' autocomplete='off'  formControlName='D_Date' [ngClass]=
+                    "{ 'is-invalid': submit && form.D_Date.errors}"/><div *ngIf='submit && form.D_Date.errors' class='invalid-feedback'>
+                     <span *ngIf='form.D_Date.errors.required'>D_Date Name is required.</span>
+                     </div>
+                     </div>
+
+
+
+              </div>
+              <div class="col-sm-4">
+                <div class='mb-3'>
+                  <label for='REMARKS'>REMARKS</label>
+                  <textarea class='form-control' rows="4" placeholder='Enter REMARKS' type='text' name='REMARKS' autocomplete='off'  formControlName='REMARKS' [ngClass]=
+                  "{ 'is-invalid': submit && form.REMARKS.errors}"></textarea><div *ngIf='submit && form.REMARKS.errors' class='invalid-feedback'>
+                   <span *ngIf='form.REMARKS.errors.required'>REMARKS Name is required.</span>
+                   </div>
+                   </div>
+                </div>
+              <div class="col-sm-4">
+               
+
+<div class='mb-3'>
+<label for='CNCL'>CNCL</label>
+<ng-select [items]="['YES','NO']" placeholder="Select " formControlName="CNCL" [ngClass]="{ 'is-invalid':  (submit || formData.get('CNCL').dirty || formData.get('CNCL').touched) && form.CNCL.errors}"
+></ng-select>
+<div *ngIf='submit && form.CNCL.errors' class='invalid-feedback'>
+ <span *ngIf='form.CNCL.errors.required'>CNCL Name is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='ENTRY_DATE'>ENTRY DATE</label>
+<input uppercase class='form-control' placeholder='Enter ENTRY_DATE' type='date' name='ENTRY_DATE' autocomplete='off'  formControlName='ENTRY_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.ENTRY_DATE.errors}"/><div *ngIf='submit && form.ENTRY_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTRY_DATE.errors.required'>ENTRY DATE  is required.</span>
+ </div>
+ </div>
+<div class='mb-3'>
+<label for='BILTYNO'>BILTY NO</label>
+<input uppercase class='form-control' minlength="7" maxlength="7" placeholder='Enter BILTYNO' type='text' name='BILTYNO' autocomplete='off'  formControlName='BILTYNO' [ngClass]=
+"{ 'is-invalid': submit && form.BILTYNO.errors}"/><div *ngIf='submit && form.BILTYNO.errors' class='invalid-feedback'>
+ <span *ngIf='form.BILTYNO.errors.required'>BILTYNO Name is required.</span>
+ </div>
+ </div>
+
+
+              </div>
+            </div>
+           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

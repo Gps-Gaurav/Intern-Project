@@ -1,0 +1,117 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="ITEM MASTER" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- <h4 class="card-title">Basic Information</h4>
+          <p class="card-title-desc">Fill all information below</p> -->
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              <!-- <div class='mb-3'>
+<label for='ID'>ID</label>
+<input uppercase class='form-control' placeholder='Enter ID' type='text' name='ID' autocomplete='off'  formControlName='ID' [ngClass]=
+"{ 'is-invalid': submit && form.ID.errors}"/><div *ngIf='submit && form.ID.errors' class='invalid-feedback'>
+ <span *ngIf='form.ID.errors.required'>ID Name is required.</span>
+ </div>
+ </div> -->
+ <div class='mb-3'>
+  <label for='ITEM_CODE'>Item Code</label>
+  <input uppercase class='form-control' #myinput maxlength="3" placeholder='Enter Item Code' type='text' name='ITEM_CODE' autocomplete='off'  formControlName='ITEM_CODE' [ngClass]=
+  "{'is-invalid': (submit || formData.get('ITEM_CODE').dirty || formData.get('ITEM_CODE').touched) && form.ITEM_CODE.errors}"/><div *ngIf="(submit || formData.get('ITEM_CODE').dirty || formData.get('ITEM_CODE').touched) && form.ITEM_CODE.errors" class='invalid-feedback'>
+   <span *ngIf='form.ITEM_CODE.errors.required'>Item Code is required.</span>
+   </div>
+   </div>
+<div class='mb-3'>
+<label for='ITEM_NAME'>Item Name </label>
+<input uppercase class='form-control' placeholder='Enter Item Name ' type='text' name='ITEM_NAME' autocomplete='off'  formControlName='ITEM_NAME' [ngClass]=
+"{ 'is-invalid': submit && form.ITEM_NAME.errors}"/><div *ngIf='submit && form.ITEM_NAME.errors' class='invalid-feedback'>
+ <span *ngIf='form.ITEM_NAME.errors.required'>Item Name is required.</span>
+ </div>
+ </div>
+ <div class='mb-3'>
+  <label for='ITEM_MODE'>Item Mode </label>
+  <ng-select [items]="['Per Kg','per Package','Full Truck Load','Per Metric Tonn','Per Kilometer']" placeholder="Select Item Mode" formControlName="ITEM_MODE" [ngClass]="{ 'is-invalid':  (submit || formData.get('ITEM_MODE').dirty || formData.get('ITEM_MODE').touched) && form.ITEM_MODE.errors}"
+  ></ng-select>
+ <div *ngIf='submit && form.ITEM_MODE.errors' class='invalid-feedback'>
+   <span *ngIf='form.ITEM_MODE.errors.required'>Item Mode is required.</span>
+   </div>
+   </div>
+
+<!-- <div class='mb-3'>
+<label for='ENTRY_BY'>ENTRY_BY</label>
+<input uppercase class='form-control' placeholder='Enter ENTRY_BY' type='text' name='ENTRY_BY' autocomplete='off'  formControlName='ENTRY_BY' [ngClass]=
+"{ 'is-invalid': submit && form.ENTRY_BY.errors}"/><div *ngIf='submit && form.ENTRY_BY.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTRY_BY.errors.required'>ENTRY_BY Name is required.</span>
+ </div>
+ </div> -->
+
+              </div>
+
+              <div class="col-sm-6">
+                 
+                <div class='mb-3'>
+                  <label for='ITEM_GROUP'>Item Group</label>
+                  <ng-select [items]="stateData" placeholder="Select Item Group"  bindLabel="itemgroupname" 
+                  bindValue="itemgroupcode"  formControlName="ITEM_GROUP" [ngClass]="{ 'is-invalid': submit && form.ITEM_GROUP.errors}"
+                  ></ng-select> 
+                  
+                  <div *ngIf='submit && form.ITEM_GROUP.errors' class='invalid-feedback'>
+                   <span *ngIf='form.ITEM_GROUP.errors.required'>Item Group is required.</span>
+                   </div>
+                   </div>
+                  <!-- <div class='mb-3'>
+                  <label for='IS_EXEMPT'>GST Exempt</label>
+                  <input uppercase class='form-control' placeholder='Enter GST Exempt' type='text' name='IS_EXEMPT' autocomplete='off'  formControlName='IS_EXEMPT' [ngClass]=
+                  "{ 'is-invalid': submit && form.IS_EXEMPT.errors}"/><div *ngIf='submit && form.IS_EXEMPT.errors' class='invalid-feedback'>
+                   <span *ngIf='form.IS_EXEMPT.errors.required'>GST Exempt Name is required.</span>
+                   </div>
+                   </div> -->
+
+                   <div class='mb-3'>
+                    <label for='IS_EXEMPT'>GST Exempt</label>
+                    <ng-select [items]="['Yes','No']" placeholder="GST Exempt" formControlName="IS_EXEMPT" [ngClass]="{ 'is-invalid': (submit || formData.get('IS_EXEMPT').dirty || formData.get('IS_EXEMPT').touched) && form.IS_EXEMPT.errors}"
+                    ></ng-select>                  
+                    <div *ngIf="(submit || formData.get('IS_EXEMPT').dirty || formData.get('IS_EXEMPT').touched) && form.IS_EXEMPT.errors" class='invalid-feedback'>
+                      <span *ngIf='form.IS_EXEMPT.errors.required'>GST Exempt is required.</span>
+                    </div>
+                  </div>
+
+<!-- <div class='mb-3'>
+<label for='COSTING_RATIO'>COSTING_RATIO</label>
+<input uppercase class='form-control' placeholder='Enter COSTING_RATIO' type='text' name='COSTING_RATIO' autocomplete='off'  formControlName='COSTING_RATIO' [ngClass]=
+"{ 'is-invalid': submit && form.COSTING_RATIO.errors}"/><div *ngIf='submit && form.COSTING_RATIO.errors' class='invalid-feedback'>
+ <span *ngIf='form.COSTING_RATIO.errors.required'>COSTING_RATIO Name is required.</span>
+ </div>
+ </div> -->
+<!-- <div class='mb-3'>
+<label for='ENTRY_DATE'>ENTRY_DATE</label>
+<input uppercase class='form-control' placeholder='Enter ENTRY_DATE' type='text' name='ENTRY_DATE' autocomplete='off'  formControlName='ENTRY_DATE' [ngClass]=
+"{ 'is-invalid': submit && form.ENTRY_DATE.errors}"/><div *ngIf='submit && form.ENTRY_DATE.errors' class='invalid-feedback'>
+ <span *ngIf='form.ENTRY_DATE.errors.required'>ENTRY_DATE Name is required.</span>
+ </div>
+ </div> -->
+
+              </div>
+            </div>           
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary"   >Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

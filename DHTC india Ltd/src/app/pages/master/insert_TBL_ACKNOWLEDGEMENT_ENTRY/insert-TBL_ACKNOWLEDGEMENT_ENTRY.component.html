@@ -1,0 +1,99 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="ACKNOWLEDGEMENT ENTRY" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+
+          <form [formGroup]="formData" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class='mb-3'>
+                  <label for='LETTER_NO'>LETTER NO</label>
+                  <input uppercase class='form-control' placeholder='Enter LETTER NO' minlength="7" maxlength="7" type='text'
+                    name='LETTER_NO' autocomplete='off' formControlName='LETTER_NO'
+                    [ngClass]="{ 'is-invalid': submit && form.LETTER_NO.errors}" />
+                  <div *ngIf='submit && form.LETTER_NO.errors' class='invalid-feedback'>
+                    <span *ngIf='form.LETTER_NO.errors.required'>LETTER NO Name is required.</span>
+                  </div>
+                </div>
+
+
+                <div class='mb-3'>
+                  <label for='FROM_BR_CODE'>From Branch</label>
+                  <ng-select [items]="branchData" bindLabel="brancH_NAME" bindValue="brancH_CODE"
+                    placeholder="Select From Branch" formControlName="FROM_BRANCH_CODE"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('FROM_BRANCH_CODE').dirty || formData.get('FROM_BRANCH_CODE').touched) && form.FROM_BRANCH_CODE.errors}">
+                  </ng-select>
+                  <!-- <input uppercase class='form-control' placeholder='Enter From Branch ' type='text' name='FROM_BR_CODE' autocomplete='off'  formControlName='FROM_BR_CODE' [ngClass]=
+                      "{ 'is-invalid': submit && form.FROM_BR_CODE.errors}"/> -->
+                  <div *ngIf='submit && form.FROM_BRANCH_CODE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.FROM_BRANCH_CODE.errors.required'>From Branch Code Name is required.</span>
+                  </div>
+                </div>
+
+
+
+                <div class='mb-3'>
+                  <label for='TO_BR_CODE'>To Branch</label>
+                  <ng-select [items]="branchData" bindLabel="brancH_NAME" bindValue="brancH_CODE"
+                    placeholder="Select To Branch" formControlName="TO_BRANCH_CODE"
+                    [ngClass]="{ 'is-invalid': (submit || formData.get('TO_BRANCH_CODE').dirty || formData.get('TO_BRANCH_CODE').touched) && form.TO_BRANCH_CODE.errors}">
+                  </ng-select>
+                  <!-- <input uppercase class='form-control' placeholder='Enter To Branch' type='text' name='TO_BR_CODE' autocomplete='off'  formControlName='TO_BR_CODE' [ngClass]=
+                      "{ 'is-invalid': submit && form.TO_BR_CODE.errors}"/> -->
+                  <div *ngIf='submit && form.TO_BRANCH_CODE.errors' class='invalid-feedback'>
+                    <span *ngIf='form.TO_BRANCH_CODE.errors.required'>To Branch Name is required.</span>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+              <div class="col-sm-6">
+
+                <div class='mb-3'>
+                  <label for='LETTER_Date'>ACK. LETTER DATE</label>
+                  <input uppercase class='form-control' [max]="getToday()" placeholder='Enter LETTER_Date' type='date' name='LETTER_Date'
+                    autocomplete='off' formControlName='LETTER_Date'
+                    [ngClass]="{ 'is-invalid': submit && form.LETTER_Date.errors}" />
+                  <div *ngIf='submit && form.LETTER_Date.errors' class='invalid-feedback'>
+                    <span *ngIf='form.LETTER_Date.errors.required'>LETTER Date  is required.</span>
+                  </div>
+                </div>
+
+
+                <div class='mb-3'>
+                  <label for='RECD_Date'>ACK. RECD. DATE </label>
+                  <input uppercase [max]="getToday()" class='form-control' placeholder='Enter RECD_Date' type='date' name='RECD_Date'
+                    autocomplete='off' formControlName='RECD_Date'
+                    [ngClass]="{ 'is-invalid': submit && form.RECD_Date.errors}" />
+                  <div *ngIf='submit && form.RECD_Date.errors' class='invalid-feedback'>
+                    <span *ngIf='form.RECD_Date.errors.required'>RECD Date  is required.</span>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->
