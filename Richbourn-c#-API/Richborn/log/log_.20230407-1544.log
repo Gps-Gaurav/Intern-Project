@@ -1,0 +1,308 @@
+2023-04-07 15:44:15,502 [77] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllData  
+2023-04-07 15:44:15,502 [79] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllData  
+2023-04-07 15:44:15,504 [86] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllFilterData  
+2023-04-07 15:44:15,504 [77] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:15,504 [79] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:15,504 [86] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:15,504 [75] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllData  
+2023-04-07 15:44:15,506 [77] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 4.3796ms 204 
+2023-04-07 15:44:15,506 [75] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:15,506 [79] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 3.939ms 204 
+2023-04-07 15:44:15,506 [86] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 2.5664ms 204 
+2023-04-07 15:44:15,506 [75] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 2.2099ms 204 
+2023-04-07 15:44:15,513 [75] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 98
+2023-04-07 15:44:15,513 [79] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 89
+2023-04-07 15:44:15,513 [75] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:15,513 [79] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:15,514 [75] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:15,514 [79] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:15,514 [75] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:15,514 [79] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:15,514 [79] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:15,515 [75] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:15,515 [77] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllFilterData application/json 97
+2023-04-07 15:44:15,515 [86] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 79
+2023-04-07 15:44:15,515 [86] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:15,515 [77] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:15,516 [86] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:15,516 [77] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:15,516 [86] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:15,516 [77] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:15,516 [86] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:15,516 [77] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllFilterData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllFilterData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:15,786 [75] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:15,786 [79] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:15,787 [79] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 272.1092ms
+2023-04-07 15:44:15,787 [75] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 272.0638ms
+2023-04-07 15:44:15,787 [79] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 273.7657ms 200 application/json; charset=utf-8
+2023-04-07 15:44:15,787 [75] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 273.9285ms 200 application/json; charset=utf-8
+2023-04-07 15:44:15,957 [75] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:15,957 [75] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllFilterData (Richborn) in 441.2232ms
+2023-04-07 15:44:15,958 [75] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 442.6756ms 200 application/json; charset=utf-8
+2023-04-07 15:44:16,854 [75] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:16,854 [75] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 1337.9976ms
+2023-04-07 15:44:16,854 [75] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 1339.4251ms 200 application/json; charset=utf-8
+2023-04-07 15:44:18,111 [68] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllFilterData application/json 111
+2023-04-07 15:44:18,111 [68] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:18,111 [68] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:18,112 [68] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:18,112 [68] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllFilterData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllFilterData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:18,294 [68] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:18,294 [68] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllFilterData (Richborn) in 182.2934ms
+2023-04-07 15:44:18,294 [68] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 183.6623ms 200 application/json; charset=utf-8
+2023-04-07 15:44:21,063 [68] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllData  
+2023-04-07 15:44:21,063 [68] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:21,063 [68] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 0.3834ms 204 
+2023-04-07 15:44:21,072 [68] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 85
+2023-04-07 15:44:21,072 [68] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:21,073 [68] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:21,073 [68] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:21,073 [68] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:21,217 [73] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:21,217 [73] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 143.2993ms
+2023-04-07 15:44:21,217 [73] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 144.8666ms 200 application/json; charset=utf-8
+2023-04-07 15:44:42,256 [73] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/InsertData  
+2023-04-07 15:44:42,256 [73] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:42,256 [73] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 0.5449ms 204 
+2023-04-07 15:44:42,260 [73] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/InsertData application/json 1429
+2023-04-07 15:44:42,260 [73] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:42,260 [73] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:42,260 [73] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:42,261 [73] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "InsertData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] InsertData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:42,734 [73] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.APIResponse'.
+2023-04-07 15:44:42,734 [73] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.InsertData (Richborn) in 473.7463ms
+2023-04-07 15:44:42,735 [73] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 474.8235ms 200 application/json; charset=utf-8
+2023-04-07 15:44:43,285 [67] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllData  
+2023-04-07 15:44:43,285 [67] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:43,286 [67] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 0.4979ms 204 
+2023-04-07 15:44:43,291 [67] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 80
+2023-04-07 15:44:43,292 [67] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:43,292 [67] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:43,293 [67] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:43,294 [67] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:45,888 [67] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:45,888 [67] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 2594.3675ms
+2023-04-07 15:44:45,888 [67] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 2596.8042ms 200 application/json; charset=utf-8
+2023-04-07 15:44:50,032 [67] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllData  
+2023-04-07 15:44:50,032 [70] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllData  
+2023-04-07 15:44:50,032 [67] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:50,032 [70] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:50,033 [78] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllFilterData  
+2023-04-07 15:44:50,033 [78] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:50,033 [70] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 0.7658ms 204 
+2023-04-07 15:44:50,033 [72] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllData  
+2023-04-07 15:44:50,033 [73] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllData  
+2023-04-07 15:44:50,033 [78] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 0.3491ms 204 
+2023-04-07 15:44:50,033 [73] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:50,033 [72] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:50,033 [67] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 0.9488ms 204 
+2023-04-07 15:44:50,033 [73] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 0.2116ms 204 
+2023-04-07 15:44:50,033 [72] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 0.2873ms 204 
+2023-04-07 15:44:50,045 [59] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 89
+2023-04-07 15:44:50,045 [59] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:50,046 [72] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllFilterData application/json 97
+2023-04-07 15:44:50,046 [72] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:50,046 [73] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 98
+2023-04-07 15:44:50,047 [73] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:50,047 [72] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:50,047 [59] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:50,047 [73] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:50,047 [72] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:50,047 [59] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:50,047 [73] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:50,047 [67] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 85
+2023-04-07 15:44:50,048 [72] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllFilterData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllFilterData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:50,048 [67] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:50,048 [59] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:50,048 [73] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:50,048 [67] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:50,048 [66] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 79
+2023-04-07 15:44:50,049 [67] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:50,049 [66] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:50,049 [67] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:50,049 [66] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:50,050 [66] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:50,050 [66] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:50,386 [72] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:50,386 [70] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:50,386 [78] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:50,387 [72] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 339.0069ms
+2023-04-07 15:44:50,387 [70] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllFilterData (Richborn) in 339.2352ms
+2023-04-07 15:44:50,387 [72] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 342.0481ms 200 application/json; charset=utf-8
+2023-04-07 15:44:50,387 [78] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 339.1506ms
+2023-04-07 15:44:50,387 [78] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 340.5624ms 200 application/json; charset=utf-8
+2023-04-07 15:44:50,387 [70] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 340.9283ms 200 application/json; charset=utf-8
+2023-04-07 15:44:50,745 [62] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:50,746 [62] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 695.6144ms
+2023-04-07 15:44:50,746 [62] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 697.4679ms 200 application/json; charset=utf-8
+2023-04-07 15:44:51,463 [63] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:51,463 [63] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 1414.5501ms
+2023-04-07 15:44:51,464 [63] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 1416.1844ms 200 application/json; charset=utf-8
+2023-04-07 15:44:55,854 [78] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllData  
+2023-04-07 15:44:55,854 [78] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:55,854 [78] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 0.4112ms 204 
+2023-04-07 15:44:55,862 [78] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 32
+2023-04-07 15:44:55,863 [78] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:55,864 [78] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:55,864 [78] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:55,864 [78] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:56,147 [78] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:56,147 [78] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 282.3086ms
+2023-04-07 15:44:56,147 [78] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 284.6298ms 200 application/json; charset=utf-8
+2023-04-07 15:44:56,761 [64] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 98
+2023-04-07 15:44:56,761 [64] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:56,762 [78] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 89
+2023-04-07 15:44:56,763 [64] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:56,763 [78] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:56,763 [63] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllFilterData  
+2023-04-07 15:44:56,763 [64] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:56,764 [62] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 79
+2023-04-07 15:44:56,763 [63] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:56,764 [62] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:56,764 [78] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:56,764 [64] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:56,764 [63] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 1.0966ms 204 
+2023-04-07 15:44:56,764 [78] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:56,764 [63] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 85
+2023-04-07 15:44:56,764 [63] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:56,765 [78] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:56,765 [62] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:56,765 [63] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:56,765 [62] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:56,766 [63] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:56,766 [62] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:56,766 [63] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:56,768 [62] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllFilterData application/json 97
+2023-04-07 15:44:56,769 [62] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 15:44:56,769 [62] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 15:44:56,769 [62] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 15:44:56,770 [62] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllFilterData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllFilterData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).
+2023-04-07 15:44:57,048 [67] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:57,048 [63] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:57,048 [70] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:57,048 [78] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:57,049 [70] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 282.6258ms
+2023-04-07 15:44:57,049 [63] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 284.5925ms
+2023-04-07 15:44:57,049 [67] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 282.6817ms
+2023-04-07 15:44:57,049 [78] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllData (Richborn) in 283.9629ms
+2023-04-07 15:44:57,049 [63] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 287.9469ms 200 application/json; charset=utf-8
+2023-04-07 15:44:57,049 [78] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 286.2949ms 200 application/json; charset=utf-8
+2023-04-07 15:44:57,049 [70] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 284.4286ms 200 application/json; charset=utf-8
+2023-04-07 15:44:57,049 [67] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 285.1739ms 200 application/json; charset=utf-8
+2023-04-07 15:44:57,943 [67] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Utility.ResponseData`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-07 15:44:57,943 [67] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.DataController.GetAllFilterData (Richborn) in 1173.2918ms
+2023-04-07 15:44:57,943 [67] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 1174.7632ms 200 application/json; charset=utf-8

@@ -1,0 +1,25 @@
+2023-04-07 13:10:14,373 [1] INFO  Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\gaura\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-07 13:10:14,499 [11] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 GET https://localhost:44376/swagger  
+2023-04-07 13:10:14,564 [11] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 65.3521ms 302 
+2023-04-07 13:10:14,594 [12] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 GET https://localhost:44376/swagger/index.html  
+2023-04-07 13:10:15,376 [6] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 781.4486ms 200 text/html; charset=utf-8
+2023-04-07 13:10:15,387 [12] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 GET https://localhost:44376/_framework/aspnetcore-browser-refresh.js  
+2023-04-07 13:10:15,392 [12] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 5.1153ms 200 application/javascript; charset=utf-8
+2023-04-07 13:10:15,466 [10] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 GET https://localhost:44376/_vs/browserLink  
+2023-04-07 13:10:15,513 [7] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 47.731ms 200 text/javascript; charset=UTF-8
+2023-04-07 13:10:15,644 [9] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 GET https://localhost:44376/swagger/v1/swagger.json  
+2023-04-07 13:10:16,246 [9] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 601.7934ms 200 application/json; charset=utf-8
+2023-04-07 13:10:57,054 [5] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 OPTIONS https://localhost:44376/v1/api/Data/GetAllData  
+2023-04-07 13:10:57,061 [5] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 13:10:57,063 [5] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 9.5556ms 204 
+2023-04-07 13:10:57,068 [5] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 POST https://localhost:44376/v1/api/Data/GetAllData application/json 80
+2023-04-07 13:10:57,068 [5] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 13:10:57,204 [5] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 13:10:57,208 [5] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 13:10:57,253 [5] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GetAllData", controller = "Data"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAllData(Utility.SearchModel) on controller Richborn.Controllers.DataController (Richborn).

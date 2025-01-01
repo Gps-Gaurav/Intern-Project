@@ -1,0 +1,17 @@
+2023-04-07 11:29:05,326 [26] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.FileStreamResultExecutor - Executing Microsoft.AspNetCore.Mvc.FileStreamResult, sending file with download name 'testeReport.pdf' ...
+2023-04-07 11:29:05,337 [26] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.ReportController.SaleReport (Richborn) in 5571.8003ms
+2023-04-07 11:29:05,345 [31] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2.0 GET https://localhost:44376/v1/api/Report/SaleReport?id=14307  
+2023-04-07 11:29:05,348 [26] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 5615.2943ms 200 application/pdf
+2023-04-07 11:29:05,357 [31] INFO  Microsoft.AspNetCore.Cors.Infrastructure.CorsService - CORS policy execution successful.
+2023-04-07 11:29:05,364 [31] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-04-07 11:29:05,372 [31] INFO  Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler - Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.
+2023-04-07 11:29:05,379 [31] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "SaleReport", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] SaleReport(Int32) on controller Richborn.Controllers.ReportController (Richborn).
+2023-04-07 11:29:06,016 [31] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.FileStreamResultExecutor - Executing Microsoft.AspNetCore.Mvc.FileStreamResult, sending file with download name 'testeReport.pdf' ...
+2023-04-07 11:29:06,023 [31] INFO  Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action Richborn.Controllers.ReportController.SaleReport (Richborn) in 638.5213ms
+2023-04-07 11:29:06,028 [31] INFO  Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 686.6313ms 200 application/pdf
