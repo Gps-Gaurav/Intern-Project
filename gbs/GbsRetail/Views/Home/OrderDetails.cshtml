@@ -1,0 +1,258 @@
+﻿@model Utility.ResultModel.PosInvoiceModel
+
+<!-- BREADCRUMB AREA START -->
+<div class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image" data-bg="img/bg/9.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ltn__breadcrumb-inner ltn__breadcrumb-inner-2 justify-content-between">
+                    <div class="section-title-area ltn__section-title-2">
+                        <h6 class="section-subtitle ltn__secondary-color">//  Welcome to our company</h6>
+                        <h1 class="section-title white-color">My Account</h1>
+                    </div>
+                    <div class="ltn__breadcrumb-list">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li>My Account</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMB AREA END -->
+@{
+    var company_name = ""; var company_mobile = ""; var company_phone = ""; var company_email = ""; var company_country = ""; var company_state = "";
+    var company_city = ""; var company_address = ""; var company_postcode = ""; var company_gst_no = "";
+    if (Model.company.Count > 0)
+    {
+        var com = Model.company.FirstOrDefault();
+        company_name = com.company_name;
+        company_mobile = com.mobile;
+        company_phone = com.phone;
+        company_email = com.email;
+        company_country = com.country;
+        company_state = com.state;
+        company_city = com.city;
+        company_postcode = com.postcode;
+        company_address = com.address;
+        company_gst_no = com.gstin;
+    }
+
+
+    var customer_name = ""; var customer_mobile = ""; var customer_phone = ""; var customer_email = ""; var customer_country = "";
+    var customer_state = ""; var customer_address = ""; var customer_postcode = ""; var customer_gst_no = ""; var customer_tax_number = "";
+    var customer_opening_balance = 0; var sales_date = ""; var reference_no = ""; var created_time = ""; var sales_code = ""; var sales_note = "";
+    var seller_name = ""; decimal subtotal = 0; decimal grand_total = 0; decimal other_charges_input = 0; var other_charges_tax_id = 0;
+    decimal other_charges_amt = 0; decimal paid_amount = 0; decimal discount_to_all_input = 0; decimal discount_to_all_type = 0;
+    decimal tot_discount_to_all_amt = 0; decimal round_off = 0; var payment_status = "";
+    var customer_city = ""; var sales_status = "";
+
+    if (Model.customer != null && Model.customer.Count > 0)
+    {
+        var c = Model.customer.FirstOrDefault();
+        customer_name = c.customer_name; customer_email = c.email;
+        customer_mobile = c.mobile; customer_tax_number = c.tax_number; sales_note = c.sales_note;
+        customer_phone = c.phone; customer_opening_balance = c.opening_balance;
+        customer_country = Model.country.FirstOrDefault().country; sales_date = c.sales_date; sales_code = c.sales_code;
+        customer_state = Model.state.FirstOrDefault(m => m.Id == c.state_id) == null ? "" : Model.state.FirstOrDefault(m => m.Id == c.state_id).state; created_time = c.created_time; seller_name = c.created_by;
+        customer_address = c.address; subtotal = c.subtotal; grand_total = c.grand_total;
+        customer_postcode = c.postcode;
+        customer_gst_no = c.gstin;
+        sales_status = c.sales_status;
+
+    }
+}
+
+<div class="liton__wishlist-area pb-70">
+    <div class="container">
+        <div class="row">
+
+             <div class="printableArea">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="page-header">
+                    <i class="fa fa-globe"></i>  Order Details
+                    <small class="pull-right">@sales_date</small>
+                </h2>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- info row -->
+        <div class="row invoice-info">
+           
+            <!-- /.col -->
+            <div class="col-sm-6 invoice-col">
+                <i>Customer Details<br></i>
+                <address>
+                    <strong>@customer_name</strong><br>
+
+                    @if (!string.IsNullOrEmpty(customer_address))
+                    {
+                        @customer_address
+                        ;
+                    },
+                    @if (!string.IsNullOrEmpty(customer_city))
+                    {
+                        @customer_city
+                        ;
+                    }
+                    @if (!string.IsNullOrEmpty(customer_state))
+                    {
+                        @customer_state
+                        ;
+                    },
+                    @if (!string.IsNullOrEmpty(customer_country))
+                    {
+                        @customer_country
+                        ;
+                    }
+
+                    -
+                    @if (!string.IsNullOrEmpty(customer_postcode))
+                    {
+                        @customer_postcode
+                        ;
+                    }
+
+                    <br>
+                    Mobile: @customer_mobile<br>
+                    @*<?php echo (!empty(trim($customer_phone))) ? $this->lang->line('phone').": ".$customer_phone."<br>" : '';?>*@
+                    Email: @customer_email<br>
+                    @* <?php echo (!empty(trim($customer_gst_no))) ? $this->lang->line('gst_number').": ".$customer_gst_no."<br>" : '';?>*@
+                    @* <?php echo (!empty(trim($customer_tax_number))) ? $this->lang->line('tax_number').": ".$customer_tax_number."<br>" : '';?>*@
+                </address>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-6 invoice-col">
+                <b>Order Id  #@sales_code</b><br>
+                <b>Order Status :@sales_status</b><br>
+                
+
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <!-- Table row -->
+        <div class="row">
+            <div class="col-xs-12 table-responsive">
+                <table class="table table-striped records_table table-bordered">
+                    <thead class="bg-gray-active">
+                        <tr>
+                            <th>#</th>
+                            <th>Item Name</th>
+                            <th>Unit Price</th>
+                            <th>Quantity</th>
+                            <th>Net Cost	</th>
+                           
+                            <th>Discount</th>
+                            <th>Discount Amount</th>
+                            <th>Unit Cost</th>
+                            <th>Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.sale_items.Select((value, i) => new { i, value }))
+                        {
+                            <tr>
+
+                                <td>@(item.i+1)</td>
+
+                                <td>
+                                    @item.value.item_name
+
+                                </td>
+
+                                <td class='text-right'>@item.value.price_per_unit</td>
+
+                                <td>@item.value.sales_qty</td>
+
+                                <td class='text-right'>@(item.value.price_per_unit* item.value.sales_qty)</td>
+
+
+                              
+
+                                <td class='text-right'>@*".$discount."*@</td>
+
+                                <td class='text-right'>@*".$CI->currency($discount_amt)."*@</td>
+
+                                <td class='text-right'>@item.value.total_cost</td>
+
+                                <td class='text-right'>@item.value.total_cost</td>
+
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                    <tfoot class="text-right text-bold bg-gray">
+                        <tr>
+                            <td colspan="2" class="text-center">Total</td>
+                            <td>@Model.sale_items.Sum(m => m.price_per_unit)</td>
+                            <td class="text-left"><?=$tot_qty;?></td>
+                           
+                          
+                            <td>@Model.sale_items.Sum(m => m.discount_amt)</td>
+                            <td>-</td>
+                            <td>@Model.sale_items.Sum(m => m.discount_amt)</td>
+                            <td>-</td>
+                            <td>@Model.sale_items.Sum(m => m.total_cost)</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-6">
+              
+               
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                            <table class="col-md-11">
+                                <tr>
+                                    <th class="text-right" style="font-size: 17px;">Subtotal</th>
+                                    <th class="text-right" style="padding-left:10%;font-size: 17px;">
+                                        <h4><b id="subtotal_amt" name="subtotal_amt">@subtotal</b></h4>
+                                    </th>
+                                </tr>
+                            
+                                <tr>
+                                    <th class="text-right" style="font-size: 17px;"> Grand Total </th>
+                                    <th class="text-right" style="padding-left:10%;font-size: 17px;">
+                                        <h4><b id="total_amt" name="total_amt">@grand_total</b></h4>
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+    </div><!-- printableArea -->
+    <!-- this row will not appear when printing -->
+   
+        </div>
+    </div>
+</div>
+<!-- Main content -->
+<section class="invoice">
+    <!-- title row -->
+   
+
+</section>
+<!-- /.content -->
+\

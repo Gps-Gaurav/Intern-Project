@@ -1,0 +1,33 @@
+﻿@{
+
+    var settings = (PageSettingsModel)ViewBag.page;
+    var slider = (List<SliderModel>)ViewBag.slider;
+    var brands = (List<BrandModel>)ViewBag.brand;
+    var brand_items = (List<BrandItemViewModel>)ViewBag.branditem;
+    var featureitem = slider.Where(m => m.type != null && m.type.Equals("feature")).ToList();
+    var review = (List<ReviewModel>)ViewBag.review;
+    var blog = (List<BlogModel>)ViewBag.blog;
+}
+@using Utility.ResultModel;
+<section class="ps-section--banner">
+    <div class="">
+        <div class="ps-section__loading"></div>
+    </div>
+    <div class="owl-carousel" data-owl-auto="false" data-owl-loop="true" data-owl-speed="15000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+       @foreach (var item in slider.Where(m => m.type != null && m.type.Equals("desktop-slider")))
+        {
+        
+        <div class="ps-banner" style="background:#BABABA;">
+            <div class="ps-banner__thumnail">
+                <img src="@item.image" alt="alt" />
+            </div>
+            <div class="ps-banner__content">
+                <div class="container">
+                    <h2 class="ps-banner__title text-white">@item.text</h2>
+                    <div class="ps-banner__desc text-white">New collections!</div><a class="ps-btn ps-btn--rounded ps-btn--danger" href="shop-list.html">Shop now </a>
+                </div>
+            </div>
+        </div>
+     }
+    </div>
+</section>

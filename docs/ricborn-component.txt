@@ -1,0 +1,12 @@
+contact-us
+about-us
+category
+product
+faq
+profile
+checkout
+login
+account-information
+account-password
+orders
+register

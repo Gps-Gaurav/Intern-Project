@@ -1,0 +1,190 @@
+﻿
+@using Utility.ResultModel;
+@using static Utility.DataModel.ResponsePaginationModel
+@model ResponsePaginationData<List<ItemModel>>
+@{
+
+    var brand_id=0;
+    var vgender="";
+    var vsearch = "";
+    var category_name = "";
+    if (ViewBag.brand != null){
+        brand_id= ViewBag.brand;
+    }
+    if(ViewBag.gender != null){
+        vgender= ViewBag.gender;
+        if (vgender.Equals("Female"))
+        {
+            ViewBag.title = "best sonata wrist watches for ladies in chaibasa - GBS Retails";
+            ViewBag.description = "Best Trenday wrist watches for woman and all type of occation collection are availble at GBS Retails. Buy Best wrist watches for woman.";
+        }
+        else if (vgender.Equals("Male"))
+        {
+             ViewBag.title = "Best wrist watches for men | Top Brand watches for men in chaibasa";
+            ViewBag.description = "Popular wrist watch brand for men in chaibasa store, GBS Retails offer you best watches designs for men wrist watch. Must visit our store.";
+        }
+         else if (vgender.Equals("Unisex"))
+        {
+             ViewBag.title = "Best wrist watches for unisex in Chaibasa | Stylis wrist watches for unisex";
+            ViewBag.description = "GBS Retails offer you best wrist watches for unisex and different type of designs availble. Visit our store for best offer";
+        }
+    }
+    if (ViewBag.search != null)
+    {
+        vsearch = ViewBag.search;
+    }
+     if (ViewBag.category_name != null)
+    {
+        category_name = ViewBag.category_name;
+    }
+
+}
+
+ <!-- BREADCRUMB AREA START -->
+    <div class="ltn__breadcrumb-area ltn__breadcrumb-color-white bg-overlay-theme-black-90" style="margin-bottom:20px;">
+       <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__breadcrumb-inner ltn__breadcrumb-inner-2 justify-content-between">
+                        <div class="section-title-area ltn__section-title-2">
+                          
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PRODUCT DETAILS AREA START -->
+    <div class="ltn__product-area ltn__product-gutter prbackground">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 order-lg-2 mb-120">
+                    <div class="ltn__shop-options">
+                       @* <ul>
+                            <li>
+                                <div class="ltn__grid-list-tab-menu ">
+                                    <div class="nav">
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                               <div class="short-by text-center">
+                                    <select class="nice-select">
+                                        <option>Default sorting</option>
+                                        <option>Sort by popularity</option>
+                                        <option>Sort by new arrivals</option>
+                                        <option>Sort by price: low to high</option>
+                                        <option>Sort by price: high to low</option>
+                                    </select>
+                                </div> 
+                            </li>
+                            <li>
+                               <div class="showing-product-number text-right">
+                                    <span>Showing 9 of 20 results</span>
+                                </div> 
+                            </li>
+                        </ul>*@
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="liton_product_grid">
+                            <div class="ltn__product-tab-content-inner ltn__product-grid-view">
+                                <div class="row" id="productGrid">
+                                   
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="liton_product_list">
+                            <div class="ltn__product-tab-content-inner ltn__product-list-view">
+                                <div class="row">
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+             
+            </div>
+        </div>
+    </div>
+    <!-- PRODUCT DETAILS AREA END -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+   <script>
+        var pageSize = 30;
+        var pageIndex = 0;
+        var active = true;
+         var brand=@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(brand_id) as String);
+
+        var gender = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(vgender) as String);
+        var search = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(vsearch) as String);
+         var category = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(category_name) as String);
+        var filter = '';
+
+        $(document).ready(function () {
+              
+             GetData();
+              $(window).scroll(function () {
+                    var $div = $("#productGrid");
+                    var divPlacement = parseInt($div.offset().top + parseInt($div.height()));
+
+                    var screenBottom = $(this).scrollTop() + parseInt($(window).height());
+                    divPlacement -= 250; //load contents before reaching to the end of the div
+                   
+                    if (divPlacement <= screenBottom) {
+                       
+
+                        if (active) {
+                            pageIndex++;
+
+                            active = false;
+                            GetData();
+                        }
+                    }
+
+                    //TODO:: Unbind scroll event if there are no more contents
+                });
+        });
+
+         function GetData() {
+                $.ajax({
+                    type: 'GET',
+                    url: '/home/getAjaxItem',
+                    data: {
+                        "pageindex": pageIndex, "pagesize": pageSize, "brand": brand,"category_name":category, "gender": gender, "search": search, "filter": ""},
+                    cache: false,
+                    async: true,
+                    dataType: "html",
+                    success: function (data) {
+                        $('#productGrid').append(data);
+                        if (!active) {
+                            let myVar = setInterval(myTimer, 1500);
+                        }
+                        this.search = '';
+                      //  setTimeout();
+                    },
+                    beforeSend: function () {
+                        $("#progress").show();
+                    },
+                    complete: function () {
+
+                    },
+                    error: function () {
+                        alert("Error while retrieving data!");
+                    }
+                });
+             }
+
+              function myTimer() {
+            this.active = true;
+
+        }
+        setTimeout(
+            function () {
+
+
+            }, 2000);
+   </script>

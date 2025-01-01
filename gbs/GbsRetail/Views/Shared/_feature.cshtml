@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Utility.ResultModel.SliderModel>
+
+ @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 ">
+
+                      <a href="@item.slug">
+                           
+                     <div class="card text-center" style="width: 300px; height: 380px;">
+                          <div class="section-title-area ltn__section-title-2--- text-center">
+                         <h1 class="section-title white-color---"></h1>
+                       <p class="white-color---"></p>
+                    </div>
+                     <a href="@item.slug">
+                        <img src="@item.image" /></a>
+                        <div class="info text-center white-color">
+                            <h2 class="white-color text-center">@item.title</h2>
+                          <div class="btn-wrapper animated text-center">
+                                            <a href="@item.slug" class="theme-btn-1 btn btn-effect-1 text-uppercase">View</a>
+                                        </div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            }
+
+      

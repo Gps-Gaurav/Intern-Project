@@ -1,0 +1,5 @@
+	SlNo,SaleNo,SaleDt,SaleType,PartyID,GrossTot,DmdTot,StnTot,MetalTot,TotalAmt,Advance,VatPer,VatAmt,
+	CstPer,CstAmt,DiscPer,Discount,RndOffAmt,NetAmt,SaleAc,AmtAdjusted,CashSale,Narr,PListNo,RateFld,
+	BillCancel,BillCancelOn,BillCancelBy,BillName,BillAdd1,BillAdd2,SalesManID,UserID,MakingPerGram,
+	MakingPerPcs,LossPer,CertiCharges,ParcelCharges,MakingType,Discdetl,PureQtyTot,PartyInvNo,Entered,
+	PayTerms,RefNo,LocationID

@@ -1,0 +1,929 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\GbsRetail.bundle.scp.css",
+      "PackagePath": "staticwebassets\\GbsRetail.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\css\\home-1.css",
+      "PackagePath": "staticwebassets\\css\\home-1.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\css\\home-2.css",
+      "PackagePath": "staticwebassets\\css\\home-2.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\css\\home-3.css",
+      "PackagePath": "staticwebassets\\css\\home-3.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\css\\home-4.css",
+      "PackagePath": "staticwebassets\\css\\home-4.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\css\\home-5.css",
+      "PackagePath": "staticwebassets\\css\\home-5.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\css\\home-6.css",
+      "PackagePath": "staticwebassets\\css\\home-6.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\css\\home-7.css",
+      "PackagePath": "staticwebassets\\css\\home-7.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\css\\home-8.css",
+      "PackagePath": "staticwebassets\\css\\home-8.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\css\\home-9.css",
+      "PackagePath": "staticwebassets\\css\\home-9.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\5390847.jpg",
+      "PackagePath": "staticwebassets\\img\\5390847.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\bag.jpg",
+      "PackagePath": "staticwebassets\\img\\bag.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banner-home9.mp4",
+      "PackagePath": "staticwebassets\\img\\banner-home9.mp4"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\banner-category.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\banner-category.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\banner-promo.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\banner-promo.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\banner-street.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\banner-street.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\lookbook-pins.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\lookbook-pins.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider1.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider10.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider10.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider11.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider11.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider12.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider12.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider13.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider13.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider14.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider14.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider15.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider15.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider16.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider16.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider19.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider19.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider2.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider20.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider20.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider21.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider21.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider23.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider23.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider24.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider24.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider25.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider25.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider3.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider3.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider4.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider4.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider5.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider5.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider6.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider6.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider7.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider7.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider8.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider8.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\banners\\slider9.jpg",
+      "PackagePath": "staticwebassets\\img\\banners\\slider9.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-1.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-10.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-10.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-11.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-11.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-12.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-12.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-13.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-13.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-14.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-14.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-15.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-15.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-16.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-16.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-17.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-17.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-18.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-18.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-19.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-19.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-2.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-20.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-20.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-21.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-21.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-22.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-22.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-3.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-3.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-4.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-4.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-5.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-5.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-6.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-6.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-7.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-7.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-8.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-8.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\blog-9.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\blog-9.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\portfolio-1.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\portfolio-1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\portfolio-2.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\portfolio-2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\blogs\\portfolio-3.jpg",
+      "PackagePath": "staticwebassets\\img\\blogs\\portfolio-3.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\comming-soon-1.jpg",
+      "PackagePath": "staticwebassets\\img\\comming-soon-1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\comming-soon-2.jpg",
+      "PackagePath": "staticwebassets\\img\\comming-soon-2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\contact-2.jpg",
+      "PackagePath": "staticwebassets\\img\\contact-2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\contact.jpg",
+      "PackagePath": "staticwebassets\\img\\contact.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\favicon.png",
+      "PackagePath": "staticwebassets\\img\\favicon.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\glasses.jpg",
+      "PackagePath": "staticwebassets\\img\\glasses.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\arrow-long-right.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\arrow-long-right.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\bars.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\bars.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\bikini.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\bikini.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\cart-empty.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\cart-empty.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\cart.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\cart.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\close-red.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\close-red.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\close.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\close.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\delivery.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\delivery.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\down-arrow.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\down-arrow.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\filter.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\filter.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\fire.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\fire.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\gird2.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\gird2.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\gird3.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\gird3.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\gird4.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\gird4.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\glasses.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\glasses.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\hat.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\hat.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\heart.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\heart.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\home.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\home.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\menu.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\menu.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\minus.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\minus.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\non-contact.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\non-contact.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\plus.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\plus.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\search.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\search.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\security.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\security.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\shirt.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\shirt.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\shoes.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\shoes.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\trousers.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\trousers.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\user.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\user.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\icon\\wallet.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\wallet.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\instagram\\instagram1.jpg",
+      "PackagePath": "staticwebassets\\img\\instagram\\instagram1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\instagram\\instagram2.jpg",
+      "PackagePath": "staticwebassets\\img\\instagram\\instagram2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\instagram\\instagram3.jpg",
+      "PackagePath": "staticwebassets\\img\\instagram\\instagram3.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\instagram\\instagram4.jpg",
+      "PackagePath": "staticwebassets\\img\\instagram\\instagram4.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\instagram\\instagram5.jpg",
+      "PackagePath": "staticwebassets\\img\\instagram\\instagram5.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\jewelry.jpg",
+      "PackagePath": "staticwebassets\\img\\jewelry.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\logo-white-red.png",
+      "PackagePath": "staticwebassets\\img\\logo-white-red.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\logo-white.png",
+      "PackagePath": "staticwebassets\\img\\logo-white.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\logo.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\man.png",
+      "PackagePath": "staticwebassets\\img\\man.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\men-cat.jpg",
+      "PackagePath": "staticwebassets\\img\\men-cat.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\menu-slider.jpg",
+      "PackagePath": "staticwebassets\\img\\menu-slider.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\newsletter-bg.jpg",
+      "PackagePath": "staticwebassets\\img\\newsletter-bg.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\not-found.png",
+      "PackagePath": "staticwebassets\\img\\not-found.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\payment-white.png",
+      "PackagePath": "staticwebassets\\img\\payment-white.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\payment.png",
+      "PackagePath": "staticwebassets\\img\\payment.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\product-desc.jpg",
+      "PackagePath": "staticwebassets\\img\\product-desc.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\1.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\11.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\11.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\12.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\12.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\14.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\14.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\16.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\16.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\17.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\17.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\18.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\18.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\19.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\19.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\2.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\20_1.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\20_1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\20_2.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\20_2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\20_dt_1.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\20_dt_1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\22.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\22.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\23.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\23.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\24.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\24.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\26.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\26.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\27.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\27.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\3.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\3.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\32.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\32.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\38.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\38.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\3_1.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\3_1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\3_2.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\3_2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\3_3.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\3_3.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\3_dt_1.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\3_dt_1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\3_dt_2.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\3_dt_2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\3_dt_3.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\3_dt_3.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\3_dt_4.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\3_dt_4.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\4.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\4.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\40.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\40.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\44.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\44.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\48.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\48.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\49.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\49.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\5.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\5.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\52.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\52.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\5_2.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\5_2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\6.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\6.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\7.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\7.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\products\\8.jpg",
+      "PackagePath": "staticwebassets\\img\\products\\8.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-1.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-10.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-10.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-11.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-11.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-12.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-12.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-13.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-13.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-14.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-14.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-15.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-15.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-16.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-16.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-17.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-17.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-18.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-18.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-19.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-19.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-2.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-20.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-20.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-21.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-21.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-22.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-22.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-23.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-23.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-24.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-24.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-25.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-25.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-26.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-26.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-27.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-27.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-3.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-3.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-4.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-4.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-5.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-5.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-6.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-6.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-7.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-7.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-8.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-8.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-9.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-9.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-blue-2.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-blue-2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-blue.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-blue.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-menu.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-menu.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-red-2.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-red-2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\banner-red.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\banner-red.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\grid-1.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\grid-1.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\promotion\\grid-2.jpg",
+      "PackagePath": "staticwebassets\\img\\promotion\\grid-2.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\shoes.jpg",
+      "PackagePath": "staticwebassets\\img\\shoes.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\video-custom.mp4",
+      "PackagePath": "staticwebassets\\img\\video-custom.mp4"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\video-parallax.mp4",
+      "PackagePath": "staticwebassets\\img\\video-parallax.mp4"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\video.mp4",
+      "PackagePath": "staticwebassets\\img\\video.mp4"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\women-cat.jpg",
+      "PackagePath": "staticwebassets\\img\\women-cat.jpg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\img\\women.png",
+      "PackagePath": "staticwebassets\\img\\women.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\bootstrap4\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap4\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\bootstrap4\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\plugins\\bootstrap4\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\font-awesome\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\plugins\\font-awesome\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\font-awesome\\fonts\\fontawesome-webfont5b62.eot",
+      "PackagePath": "staticwebassets\\plugins\\font-awesome\\fonts\\fontawesome-webfont5b62.eot"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\font-awesome\\fonts\\fontawesome-webfont5b62.svg",
+      "PackagePath": "staticwebassets\\plugins\\font-awesome\\fonts\\fontawesome-webfont5b62.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\font-awesome\\fonts\\fontawesome-webfont5b62.ttf",
+      "PackagePath": "staticwebassets\\plugins\\font-awesome\\fonts\\fontawesome-webfont5b62.ttf"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\font-awesome\\fonts\\fontawesome-webfont5b62.woff",
+      "PackagePath": "staticwebassets\\plugins\\font-awesome\\fonts\\fontawesome-webfont5b62.woff"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\font-awesome\\fonts\\fontawesome-webfont5b62.woff2",
+      "PackagePath": "staticwebassets\\plugins\\font-awesome\\fonts\\fontawesome-webfont5b62.woff2"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\font-awesome\\fonts\\fontawesome-webfontd41d.eot",
+      "PackagePath": "staticwebassets\\plugins\\font-awesome\\fonts\\fontawesome-webfontd41d.eot"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\jquery-bar-rating\\dist\\jquery.barrating.min.js",
+      "PackagePath": "staticwebassets\\plugins\\jquery-bar-rating\\dist\\jquery.barrating.min.js"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\jquery-bar-rating\\dist\\themes\\fontawesome-stars.css",
+      "PackagePath": "staticwebassets\\plugins\\jquery-bar-rating\\dist\\themes\\fontawesome-stars.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\jquery.min.js",
+      "PackagePath": "staticwebassets\\plugins\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\lightGallery\\dist\\css\\lightgallery.min.css",
+      "PackagePath": "staticwebassets\\plugins\\lightGallery\\dist\\css\\lightgallery.min.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\lightGallery\\dist\\fonts\\lg8306.svg",
+      "PackagePath": "staticwebassets\\plugins\\lightGallery\\dist\\fonts\\lg8306.svg"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\lightGallery\\dist\\fonts\\lg8306.ttf",
+      "PackagePath": "staticwebassets\\plugins\\lightGallery\\dist\\fonts\\lg8306.ttf"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\lightGallery\\dist\\fonts\\lg8306.woff",
+      "PackagePath": "staticwebassets\\plugins\\lightGallery\\dist\\fonts\\lg8306.woff"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\lightGallery\\dist\\img\\loading.gif",
+      "PackagePath": "staticwebassets\\plugins\\lightGallery\\dist\\img\\loading.gif"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\lightGallery\\dist\\img\\video-play.png",
+      "PackagePath": "staticwebassets\\plugins\\lightGallery\\dist\\img\\video-play.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\lightGallery\\dist\\img\\vimeo-play.png",
+      "PackagePath": "staticwebassets\\plugins\\lightGallery\\dist\\img\\vimeo-play.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\lightGallery\\dist\\img\\youtube-play.png",
+      "PackagePath": "staticwebassets\\plugins\\lightGallery\\dist\\img\\youtube-play.png"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\lightGallery\\dist\\js\\lightgallery-all.min.js",
+      "PackagePath": "staticwebassets\\plugins\\lightGallery\\dist\\js\\lightgallery-all.min.js"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\noUiSlider\\nouislider.css",
+      "PackagePath": "staticwebassets\\plugins\\noUiSlider\\nouislider.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\noUiSlider\\nouislider.min.js",
+      "PackagePath": "staticwebassets\\plugins\\noUiSlider\\nouislider.min.js"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\owl-carousel\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\plugins\\owl-carousel\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\owl-carousel\\assets\\owl.video.play.html",
+      "PackagePath": "staticwebassets\\plugins\\owl-carousel\\assets\\owl.video.play.html"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\owl-carousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\plugins\\owl-carousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\popper.min.js",
+      "PackagePath": "staticwebassets\\plugins\\popper.min.js"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\select2\\dist\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\plugins\\select2\\dist\\css\\select2.min.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\select2\\dist\\js\\select2.full.min.js",
+      "PackagePath": "staticwebassets\\plugins\\select2\\dist\\js\\select2.full.min.js"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\slick\\slick\\slick.css",
+      "PackagePath": "staticwebassets\\plugins\\slick\\slick\\slick.css"
+    },
+    {
+      "Id": "D:\\intern\\gbs\\GbsRetail\\wwwroot\\plugins\\slick\\slick\\slick.min.js",
+      "PackagePath": "staticwebassets\\plugins\\slick\\slick\\slick.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.GbsRetail.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.GbsRetail.props",
+      "PackagePath": "build\\GbsRetail.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.GbsRetail.props",
+      "PackagePath": "buildMultiTargeting\\GbsRetail.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.GbsRetail.props",
+      "PackagePath": "buildTransitive\\GbsRetail.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
